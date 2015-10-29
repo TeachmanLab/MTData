@@ -9,7 +9,10 @@ What this little application is going to do:
 
 A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
 
-B\ Open [form_name]_[date].csv, append the data we have into it, one by one. [And then send back delete commend one by one?]
+B\ Open [form_name]_[date].csv, append the data we have into it, one by one. 
+
+
+C\ Keep the raw data, and then send back delete commend one by one?
 
 C\ Close file, Log down the action and output to log.txt. If there is an error, email me.
  

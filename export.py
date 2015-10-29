@@ -6,6 +6,7 @@
 import requests
 import time
 import os.path
+import sys
 
 # Set up the server link:
 # Use this link for testing prahse 
@@ -36,7 +37,7 @@ for scale in data:
         if not os.path.exists('active_data/'+scale['name']+DATE+'.csv'):
             output = open('active_data/'+scale['name']+DATE+'.csv','w')
             for heads in ks[:-1]: 
-                output.write(heads+'/')
+                output.write(heads+'\t')
             output.write(ks[-1]+'\n')
             output.close()
 
@@ -45,17 +46,12 @@ for scale in data:
         output = open('active_data/'+scale['name']+DATE+'.csv','a')
         for item in quest:
             for key in ks[:-1]:
-                output.write(str(item[key])+'/')
-            output.write(str(item[ks[-1]])+'\n')
-            if scale['deleteable']: 
-                requests.delete(SERVER+'/'+scale['name']+'/'+str(item['id']))
+                output.write((item[key].encode() if type(item[key])=='unicode' else str(item[key]))+'\t')
+            output.write((item[key].encode() if type(item[key])=='unicode' else (str(item[key]))+'\n')
         output.close()
-
-#[And then send back delete commend one by one]
-
-            
-
-
-
+#[And then send back delete commend one by one]            
+#            if scale['deleteable']: 
+#                requests.delete(SERVER+'/'+scale['name']+'/'+str(item['id']))
+sys.exit()
 
 
