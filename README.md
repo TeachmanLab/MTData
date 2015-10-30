@@ -14,3 +14,18 @@ B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
 C\ Keep the raw data, and then send back delete commend one by one?
 
 D\ Close file, Log down the action and output to log.txt. If there is an error, email me.
+
+
+What is done:
+
+Read and write data
+
+What needed to be done:
+
+1\ Save the raw data
+
+2\ Save the logs
+
+3\ Error alert and skip
+
+
