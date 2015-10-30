@@ -1,5 +1,7 @@
 # Install the package is needed:
-
+# DF: (You can't really do that from here, I don't think, but you could abort the app
+#     with a thoughtful message ... like "please install 'requests' with pip install requests' and
+#     try running again.")
 
 # Import the Requests
 
@@ -18,13 +20,29 @@ SERVER = 'http://localhost:9000/public/export'
 # Get the date
 DATE = time.strftime("_%d_%m_%Y")
 
+# DF: Should likely write our own method that will make the request and return
+# a json response, since things can go wrong here in lots of ways and we want
+# to try and catch all of them. In this way we can handle exceptions, emailing
+# us in the event of an error. THIS CODE IS NOT COMPLETE. I'm just roughly
+# trying to show what it should do.
+def safeRequest(url):
+    try:
+        # DF: Make request, and check the status code of the response.
+        response = requests.get(url)        
+        if response.status_code != requests.code.ok:
+           notify_admin(response.body)
+        response.json()
+    except RequestException:  # DF: We may loose some detail here, better to check all exceptions.
+        notify_admin(RequestException)
+        raise RequestException  # DF: Callers should handle the exception and continue processing other questionnaires if possible.  
+        
 # Read the data
-data = requests.get(SERVER).json()
+data = requests.get(SERVER).json()  # DF: Use the method above instead of the direct call.
 
 
 # One by one, read out the data form names(scale names) in d, and then:
-
 for scale in data:
+    #DF: Should write something to a log file in here somewhere recording # of records exported for each
     quest = requests.get(SERVER+'/'+scale['name']).json()
     if scale['size'] != 0:
         ks = list(quest[0].keys())
