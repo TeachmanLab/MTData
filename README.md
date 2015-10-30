@@ -11,8 +11,6 @@ A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool
 
 B\ Open [form_name]_[date].csv, append the data we have into it, one by one. 
 
-
 C\ Keep the raw data, and then send back delete commend one by one?
 
-C\ Close file, Log down the action and output to log.txt. If there is an error, email me.
- 
+D\ Close file, Log down the action and output to log.txt. If there is an error, email me.
