@@ -9,25 +9,23 @@ import os.path
 import sys
 
 # Set up the server link:
-# Use this link for testing prahse 
+# Use this link for testing phrase 
 SERVER = 'http://localhost:9000/public/export'
 
-# Use this link for actual prahse
-# SERVER = 'http://localhost:9000/public/export'
+# Use this link for actual phrasse
+# SERVER = 'http://localhost:9000/admin/export'
 
 # Get the date
 DATE = time.strftime("_%d_%m_%Y")
 
 # Read the data
-r = requests.get(SERVER)
+data = requests.get(SERVER).json()
 
-data = r.json()
 
 # One by one, read out the data form names(scale names) in d, and then:
 
 for scale in data:
-    quest = requests.get(SERVER+'/'+scale['name'])
-    quest = quest.json()
+    quest = requests.get(SERVER+'/'+scale['name']).json()
     if scale['size'] != 0:
         ks = list(quest[0].keys())
         ks.sort()
@@ -47,7 +45,7 @@ for scale in data:
         for item in quest:
             for key in ks[:-1]:
                 output.write((item[key].encode('utf-8') if isinstance(item[key],unicode) else str(item[key]))+'\t')
-            output.write((item[ks[-1]].encode('utf-8') if isinstance(item[ks[-1]],unicode) else str(item[key]))+'\n')
+            output.write((item[ks[-1]].encode('utf-8') if isinstance(item[ks[-1]],unicode) else str(item[ks[-1]]))+'\n')
             #[And then send back delete commend one by one]            
 #            if scale['deleteable']: 
 #                requests.delete(SERVER+'/'+scale['name']+'/'+str(item['id']))
