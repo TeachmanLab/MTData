@@ -48,9 +48,9 @@ for scale in data:
             for key in ks[:-1]:
                 output.write((item[key].encode('utf-8') if isinstance(item[key],unicode) else str(item[key]))+'\t')
             output.write((item[ks[-1]].encode('utf-8') if isinstance(item[ks[-1]],unicode) else str(item[key]))+'\n')
-        output.close()
-#[And then send back delete commend one by one]            
+            #[And then send back delete commend one by one]            
 #            if scale['deleteable']: 
 #                requests.delete(SERVER+'/'+scale['name']+'/'+str(item['id']))
+        output.close()
 
 
