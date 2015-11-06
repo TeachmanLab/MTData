@@ -12,13 +12,19 @@ import sys
 
 # Set up the server link:
 # Use this link for testing phrase 
-SERVER = 'http://localhost:9000/public/export'
+SERVER='http://localhost:9000/api/export'
+USER='daniel.h.funk@gmail.com'
+PASS='ereiamjh'
 
 # Use this link for actual phrasse
 # SERVER = 'http://localhost:9000/admin/export'
 
 # Get the date
 DATE = time.strftime("_%d_%m_%Y")
+
+def notify_admin(e):
+    print("YO ADMIN! This should be an email, the problem is:" + str(e))
+
 
 # DF: Should likely write our own method that will make the request and return
 # a json response, since things can go wrong here in lots of ways and we want
@@ -28,22 +34,23 @@ DATE = time.strftime("_%d_%m_%Y")
 def safeRequest(url):
     try:
         # DF: Make request, and check the status code of the response.
-        response = requests.get(url)        
-        if response.status_code != requests.code.ok:
-           notify_admin(response.body)
-        response.json()
-    except RequestException:  # DF: We may loose some detail here, better to check all exceptions.
-        notify_admin(RequestException)
-        raise RequestException  # DF: Callers should handle the exception and continue processing other questionnaires if possible.  
+        response = requests.get(url, auth=(USER,PASS))
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
+        print e
+        notify_admin(e)
+        raise e  # DF: Callers should handle the exception and continue processing other questionnaires if possible.  
         
 # Read the data
-data = requests.get(SERVER).json()  # DF: Use the method above instead of the direct call.
+data = safeRequest(SERVER)  # DF: Use the method above instead of the direct call.
 
+print(data)
 
 # One by one, read out the data form names(scale names) in d, and then:
 for scale in data:
     #DF: Should write something to a log file in here somewhere recording # of records exported for each
-    quest = requests.get(SERVER+'/'+scale['name']).json()
+    quest = safeRequest(SERVER+'/'+scale['name'])
     if scale['size'] != 0:
         ks = list(quest[0].keys())
         ks.sort()

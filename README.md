@@ -1,5 +1,20 @@
 # PIExporter
+
 A python application that drag data to server and secue them automatically
+
+
+## Getting Started
+
+Create a virtual environment with python 2.7, and install dependencies
+(see http://docs.python-guide.org/en/latest/dev/virtualenvs/) 
+```bash
+    $ virtualenv venv           
+    $ source venv/bin/activate
+    $ pip install -r requirements.txt
+```
+
+
+## Basic Overview
 
 What this little application is going to do:
 
