@@ -36,10 +36,15 @@ with open(PRIVATE_FILE) as privatefile:
 priv_key = rsa.PrivateKey.load_pkcs1(keydata)
 def decrypt(crypto):
     if crypto is None: return ""
-    message = rsa.decrypt(crypto.decode('base64'), priv_key)
-    return message.decode('utf8')
-    
-    
+    try:
+        message = rsa.decrypt(crypto.decode('base64'), priv_key)
+        return message.decode('utf8')
+    except Exception as ex:
+        template = "Failed to decrypt a value, might not have been encrypted in the first place.  Storing it raw.  When decyrpting received an error of type {0}. Arguments:{1!r}"
+        message = template.format(type(ex).__name__, ex.args)
+        print message
+        return crypto
+        
 # DF: Should likely write our own method that will make the request and return
 # a json response, since things can go wrong here in lots of ways and we want
 # to try and catch all of them. In this way we can handle exceptions, emailing
@@ -59,8 +64,6 @@ def safeRequest(url):
 # Read the data
 data = safeRequest(SERVER)  # DF: Use the method above instead of the direct call.
 
-print(data)
-
 # One by one, read out the data form names(scale names) in d, and then:
 for scale in data:
     #DF: Should write something to a log file in here somewhere recording # of records exported for each
@@ -73,12 +76,11 @@ for scale in data:
 
         if not os.path.exists('active_data/'+scale['name']+DATE+'.csv'):
             output = open('active_data/'+scale['name']+DATE+'.csv','w')
-            for heads in ks[:-1]: 
+            for heads in ks: 
                 output.write(heads+'\t')
             output.write(ks[-1]+'\n')
             output.close()
-            
-#B\ Open [form_name]_[date].csv, append the data we have into it, one by one. 
+ #B\ Open [form_name]_[date].csv, append the data we have into it, one by one. 
         
         output = open('active_data/'+scale['name']+DATE+'.csv','a')
         for item in quest:
