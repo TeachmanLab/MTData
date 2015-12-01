@@ -2,7 +2,7 @@
 # DF: (You can't really do that from here, I don't think, but you could abort the app
 #     with a thoughtful message ... like "please install 'requests' with pip install requests' and
 #     try running again.")
-
+# ------------------------------------------#
 # Import the Requests
 
 import requests # To make REST requests of the client.
@@ -10,7 +10,10 @@ import time
 import os.path
 import sys
 import rsa # To decrypt values.
+import smtplib # to send out notification emails
 
+
+# ------------------------------------------#
 # Set up the server link:
 # Use this link for testing phrase 
 SERVER='http://localhost:9000/api/export'
@@ -22,14 +25,83 @@ PRIVATE_FILE='private_key.pem'
 # SERVER = 'http://localhost:9000/admin/export'
 
 # Get the date
-DATE = time.strftime("_%d_%m_%Y")
+DATE = time.strftime("_%b_%d_%Y")
+TIME = time.strftime("%b-%d-%Y %H:%M:%S")
+
+
+# Set up the SMTP for email notification:
+# Use this configuration for testing phrase
+SENDER = 'TestingServer@test.com'
+RECEIVER = ['dihengz@gmail.com']
+EMAIL = smtplib.SMTP('localhost:9000')
+
+# Use this configuration for actual phrase
+# SENDER = 'Server@mindtrails.org'
+# RECEIVER = ['mindtrails@virginia.com']
+# emails = smtplib.SMTP('##')
+
+# Notification email temple:
+TEMPLE = """From: From Faithful Android <%s>
+To: To MindTrails Support Team<%s>
+X-Priority: 2
+Subject: Something goes wrong on MindTrails
+
+Hello,
+
+Sorry to tell you that it seems that something is wrong on the MindTrails data collecting server, and below is the error
+message:
+
+%s : %s
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+
+"""
+
+
+# ------------------------------------------#
+# Log the running message
+def log(m):
+    print "I will write this part later"
+
+
+
+
+
+# Log the error message
+def error_log(e):
+    if not os.path.exists('logs/Error_log'+DATE+'.txt'):
+        output = open('logs/Error_log'+DATE+'.txt', 'w')
+        output.write("This is the error information for " + DATE + ", created at " + TIME + ":\n\n")
+    output = open('logs/Error_log'+DATE+'.txt', 'a')
+    output.write(TIME + " : " + str(e) + "\n")
+    output.close()
 
 
 # Send admin the error message
 def notify_admin(e):
     print("YO ADMIN! This should be an email, the problem is:" + str(e))
+    message = TEMPLE % (SENDER, RECEIVER, TIME, str(e))
+    try:
+        EMAIL.sendmail(SENDER, RECEIVER, message)
+        message_success = """Successfully sent email\n""" + message
+        log(message_success)
+        print "Successfully sent email"
+    except (smtplib.SMTPException, smtplib.SMTPAuthenticationError, smtplib.SMTPConnectError, smtplib.SMTPServerDisconnected, smtplib.SMTPDataError, smtplib.SMTPSenderRefused, smtplib.SMTPResponseException, smtplib.SMTPHeloError) as e:
+        error_log(e)
+        message_error = """Error: unable to send email\n""" + message
+        error_log(message_error)
+        print "Error: unable to send email"
 
 
+# Report Important Error, log it down and send an email to admin
+def error_notify(e):
+    error_log(e)
+    notify_admin(e)
+
+# ------------------------------------------#
 # Decrypting
 with open(PRIVATE_FILE) as privatefile:
     keydata = privatefile.read()
@@ -38,8 +110,9 @@ def decrypt(crypto):
     if crypto is None: return ""
     message = rsa.decrypt(crypto.decode('base64'), priv_key)
     return message.decode('utf8')
-    
-    
+
+
+# ------------------------------------------#
 # DF: Should likely write our own method that will make the request and return
 # a json response, since things can go wrong here in lots of ways and we want
 # to try and catch all of them. In this way we can handle exceptions, emailing
@@ -53,8 +126,10 @@ def safeRequest(url):
         return response.json()
     except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
         print e
-        notify_admin(e)
+        error_notify(e)
         raise e  # DF: Callers should handle the exception and continue processing other questionnaires if possible.  
+
+
 
 # SafeWrite function, use this to read and save questionnaire data
 def safeWrite(data):
@@ -91,7 +166,7 @@ def safeWrite(data):
             output.close()
 
 
-
+# ------------------------------------------#
 # Read the data
 oneShot = safeRequest(SERVER)  # DF: Use the method above instead of the direct call.
 
