@@ -33,14 +33,18 @@ D\ Close file, Log down the action and output to log.txt. If there is an error, 
 
 What is done:
 
-Read and write data
+    Read and write data
 
 What needed to be done:
 
-1\ Save the raw data
+    1\ Save the raw data
 
-2\ Save the logs
+    2\ Save the logs
 
-3\ Error alert and skip
+    3\ Error alert and skip
+
+    4\ Deleting the raw data
+
+    5\ Double check on the data collecting part
 
 
