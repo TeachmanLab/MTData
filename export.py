@@ -18,19 +18,19 @@ USER='daniel.h.funk@gmail.com'
 PASS='ereiamjh'
 PRIVATE_FILE='private_key.pem'
 
-# Use this link for actual phrasse
+# Use this link for actual phrase
 # SERVER = 'http://localhost:9000/admin/export'
 
 # Get the date
 DATE = time.strftime("_%d_%m_%Y")
 
 
-
+# Send admin the error message
 def notify_admin(e):
     print("YO ADMIN! This should be an email, the problem is:" + str(e))
 
 
-
+# Decrypting
 with open(PRIVATE_FILE) as privatefile:
     keydata = privatefile.read()
 priv_key = rsa.PrivateKey.load_pkcs1(keydata)
@@ -55,42 +55,47 @@ def safeRequest(url):
         print e
         notify_admin(e)
         raise e  # DF: Callers should handle the exception and continue processing other questionnaires if possible.  
-        
-# Read the data
-data = safeRequest(SERVER)  # DF: Use the method above instead of the direct call.
 
-print(data)
-
+# SafeWrite function, use this to read and save questionnaire data
+def safeWrite(data):
 # One by one, read out the data form names(scale names) in d, and then:
-for scale in data:
-    #DF: Should write something to a log file in here somewhere recording # of records exported for each
-    quest = safeRequest(SERVER+'/'+scale['name'])
-    if scale['size'] != 0:
-        ks = list(quest[0].keys())
-        ks.sort()
+    for scale in data:
+        #DF: Should write something to a log file in here somewhere recording # of records exported for each
+        quest = safeRequest(SERVER+'/'+scale['name'])
+        if scale['size'] != 0:
+            ks = list(quest[0].keys())
+            ks.sort()
 
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
 
-        if not os.path.exists('active_data/'+scale['name']+DATE+'.csv'):
-            output = open('active_data/'+scale['name']+DATE+'.csv','w')
-            for heads in ks[:-1]: 
-                output.write(heads+'\t')
-            output.write(ks[-1]+'\n')
-            output.close()
+            if not os.path.exists('active_data/'+scale['name']+DATE+'.csv'):
+                output = open('active_data/'+scale['name']+DATE+'.csv','w')
+                for heads in ks[:-1]:
+                    output.write(heads+'\t')
+                output.write(ks[-1]+'\n')
+                output.close()
             
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one. 
         
-        output = open('active_data/'+scale['name']+DATE+'.csv','a')
-        for item in quest:
-            for key in ks:                
-                if(key.endswith("RSA")): value = decrypt(item[key])
-                elif item[key] is None: value = ""
-                else: value = str(item[key]) # could be an int, make sure it is a string so we can encode it.
-                output.write(value.encode('utf-8') + "\t")
-            output.write("\n")
-            #[And then send back delete commend one by one]            
-#            if scale['deleteable']: 
-#                requests.delete(SERVER+'/'+scale['name']+'/'+str(item['id']))
-        output.close()
+            output = open('active_data/'+scale['name']+DATE+'.csv','a')
+            for item in quest:
+                for key in ks:
+                    if(key.endswith("RSA")): value = decrypt(item[key])
+                    elif item[key] is None: value = ""
+                    else: value = str(item[key]) # could be an int, make sure it is a string so we can encode it.
+                    output.write(value.encode('utf-8') + "\t")
+                output.write("\n")
+                #[And then send back delete commend one by one]
+#               if scale['deleteable']:
+#                    requests.delete(SERVER+'/'+scale['name']+'/'+str(item['id']))
+            output.close()
 
+
+
+# Read the data
+oneShot = safeRequest(SERVER)  # DF: Use the method above instead of the direct call.
+
+print(oneShot)
+
+safeWrite(oneShot)
 
