@@ -1,0 +1,46 @@
+This is the error information for _Dec_01_2015, created at Dec-01-2015 16:07:13:
+
+Dec-01-2015 16:07:13 : HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/export (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x1101ba1d0>: Failed to establish a new connection: [Errno 61] Connection refused',))
+Dec-01-2015 16:12:26 : HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/export (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x10441c190>: Failed to establish a new connection: [Errno 61] Connection refused',))
+Dec-01-2015 16:12:26 : Successfully sent email
+From: From Faithful Android <projectimplicitmentalhealth1@gmail.com>
+To: To MindTrails Support Team<['dihengz@gmail.com']>
+X-Priority: 2
+Subject: Something goes wrong on MindTrails
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error
+message:
+
+Dec-01-2015 16:12:26 : HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/export (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x10441c190>: Failed to establish a new connection: [Errno 61] Connection refused',))
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+
+
+Dec-01-2015 16:13:58 : HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/export (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x103f27150>: Failed to establish a new connection: [Errno 61] Connection refused',))
+Dec-01-2015 16:13:58 : 
+*******************************
+Successfully sent email
+From: From Faithful Android <projectimplicitmentalhealth1@gmail.com>
+To: To MindTrails Support Team<['dihengz@gmail.com']>
+X-Priority: 2
+Subject: Something goes wrong on MindTrails
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error
+message:
+
+Dec-01-2015 16:13:58 : HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/export (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x103f27150>: Failed to establish a new connection: [Errno 61] Connection refused',))
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+
+*******************************
+

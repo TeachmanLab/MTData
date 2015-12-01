@@ -31,9 +31,9 @@ TIME = time.strftime("%b-%d-%Y %H:%M:%S")
 
 # Set up the SMTP for email notification:
 # Use this configuration for testing phrase
-SENDER = 'TestingServer@test.com'
+SENDER = 'projectimplicitmentalhealth1@gmail.com'
 RECEIVER = ['dihengz@gmail.com']
-EMAIL = smtplib.SMTP('localhost:9000')
+EMAIL = smtplib.SMTP(host='smtp.gmail.com', port='587')
 
 # Use this configuration for actual phrase
 # SENDER = 'Server@mindtrails.org'
@@ -48,7 +48,7 @@ Subject: Something goes wrong on MindTrails
 
 Hello,
 
-Sorry to tell you that it seems that something is wrong on the MindTrails data collecting server, and below is the error
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error
 message:
 
 %s : %s
@@ -57,7 +57,6 @@ Hope that you are not sleeping now. Please check it up immediately!
 
 Your faithfully,
 Mindtrails Android
-
 """
 
 
@@ -85,13 +84,19 @@ def notify_admin(e):
     print("YO ADMIN! This should be an email, the problem is:" + str(e))
     message = TEMPLE % (SENDER, RECEIVER, TIME, str(e))
     try:
+        EMAIL.ehlo()
+        EMAIL.starttls()
+        EMAIL.login('projectimplicitmentalhealth1@gmail.com', 'b3BFbaOLuDTe')
         EMAIL.sendmail(SENDER, RECEIVER, message)
-        message_success = """Successfully sent email\n""" + message
+        EMAIL.quit()
+        message_success = """\n*******************************\nSuccessfully sent email\n""" + message + """***********
+        ********************\n"""
         log(message_success)
         print "Successfully sent email"
     except (smtplib.SMTPException, smtplib.SMTPAuthenticationError, smtplib.SMTPConnectError, smtplib.SMTPServerDisconnected, smtplib.SMTPDataError, smtplib.SMTPSenderRefused, smtplib.SMTPResponseException, smtplib.SMTPHeloError) as e:
         error_log(e)
-        message_error = """Error: unable to send email\n""" + message
+        message_error = """\n*******************************\nError: unable to send email\n""" + message + """*********
+        **********************\n"""
         error_log(message_error)
         print "Error: unable to send email"
 
