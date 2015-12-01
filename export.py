@@ -25,7 +25,7 @@ PRIVATE_FILE='private_key.pem'
 # SERVER = 'http://localhost:9000/admin/export'
 
 # Get the date
-DATE = time.strftime("_%b_%d_%Y")
+DATE = time.strftime("%b_%d_%Y")
 TIME = time.strftime("%b-%d-%Y %H:%M:%S")
 
 
@@ -63,18 +63,22 @@ Mindtrails Android
 # ------------------------------------------#
 # Log the running message
 def log(m):
+    if not os.path.exists('logs/Log_'+DATE+'.txt'):
+        output = open('logs/Log_'+DATE+'.txt', 'w')
+        output.write("This is the server log for " + DATE + ", created at " + TIME + ":\n\n")
+    output = open('logs/Log_'+DATE+'.txt', 'a')
+    output.write(TIME + " : " + str(m) + "\n")
+    output.close()
     print "I will write this part later"
-
-
 
 
 
 # Log the error message
 def error_log(e):
-    if not os.path.exists('logs/Error_log'+DATE+'.txt'):
-        output = open('logs/Error_log'+DATE+'.txt', 'w')
+    if not os.path.exists('logs/Error_log_'+DATE+'.txt'):
+        output = open('logs/Error_log_'+DATE+'.txt', 'w')
         output.write("This is the error information for " + DATE + ", created at " + TIME + ":\n\n")
-    output = open('logs/Error_log'+DATE+'.txt', 'a')
+    output = open('logs/Error_log_'+DATE+'.txt', 'a')
     output.write(TIME + " : " + str(e) + "\n")
     output.close()
 
@@ -89,17 +93,14 @@ def notify_admin(e):
         EMAIL.login('projectimplicitmentalhealth1@gmail.com', 'b3BFbaOLuDTe')
         EMAIL.sendmail(SENDER, RECEIVER, message)
         EMAIL.quit()
-        message_success = """\n*******************************\nSuccessfully sent email\n""" + message + """***********
-        ********************\n"""
+        message_success = """\n*******************************\nSuccessfully sent email\n""" + message + """*******************************\n"""
         log(message_success)
         print "Successfully sent email"
     except (smtplib.SMTPException, smtplib.SMTPAuthenticationError, smtplib.SMTPConnectError, smtplib.SMTPServerDisconnected, smtplib.SMTPDataError, smtplib.SMTPSenderRefused, smtplib.SMTPResponseException, smtplib.SMTPHeloError) as e:
         error_log(e)
-        message_error = """\n*******************************\nError: unable to send email\n""" + message + """*********
-        **********************\n"""
+        message_error = """\n*******************************\nError: unable to send email\n""" + message + """*******************************\n"""
         error_log(message_error)
         print "Error: unable to send email"
-
 
 # Report Important Error, log it down and send an email to admin
 def error_notify(e):
@@ -148,8 +149,8 @@ def safeWrite(data):
 
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
 
-            if not os.path.exists('active_data/'+scale['name']+DATE+'.csv'):
-                output = open('active_data/'+scale['name']+DATE+'.csv','w')
+            if not os.path.exists('active_data/'+scale['name'] + '_' + DATE+'.csv'):
+                output = open('active_data/'+scale['name'] + '_' + DATE+'.csv','w')
                 for heads in ks[:-1]:
                     output.write(heads+'\t')
                 output.write(ks[-1]+'\n')
@@ -157,7 +158,7 @@ def safeWrite(data):
             
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one. 
         
-            output = open('active_data/'+scale['name']+DATE+'.csv','a')
+            output = open('active_data/'+scale['name'] + '_' + DATE+'.csv','a')
             for item in quest:
                 for key in ks:
                     if(key.endswith("RSA")): value = decrypt(item[key])

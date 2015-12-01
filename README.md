@@ -35,13 +35,15 @@ What is done:
 
     Read and write data
 
+    Error alert
+
 What needed to be done:
 
     1\ Save the raw data
 
     2\ Save the logs
 
-    3\ Error alert and skip
+    3\ Error skip
 
     4\ Deleting the raw data
 
