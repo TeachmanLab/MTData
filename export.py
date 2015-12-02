@@ -201,7 +201,7 @@ def safeWrite(data):
 #                if scale['deleteable']:
 #                    safeDelete(SERVER+'/'+scale['name']+'/'+str(entry['id'])) #[And then send back delete commend one by one]
 #                    d += 1
-            log(message + str(t) + " new entries recorded.")
+                log(message + str(t) + " new entries recorded.")
 #                log(message + str(d) + " entries deleted.")
             output.close()
 

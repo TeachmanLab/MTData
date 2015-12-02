@@ -49,6 +49,6 @@ What needed to be done:
 
     5\ Double check on the data collecting part
 
-    6\ Add data writing test
+    6\ Add data writing testing and error notification
 
 
