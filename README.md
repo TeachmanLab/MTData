@@ -37,15 +37,19 @@ What is done:
 
     Error alert
 
+    Error logs
+
+    Normal running logs
+
+    
+
 What needed to be done:
 
     1\ Save the raw data
 
-    2\ Add where to Save the logs
+    3\ Add where to skip error
 
-    3\ Add where to save Error and skip
-
-    4\ Deleting the raw data
+    4\ Deleting the raw data - Done but not yet tested
 
     5\ Double check on the data collecting part
 
