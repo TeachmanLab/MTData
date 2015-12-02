@@ -63,24 +63,27 @@ Mindtrails Android
 # ------------------------------------------#
 # Log the running message
 def log(m):
-    if not os.path.exists('logs/Log_'+DATE+'.txt'):
-        output = open('logs/Log_'+DATE+'.txt', 'w')
+    log_file = 'logs/Log_'+DATE+'.txt'
+    if not os.path.exists(log_file):
+        output = open(log_file, 'w')
         output.write("This is the server log for " + DATE + ", created at " + TIME + ":\n\n")
-    output = open('logs/Log_'+DATE+'.txt', 'a')
+    output = open(log_file, 'a')
     output.write(TIME + " : " + str(m) + "\n")
     output.close()
-    print "I will write this part later"
+    print "New information in log file"
 
 
 
 # Log the error message
 def error_log(e):
-    if not os.path.exists('logs/Error_log_'+DATE+'.txt'):
-        output = open('logs/Error_log_'+DATE+'.txt', 'w')
+    log_file = 'logs/Error_log_'+DATE+'.txt'
+    if not os.path.exists(log_file):
+        output = open(log_file, 'w')
         output.write("This is the error information for " + DATE + ", created at " + TIME + ":\n\n")
-    output = open('logs/Error_log_'+DATE+'.txt', 'a')
+    output = open(log_file, 'a')
     output.write(TIME + " : " + str(e) + "\n")
     output.close()
+    print "New information in error log file"
 
 
 # Send admin the error message
@@ -93,13 +96,14 @@ def notify_admin(e):
         EMAIL.login('projectimplicitmentalhealth1@gmail.com', 'b3BFbaOLuDTe')
         EMAIL.sendmail(SENDER, RECEIVER, message)
         EMAIL.quit()
-        message_success = """\n*******************************\nSuccessfully sent email\n""" + message + """*******************************\n"""
+        message_success = """\n*******************************\nSuccessfully sent email\n""" + message + """*******************************"""
         log(message_success)
         print "Successfully sent email"
     except (smtplib.SMTPException, smtplib.SMTPAuthenticationError, smtplib.SMTPConnectError, smtplib.SMTPServerDisconnected, smtplib.SMTPDataError, smtplib.SMTPSenderRefused, smtplib.SMTPResponseException, smtplib.SMTPHeloError) as e:
         error_log(e)
-        message_error = """\n*******************************\nError: unable to send email\n""" + message + """*******************************\n"""
+        message_error = """\n*******************************\nError: unable to send email\n""" + message + """*******************************"""
         error_log(message_error)
+        log("Error: unable to send email, see error log file for detail.")
         print "Error: unable to send email"
 
 # Report Important Error, log it down and send an email to admin
@@ -128,13 +132,35 @@ def safeRequest(url):
     try:
         # DF: Make request, and check the status code of the response.
         response = requests.get(url, auth=(USER,PASS))
-        response.raise_for_status()
+        m = response.raise_for_status()
+        message = "Data request successfully, see below for request detail:\n"
+        log(message + url + "\n" + "Error: " + str(m)) # DH: Log success data request
+        print message + str(m)
         return response.json()
     except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
-        print e
+        message = "Data request failed, see below for error information:\n"
+        log(message + e)
         error_notify(e)
-        raise e  # DF: Callers should handle the exception and continue processing other questionnaires if possible.  
 
+        raise e  # DF: Callers should handle the exception and continue processing other questionnaires if possible.
+
+
+
+# SafeDelete function, use this to delete data entries and log down system message
+def safeDelete(url):
+    try:
+        # DH: Make request, and check the status code of the response.
+        delete = requests.delete(url, auth=(USER, PASS))
+        m = delete.raise_for_status()
+        message = "Data delete successfully, see below for deleting detail:\n"
+#        log(message + url + "\n" + "Error: " + str(m)) # DH: Log success data request
+        print message + str(m)
+        return True
+    except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
+        message = "Data delete failed, see below for error information:\n"
+        log(message + e)
+        error_notify(e)
+        raise e # DF: Callers should handle the exception and continue processing other questionnaires if possible.
 
 
 # SafeWrite function, use this to read and save questionnaire data
@@ -146,29 +172,37 @@ def safeWrite(data):
         if scale['size'] != 0:
             ks = list(quest[0].keys())
             ks.sort()
+            message = "Questionnaire " + str(scale['name']) + " updated - "
+            log(message + str(scale['size']) + " new entries exported.")
 
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
-
-            if not os.path.exists('active_data/'+scale['name'] + '_' + DATE+'.csv'):
-                output = open('active_data/'+scale['name'] + '_' + DATE+'.csv','w')
+            date_file = 'active_data/'+scale['name'] + '_' + DATE+'.csv'
+            if not os.path.exists(date_file):
+                output = open(date_file,'w')
                 for heads in ks[:-1]:
                     output.write(heads+'\t')
                 output.write(ks[-1]+'\n')
                 output.close()
+                log("New data file created: " + date_file)
             
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one. 
         
-            output = open('active_data/'+scale['name'] + '_' + DATE+'.csv','a')
-            for item in quest:
+            output = open(date_file,'a')
+            t = 0
+            d = 0
+            for entry in quest:
                 for key in ks:
-                    if(key.endswith("RSA")): value = decrypt(item[key])
-                    elif item[key] is None: value = ""
-                    else: value = str(item[key]) # could be an int, make sure it is a string so we can encode it.
+                    if(key.endswith("RSA")): value = decrypt(entry[key])
+                    elif entry[key] is None: value = ""
+                    else: value = str(entry[key]) # could be an int, make sure it is a string so we can encode it.
                     output.write(value.encode('utf-8') + "\t")
                 output.write("\n")
-                #[And then send back delete commend one by one]
-#               if scale['deleteable']:
-#                    requests.delete(SERVER+'/'+scale['name']+'/'+str(item['id']))
+                t += 1
+#                if scale['deleteable']:
+#                    safeDelete(SERVER+'/'+scale['name']+'/'+str(entry['id'])) #[And then send back delete commend one by one]
+#                    d += 1
+            log(message + str(t) + " new entries recorded.")
+#                log(message + str(d) + " entries deleted.")
             output.close()
 
 

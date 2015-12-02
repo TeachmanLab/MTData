@@ -41,12 +41,14 @@ What needed to be done:
 
     1\ Save the raw data
 
-    2\ Save the logs
+    2\ Add where to Save the logs
 
-    3\ Error skip
+    3\ Add where to save Error and skip
 
     4\ Deleting the raw data
 
     5\ Double check on the data collecting part
+
+    6\ Add data writing test
 
 

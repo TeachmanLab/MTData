@@ -1,0 +1,141 @@
+This is the server log for Dec_02_2015, created at Dec-02-2015 16:31:25:
+
+Dec-02-2015 16:31:25 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+None
+Dec-02-2015 16:36:16 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+None
+Dec-02-2015 16:36:16 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MultiUserExperience
+None
+Dec-02-2015 16:36:16 : Questionnaire MultiUserExperience updated - 2 new entries exported.
+Dec-02-2015 16:36:16 : New data file created: active_data/MultiUserExperience_Dec_02_2015.csv
+Dec-02-2015 16:36:16 : Questionnaire MultiUserExperience updated - 1 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire MultiUserExperience updated - 2 new entries recorded.
+Dec-02-2015 16:36:16 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+None
+Dec-02-2015 16:36:16 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-02-2015 16:36:16 : New data file created: active_data/CIHS_Dec_02_2015.csv
+Dec-02-2015 16:36:16 : Questionnaire CIHS updated - 1 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire CIHS updated - 2 new entries recorded.
+Dec-02-2015 16:36:16 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_AS
+None
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 21 new entries exported.
+Dec-02-2015 16:36:16 : New data file created: active_data/DASS21_AS_Dec_02_2015.csv
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 1 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 2 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 3 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 4 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 5 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 6 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 7 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 8 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 9 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 10 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 11 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 12 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 13 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 14 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 15 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 16 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 17 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 18 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 19 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 20 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire DASS21_AS updated - 21 new entries recorded.
+Dec-02-2015 16:36:16 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImpactAnxiousImagery
+None
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 36 new entries exported.
+Dec-02-2015 16:36:16 : New data file created: active_data/ImpactAnxiousImagery_Dec_02_2015.csv
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 1 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 2 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 3 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 4 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 5 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 6 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 7 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 8 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 9 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 10 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 11 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 12 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 13 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 14 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 15 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 16 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 17 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 18 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 19 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 20 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 21 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 22 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 23 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 24 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 25 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 26 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 27 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 28 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 29 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 30 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 31 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 32 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 33 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 34 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 35 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire ImpactAnxiousImagery updated - 36 new entries recorded.
+Dec-02-2015 16:36:16 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+None
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 21 new entries exported.
+Dec-02-2015 16:36:16 : New data file created: active_data/Credibility_Dec_02_2015.csv
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 1 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 2 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 3 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 4 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 5 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 6 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 7 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 8 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 9 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 10 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 11 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 12 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 13 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 14 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 15 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 16 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 17 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 18 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 19 new entries recorded.
+Dec-02-2015 16:36:16 : Questionnaire Credibility updated - 20 new entries recorded.
+Dec-02-2015 16:42:04 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+Dec-02-2015 16:42:04 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MultiUserExperience
+Error: None
+Dec-02-2015 16:42:04 : Questionnaire MultiUserExperience updated - 2 new entries exported.
+Dec-02-2015 16:42:04 : Questionnaire MultiUserExperience updated - 2 new entries recorded.
+Dec-02-2015 16:42:04 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+Dec-02-2015 16:42:04 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-02-2015 16:42:04 : Questionnaire CIHS updated - 2 new entries recorded.
+Dec-02-2015 16:42:04 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_AS
+Error: None
+Dec-02-2015 16:42:04 : Questionnaire DASS21_AS updated - 21 new entries exported.
+Dec-02-2015 16:42:04 : Questionnaire DASS21_AS updated - 21 new entries recorded.
+Dec-02-2015 16:42:04 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImpactAnxiousImagery
+Error: None
+Dec-02-2015 16:42:04 : Questionnaire ImpactAnxiousImagery updated - 36 new entries exported.
+Dec-02-2015 16:42:04 : Questionnaire ImpactAnxiousImagery updated - 36 new entries recorded.
+Dec-02-2015 16:42:04 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Error: None
+Dec-02-2015 16:42:04 : Questionnaire Credibility updated - 21 new entries exported.
