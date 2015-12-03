@@ -11,6 +11,7 @@ import os.path
 import sys
 import rsa # To decrypt values.
 import smtplib # to send out notification emails
+import csv # To write the data into CSV file safely
 
 
 # ------------------------------------------#
@@ -170,8 +171,40 @@ def safeDelete(url):
         raise e # DF: Callers should handle the exception and continue processing other questionnaires if possible.
 
 
-# SafeWrite function, use this to read and save questionnaire data
-def safeWrite(data):
+
+# SafeWrite function, use this to write questionnaire data into csv files
+def safeWrite(quest, ks, date_file, message):
+#B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
+
+    with open(date_file, 'a') as datacsv:
+        dataWriter = csv.DictWriter(datacsv, dialect='excel' , fieldnames= ks)
+        t = 0
+        d = 0
+        for entry in quest:
+            for key in ks:
+                if(key.endswith("RSA")): entry[key] = decrypt(entry[key]).encode('utf-8')
+                elif entry[key] is None: entry[key] = ""
+                else: entry[key] = str(entry[key]).encode('utf-8') # could be an int, make sure it is a string so we can encode it.
+            dataWriter.writerow(entry)
+            t += 1
+            log(message + str(t) + " new entries recorded.")
+
+#           if scale['deleteable']:
+#             safeDelete(SERVER+'/'+scale['name']+'/'+str(entry['id'])) #[And then send back delete commend one by one]
+#             d += 1
+#           log(message + str(d) + " entries deleted.")
+
+
+# Create data files with date as name:
+def createFile(date_file, ks):
+    if not os.path.exists(date_file): # Create new file if file doesn't exist
+                with open(date_file, 'w') as datacsv:
+                    headerwriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
+                    headerwriter.writeheader()
+                log("New data file created: " + date_file)
+
+# Main function, use this to read and save questionnaire data
+def safeExport(data):
 # One by one, read out the data form names(scale names) in d, and then:
     for scale in data:
         #DF: Should write something to a log file in here somewhere recording # of records exported for each
@@ -181,36 +214,11 @@ def safeWrite(data):
             ks.sort()
             message = "Questionnaire " + str(scale['name']) + " updated - "
             log(message + str(scale['size']) + " new entries exported.")
-
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
             date_file = 'active_data/'+scale['name'] + '_' + DATE+'.csv'
-            if not os.path.exists(date_file):
-                output = open(date_file,'w')
-                for heads in ks[:-1]:
-                    output.write(heads+'\t')
-                output.write(ks[-1]+'\n')
-                output.close()
-                log("New data file created: " + date_file)
-            
-#B\ Open [form_name]_[date].csv, append the data we have into it, one by one. 
-        
-            output = open(date_file,'a')
-            t = 0
-            d = 0
-            for entry in quest:
-                for key in ks:
-                    if(key.endswith("RSA")): value = decrypt(entry[key])
-                    elif entry[key] is None: value = ""
-                    else: value = str(entry[key]) # could be an int, make sure it is a string so we can encode it.
-                    output.write(value.encode('utf-8') + "\t")
-                output.write("\n")
-                t += 1
-#                if scale['deleteable']:
-#                    safeDelete(SERVER+'/'+scale['name']+'/'+str(entry['id'])) #[And then send back delete commend one by one]
-#                    d += 1
-                log(message + str(t) + " new entries recorded.")
-#                log(message + str(d) + " entries deleted.")
-            output.close()
+            createFile(date_file, ks)  # Create a new data file with Date in name if not already exists
+            safeWrite(quest, ks, date_file, message)  # Safely write the whoe questionnaire into the data file
+
 
 
 # ------------------------------------------#
@@ -219,5 +227,5 @@ oneShot = safeRequest(SERVER)  # DF: Use the method above instead of the direct 
 
 print(oneShot)
 
-safeWrite(oneShot)
+safeExport(oneShot)
 

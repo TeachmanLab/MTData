@@ -1,0 +1,279 @@
+This is the server log for Dec_03_2015, created at Dec-03-2015 16:45:43:
+
+Dec-03-2015 16:45:43 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+Dec-03-2015 16:45:43 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Error: None
+Dec-03-2015 16:45:43 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Error: None
+Dec-03-2015 16:45:43 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Error: None
+Dec-03-2015 16:45:43 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+Dec-03-2015 16:45:43 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-03-2015 16:47:45 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+Dec-03-2015 16:47:45 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Error: None
+Dec-03-2015 16:47:45 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Error: None
+Dec-03-2015 16:47:45 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Error: None
+Dec-03-2015 16:47:45 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+Dec-03-2015 16:47:45 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-03-2015 16:47:45 : Questionnaire CIHS updated - 1 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire CIHS updated - 2 new entries recorded.
+Dec-03-2015 16:47:45 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Error: None
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 21 new entries exported.
+Dec-03-2015 16:47:45 : New data file created: active_data/Credibility_Dec_03_2015.csv
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 1 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 2 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 3 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 4 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 5 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 6 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 7 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 8 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 9 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 10 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 11 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 12 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 13 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 14 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 15 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 16 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 17 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 18 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 19 new entries recorded.
+Dec-03-2015 16:47:45 : Questionnaire Credibility updated - 20 new entries recorded.
+Dec-03-2015 16:52:31 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+Dec-03-2015 16:52:31 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Error: None
+Dec-03-2015 16:52:31 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Error: None
+Dec-03-2015 16:52:31 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Error: None
+Dec-03-2015 16:52:31 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+Dec-03-2015 16:52:31 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-03-2015 16:52:31 : Questionnaire CIHS updated - 1 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire CIHS updated - 2 new entries recorded.
+Dec-03-2015 16:52:31 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Error: None
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 21 new entries exported.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 1 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 2 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 3 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 4 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 5 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 6 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 7 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 8 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 9 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 10 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 11 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 12 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 13 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 14 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 15 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 16 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 17 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 18 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 19 new entries recorded.
+Dec-03-2015 16:52:31 : Questionnaire Credibility updated - 20 new entries recorded.
+Dec-03-2015 16:54:36 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+Dec-03-2015 16:54:36 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Error: None
+Dec-03-2015 16:54:36 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Error: None
+Dec-03-2015 16:54:36 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Error: None
+Dec-03-2015 16:54:36 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+Dec-03-2015 16:54:36 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-03-2015 16:54:36 : New data file created: active_data/CIHS_Dec_03_2015.csv
+Dec-03-2015 16:54:36 : Questionnaire CIHS updated - 1 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire CIHS updated - 2 new entries recorded.
+Dec-03-2015 16:54:36 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Error: None
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 21 new entries exported.
+Dec-03-2015 16:54:36 : New data file created: active_data/Credibility_Dec_03_2015.csv
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 1 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 2 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 3 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 4 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 5 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 6 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 7 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 8 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 9 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 10 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 11 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 12 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 13 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 14 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 15 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 16 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 17 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 18 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 19 new entries recorded.
+Dec-03-2015 16:54:36 : Questionnaire Credibility updated - 20 new entries recorded.
+Dec-03-2015 16:56:48 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+Dec-03-2015 16:56:48 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Error: None
+Dec-03-2015 16:56:48 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Error: None
+Dec-03-2015 16:56:48 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Error: None
+Dec-03-2015 16:56:48 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+Dec-03-2015 16:56:48 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-03-2015 16:56:48 : New data file created: active_data/CIHS_Dec_03_2015.csv
+Dec-03-2015 16:56:48 : Questionnaire CIHS updated - 1 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire CIHS updated - 2 new entries recorded.
+Dec-03-2015 16:56:48 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Error: None
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 21 new entries exported.
+Dec-03-2015 16:56:48 : New data file created: active_data/Credibility_Dec_03_2015.csv
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 1 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 2 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 3 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 4 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 5 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 6 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 7 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 8 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 9 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 10 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 11 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 12 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 13 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 14 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 15 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 16 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 17 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 18 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 19 new entries recorded.
+Dec-03-2015 16:56:48 : Questionnaire Credibility updated - 20 new entries recorded.
+Dec-03-2015 17:00:09 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+Dec-03-2015 17:00:09 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Error: None
+Dec-03-2015 17:00:09 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Error: None
+Dec-03-2015 17:00:09 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Error: None
+Dec-03-2015 17:00:09 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+Dec-03-2015 17:00:09 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-03-2015 17:00:09 : New data file created: active_data/CIHS_Dec_03_2015.csv
+Dec-03-2015 17:00:09 : Questionnaire CIHS updated - 1 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire CIHS updated - 2 new entries recorded.
+Dec-03-2015 17:00:09 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Error: None
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 21 new entries exported.
+Dec-03-2015 17:00:09 : New data file created: active_data/Credibility_Dec_03_2015.csv
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 1 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 2 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 3 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 4 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 5 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 6 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 7 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 8 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 9 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 10 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 11 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 12 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 13 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 14 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 15 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 16 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 17 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 18 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 19 new entries recorded.
+Dec-03-2015 17:00:09 : Questionnaire Credibility updated - 20 new entries recorded.
+Dec-03-2015 17:01:12 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+Dec-03-2015 17:01:12 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Error: None
+Dec-03-2015 17:01:12 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Error: None
+Dec-03-2015 17:01:12 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Error: None
+Dec-03-2015 17:01:12 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+Dec-03-2015 17:01:12 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-03-2015 17:01:12 : New data file created: active_data/CIHS_Dec_03_2015.csv
+Dec-03-2015 17:01:12 : Questionnaire CIHS updated - 1 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire CIHS updated - 2 new entries recorded.
+Dec-03-2015 17:01:12 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Error: None
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 21 new entries exported.
+Dec-03-2015 17:01:12 : New data file created: active_data/Credibility_Dec_03_2015.csv
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 1 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 2 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 3 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 4 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 5 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 6 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 7 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 8 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 9 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 10 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 11 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 12 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 13 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 14 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 15 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 16 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 17 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 18 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 19 new entries recorded.
+Dec-03-2015 17:01:12 : Questionnaire Credibility updated - 20 new entries recorded.
