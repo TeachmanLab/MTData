@@ -173,11 +173,11 @@ def safeDelete(url):
 
 
 # SafeWrite function, use this to write questionnaire data into csv files
-def safeWrite(quest, ks, date_file, message):
+def safeWrite(quest, date_file, ks, message):
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
 
     with open(date_file, 'a') as datacsv:
-        dataWriter = csv.DictWriter(datacsv, dialect='excel' , fieldnames= ks)
+        dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
         d = 0
         for entry in quest:
@@ -217,7 +217,7 @@ def safeExport(data):
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
             date_file = 'active_data/'+scale['name'] + '_' + DATE+'.csv'
             createFile(date_file, ks)  # Create a new data file with Date in name if not already exists
-            safeWrite(quest, ks, date_file, message)  # Safely write the whoe questionnaire into the data file
+            safeWrite(quest, date_file, ks, message)  # Safely write the whoe questionnaire into the data file
 
 
 
