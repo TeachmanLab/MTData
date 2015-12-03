@@ -118,8 +118,14 @@ with open(PRIVATE_FILE) as privatefile:
 priv_key = rsa.PrivateKey.load_pkcs1(keydata)
 def decrypt(crypto):
     if crypto is None: return ""
-    message = rsa.decrypt(crypto.decode('base64'), priv_key)
-    return message.decode('utf8')
+    try:
+        message = rsa.decrypt(crypto.decode('base64'), priv_key)
+        return message.decode('utf8')
+    except (rsa.pkcs1.CryptoError, rsa.pkcs1.DecryptionError) as e:
+        error_notify(e)
+        print "Decrypt failed:" + str(e)
+        raise e
+
 
 
 # ------------------------------------------#
@@ -139,7 +145,7 @@ def safeRequest(url):
         return response.json()
     except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
         message = "Data request failed, see below for error information:\n"
-        log(message + e)
+        log(message + str(e))
         error_notify(e)
 
         raise e  # DF: Callers should handle the exception and continue processing other questionnaires if possible.
@@ -158,7 +164,7 @@ def safeDelete(url):
         return True
     except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
         message = "Data delete failed, see below for error information:\n"
-        log(message + e)
+        log(message + str(e))
         error_notify(e)
         raise e # DF: Callers should handle the exception and continue processing other questionnaires if possible.
 
