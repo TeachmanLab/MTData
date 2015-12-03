@@ -124,7 +124,8 @@ def decrypt(crypto):
     except (rsa.pkcs1.CryptoError, rsa.pkcs1.DecryptionError) as e:
         error_notify(e)
         print "Decrypt failed:" + str(e)
-        raise e
+        return crypto
+
 
 
 
