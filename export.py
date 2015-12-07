@@ -12,6 +12,7 @@ import sys
 import rsa # To decrypt values.
 import smtplib # to send out notification emails
 import csv # To write the data into CSV file safely
+import binascii
 
 
 # ------------------------------------------#
@@ -120,12 +121,19 @@ priv_key = rsa.PrivateKey.load_pkcs1(keydata)
 def decrypt(crypto):
     if crypto is None: return ""
     try:
-        message = rsa.decrypt(crypto.decode('base64'), priv_key)
-        return message.decode('utf8')
-    except (rsa.pkcs1.CryptoError, rsa.pkcs1.DecryptionError) as e:
-        error_notify(e)
-        print "Decrypt failed:" + str(e)
-        return crypto
+        value = crypto.decode('base64')
+        try:
+            message = rsa.decrypt(value, priv_key)
+            return message.decode('utf8')
+        except (rsa.pkcs1.CryptoError, rsa.pkcs1.DecryptionError) as e:
+            error_notify(e)
+            print "Decrypt failed:" + str(e)
+            return crypto
+    except (UnicodeDecodeError, binascii.Error) as e:
+        log(e)
+        print "Decode Failed:" + str(e)
+
+
 
 
 
@@ -150,7 +158,7 @@ def safeRequest(url):
         log(message + str(e))
         error_notify(e)
 
-        raise e  # DF: Callers should handle the exception and continue processing other questionnaires if possible.
+     # DF: Callers should handle the exception and continue processing other questionnaires if possible.
 
 
 
@@ -168,7 +176,7 @@ def safeDelete(url):
         message = "Data delete failed, see below for error information:\n"
         log(message + str(e))
         error_notify(e)
-        raise e # DF: Callers should handle the exception and continue processing other questionnaires if possible.
+        print e # DF: Callers should handle the exception and continue processing other questionnaires if possible.
 
 
 
@@ -179,15 +187,27 @@ def safeWrite(quest, date_file, ks, message):
     with open(date_file, 'a') as datacsv:
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
+        error = 0
         d = 0
         for entry in quest:
             for key in ks:
-                if(key.endswith("RSA")): entry[key] = decrypt(entry[key]).encode('utf-8')
-                elif entry[key] is None: entry[key] = ""
-                else: entry[key] = str(entry[key]).encode('utf-8') # could be an int, make sure it is a string so we can encode it.
-            dataWriter.writerow(entry)
-            t += 1
+                if(key.endswith("RSA")): value = decrypt(entry[key])
+                elif entry[key] is None: value = ""
+                else: value = str(entry[key]) # could be an int, make sure it is a string so we can encode it.
+                if (value != None):
+                    try:
+                        entry[key] = value.encode('utf-8')
+                    except UnicodeEncodeError as e:
+                        log(e) # Should log error, entry ID and data field
+                else: entry[key] = ""
+            try:
+                dataWriter.writerow(entry)
+                t += 1
+            except csv.Error as e:
+                error += 1
+                log("Should put updated logging information here")
             log(message + str(t) + " new entries recorded.")
+            log("How many entry failed to record.")
 
 #           if scale['deleteable']:
 #             safeDelete(SERVER+'/'+scale['name']+'/'+str(entry['id'])) #[And then send back delete commend one by one]
@@ -200,8 +220,11 @@ def createFile(date_file, ks):
     if not os.path.exists(date_file): # Create new file if file doesn't exist
                 with open(date_file, 'w') as datacsv:
                     headerwriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
-                    headerwriter.writeheader()
-                log("New data file created: " + date_file)
+                    try:
+                        headerwriter.writeheader()
+                        log("New data file created: " + date_file)
+                    except csv.Error as e:
+                        log("Failed to create new data files, fatal, email admin")
 
 # Main function, use this to read and save questionnaire data
 def safeExport(data):
