@@ -13,9 +13,16 @@ import rsa # To decrypt values.
 import smtplib # to send out notification emails
 import csv # To write the data into CSV file safely
 import binascii
+import logging
+import logging.config
+import yaml
 
 
 # ------------------------------------------#
+
+# Set up logging config files
+
+
 # Set up the server link:
 # Use this link for testing phrase 
 SERVER='http://localhost:9000/api/export'
@@ -64,6 +71,9 @@ Mindtrails Android
 
 # ------------------------------------------#
 # Log the running message
+
+logging.config.dictConfig(yaml.load(open('log.config', 'r')))
+
 def log(m):
     log_file = 'logs/Log_'+DATE+'.txt'
     if not os.path.exists(log_file):

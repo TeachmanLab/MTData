@@ -1,0 +1,982 @@
+This is the server log for Dec_08_2015, created at Dec-08-2015 16:14:38:
+
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Error: None
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Error: None
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Error: None
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire CIHS updated - 2 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/CIHS_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire CIHS updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CIHS updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 21 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/Credibility_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire Credibility updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImageryPrime
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 36 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/ImageryPrime_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 22 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 23 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 24 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 25 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 26 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 27 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 28 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 29 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 30 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 31 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 32 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 33 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 34 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 35 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire ImageryPrime updated - 36 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Vivid
+Error: None
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Demographic
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 21 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/Demographic_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire Demographic updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/OA
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 49 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/OA_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 22 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 23 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 24 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 25 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 26 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 27 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 28 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 29 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 30 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 31 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 32 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 33 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 34 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 35 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 36 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 37 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 38 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 39 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 40 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 41 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 42 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 43 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 44 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 45 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 46 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 47 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 48 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire OA updated - 49 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MentalHealthHxTx
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 24 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/MentalHealthHxTx_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 22 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 23 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire MentalHealthHxTx updated - 24 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/QOL
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 28 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/QOL_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 22 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 23 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 24 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 25 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 26 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 27 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire QOL updated - 28 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 21 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/DD_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire DD updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MultiUserExperience
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire MultiUserExperience updated - 2 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/MultiUserExperience_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire MultiUserExperience updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire MultiUserExperience updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/RR
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 25 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/RR_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 22 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 23 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 24 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire RR updated - 25 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/FollowUp_ChangeInTreatment
+Error: None
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_DS
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 25 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/DASS21_DS_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 22 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 23 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 24 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire DASS21_DS updated - 25 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/PilotUserExperience
+Error: None
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImpactAnxiousImagery
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 36 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/ImpactAnxiousImagery_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 22 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 23 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 24 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 25 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 26 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 27 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 28 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 29 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 30 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 31 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 32 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 33 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 34 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 35 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ImpactAnxiousImagery updated - 36 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CC
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 17 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/CC_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire CC updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/BBSIQ
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 25 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/BBSIQ_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 22 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 23 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 24 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire BBSIQ updated - 25 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/AnxietyTriggers
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 21 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/AnxietyTriggers_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire AnxietyTriggers updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/SUDS
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 43 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/SUDS_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 22 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 23 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 24 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 25 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 26 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 27 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 28 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 29 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 30 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 31 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 32 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 33 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 34 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 35 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 36 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 37 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 38 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 39 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 40 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 41 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 42 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Incorrect padding
+Dec-08-2015 16:14:38 : Questionnaire SUDS updated - 43 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_AS
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 21 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/DASS21_AS_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 6 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 7 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 8 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 9 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 10 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 11 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 12 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 13 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 14 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 15 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 16 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 17 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 18 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 19 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 20 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DASS21_AS updated - 21 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD_FU
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire DD_FU updated - 5 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/DD_FU_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire DD_FU updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD_FU updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD_FU updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD_FU updated - 4 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire DD_FU updated - 5 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReasonsForEnding
+Error: None
+Dec-08-2015 16:14:38 : Questionnaire ReasonsForEnding updated - 3 new entries exported.
+Dec-08-2015 16:14:38 : New data file created: active_data/ReasonsForEnding_Dec_08_2015.csv
+Dec-08-2015 16:14:38 : Questionnaire ReasonsForEnding updated - 1 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ReasonsForEnding updated - 2 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Questionnaire ReasonsForEnding updated - 3 new entries recorded.
+Dec-08-2015 16:14:38 : How many entry failed to record.
+Dec-08-2015 16:14:38 : Data request successfully, see below for request detail:
+http://localhost:9000/api/export/AUDIT
+Error: None

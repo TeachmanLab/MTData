@@ -41,7 +41,7 @@ What is done:
 
     Normal running logs
 
-    
+
 
 What needed to be done:
 
@@ -54,5 +54,9 @@ What needed to be done:
     5\ Double check on the data collecting part
 
     6\ Add data writing testing and error notification
+
+
+Note to myself:
+    LOG_CFG=my_logging.yaml python my_server.py
 
 
