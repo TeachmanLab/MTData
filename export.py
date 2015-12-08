@@ -21,6 +21,7 @@ import yaml
 # ------------------------------------------#
 
 # Set up logging config files
+logging.config.dictConfig(yaml.load(open('log.config', 'r')))
 
 
 # Set up the server link:
@@ -71,8 +72,11 @@ Mindtrails Android
 
 # ------------------------------------------#
 # Log the running message
-
-logging.config.dictConfig(yaml.load(open('log.config', 'r')))
+def setLog():
+    log = logging.getLogger('debug')
+    log.error('Trying!')
+    log1 = logging.getLogger('daily')
+    log1.error('Trying! This is an error!')
 
 def log(m):
     log_file = 'logs/Log_'+DATE+'.txt'
@@ -129,18 +133,23 @@ with open(PRIVATE_FILE) as privatefile:
     keydata = privatefile.read()
 priv_key = rsa.PrivateKey.load_pkcs1(keydata)
 def decrypt(crypto):
+    log = logging.getLogger('export.decrypt')
     if crypto is None: return ""
     try:
         value = crypto.decode('base64')
+        log.info('Decode successfully.')
         try:
             message = rsa.decrypt(value, priv_key)
+            log.info('Decrypt successfully.')
             return message.decode('utf8')
         except (rsa.pkcs1.CryptoError, rsa.pkcs1.DecryptionError) as e:
             error_notify(e)
+            log.error('Decrypt failed, original value recorded. See information: %s', str(e))
             print "Decrypt failed:" + str(e)
             return crypto
     except (UnicodeDecodeError, binascii.Error) as e:
-        log(e)
+        log.error('Decode failed, item skipped. See information: %s', str(e))
+        # log(e)
         print "Decode Failed:" + str(e)
 
 
@@ -262,3 +271,4 @@ print(oneShot)
 
 safeExport(oneShot)
 
+setLog()
