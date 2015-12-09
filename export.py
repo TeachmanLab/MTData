@@ -74,9 +74,9 @@ Mindtrails Android
 # Log the running message
 def setLog():
     log = logging.getLogger('debug')
-    log.error('Trying!')
+    log.info('Trying!')
     log1 = logging.getLogger('daily')
-    log1.error('Trying! This is an error!')
+    log1.info('Trying! This is an error!')
 
 def log(m):
     log_file = 'logs/Log_'+DATE+'.txt'
@@ -144,11 +144,11 @@ def decrypt(crypto):
             return message.decode('utf8')
         except (rsa.pkcs1.CryptoError, rsa.pkcs1.DecryptionError) as e:
             error_notify(e)
-            log.error('Decrypt failed, original value recorded. See information: %s', str(e))
+            log.error('Decrypt failed, original value recorded. See information: %s', str(e), exc_info = 1)
             print "Decrypt failed:" + str(e)
             return crypto
     except (UnicodeDecodeError, binascii.Error) as e:
-        log.error('Decode failed, item skipped. See information: %s', str(e))
+        log.error('Decode failed, item skipped. See information: %s', str(e), exc_info = 1)
         # log(e)
         print "Decode Failed:" + str(e)
 
@@ -164,18 +164,19 @@ def decrypt(crypto):
 # us in the event of an error. THIS CODE IS NOT COMPLETE. I'm just roughly
 # trying to show what it should do.
 def safeRequest(url):
+    log = logging.getLogger('export.safeRequest')
     try:
         # DF: Make request, and check the status code of the response.
         response = requests.get(url, auth=(USER,PASS))
         m = response.raise_for_status()
         message = "Data request successfully, see below for request detail:\n"
-        log(message + url + "\n" + "Error: " + str(m)) # DH: Log success data request
+        log.info(message + url + "\n" + "Error: " + str(m)) # DH: Log success data request
         print message + str(m)
         return response.json()
     except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
         message = "Data request failed, see below for error information:\n"
-        log(message + str(e))
-        error_notify(e)
+        log.error(message + str(e), exc_info = 1)
+        log.critical(str(e), exc_info = 1)
 
      # DF: Callers should handle the exception and continue processing other questionnaires if possible.
 
@@ -183,18 +184,19 @@ def safeRequest(url):
 
 # SafeDelete function, use this to delete data entries and log down system message
 def safeDelete(url):
+    log = logging.getLogger('export.safeDelete')
     try:
         # DH: Make request, and check the status code of the response.
         delete = requests.delete(url, auth=(USER, PASS))
         m = delete.raise_for_status()
         message = "Data delete successfully, see below for deleting detail:\n"
-#        log(message + url + "\n" + "Error: " + str(m)) # DH: Log success data request
+        log.info(message + url + "\n" + "Error: " + str(m)) # DH: Log successful data delete request
         print message + str(m)
         return True
     except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
         message = "Data delete failed, see below for error information:\n"
-        log(message + str(e))
-        error_notify(e)
+        log.error(message + str(e), exc_info = 1)
+        log.critical(str(e), exc_info = 1)
         print e # DF: Callers should handle the exception and continue processing other questionnaires if possible.
 
 
@@ -202,7 +204,7 @@ def safeDelete(url):
 # SafeWrite function, use this to write questionnaire data into csv files
 def safeWrite(quest, date_file, ks, message):
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
-
+    log = logging.getLogger('export.safeWrite')
     with open(date_file, 'a') as datacsv:
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
@@ -217,37 +219,39 @@ def safeWrite(quest, date_file, ks, message):
                     try:
                         entry[key] = value.encode('utf-8')
                     except UnicodeEncodeError as e:
-                        log(e) # Should log error, entry ID and data field
+                        log.error(str(e), exc_info = 1) # Should log error, entry ID and data field
                 else: entry[key] = ""
             try:
                 dataWriter.writerow(entry)
                 t += 1
             except csv.Error as e:
                 error += 1
-                log("Should put updated logging information here")
-            log(message + str(t) + " new entries recorded.")
-            log("How many entry failed to record.")
+                log.error("Should put updated logging information here", exc_info = 1)
+            log.info(message + str(t) + " new entries recorded.")
+            log.info("How many entry failed to record.")
 
 #           if scale['deleteable']:
 #             safeDelete(SERVER+'/'+scale['name']+'/'+str(entry['id'])) #[And then send back delete commend one by one]
 #             d += 1
-#           log(message + str(d) + " entries deleted.")
+#           log.info(message + str(d) + " entries deleted.")
 
 
 # Create data files with date as name:
 def createFile(date_file, ks):
+    log = logging.getLogger('export.createFile')
     if not os.path.exists(date_file): # Create new file if file doesn't exist
                 with open(date_file, 'w') as datacsv:
                     headerwriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
                     try:
                         headerwriter.writeheader()
-                        log("New data file created: " + date_file)
+                        log.info("New data file created: " + date_file)
                     except csv.Error as e:
-                        log("Failed to create new data files, fatal, email admin")
+                        log.error("Failed to create new data files, fatal, email admin", exc_info=1)
 
 # Main function, use this to read and save questionnaire data
 def safeExport(data):
 # One by one, read out the data form names(scale names) in d, and then:
+    log = logging.getLogger('export.safeExport')
     for scale in data:
         #DF: Should write something to a log file in here somewhere recording # of records exported for each
         quest = safeRequest(SERVER+'/'+scale['name'])
@@ -255,7 +259,7 @@ def safeExport(data):
             ks = list(quest[0].keys())
             ks.sort()
             message = "Questionnaire " + str(scale['name']) + " updated - "
-            log(message + str(scale['size']) + " new entries exported.")
+            log.info(message + str(scale['size']) + " new entries exported.")
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
             date_file = 'active_data/'+scale['name'] + '_' + DATE+'.csv'
             createFile(date_file, ks)  # Create a new data file with Date in name if not already exists

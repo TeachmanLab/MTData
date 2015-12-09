@@ -1,38 +1,1070 @@
-2015-12-08 16:50:38,756 daily           ERROR    Trying! This is an error!
-2015-12-08 17:02:42,161 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,073 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,118 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,398 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,494 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,546 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,589 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,686 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,769 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,963 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:12,998 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:13,052 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:03:13,217 daily           ERROR    Trying! This is an error!
-2015-12-08 17:08:09,006 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:09,098 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:09,269 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:09,347 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:09,389 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:09,447 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:09,542 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:09,610 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:09,828 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:10,476 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:10,540 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:08:10,903 daily           ERROR    Trying! This is an error!
-2015-12-08 17:09:04,740 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:04,790 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,031 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,145 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,206 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,267 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,346 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,436 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,622 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,690 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,742 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-2015-12-08 17:09:05,975 daily           ERROR    Trying! This is an error!
+2015-12-09 11:32:24,005 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Error: None
+2015-12-09 11:32:24,062 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Error: None
+2015-12-09 11:32:24,121 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Error: None
+2015-12-09 11:32:24,219 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Error: None
+2015-12-09 11:32:24,294 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Error: None
+2015-12-09 11:32:24,294 export.safeExport INFO     Questionnaire CIHS updated - 2 new entries exported.
+2015-12-09 11:32:24,296 export.createFile INFO     New data file created: active_data/CIHS_Dec_09_2015.csv
+2015-12-09 11:32:24,297 export.safeWrite INFO     Questionnaire CIHS updated - 1 new entries recorded.
+2015-12-09 11:32:24,297 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,297 export.safeWrite INFO     Questionnaire CIHS updated - 2 new entries recorded.
+2015-12-09 11:32:24,297 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,374 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Error: None
+2015-12-09 11:32:24,375 export.safeExport INFO     Questionnaire Credibility updated - 21 new entries exported.
+2015-12-09 11:32:24,375 export.createFile INFO     New data file created: active_data/Credibility_Dec_09_2015.csv
+2015-12-09 11:32:24,376 export.safeWrite INFO     Questionnaire Credibility updated - 1 new entries recorded.
+2015-12-09 11:32:24,376 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,376 export.safeWrite INFO     Questionnaire Credibility updated - 2 new entries recorded.
+2015-12-09 11:32:24,376 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,376 export.safeWrite INFO     Questionnaire Credibility updated - 3 new entries recorded.
+2015-12-09 11:32:24,376 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,376 export.safeWrite INFO     Questionnaire Credibility updated - 4 new entries recorded.
+2015-12-09 11:32:24,376 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 5 new entries recorded.
+2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 6 new entries recorded.
+2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 7 new entries recorded.
+2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 8 new entries recorded.
+2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 9 new entries recorded.
+2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 10 new entries recorded.
+2015-12-09 11:32:24,378 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,378 export.safeWrite INFO     Questionnaire Credibility updated - 11 new entries recorded.
+2015-12-09 11:32:24,378 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,378 export.safeWrite INFO     Questionnaire Credibility updated - 12 new entries recorded.
+2015-12-09 11:32:24,378 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,378 export.safeWrite INFO     Questionnaire Credibility updated - 13 new entries recorded.
+2015-12-09 11:32:24,378 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,379 export.safeWrite INFO     Questionnaire Credibility updated - 14 new entries recorded.
+2015-12-09 11:32:24,379 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,379 export.safeWrite INFO     Questionnaire Credibility updated - 15 new entries recorded.
+2015-12-09 11:32:24,379 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,379 export.safeWrite INFO     Questionnaire Credibility updated - 16 new entries recorded.
+2015-12-09 11:32:24,379 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,379 export.safeWrite INFO     Questionnaire Credibility updated - 17 new entries recorded.
+2015-12-09 11:32:24,380 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,380 export.safeWrite INFO     Questionnaire Credibility updated - 18 new entries recorded.
+2015-12-09 11:32:24,380 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,380 export.safeWrite INFO     Questionnaire Credibility updated - 19 new entries recorded.
+2015-12-09 11:32:24,380 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,380 export.safeWrite INFO     Questionnaire Credibility updated - 20 new entries recorded.
+2015-12-09 11:32:24,380 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,381 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:24,382 export.safeWrite INFO     Questionnaire Credibility updated - 21 new entries recorded.
+2015-12-09 11:32:24,382 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,416 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImageryPrime
+Error: None
+2015-12-09 11:32:24,417 export.safeExport INFO     Questionnaire ImageryPrime updated - 36 new entries exported.
+2015-12-09 11:32:24,417 export.createFile INFO     New data file created: active_data/ImageryPrime_Dec_09_2015.csv
+2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 1 new entries recorded.
+2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 2 new entries recorded.
+2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 3 new entries recorded.
+2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 4 new entries recorded.
+2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 5 new entries recorded.
+2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 6 new entries recorded.
+2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 7 new entries recorded.
+2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 8 new entries recorded.
+2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 9 new entries recorded.
+2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 10 new entries recorded.
+2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 11 new entries recorded.
+2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 12 new entries recorded.
+2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 13 new entries recorded.
+2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 14 new entries recorded.
+2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 15 new entries recorded.
+2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 16 new entries recorded.
+2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 17 new entries recorded.
+2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 18 new entries recorded.
+2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 19 new entries recorded.
+2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 20 new entries recorded.
+2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 21 new entries recorded.
+2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 22 new entries recorded.
+2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 23 new entries recorded.
+2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 24 new entries recorded.
+2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 25 new entries recorded.
+2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 26 new entries recorded.
+2015-12-09 11:32:24,423 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,423 export.safeWrite INFO     Questionnaire ImageryPrime updated - 27 new entries recorded.
+2015-12-09 11:32:24,423 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,423 export.safeWrite INFO     Questionnaire ImageryPrime updated - 28 new entries recorded.
+2015-12-09 11:32:24,423 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,423 export.safeWrite INFO     Questionnaire ImageryPrime updated - 29 new entries recorded.
+2015-12-09 11:32:24,423 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,423 export.safeWrite INFO     Questionnaire ImageryPrime updated - 30 new entries recorded.
+2015-12-09 11:32:24,424 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,424 export.safeWrite INFO     Questionnaire ImageryPrime updated - 31 new entries recorded.
+2015-12-09 11:32:24,424 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,424 export.safeWrite INFO     Questionnaire ImageryPrime updated - 32 new entries recorded.
+2015-12-09 11:32:24,424 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,424 export.safeWrite INFO     Questionnaire ImageryPrime updated - 33 new entries recorded.
+2015-12-09 11:32:24,424 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,425 export.safeWrite INFO     Questionnaire ImageryPrime updated - 34 new entries recorded.
+2015-12-09 11:32:24,425 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,425 export.safeWrite INFO     Questionnaire ImageryPrime updated - 35 new entries recorded.
+2015-12-09 11:32:24,425 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,425 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:24,425 export.safeWrite INFO     Questionnaire ImageryPrime updated - 36 new entries recorded.
+2015-12-09 11:32:24,426 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,469 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Vivid
+Error: None
+2015-12-09 11:32:24,515 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Demographic
+Error: None
+2015-12-09 11:32:24,516 export.safeExport INFO     Questionnaire Demographic updated - 21 new entries exported.
+2015-12-09 11:32:24,516 export.createFile INFO     New data file created: active_data/Demographic_Dec_09_2015.csv
+2015-12-09 11:32:24,516 export.safeWrite INFO     Questionnaire Demographic updated - 1 new entries recorded.
+2015-12-09 11:32:24,517 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,517 export.safeWrite INFO     Questionnaire Demographic updated - 2 new entries recorded.
+2015-12-09 11:32:24,517 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,517 export.safeWrite INFO     Questionnaire Demographic updated - 3 new entries recorded.
+2015-12-09 11:32:24,517 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,518 export.safeWrite INFO     Questionnaire Demographic updated - 4 new entries recorded.
+2015-12-09 11:32:24,518 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,518 export.safeWrite INFO     Questionnaire Demographic updated - 5 new entries recorded.
+2015-12-09 11:32:24,518 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,518 export.safeWrite INFO     Questionnaire Demographic updated - 6 new entries recorded.
+2015-12-09 11:32:24,518 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 7 new entries recorded.
+2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 8 new entries recorded.
+2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 9 new entries recorded.
+2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 10 new entries recorded.
+2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 11 new entries recorded.
+2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,520 export.safeWrite INFO     Questionnaire Demographic updated - 12 new entries recorded.
+2015-12-09 11:32:24,520 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,520 export.safeWrite INFO     Questionnaire Demographic updated - 13 new entries recorded.
+2015-12-09 11:32:24,520 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,520 export.safeWrite INFO     Questionnaire Demographic updated - 14 new entries recorded.
+2015-12-09 11:32:24,520 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,520 export.safeWrite INFO     Questionnaire Demographic updated - 15 new entries recorded.
+2015-12-09 11:32:24,520 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,521 export.safeWrite INFO     Questionnaire Demographic updated - 16 new entries recorded.
+2015-12-09 11:32:24,521 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,521 export.safeWrite INFO     Questionnaire Demographic updated - 17 new entries recorded.
+2015-12-09 11:32:24,521 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,521 export.safeWrite INFO     Questionnaire Demographic updated - 18 new entries recorded.
+2015-12-09 11:32:24,521 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,521 export.safeWrite INFO     Questionnaire Demographic updated - 19 new entries recorded.
+2015-12-09 11:32:24,522 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,522 export.safeWrite INFO     Questionnaire Demographic updated - 20 new entries recorded.
+2015-12-09 11:32:24,522 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,522 export.safeWrite INFO     Questionnaire Demographic updated - 21 new entries recorded.
+2015-12-09 11:32:24,522 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,710 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/OA
+Error: None
+2015-12-09 11:32:24,711 export.safeExport INFO     Questionnaire OA updated - 49 new entries exported.
+2015-12-09 11:32:24,712 export.createFile INFO     New data file created: active_data/OA_Dec_09_2015.csv
+2015-12-09 11:32:24,712 export.safeWrite INFO     Questionnaire OA updated - 1 new entries recorded.
+2015-12-09 11:32:24,712 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,712 export.safeWrite INFO     Questionnaire OA updated - 2 new entries recorded.
+2015-12-09 11:32:24,712 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,713 export.safeWrite INFO     Questionnaire OA updated - 3 new entries recorded.
+2015-12-09 11:32:24,713 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,713 export.safeWrite INFO     Questionnaire OA updated - 4 new entries recorded.
+2015-12-09 11:32:24,713 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,713 export.safeWrite INFO     Questionnaire OA updated - 5 new entries recorded.
+2015-12-09 11:32:24,713 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,714 export.safeWrite INFO     Questionnaire OA updated - 6 new entries recorded.
+2015-12-09 11:32:24,714 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,714 export.safeWrite INFO     Questionnaire OA updated - 7 new entries recorded.
+2015-12-09 11:32:24,714 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,714 export.safeWrite INFO     Questionnaire OA updated - 8 new entries recorded.
+2015-12-09 11:32:24,714 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,714 export.safeWrite INFO     Questionnaire OA updated - 9 new entries recorded.
+2015-12-09 11:32:24,715 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,715 export.safeWrite INFO     Questionnaire OA updated - 10 new entries recorded.
+2015-12-09 11:32:24,715 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,715 export.safeWrite INFO     Questionnaire OA updated - 11 new entries recorded.
+2015-12-09 11:32:24,715 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,715 export.safeWrite INFO     Questionnaire OA updated - 12 new entries recorded.
+2015-12-09 11:32:24,715 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,716 export.safeWrite INFO     Questionnaire OA updated - 13 new entries recorded.
+2015-12-09 11:32:24,716 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,716 export.safeWrite INFO     Questionnaire OA updated - 14 new entries recorded.
+2015-12-09 11:32:24,716 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,716 export.safeWrite INFO     Questionnaire OA updated - 15 new entries recorded.
+2015-12-09 11:32:24,716 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,717 export.safeWrite INFO     Questionnaire OA updated - 16 new entries recorded.
+2015-12-09 11:32:24,717 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,717 export.safeWrite INFO     Questionnaire OA updated - 17 new entries recorded.
+2015-12-09 11:32:24,717 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,717 export.safeWrite INFO     Questionnaire OA updated - 18 new entries recorded.
+2015-12-09 11:32:24,717 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,717 export.safeWrite INFO     Questionnaire OA updated - 19 new entries recorded.
+2015-12-09 11:32:24,718 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,718 export.safeWrite INFO     Questionnaire OA updated - 20 new entries recorded.
+2015-12-09 11:32:24,718 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,718 export.safeWrite INFO     Questionnaire OA updated - 21 new entries recorded.
+2015-12-09 11:32:24,718 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,718 export.safeWrite INFO     Questionnaire OA updated - 22 new entries recorded.
+2015-12-09 11:32:24,718 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,719 export.safeWrite INFO     Questionnaire OA updated - 23 new entries recorded.
+2015-12-09 11:32:24,719 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,719 export.safeWrite INFO     Questionnaire OA updated - 24 new entries recorded.
+2015-12-09 11:32:24,719 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,719 export.safeWrite INFO     Questionnaire OA updated - 25 new entries recorded.
+2015-12-09 11:32:24,719 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,719 export.safeWrite INFO     Questionnaire OA updated - 26 new entries recorded.
+2015-12-09 11:32:24,720 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,720 export.safeWrite INFO     Questionnaire OA updated - 27 new entries recorded.
+2015-12-09 11:32:24,720 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,720 export.safeWrite INFO     Questionnaire OA updated - 28 new entries recorded.
+2015-12-09 11:32:24,720 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,720 export.safeWrite INFO     Questionnaire OA updated - 29 new entries recorded.
+2015-12-09 11:32:24,720 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,721 export.safeWrite INFO     Questionnaire OA updated - 30 new entries recorded.
+2015-12-09 11:32:24,721 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,721 export.safeWrite INFO     Questionnaire OA updated - 31 new entries recorded.
+2015-12-09 11:32:24,721 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,721 export.safeWrite INFO     Questionnaire OA updated - 32 new entries recorded.
+2015-12-09 11:32:24,721 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,721 export.safeWrite INFO     Questionnaire OA updated - 33 new entries recorded.
+2015-12-09 11:32:24,722 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,722 export.safeWrite INFO     Questionnaire OA updated - 34 new entries recorded.
+2015-12-09 11:32:24,722 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,722 export.safeWrite INFO     Questionnaire OA updated - 35 new entries recorded.
+2015-12-09 11:32:24,722 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,722 export.safeWrite INFO     Questionnaire OA updated - 36 new entries recorded.
+2015-12-09 11:32:24,722 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,723 export.safeWrite INFO     Questionnaire OA updated - 37 new entries recorded.
+2015-12-09 11:32:24,723 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,723 export.safeWrite INFO     Questionnaire OA updated - 38 new entries recorded.
+2015-12-09 11:32:24,723 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,723 export.safeWrite INFO     Questionnaire OA updated - 39 new entries recorded.
+2015-12-09 11:32:24,723 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,724 export.safeWrite INFO     Questionnaire OA updated - 40 new entries recorded.
+2015-12-09 11:32:24,724 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,724 export.safeWrite INFO     Questionnaire OA updated - 41 new entries recorded.
+2015-12-09 11:32:24,724 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,724 export.safeWrite INFO     Questionnaire OA updated - 42 new entries recorded.
+2015-12-09 11:32:24,724 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,724 export.safeWrite INFO     Questionnaire OA updated - 43 new entries recorded.
+2015-12-09 11:32:24,725 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,725 export.safeWrite INFO     Questionnaire OA updated - 44 new entries recorded.
+2015-12-09 11:32:24,725 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,725 export.safeWrite INFO     Questionnaire OA updated - 45 new entries recorded.
+2015-12-09 11:32:24,725 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,726 export.safeWrite INFO     Questionnaire OA updated - 46 new entries recorded.
+2015-12-09 11:32:24,726 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,726 export.safeWrite INFO     Questionnaire OA updated - 47 new entries recorded.
+2015-12-09 11:32:24,726 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,726 export.safeWrite INFO     Questionnaire OA updated - 48 new entries recorded.
+2015-12-09 11:32:24,726 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,726 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:24,727 export.safeWrite INFO     Questionnaire OA updated - 49 new entries recorded.
+2015-12-09 11:32:24,727 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,858 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MentalHealthHxTx
+Error: None
+2015-12-09 11:32:24,861 export.safeExport INFO     Questionnaire MentalHealthHxTx updated - 24 new entries exported.
+2015-12-09 11:32:24,862 export.createFile INFO     New data file created: active_data/MentalHealthHxTx_Dec_09_2015.csv
+2015-12-09 11:32:24,863 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 1 new entries recorded.
+2015-12-09 11:32:24,863 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,863 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 2 new entries recorded.
+2015-12-09 11:32:24,863 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,864 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 3 new entries recorded.
+2015-12-09 11:32:24,864 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,864 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 4 new entries recorded.
+2015-12-09 11:32:24,865 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,865 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 5 new entries recorded.
+2015-12-09 11:32:24,865 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,866 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 6 new entries recorded.
+2015-12-09 11:32:24,866 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,866 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 7 new entries recorded.
+2015-12-09 11:32:24,866 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,867 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 8 new entries recorded.
+2015-12-09 11:32:24,868 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,869 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 9 new entries recorded.
+2015-12-09 11:32:24,869 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,869 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 10 new entries recorded.
+2015-12-09 11:32:24,869 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,870 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 11 new entries recorded.
+2015-12-09 11:32:24,870 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,870 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 12 new entries recorded.
+2015-12-09 11:32:24,871 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,871 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 13 new entries recorded.
+2015-12-09 11:32:24,871 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,872 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 14 new entries recorded.
+2015-12-09 11:32:24,872 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,872 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 15 new entries recorded.
+2015-12-09 11:32:24,872 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,873 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 16 new entries recorded.
+2015-12-09 11:32:24,873 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,873 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 17 new entries recorded.
+2015-12-09 11:32:24,873 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,873 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 18 new entries recorded.
+2015-12-09 11:32:24,874 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,874 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 19 new entries recorded.
+2015-12-09 11:32:24,874 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,874 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 20 new entries recorded.
+2015-12-09 11:32:24,874 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,874 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 21 new entries recorded.
+2015-12-09 11:32:24,874 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,875 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 22 new entries recorded.
+2015-12-09 11:32:24,875 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,875 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 23 new entries recorded.
+2015-12-09 11:32:24,875 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,875 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:24,876 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 24 new entries recorded.
+2015-12-09 11:32:24,876 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,958 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/QOL
+Error: None
+2015-12-09 11:32:24,959 export.safeExport INFO     Questionnaire QOL updated - 28 new entries exported.
+2015-12-09 11:32:24,960 export.createFile INFO     New data file created: active_data/QOL_Dec_09_2015.csv
+2015-12-09 11:32:24,960 export.safeWrite INFO     Questionnaire QOL updated - 1 new entries recorded.
+2015-12-09 11:32:24,961 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,961 export.safeWrite INFO     Questionnaire QOL updated - 2 new entries recorded.
+2015-12-09 11:32:24,961 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,961 export.safeWrite INFO     Questionnaire QOL updated - 3 new entries recorded.
+2015-12-09 11:32:24,961 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,962 export.safeWrite INFO     Questionnaire QOL updated - 4 new entries recorded.
+2015-12-09 11:32:24,962 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,962 export.safeWrite INFO     Questionnaire QOL updated - 5 new entries recorded.
+2015-12-09 11:32:24,962 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,962 export.safeWrite INFO     Questionnaire QOL updated - 6 new entries recorded.
+2015-12-09 11:32:24,962 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,963 export.safeWrite INFO     Questionnaire QOL updated - 7 new entries recorded.
+2015-12-09 11:32:24,963 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,963 export.safeWrite INFO     Questionnaire QOL updated - 8 new entries recorded.
+2015-12-09 11:32:24,963 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,963 export.safeWrite INFO     Questionnaire QOL updated - 9 new entries recorded.
+2015-12-09 11:32:24,963 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,964 export.safeWrite INFO     Questionnaire QOL updated - 10 new entries recorded.
+2015-12-09 11:32:24,964 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,964 export.safeWrite INFO     Questionnaire QOL updated - 11 new entries recorded.
+2015-12-09 11:32:24,964 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,964 export.safeWrite INFO     Questionnaire QOL updated - 12 new entries recorded.
+2015-12-09 11:32:24,965 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,965 export.safeWrite INFO     Questionnaire QOL updated - 13 new entries recorded.
+2015-12-09 11:32:24,965 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,965 export.safeWrite INFO     Questionnaire QOL updated - 14 new entries recorded.
+2015-12-09 11:32:24,965 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,966 export.safeWrite INFO     Questionnaire QOL updated - 15 new entries recorded.
+2015-12-09 11:32:24,966 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,966 export.safeWrite INFO     Questionnaire QOL updated - 16 new entries recorded.
+2015-12-09 11:32:24,966 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,966 export.safeWrite INFO     Questionnaire QOL updated - 17 new entries recorded.
+2015-12-09 11:32:24,966 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,967 export.safeWrite INFO     Questionnaire QOL updated - 18 new entries recorded.
+2015-12-09 11:32:24,967 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,967 export.safeWrite INFO     Questionnaire QOL updated - 19 new entries recorded.
+2015-12-09 11:32:24,967 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,968 export.safeWrite INFO     Questionnaire QOL updated - 20 new entries recorded.
+2015-12-09 11:32:24,968 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,968 export.safeWrite INFO     Questionnaire QOL updated - 21 new entries recorded.
+2015-12-09 11:32:24,968 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,968 export.safeWrite INFO     Questionnaire QOL updated - 22 new entries recorded.
+2015-12-09 11:32:24,969 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,969 export.safeWrite INFO     Questionnaire QOL updated - 23 new entries recorded.
+2015-12-09 11:32:24,969 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,969 export.safeWrite INFO     Questionnaire QOL updated - 24 new entries recorded.
+2015-12-09 11:32:24,969 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,969 export.safeWrite INFO     Questionnaire QOL updated - 25 new entries recorded.
+2015-12-09 11:32:24,969 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,970 export.safeWrite INFO     Questionnaire QOL updated - 26 new entries recorded.
+2015-12-09 11:32:24,970 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,970 export.safeWrite INFO     Questionnaire QOL updated - 27 new entries recorded.
+2015-12-09 11:32:24,970 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:24,970 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:24,971 export.safeWrite INFO     Questionnaire QOL updated - 28 new entries recorded.
+2015-12-09 11:32:24,971 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,042 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD
+Error: None
+2015-12-09 11:32:25,043 export.safeExport INFO     Questionnaire DD updated - 21 new entries exported.
+2015-12-09 11:32:25,045 export.createFile INFO     New data file created: active_data/DD_Dec_09_2015.csv
+2015-12-09 11:32:25,046 export.safeWrite INFO     Questionnaire DD updated - 1 new entries recorded.
+2015-12-09 11:32:25,046 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,046 export.safeWrite INFO     Questionnaire DD updated - 2 new entries recorded.
+2015-12-09 11:32:25,046 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,046 export.safeWrite INFO     Questionnaire DD updated - 3 new entries recorded.
+2015-12-09 11:32:25,046 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,046 export.safeWrite INFO     Questionnaire DD updated - 4 new entries recorded.
+2015-12-09 11:32:25,047 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,047 export.safeWrite INFO     Questionnaire DD updated - 5 new entries recorded.
+2015-12-09 11:32:25,047 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,047 export.safeWrite INFO     Questionnaire DD updated - 6 new entries recorded.
+2015-12-09 11:32:25,047 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,047 export.safeWrite INFO     Questionnaire DD updated - 7 new entries recorded.
+2015-12-09 11:32:25,047 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,047 export.safeWrite INFO     Questionnaire DD updated - 8 new entries recorded.
+2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,048 export.safeWrite INFO     Questionnaire DD updated - 9 new entries recorded.
+2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,048 export.safeWrite INFO     Questionnaire DD updated - 10 new entries recorded.
+2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,048 export.safeWrite INFO     Questionnaire DD updated - 11 new entries recorded.
+2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,048 export.safeWrite INFO     Questionnaire DD updated - 12 new entries recorded.
+2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,049 export.safeWrite INFO     Questionnaire DD updated - 13 new entries recorded.
+2015-12-09 11:32:25,049 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,049 export.safeWrite INFO     Questionnaire DD updated - 14 new entries recorded.
+2015-12-09 11:32:25,049 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,049 export.safeWrite INFO     Questionnaire DD updated - 15 new entries recorded.
+2015-12-09 11:32:25,049 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,050 export.safeWrite INFO     Questionnaire DD updated - 16 new entries recorded.
+2015-12-09 11:32:25,050 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,050 export.safeWrite INFO     Questionnaire DD updated - 17 new entries recorded.
+2015-12-09 11:32:25,050 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,050 export.safeWrite INFO     Questionnaire DD updated - 18 new entries recorded.
+2015-12-09 11:32:25,050 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,050 export.safeWrite INFO     Questionnaire DD updated - 19 new entries recorded.
+2015-12-09 11:32:25,051 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,051 export.safeWrite INFO     Questionnaire DD updated - 20 new entries recorded.
+2015-12-09 11:32:25,051 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,051 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:25,051 export.safeWrite INFO     Questionnaire DD updated - 21 new entries recorded.
+2015-12-09 11:32:25,052 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,095 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MultiUserExperience
+Error: None
+2015-12-09 11:32:25,095 export.safeExport INFO     Questionnaire MultiUserExperience updated - 2 new entries exported.
+2015-12-09 11:32:25,099 export.createFile INFO     New data file created: active_data/MultiUserExperience_Dec_09_2015.csv
+2015-12-09 11:32:25,100 export.safeWrite INFO     Questionnaire MultiUserExperience updated - 1 new entries recorded.
+2015-12-09 11:32:25,100 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,100 export.safeWrite INFO     Questionnaire MultiUserExperience updated - 2 new entries recorded.
+2015-12-09 11:32:25,101 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,156 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/RR
+Error: None
+2015-12-09 11:32:25,157 export.safeExport INFO     Questionnaire RR updated - 25 new entries exported.
+2015-12-09 11:32:25,157 export.createFile INFO     New data file created: active_data/RR_Dec_09_2015.csv
+2015-12-09 11:32:25,158 export.safeWrite INFO     Questionnaire RR updated - 1 new entries recorded.
+2015-12-09 11:32:25,158 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,158 export.safeWrite INFO     Questionnaire RR updated - 2 new entries recorded.
+2015-12-09 11:32:25,158 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,158 export.safeWrite INFO     Questionnaire RR updated - 3 new entries recorded.
+2015-12-09 11:32:25,159 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,159 export.safeWrite INFO     Questionnaire RR updated - 4 new entries recorded.
+2015-12-09 11:32:25,159 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,159 export.safeWrite INFO     Questionnaire RR updated - 5 new entries recorded.
+2015-12-09 11:32:25,159 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,160 export.safeWrite INFO     Questionnaire RR updated - 6 new entries recorded.
+2015-12-09 11:32:25,160 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,160 export.safeWrite INFO     Questionnaire RR updated - 7 new entries recorded.
+2015-12-09 11:32:25,160 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,160 export.safeWrite INFO     Questionnaire RR updated - 8 new entries recorded.
+2015-12-09 11:32:25,160 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,161 export.safeWrite INFO     Questionnaire RR updated - 9 new entries recorded.
+2015-12-09 11:32:25,161 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,161 export.safeWrite INFO     Questionnaire RR updated - 10 new entries recorded.
+2015-12-09 11:32:25,161 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,161 export.safeWrite INFO     Questionnaire RR updated - 11 new entries recorded.
+2015-12-09 11:32:25,161 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,161 export.safeWrite INFO     Questionnaire RR updated - 12 new entries recorded.
+2015-12-09 11:32:25,162 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,162 export.safeWrite INFO     Questionnaire RR updated - 13 new entries recorded.
+2015-12-09 11:32:25,162 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,162 export.safeWrite INFO     Questionnaire RR updated - 14 new entries recorded.
+2015-12-09 11:32:25,162 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,162 export.safeWrite INFO     Questionnaire RR updated - 15 new entries recorded.
+2015-12-09 11:32:25,162 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,163 export.safeWrite INFO     Questionnaire RR updated - 16 new entries recorded.
+2015-12-09 11:32:25,163 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,163 export.safeWrite INFO     Questionnaire RR updated - 17 new entries recorded.
+2015-12-09 11:32:25,163 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,164 export.safeWrite INFO     Questionnaire RR updated - 18 new entries recorded.
+2015-12-09 11:32:25,164 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,165 export.safeWrite INFO     Questionnaire RR updated - 19 new entries recorded.
+2015-12-09 11:32:25,166 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,167 export.safeWrite INFO     Questionnaire RR updated - 20 new entries recorded.
+2015-12-09 11:32:25,167 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,168 export.safeWrite INFO     Questionnaire RR updated - 21 new entries recorded.
+2015-12-09 11:32:25,168 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,169 export.safeWrite INFO     Questionnaire RR updated - 22 new entries recorded.
+2015-12-09 11:32:25,169 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,169 export.safeWrite INFO     Questionnaire RR updated - 23 new entries recorded.
+2015-12-09 11:32:25,170 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,170 export.safeWrite INFO     Questionnaire RR updated - 24 new entries recorded.
+2015-12-09 11:32:25,171 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,171 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:25,172 export.safeWrite INFO     Questionnaire RR updated - 25 new entries recorded.
+2015-12-09 11:32:25,172 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,215 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/FollowUp_ChangeInTreatment
+Error: None
+2015-12-09 11:32:25,292 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_DS
+Error: None
+2015-12-09 11:32:25,293 export.safeExport INFO     Questionnaire DASS21_DS updated - 25 new entries exported.
+2015-12-09 11:32:25,294 export.createFile INFO     New data file created: active_data/DASS21_DS_Dec_09_2015.csv
+2015-12-09 11:32:25,295 export.safeWrite INFO     Questionnaire DASS21_DS updated - 1 new entries recorded.
+2015-12-09 11:32:25,295 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,295 export.safeWrite INFO     Questionnaire DASS21_DS updated - 2 new entries recorded.
+2015-12-09 11:32:25,295 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,295 export.safeWrite INFO     Questionnaire DASS21_DS updated - 3 new entries recorded.
+2015-12-09 11:32:25,296 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,296 export.safeWrite INFO     Questionnaire DASS21_DS updated - 4 new entries recorded.
+2015-12-09 11:32:25,296 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,296 export.safeWrite INFO     Questionnaire DASS21_DS updated - 5 new entries recorded.
+2015-12-09 11:32:25,296 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,296 export.safeWrite INFO     Questionnaire DASS21_DS updated - 6 new entries recorded.
+2015-12-09 11:32:25,297 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,297 export.safeWrite INFO     Questionnaire DASS21_DS updated - 7 new entries recorded.
+2015-12-09 11:32:25,297 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,297 export.safeWrite INFO     Questionnaire DASS21_DS updated - 8 new entries recorded.
+2015-12-09 11:32:25,297 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,297 export.safeWrite INFO     Questionnaire DASS21_DS updated - 9 new entries recorded.
+2015-12-09 11:32:25,298 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,298 export.safeWrite INFO     Questionnaire DASS21_DS updated - 10 new entries recorded.
+2015-12-09 11:32:25,298 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,298 export.safeWrite INFO     Questionnaire DASS21_DS updated - 11 new entries recorded.
+2015-12-09 11:32:25,298 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,298 export.safeWrite INFO     Questionnaire DASS21_DS updated - 12 new entries recorded.
+2015-12-09 11:32:25,298 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,298 export.safeWrite INFO     Questionnaire DASS21_DS updated - 13 new entries recorded.
+2015-12-09 11:32:25,299 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,299 export.safeWrite INFO     Questionnaire DASS21_DS updated - 14 new entries recorded.
+2015-12-09 11:32:25,299 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,299 export.safeWrite INFO     Questionnaire DASS21_DS updated - 15 new entries recorded.
+2015-12-09 11:32:25,299 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,299 export.safeWrite INFO     Questionnaire DASS21_DS updated - 16 new entries recorded.
+2015-12-09 11:32:25,299 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,299 export.safeWrite INFO     Questionnaire DASS21_DS updated - 17 new entries recorded.
+2015-12-09 11:32:25,300 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,300 export.safeWrite INFO     Questionnaire DASS21_DS updated - 18 new entries recorded.
+2015-12-09 11:32:25,300 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,300 export.safeWrite INFO     Questionnaire DASS21_DS updated - 19 new entries recorded.
+2015-12-09 11:32:25,300 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,300 export.safeWrite INFO     Questionnaire DASS21_DS updated - 20 new entries recorded.
+2015-12-09 11:32:25,300 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,301 export.safeWrite INFO     Questionnaire DASS21_DS updated - 21 new entries recorded.
+2015-12-09 11:32:25,301 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,301 export.safeWrite INFO     Questionnaire DASS21_DS updated - 22 new entries recorded.
+2015-12-09 11:32:25,301 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,301 export.safeWrite INFO     Questionnaire DASS21_DS updated - 23 new entries recorded.
+2015-12-09 11:32:25,301 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,301 export.safeWrite INFO     Questionnaire DASS21_DS updated - 24 new entries recorded.
+2015-12-09 11:32:25,302 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,302 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:25,302 export.safeWrite INFO     Questionnaire DASS21_DS updated - 25 new entries recorded.
+2015-12-09 11:32:25,302 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,336 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/PilotUserExperience
+Error: None
+2015-12-09 11:32:25,396 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImpactAnxiousImagery
+Error: None
+2015-12-09 11:32:25,397 export.safeExport INFO     Questionnaire ImpactAnxiousImagery updated - 36 new entries exported.
+2015-12-09 11:32:25,399 export.createFile INFO     New data file created: active_data/ImpactAnxiousImagery_Dec_09_2015.csv
+2015-12-09 11:32:25,400 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 1 new entries recorded.
+2015-12-09 11:32:25,400 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,401 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 2 new entries recorded.
+2015-12-09 11:32:25,401 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,401 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 3 new entries recorded.
+2015-12-09 11:32:25,401 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,401 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 4 new entries recorded.
+2015-12-09 11:32:25,401 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,401 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 5 new entries recorded.
+2015-12-09 11:32:25,402 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,402 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 6 new entries recorded.
+2015-12-09 11:32:25,402 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,402 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 7 new entries recorded.
+2015-12-09 11:32:25,402 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,403 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 8 new entries recorded.
+2015-12-09 11:32:25,403 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,403 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 9 new entries recorded.
+2015-12-09 11:32:25,403 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,403 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 10 new entries recorded.
+2015-12-09 11:32:25,403 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,403 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 11 new entries recorded.
+2015-12-09 11:32:25,403 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,404 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 12 new entries recorded.
+2015-12-09 11:32:25,404 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,404 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 13 new entries recorded.
+2015-12-09 11:32:25,404 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,404 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 14 new entries recorded.
+2015-12-09 11:32:25,404 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,404 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 15 new entries recorded.
+2015-12-09 11:32:25,404 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,405 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 16 new entries recorded.
+2015-12-09 11:32:25,405 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,405 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 17 new entries recorded.
+2015-12-09 11:32:25,405 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,405 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 18 new entries recorded.
+2015-12-09 11:32:25,405 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,405 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 19 new entries recorded.
+2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,406 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 20 new entries recorded.
+2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,406 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 21 new entries recorded.
+2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,406 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 22 new entries recorded.
+2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,406 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 23 new entries recorded.
+2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,407 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 24 new entries recorded.
+2015-12-09 11:32:25,407 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,407 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 25 new entries recorded.
+2015-12-09 11:32:25,407 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,407 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 26 new entries recorded.
+2015-12-09 11:32:25,408 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,408 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 27 new entries recorded.
+2015-12-09 11:32:25,408 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,409 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 28 new entries recorded.
+2015-12-09 11:32:25,409 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,409 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 29 new entries recorded.
+2015-12-09 11:32:25,409 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,409 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 30 new entries recorded.
+2015-12-09 11:32:25,409 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,409 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 31 new entries recorded.
+2015-12-09 11:32:25,410 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,410 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 32 new entries recorded.
+2015-12-09 11:32:25,410 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,410 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 33 new entries recorded.
+2015-12-09 11:32:25,410 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,410 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 34 new entries recorded.
+2015-12-09 11:32:25,410 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,410 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 35 new entries recorded.
+2015-12-09 11:32:25,411 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,411 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 36 new entries recorded.
+2015-12-09 11:32:25,411 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,499 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CC
+Error: None
+2015-12-09 11:32:25,500 export.safeExport INFO     Questionnaire CC updated - 17 new entries exported.
+2015-12-09 11:32:25,500 export.createFile INFO     New data file created: active_data/CC_Dec_09_2015.csv
+2015-12-09 11:32:25,500 export.safeWrite INFO     Questionnaire CC updated - 1 new entries recorded.
+2015-12-09 11:32:25,500 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,501 export.safeWrite INFO     Questionnaire CC updated - 2 new entries recorded.
+2015-12-09 11:32:25,501 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,501 export.safeWrite INFO     Questionnaire CC updated - 3 new entries recorded.
+2015-12-09 11:32:25,501 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,502 export.safeWrite INFO     Questionnaire CC updated - 4 new entries recorded.
+2015-12-09 11:32:25,502 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,502 export.safeWrite INFO     Questionnaire CC updated - 5 new entries recorded.
+2015-12-09 11:32:25,502 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,502 export.safeWrite INFO     Questionnaire CC updated - 6 new entries recorded.
+2015-12-09 11:32:25,502 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,502 export.safeWrite INFO     Questionnaire CC updated - 7 new entries recorded.
+2015-12-09 11:32:25,502 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,503 export.safeWrite INFO     Questionnaire CC updated - 8 new entries recorded.
+2015-12-09 11:32:25,503 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,503 export.safeWrite INFO     Questionnaire CC updated - 9 new entries recorded.
+2015-12-09 11:32:25,503 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,503 export.safeWrite INFO     Questionnaire CC updated - 10 new entries recorded.
+2015-12-09 11:32:25,503 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,503 export.safeWrite INFO     Questionnaire CC updated - 11 new entries recorded.
+2015-12-09 11:32:25,504 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,504 export.safeWrite INFO     Questionnaire CC updated - 12 new entries recorded.
+2015-12-09 11:32:25,504 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,504 export.safeWrite INFO     Questionnaire CC updated - 13 new entries recorded.
+2015-12-09 11:32:25,504 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,504 export.safeWrite INFO     Questionnaire CC updated - 14 new entries recorded.
+2015-12-09 11:32:25,504 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,505 export.safeWrite INFO     Questionnaire CC updated - 15 new entries recorded.
+2015-12-09 11:32:25,505 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,505 export.safeWrite INFO     Questionnaire CC updated - 16 new entries recorded.
+2015-12-09 11:32:25,505 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,505 export.safeWrite INFO     Questionnaire CC updated - 17 new entries recorded.
+2015-12-09 11:32:25,505 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,565 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/BBSIQ
+Error: None
+2015-12-09 11:32:25,567 export.safeExport INFO     Questionnaire BBSIQ updated - 25 new entries exported.
+2015-12-09 11:32:25,568 export.createFile INFO     New data file created: active_data/BBSIQ_Dec_09_2015.csv
+2015-12-09 11:32:25,568 export.safeWrite INFO     Questionnaire BBSIQ updated - 1 new entries recorded.
+2015-12-09 11:32:25,569 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,569 export.safeWrite INFO     Questionnaire BBSIQ updated - 2 new entries recorded.
+2015-12-09 11:32:25,569 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,570 export.safeWrite INFO     Questionnaire BBSIQ updated - 3 new entries recorded.
+2015-12-09 11:32:25,570 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,570 export.safeWrite INFO     Questionnaire BBSIQ updated - 4 new entries recorded.
+2015-12-09 11:32:25,570 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,571 export.safeWrite INFO     Questionnaire BBSIQ updated - 5 new entries recorded.
+2015-12-09 11:32:25,571 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,571 export.safeWrite INFO     Questionnaire BBSIQ updated - 6 new entries recorded.
+2015-12-09 11:32:25,571 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,571 export.safeWrite INFO     Questionnaire BBSIQ updated - 7 new entries recorded.
+2015-12-09 11:32:25,571 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,572 export.safeWrite INFO     Questionnaire BBSIQ updated - 8 new entries recorded.
+2015-12-09 11:32:25,572 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,572 export.safeWrite INFO     Questionnaire BBSIQ updated - 9 new entries recorded.
+2015-12-09 11:32:25,572 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,573 export.safeWrite INFO     Questionnaire BBSIQ updated - 10 new entries recorded.
+2015-12-09 11:32:25,573 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,573 export.safeWrite INFO     Questionnaire BBSIQ updated - 11 new entries recorded.
+2015-12-09 11:32:25,573 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,573 export.safeWrite INFO     Questionnaire BBSIQ updated - 12 new entries recorded.
+2015-12-09 11:32:25,574 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,574 export.safeWrite INFO     Questionnaire BBSIQ updated - 13 new entries recorded.
+2015-12-09 11:32:25,574 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,574 export.safeWrite INFO     Questionnaire BBSIQ updated - 14 new entries recorded.
+2015-12-09 11:32:25,574 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,575 export.safeWrite INFO     Questionnaire BBSIQ updated - 15 new entries recorded.
+2015-12-09 11:32:25,575 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,575 export.safeWrite INFO     Questionnaire BBSIQ updated - 16 new entries recorded.
+2015-12-09 11:32:25,575 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,575 export.safeWrite INFO     Questionnaire BBSIQ updated - 17 new entries recorded.
+2015-12-09 11:32:25,575 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,576 export.safeWrite INFO     Questionnaire BBSIQ updated - 18 new entries recorded.
+2015-12-09 11:32:25,576 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,576 export.safeWrite INFO     Questionnaire BBSIQ updated - 19 new entries recorded.
+2015-12-09 11:32:25,576 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,576 export.safeWrite INFO     Questionnaire BBSIQ updated - 20 new entries recorded.
+2015-12-09 11:32:25,577 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,577 export.safeWrite INFO     Questionnaire BBSIQ updated - 21 new entries recorded.
+2015-12-09 11:32:25,577 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,577 export.safeWrite INFO     Questionnaire BBSIQ updated - 22 new entries recorded.
+2015-12-09 11:32:25,578 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,578 export.safeWrite INFO     Questionnaire BBSIQ updated - 23 new entries recorded.
+2015-12-09 11:32:25,578 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,578 export.safeWrite INFO     Questionnaire BBSIQ updated - 24 new entries recorded.
+2015-12-09 11:32:25,578 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,578 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:25,579 export.safeWrite INFO     Questionnaire BBSIQ updated - 25 new entries recorded.
+2015-12-09 11:32:25,579 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,623 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/AnxietyTriggers
+Error: None
+2015-12-09 11:32:25,623 export.safeExport INFO     Questionnaire AnxietyTriggers updated - 21 new entries exported.
+2015-12-09 11:32:25,624 export.createFile INFO     New data file created: active_data/AnxietyTriggers_Dec_09_2015.csv
+2015-12-09 11:32:25,624 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 1 new entries recorded.
+2015-12-09 11:32:25,624 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,624 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 2 new entries recorded.
+2015-12-09 11:32:25,625 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,625 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 3 new entries recorded.
+2015-12-09 11:32:25,625 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,625 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 4 new entries recorded.
+2015-12-09 11:32:25,625 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,625 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 5 new entries recorded.
+2015-12-09 11:32:25,626 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,626 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 6 new entries recorded.
+2015-12-09 11:32:25,626 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,626 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 7 new entries recorded.
+2015-12-09 11:32:25,626 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,626 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 8 new entries recorded.
+2015-12-09 11:32:25,627 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,627 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 9 new entries recorded.
+2015-12-09 11:32:25,627 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,627 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 10 new entries recorded.
+2015-12-09 11:32:25,627 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,627 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 11 new entries recorded.
+2015-12-09 11:32:25,627 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,628 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 12 new entries recorded.
+2015-12-09 11:32:25,628 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,628 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 13 new entries recorded.
+2015-12-09 11:32:25,628 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,628 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 14 new entries recorded.
+2015-12-09 11:32:25,629 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,629 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 15 new entries recorded.
+2015-12-09 11:32:25,629 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,629 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 16 new entries recorded.
+2015-12-09 11:32:25,629 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,630 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 17 new entries recorded.
+2015-12-09 11:32:25,630 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,630 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 18 new entries recorded.
+2015-12-09 11:32:25,630 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,630 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 19 new entries recorded.
+2015-12-09 11:32:25,631 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,631 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 20 new entries recorded.
+2015-12-09 11:32:25,631 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,631 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:25,632 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 21 new entries recorded.
+2015-12-09 11:32:25,632 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,701 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/SUDS
+Error: None
+2015-12-09 11:32:25,702 export.safeExport INFO     Questionnaire SUDS updated - 43 new entries exported.
+2015-12-09 11:32:25,703 export.createFile INFO     New data file created: active_data/SUDS_Dec_09_2015.csv
+2015-12-09 11:32:25,703 export.safeWrite INFO     Questionnaire SUDS updated - 1 new entries recorded.
+2015-12-09 11:32:25,703 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,704 export.safeWrite INFO     Questionnaire SUDS updated - 2 new entries recorded.
+2015-12-09 11:32:25,704 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,704 export.safeWrite INFO     Questionnaire SUDS updated - 3 new entries recorded.
+2015-12-09 11:32:25,704 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,704 export.safeWrite INFO     Questionnaire SUDS updated - 4 new entries recorded.
+2015-12-09 11:32:25,704 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,704 export.safeWrite INFO     Questionnaire SUDS updated - 5 new entries recorded.
+2015-12-09 11:32:25,704 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,705 export.safeWrite INFO     Questionnaire SUDS updated - 6 new entries recorded.
+2015-12-09 11:32:25,705 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,705 export.safeWrite INFO     Questionnaire SUDS updated - 7 new entries recorded.
+2015-12-09 11:32:25,705 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,705 export.safeWrite INFO     Questionnaire SUDS updated - 8 new entries recorded.
+2015-12-09 11:32:25,705 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,705 export.safeWrite INFO     Questionnaire SUDS updated - 9 new entries recorded.
+2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 10 new entries recorded.
+2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 11 new entries recorded.
+2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 12 new entries recorded.
+2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 13 new entries recorded.
+2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 14 new entries recorded.
+2015-12-09 11:32:25,707 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,707 export.safeWrite INFO     Questionnaire SUDS updated - 15 new entries recorded.
+2015-12-09 11:32:25,707 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,707 export.safeWrite INFO     Questionnaire SUDS updated - 16 new entries recorded.
+2015-12-09 11:32:25,707 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,707 export.safeWrite INFO     Questionnaire SUDS updated - 17 new entries recorded.
+2015-12-09 11:32:25,707 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,707 export.safeWrite INFO     Questionnaire SUDS updated - 18 new entries recorded.
+2015-12-09 11:32:25,708 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,708 export.safeWrite INFO     Questionnaire SUDS updated - 19 new entries recorded.
+2015-12-09 11:32:25,708 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,708 export.safeWrite INFO     Questionnaire SUDS updated - 20 new entries recorded.
+2015-12-09 11:32:25,708 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,708 export.safeWrite INFO     Questionnaire SUDS updated - 21 new entries recorded.
+2015-12-09 11:32:25,708 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,709 export.safeWrite INFO     Questionnaire SUDS updated - 22 new entries recorded.
+2015-12-09 11:32:25,709 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,709 export.safeWrite INFO     Questionnaire SUDS updated - 23 new entries recorded.
+2015-12-09 11:32:25,709 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,709 export.safeWrite INFO     Questionnaire SUDS updated - 24 new entries recorded.
+2015-12-09 11:32:25,709 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,709 export.safeWrite INFO     Questionnaire SUDS updated - 25 new entries recorded.
+2015-12-09 11:32:25,709 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,710 export.safeWrite INFO     Questionnaire SUDS updated - 26 new entries recorded.
+2015-12-09 11:32:25,710 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,710 export.safeWrite INFO     Questionnaire SUDS updated - 27 new entries recorded.
+2015-12-09 11:32:25,710 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,710 export.safeWrite INFO     Questionnaire SUDS updated - 28 new entries recorded.
+2015-12-09 11:32:25,710 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,710 export.safeWrite INFO     Questionnaire SUDS updated - 29 new entries recorded.
+2015-12-09 11:32:25,711 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,711 export.safeWrite INFO     Questionnaire SUDS updated - 30 new entries recorded.
+2015-12-09 11:32:25,711 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,711 export.safeWrite INFO     Questionnaire SUDS updated - 31 new entries recorded.
+2015-12-09 11:32:25,711 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,711 export.safeWrite INFO     Questionnaire SUDS updated - 32 new entries recorded.
+2015-12-09 11:32:25,711 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,712 export.safeWrite INFO     Questionnaire SUDS updated - 33 new entries recorded.
+2015-12-09 11:32:25,712 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,712 export.safeWrite INFO     Questionnaire SUDS updated - 34 new entries recorded.
+2015-12-09 11:32:25,712 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,712 export.safeWrite INFO     Questionnaire SUDS updated - 35 new entries recorded.
+2015-12-09 11:32:25,712 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,712 export.safeWrite INFO     Questionnaire SUDS updated - 36 new entries recorded.
+2015-12-09 11:32:25,713 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,713 export.safeWrite INFO     Questionnaire SUDS updated - 37 new entries recorded.
+2015-12-09 11:32:25,713 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,713 export.safeWrite INFO     Questionnaire SUDS updated - 38 new entries recorded.
+2015-12-09 11:32:25,713 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,713 export.safeWrite INFO     Questionnaire SUDS updated - 39 new entries recorded.
+2015-12-09 11:32:25,713 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,714 export.safeWrite INFO     Questionnaire SUDS updated - 40 new entries recorded.
+2015-12-09 11:32:25,714 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,714 export.safeWrite INFO     Questionnaire SUDS updated - 41 new entries recorded.
+2015-12-09 11:32:25,714 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,714 export.safeWrite INFO     Questionnaire SUDS updated - 42 new entries recorded.
+2015-12-09 11:32:25,714 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,715 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
+Traceback (most recent call last):
+  File "export.py", line 139, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 11:32:25,715 export.safeWrite INFO     Questionnaire SUDS updated - 43 new entries recorded.
+2015-12-09 11:32:25,715 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,862 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_AS
+Error: None
+2015-12-09 11:32:25,862 export.safeExport INFO     Questionnaire DASS21_AS updated - 21 new entries exported.
+2015-12-09 11:32:25,863 export.createFile INFO     New data file created: active_data/DASS21_AS_Dec_09_2015.csv
+2015-12-09 11:32:25,863 export.safeWrite INFO     Questionnaire DASS21_AS updated - 1 new entries recorded.
+2015-12-09 11:32:25,863 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,863 export.safeWrite INFO     Questionnaire DASS21_AS updated - 2 new entries recorded.
+2015-12-09 11:32:25,863 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,864 export.safeWrite INFO     Questionnaire DASS21_AS updated - 3 new entries recorded.
+2015-12-09 11:32:25,864 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,864 export.safeWrite INFO     Questionnaire DASS21_AS updated - 4 new entries recorded.
+2015-12-09 11:32:25,864 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,864 export.safeWrite INFO     Questionnaire DASS21_AS updated - 5 new entries recorded.
+2015-12-09 11:32:25,864 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,865 export.safeWrite INFO     Questionnaire DASS21_AS updated - 6 new entries recorded.
+2015-12-09 11:32:25,865 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,865 export.safeWrite INFO     Questionnaire DASS21_AS updated - 7 new entries recorded.
+2015-12-09 11:32:25,865 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,865 export.safeWrite INFO     Questionnaire DASS21_AS updated - 8 new entries recorded.
+2015-12-09 11:32:25,865 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,865 export.safeWrite INFO     Questionnaire DASS21_AS updated - 9 new entries recorded.
+2015-12-09 11:32:25,866 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,866 export.safeWrite INFO     Questionnaire DASS21_AS updated - 10 new entries recorded.
+2015-12-09 11:32:25,866 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,866 export.safeWrite INFO     Questionnaire DASS21_AS updated - 11 new entries recorded.
+2015-12-09 11:32:25,866 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,866 export.safeWrite INFO     Questionnaire DASS21_AS updated - 12 new entries recorded.
+2015-12-09 11:32:25,867 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,867 export.safeWrite INFO     Questionnaire DASS21_AS updated - 13 new entries recorded.
+2015-12-09 11:32:25,867 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,867 export.safeWrite INFO     Questionnaire DASS21_AS updated - 14 new entries recorded.
+2015-12-09 11:32:25,867 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,867 export.safeWrite INFO     Questionnaire DASS21_AS updated - 15 new entries recorded.
+2015-12-09 11:32:25,867 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,868 export.safeWrite INFO     Questionnaire DASS21_AS updated - 16 new entries recorded.
+2015-12-09 11:32:25,868 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,868 export.safeWrite INFO     Questionnaire DASS21_AS updated - 17 new entries recorded.
+2015-12-09 11:32:25,868 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,868 export.safeWrite INFO     Questionnaire DASS21_AS updated - 18 new entries recorded.
+2015-12-09 11:32:25,868 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,869 export.safeWrite INFO     Questionnaire DASS21_AS updated - 19 new entries recorded.
+2015-12-09 11:32:25,869 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,869 export.safeWrite INFO     Questionnaire DASS21_AS updated - 20 new entries recorded.
+2015-12-09 11:32:25,869 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,869 export.safeWrite INFO     Questionnaire DASS21_AS updated - 21 new entries recorded.
+2015-12-09 11:32:25,869 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,912 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD_FU
+Error: None
+2015-12-09 11:32:25,912 export.safeExport INFO     Questionnaire DD_FU updated - 5 new entries exported.
+2015-12-09 11:32:25,917 export.createFile INFO     New data file created: active_data/DD_FU_Dec_09_2015.csv
+2015-12-09 11:32:25,918 export.safeWrite INFO     Questionnaire DD_FU updated - 1 new entries recorded.
+2015-12-09 11:32:25,919 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,919 export.safeWrite INFO     Questionnaire DD_FU updated - 2 new entries recorded.
+2015-12-09 11:32:25,919 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,919 export.safeWrite INFO     Questionnaire DD_FU updated - 3 new entries recorded.
+2015-12-09 11:32:25,920 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,920 export.safeWrite INFO     Questionnaire DD_FU updated - 4 new entries recorded.
+2015-12-09 11:32:25,920 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,920 export.safeWrite INFO     Questionnaire DD_FU updated - 5 new entries recorded.
+2015-12-09 11:32:25,921 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,965 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReasonsForEnding
+Error: None
+2015-12-09 11:32:25,966 export.safeExport INFO     Questionnaire ReasonsForEnding updated - 3 new entries exported.
+2015-12-09 11:32:25,967 export.createFile INFO     New data file created: active_data/ReasonsForEnding_Dec_09_2015.csv
+2015-12-09 11:32:25,967 export.safeWrite INFO     Questionnaire ReasonsForEnding updated - 1 new entries recorded.
+2015-12-09 11:32:25,967 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,967 export.safeWrite INFO     Questionnaire ReasonsForEnding updated - 2 new entries recorded.
+2015-12-09 11:32:25,968 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:25,968 export.safeWrite INFO     Questionnaire ReasonsForEnding updated - 3 new entries recorded.
+2015-12-09 11:32:25,968 export.safeWrite INFO     How many entry failed to record.
+2015-12-09 11:32:26,012 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/AUDIT
+Error: None
+2015-12-09 11:32:26,012 debug           INFO     Trying!
+2015-12-09 11:32:26,012 daily           INFO     Trying! This is an error!
