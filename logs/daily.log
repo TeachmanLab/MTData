@@ -1,1070 +1,960 @@
-2015-12-09 11:32:24,005 export.safeRequest INFO     Data request successfully, see below for request detail:
+2015-12-09 18:27:59,138 export          INFO     Hi PACT Lab, this is faithful android Martin from Laura's server. Everything is alright here, and seems to be
+     a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
+     take too long.
+2015-12-09 18:27:59,139 export          INFO      (Martin is out for hunting data......) 
+2015-12-09 18:27:59,139 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export ......
+2015-12-09 18:27:59,153 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:27:59,155 export.safeRequest CRITICAL Data request failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 76, in safeRequest
+    response = requests.get(url, auth=(USER,PASS))
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/api.py", line 69, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/sessions.py", line 468, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/sessions.py", line 576, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/adapters.py", line 423, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/export (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x10b4c36d0>: Failed to establish a new connection: [Errno 61] Connection refused',))
+2015-12-09 18:28:02,047 export          WARNING  This is weired... It seems that there is nothing out there or I am blocked from MindTrails. You might already get an email from me
+     reporting some network issues. Be alerted, stay tuned.
+2015-12-09 18:29:59,174 export          INFO     Hi PACT Lab, this is faithful android Martin from Laura's server. Everything is alright here, and seems to be
+     a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
+     take too long.
+2015-12-09 18:29:59,175 export          INFO      (Martin is out for hunting data......) 
+2015-12-09 18:29:59,175 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export ......
+2015-12-09 18:29:59,187 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:29:59,779 export.safeRequest INFO     Data request successfully, see below for request detail:
 http://localhost:9000/api/export
-Error: None
-2015-12-09 11:32:24,062 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/StateAnxietyPost
-Error: None
-2015-12-09 11:32:24,121 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/ReRu
-Error: None
-2015-12-09 11:32:24,219 export.safeRequest INFO     Data request successfully, see below for request detail:
+Issues: None
+2015-12-09 18:29:59,780 export          INFO     Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
+     I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin
+2015-12-09 18:29:59,780 export.safeExport INFO     Database update in progress......
+2015-12-09 18:29:59,780 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/StateAnxiety ......
+2015-12-09 18:29:59,782 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:29:59,864 export.safeRequest INFO     Data request successfully, see below for request detail:
 http://localhost:9000/api/export/StateAnxiety
-Error: None
-2015-12-09 11:32:24,294 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/CIHS
-Error: None
-2015-12-09 11:32:24,294 export.safeExport INFO     Questionnaire CIHS updated - 2 new entries exported.
-2015-12-09 11:32:24,296 export.createFile INFO     New data file created: active_data/CIHS_Dec_09_2015.csv
-2015-12-09 11:32:24,297 export.safeWrite INFO     Questionnaire CIHS updated - 1 new entries recorded.
-2015-12-09 11:32:24,297 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,297 export.safeWrite INFO     Questionnaire CIHS updated - 2 new entries recorded.
-2015-12-09 11:32:24,297 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,374 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/Credibility
-Error: None
-2015-12-09 11:32:24,375 export.safeExport INFO     Questionnaire Credibility updated - 21 new entries exported.
-2015-12-09 11:32:24,375 export.createFile INFO     New data file created: active_data/Credibility_Dec_09_2015.csv
-2015-12-09 11:32:24,376 export.safeWrite INFO     Questionnaire Credibility updated - 1 new entries recorded.
-2015-12-09 11:32:24,376 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,376 export.safeWrite INFO     Questionnaire Credibility updated - 2 new entries recorded.
-2015-12-09 11:32:24,376 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,376 export.safeWrite INFO     Questionnaire Credibility updated - 3 new entries recorded.
-2015-12-09 11:32:24,376 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,376 export.safeWrite INFO     Questionnaire Credibility updated - 4 new entries recorded.
-2015-12-09 11:32:24,376 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 5 new entries recorded.
-2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 6 new entries recorded.
-2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 7 new entries recorded.
-2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 8 new entries recorded.
-2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 9 new entries recorded.
-2015-12-09 11:32:24,377 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,377 export.safeWrite INFO     Questionnaire Credibility updated - 10 new entries recorded.
-2015-12-09 11:32:24,378 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,378 export.safeWrite INFO     Questionnaire Credibility updated - 11 new entries recorded.
-2015-12-09 11:32:24,378 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,378 export.safeWrite INFO     Questionnaire Credibility updated - 12 new entries recorded.
-2015-12-09 11:32:24,378 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,378 export.safeWrite INFO     Questionnaire Credibility updated - 13 new entries recorded.
-2015-12-09 11:32:24,378 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,379 export.safeWrite INFO     Questionnaire Credibility updated - 14 new entries recorded.
-2015-12-09 11:32:24,379 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,379 export.safeWrite INFO     Questionnaire Credibility updated - 15 new entries recorded.
-2015-12-09 11:32:24,379 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,379 export.safeWrite INFO     Questionnaire Credibility updated - 16 new entries recorded.
-2015-12-09 11:32:24,379 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,379 export.safeWrite INFO     Questionnaire Credibility updated - 17 new entries recorded.
-2015-12-09 11:32:24,380 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,380 export.safeWrite INFO     Questionnaire Credibility updated - 18 new entries recorded.
-2015-12-09 11:32:24,380 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,380 export.safeWrite INFO     Questionnaire Credibility updated - 19 new entries recorded.
-2015-12-09 11:32:24,380 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,380 export.safeWrite INFO     Questionnaire Credibility updated - 20 new entries recorded.
-2015-12-09 11:32:24,380 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,381 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:24,382 export.safeWrite INFO     Questionnaire Credibility updated - 21 new entries recorded.
-2015-12-09 11:32:24,382 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,416 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/ImageryPrime
-Error: None
-2015-12-09 11:32:24,417 export.safeExport INFO     Questionnaire ImageryPrime updated - 36 new entries exported.
-2015-12-09 11:32:24,417 export.createFile INFO     New data file created: active_data/ImageryPrime_Dec_09_2015.csv
-2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 1 new entries recorded.
-2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 2 new entries recorded.
-2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 3 new entries recorded.
-2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 4 new entries recorded.
-2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 5 new entries recorded.
-2015-12-09 11:32:24,418 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,418 export.safeWrite INFO     Questionnaire ImageryPrime updated - 6 new entries recorded.
-2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 7 new entries recorded.
-2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 8 new entries recorded.
-2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 9 new entries recorded.
-2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 10 new entries recorded.
-2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 11 new entries recorded.
-2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 12 new entries recorded.
-2015-12-09 11:32:24,419 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,419 export.safeWrite INFO     Questionnaire ImageryPrime updated - 13 new entries recorded.
-2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 14 new entries recorded.
-2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 15 new entries recorded.
-2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 16 new entries recorded.
-2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 17 new entries recorded.
-2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 18 new entries recorded.
-2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 19 new entries recorded.
-2015-12-09 11:32:24,420 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,420 export.safeWrite INFO     Questionnaire ImageryPrime updated - 20 new entries recorded.
-2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 21 new entries recorded.
-2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 22 new entries recorded.
-2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 23 new entries recorded.
-2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 24 new entries recorded.
-2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 25 new entries recorded.
-2015-12-09 11:32:24,421 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,421 export.safeWrite INFO     Questionnaire ImageryPrime updated - 26 new entries recorded.
-2015-12-09 11:32:24,423 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,423 export.safeWrite INFO     Questionnaire ImageryPrime updated - 27 new entries recorded.
-2015-12-09 11:32:24,423 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,423 export.safeWrite INFO     Questionnaire ImageryPrime updated - 28 new entries recorded.
-2015-12-09 11:32:24,423 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,423 export.safeWrite INFO     Questionnaire ImageryPrime updated - 29 new entries recorded.
-2015-12-09 11:32:24,423 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,423 export.safeWrite INFO     Questionnaire ImageryPrime updated - 30 new entries recorded.
-2015-12-09 11:32:24,424 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,424 export.safeWrite INFO     Questionnaire ImageryPrime updated - 31 new entries recorded.
-2015-12-09 11:32:24,424 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,424 export.safeWrite INFO     Questionnaire ImageryPrime updated - 32 new entries recorded.
-2015-12-09 11:32:24,424 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,424 export.safeWrite INFO     Questionnaire ImageryPrime updated - 33 new entries recorded.
-2015-12-09 11:32:24,424 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,425 export.safeWrite INFO     Questionnaire ImageryPrime updated - 34 new entries recorded.
-2015-12-09 11:32:24,425 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,425 export.safeWrite INFO     Questionnaire ImageryPrime updated - 35 new entries recorded.
-2015-12-09 11:32:24,425 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,425 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:24,425 export.safeWrite INFO     Questionnaire ImageryPrime updated - 36 new entries recorded.
-2015-12-09 11:32:24,426 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,469 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/Vivid
-Error: None
-2015-12-09 11:32:24,515 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/Demographic
-Error: None
-2015-12-09 11:32:24,516 export.safeExport INFO     Questionnaire Demographic updated - 21 new entries exported.
-2015-12-09 11:32:24,516 export.createFile INFO     New data file created: active_data/Demographic_Dec_09_2015.csv
-2015-12-09 11:32:24,516 export.safeWrite INFO     Questionnaire Demographic updated - 1 new entries recorded.
-2015-12-09 11:32:24,517 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,517 export.safeWrite INFO     Questionnaire Demographic updated - 2 new entries recorded.
-2015-12-09 11:32:24,517 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,517 export.safeWrite INFO     Questionnaire Demographic updated - 3 new entries recorded.
-2015-12-09 11:32:24,517 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,518 export.safeWrite INFO     Questionnaire Demographic updated - 4 new entries recorded.
-2015-12-09 11:32:24,518 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,518 export.safeWrite INFO     Questionnaire Demographic updated - 5 new entries recorded.
-2015-12-09 11:32:24,518 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,518 export.safeWrite INFO     Questionnaire Demographic updated - 6 new entries recorded.
-2015-12-09 11:32:24,518 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 7 new entries recorded.
-2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 8 new entries recorded.
-2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 9 new entries recorded.
-2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 10 new entries recorded.
-2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,519 export.safeWrite INFO     Questionnaire Demographic updated - 11 new entries recorded.
-2015-12-09 11:32:24,519 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,520 export.safeWrite INFO     Questionnaire Demographic updated - 12 new entries recorded.
-2015-12-09 11:32:24,520 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,520 export.safeWrite INFO     Questionnaire Demographic updated - 13 new entries recorded.
-2015-12-09 11:32:24,520 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,520 export.safeWrite INFO     Questionnaire Demographic updated - 14 new entries recorded.
-2015-12-09 11:32:24,520 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,520 export.safeWrite INFO     Questionnaire Demographic updated - 15 new entries recorded.
-2015-12-09 11:32:24,520 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,521 export.safeWrite INFO     Questionnaire Demographic updated - 16 new entries recorded.
-2015-12-09 11:32:24,521 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,521 export.safeWrite INFO     Questionnaire Demographic updated - 17 new entries recorded.
-2015-12-09 11:32:24,521 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,521 export.safeWrite INFO     Questionnaire Demographic updated - 18 new entries recorded.
-2015-12-09 11:32:24,521 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,521 export.safeWrite INFO     Questionnaire Demographic updated - 19 new entries recorded.
-2015-12-09 11:32:24,522 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,522 export.safeWrite INFO     Questionnaire Demographic updated - 20 new entries recorded.
-2015-12-09 11:32:24,522 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,522 export.safeWrite INFO     Questionnaire Demographic updated - 21 new entries recorded.
-2015-12-09 11:32:24,522 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,710 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/OA
-Error: None
-2015-12-09 11:32:24,711 export.safeExport INFO     Questionnaire OA updated - 49 new entries exported.
-2015-12-09 11:32:24,712 export.createFile INFO     New data file created: active_data/OA_Dec_09_2015.csv
-2015-12-09 11:32:24,712 export.safeWrite INFO     Questionnaire OA updated - 1 new entries recorded.
-2015-12-09 11:32:24,712 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,712 export.safeWrite INFO     Questionnaire OA updated - 2 new entries recorded.
-2015-12-09 11:32:24,712 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,713 export.safeWrite INFO     Questionnaire OA updated - 3 new entries recorded.
-2015-12-09 11:32:24,713 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,713 export.safeWrite INFO     Questionnaire OA updated - 4 new entries recorded.
-2015-12-09 11:32:24,713 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,713 export.safeWrite INFO     Questionnaire OA updated - 5 new entries recorded.
-2015-12-09 11:32:24,713 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,714 export.safeWrite INFO     Questionnaire OA updated - 6 new entries recorded.
-2015-12-09 11:32:24,714 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,714 export.safeWrite INFO     Questionnaire OA updated - 7 new entries recorded.
-2015-12-09 11:32:24,714 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,714 export.safeWrite INFO     Questionnaire OA updated - 8 new entries recorded.
-2015-12-09 11:32:24,714 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,714 export.safeWrite INFO     Questionnaire OA updated - 9 new entries recorded.
-2015-12-09 11:32:24,715 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,715 export.safeWrite INFO     Questionnaire OA updated - 10 new entries recorded.
-2015-12-09 11:32:24,715 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,715 export.safeWrite INFO     Questionnaire OA updated - 11 new entries recorded.
-2015-12-09 11:32:24,715 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,715 export.safeWrite INFO     Questionnaire OA updated - 12 new entries recorded.
-2015-12-09 11:32:24,715 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,716 export.safeWrite INFO     Questionnaire OA updated - 13 new entries recorded.
-2015-12-09 11:32:24,716 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,716 export.safeWrite INFO     Questionnaire OA updated - 14 new entries recorded.
-2015-12-09 11:32:24,716 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,716 export.safeWrite INFO     Questionnaire OA updated - 15 new entries recorded.
-2015-12-09 11:32:24,716 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,717 export.safeWrite INFO     Questionnaire OA updated - 16 new entries recorded.
-2015-12-09 11:32:24,717 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,717 export.safeWrite INFO     Questionnaire OA updated - 17 new entries recorded.
-2015-12-09 11:32:24,717 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,717 export.safeWrite INFO     Questionnaire OA updated - 18 new entries recorded.
-2015-12-09 11:32:24,717 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,717 export.safeWrite INFO     Questionnaire OA updated - 19 new entries recorded.
-2015-12-09 11:32:24,718 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,718 export.safeWrite INFO     Questionnaire OA updated - 20 new entries recorded.
-2015-12-09 11:32:24,718 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,718 export.safeWrite INFO     Questionnaire OA updated - 21 new entries recorded.
-2015-12-09 11:32:24,718 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,718 export.safeWrite INFO     Questionnaire OA updated - 22 new entries recorded.
-2015-12-09 11:32:24,718 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,719 export.safeWrite INFO     Questionnaire OA updated - 23 new entries recorded.
-2015-12-09 11:32:24,719 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,719 export.safeWrite INFO     Questionnaire OA updated - 24 new entries recorded.
-2015-12-09 11:32:24,719 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,719 export.safeWrite INFO     Questionnaire OA updated - 25 new entries recorded.
-2015-12-09 11:32:24,719 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,719 export.safeWrite INFO     Questionnaire OA updated - 26 new entries recorded.
-2015-12-09 11:32:24,720 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,720 export.safeWrite INFO     Questionnaire OA updated - 27 new entries recorded.
-2015-12-09 11:32:24,720 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,720 export.safeWrite INFO     Questionnaire OA updated - 28 new entries recorded.
-2015-12-09 11:32:24,720 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,720 export.safeWrite INFO     Questionnaire OA updated - 29 new entries recorded.
-2015-12-09 11:32:24,720 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,721 export.safeWrite INFO     Questionnaire OA updated - 30 new entries recorded.
-2015-12-09 11:32:24,721 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,721 export.safeWrite INFO     Questionnaire OA updated - 31 new entries recorded.
-2015-12-09 11:32:24,721 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,721 export.safeWrite INFO     Questionnaire OA updated - 32 new entries recorded.
-2015-12-09 11:32:24,721 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,721 export.safeWrite INFO     Questionnaire OA updated - 33 new entries recorded.
-2015-12-09 11:32:24,722 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,722 export.safeWrite INFO     Questionnaire OA updated - 34 new entries recorded.
-2015-12-09 11:32:24,722 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,722 export.safeWrite INFO     Questionnaire OA updated - 35 new entries recorded.
-2015-12-09 11:32:24,722 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,722 export.safeWrite INFO     Questionnaire OA updated - 36 new entries recorded.
-2015-12-09 11:32:24,722 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,723 export.safeWrite INFO     Questionnaire OA updated - 37 new entries recorded.
-2015-12-09 11:32:24,723 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,723 export.safeWrite INFO     Questionnaire OA updated - 38 new entries recorded.
-2015-12-09 11:32:24,723 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,723 export.safeWrite INFO     Questionnaire OA updated - 39 new entries recorded.
-2015-12-09 11:32:24,723 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,724 export.safeWrite INFO     Questionnaire OA updated - 40 new entries recorded.
-2015-12-09 11:32:24,724 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,724 export.safeWrite INFO     Questionnaire OA updated - 41 new entries recorded.
-2015-12-09 11:32:24,724 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,724 export.safeWrite INFO     Questionnaire OA updated - 42 new entries recorded.
-2015-12-09 11:32:24,724 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,724 export.safeWrite INFO     Questionnaire OA updated - 43 new entries recorded.
-2015-12-09 11:32:24,725 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,725 export.safeWrite INFO     Questionnaire OA updated - 44 new entries recorded.
-2015-12-09 11:32:24,725 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,725 export.safeWrite INFO     Questionnaire OA updated - 45 new entries recorded.
-2015-12-09 11:32:24,725 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,726 export.safeWrite INFO     Questionnaire OA updated - 46 new entries recorded.
-2015-12-09 11:32:24,726 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,726 export.safeWrite INFO     Questionnaire OA updated - 47 new entries recorded.
-2015-12-09 11:32:24,726 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,726 export.safeWrite INFO     Questionnaire OA updated - 48 new entries recorded.
-2015-12-09 11:32:24,726 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,726 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:24,727 export.safeWrite INFO     Questionnaire OA updated - 49 new entries recorded.
-2015-12-09 11:32:24,727 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,858 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/MentalHealthHxTx
-Error: None
-2015-12-09 11:32:24,861 export.safeExport INFO     Questionnaire MentalHealthHxTx updated - 24 new entries exported.
-2015-12-09 11:32:24,862 export.createFile INFO     New data file created: active_data/MentalHealthHxTx_Dec_09_2015.csv
-2015-12-09 11:32:24,863 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 1 new entries recorded.
-2015-12-09 11:32:24,863 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,863 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 2 new entries recorded.
-2015-12-09 11:32:24,863 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,864 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 3 new entries recorded.
-2015-12-09 11:32:24,864 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,864 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 4 new entries recorded.
-2015-12-09 11:32:24,865 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,865 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 5 new entries recorded.
-2015-12-09 11:32:24,865 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,866 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 6 new entries recorded.
-2015-12-09 11:32:24,866 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,866 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 7 new entries recorded.
-2015-12-09 11:32:24,866 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,867 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 8 new entries recorded.
-2015-12-09 11:32:24,868 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,869 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 9 new entries recorded.
-2015-12-09 11:32:24,869 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,869 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 10 new entries recorded.
-2015-12-09 11:32:24,869 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,870 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 11 new entries recorded.
-2015-12-09 11:32:24,870 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,870 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 12 new entries recorded.
-2015-12-09 11:32:24,871 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,871 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 13 new entries recorded.
-2015-12-09 11:32:24,871 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,872 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 14 new entries recorded.
-2015-12-09 11:32:24,872 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,872 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 15 new entries recorded.
-2015-12-09 11:32:24,872 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,873 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 16 new entries recorded.
-2015-12-09 11:32:24,873 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,873 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 17 new entries recorded.
-2015-12-09 11:32:24,873 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,873 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 18 new entries recorded.
-2015-12-09 11:32:24,874 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,874 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 19 new entries recorded.
-2015-12-09 11:32:24,874 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,874 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 20 new entries recorded.
-2015-12-09 11:32:24,874 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,874 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 21 new entries recorded.
-2015-12-09 11:32:24,874 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,875 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 22 new entries recorded.
-2015-12-09 11:32:24,875 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,875 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 23 new entries recorded.
-2015-12-09 11:32:24,875 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,875 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:24,876 export.safeWrite INFO     Questionnaire MentalHealthHxTx updated - 24 new entries recorded.
-2015-12-09 11:32:24,876 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,958 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/QOL
-Error: None
-2015-12-09 11:32:24,959 export.safeExport INFO     Questionnaire QOL updated - 28 new entries exported.
-2015-12-09 11:32:24,960 export.createFile INFO     New data file created: active_data/QOL_Dec_09_2015.csv
-2015-12-09 11:32:24,960 export.safeWrite INFO     Questionnaire QOL updated - 1 new entries recorded.
-2015-12-09 11:32:24,961 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,961 export.safeWrite INFO     Questionnaire QOL updated - 2 new entries recorded.
-2015-12-09 11:32:24,961 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,961 export.safeWrite INFO     Questionnaire QOL updated - 3 new entries recorded.
-2015-12-09 11:32:24,961 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,962 export.safeWrite INFO     Questionnaire QOL updated - 4 new entries recorded.
-2015-12-09 11:32:24,962 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,962 export.safeWrite INFO     Questionnaire QOL updated - 5 new entries recorded.
-2015-12-09 11:32:24,962 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,962 export.safeWrite INFO     Questionnaire QOL updated - 6 new entries recorded.
-2015-12-09 11:32:24,962 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,963 export.safeWrite INFO     Questionnaire QOL updated - 7 new entries recorded.
-2015-12-09 11:32:24,963 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,963 export.safeWrite INFO     Questionnaire QOL updated - 8 new entries recorded.
-2015-12-09 11:32:24,963 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,963 export.safeWrite INFO     Questionnaire QOL updated - 9 new entries recorded.
-2015-12-09 11:32:24,963 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,964 export.safeWrite INFO     Questionnaire QOL updated - 10 new entries recorded.
-2015-12-09 11:32:24,964 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,964 export.safeWrite INFO     Questionnaire QOL updated - 11 new entries recorded.
-2015-12-09 11:32:24,964 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,964 export.safeWrite INFO     Questionnaire QOL updated - 12 new entries recorded.
-2015-12-09 11:32:24,965 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,965 export.safeWrite INFO     Questionnaire QOL updated - 13 new entries recorded.
-2015-12-09 11:32:24,965 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,965 export.safeWrite INFO     Questionnaire QOL updated - 14 new entries recorded.
-2015-12-09 11:32:24,965 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,966 export.safeWrite INFO     Questionnaire QOL updated - 15 new entries recorded.
-2015-12-09 11:32:24,966 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,966 export.safeWrite INFO     Questionnaire QOL updated - 16 new entries recorded.
-2015-12-09 11:32:24,966 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,966 export.safeWrite INFO     Questionnaire QOL updated - 17 new entries recorded.
-2015-12-09 11:32:24,966 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,967 export.safeWrite INFO     Questionnaire QOL updated - 18 new entries recorded.
-2015-12-09 11:32:24,967 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,967 export.safeWrite INFO     Questionnaire QOL updated - 19 new entries recorded.
-2015-12-09 11:32:24,967 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,968 export.safeWrite INFO     Questionnaire QOL updated - 20 new entries recorded.
-2015-12-09 11:32:24,968 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,968 export.safeWrite INFO     Questionnaire QOL updated - 21 new entries recorded.
-2015-12-09 11:32:24,968 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,968 export.safeWrite INFO     Questionnaire QOL updated - 22 new entries recorded.
-2015-12-09 11:32:24,969 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,969 export.safeWrite INFO     Questionnaire QOL updated - 23 new entries recorded.
-2015-12-09 11:32:24,969 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,969 export.safeWrite INFO     Questionnaire QOL updated - 24 new entries recorded.
-2015-12-09 11:32:24,969 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,969 export.safeWrite INFO     Questionnaire QOL updated - 25 new entries recorded.
-2015-12-09 11:32:24,969 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,970 export.safeWrite INFO     Questionnaire QOL updated - 26 new entries recorded.
-2015-12-09 11:32:24,970 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,970 export.safeWrite INFO     Questionnaire QOL updated - 27 new entries recorded.
-2015-12-09 11:32:24,970 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:24,970 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:24,971 export.safeWrite INFO     Questionnaire QOL updated - 28 new entries recorded.
-2015-12-09 11:32:24,971 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,042 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/DD
-Error: None
-2015-12-09 11:32:25,043 export.safeExport INFO     Questionnaire DD updated - 21 new entries exported.
-2015-12-09 11:32:25,045 export.createFile INFO     New data file created: active_data/DD_Dec_09_2015.csv
-2015-12-09 11:32:25,046 export.safeWrite INFO     Questionnaire DD updated - 1 new entries recorded.
-2015-12-09 11:32:25,046 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,046 export.safeWrite INFO     Questionnaire DD updated - 2 new entries recorded.
-2015-12-09 11:32:25,046 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,046 export.safeWrite INFO     Questionnaire DD updated - 3 new entries recorded.
-2015-12-09 11:32:25,046 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,046 export.safeWrite INFO     Questionnaire DD updated - 4 new entries recorded.
-2015-12-09 11:32:25,047 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,047 export.safeWrite INFO     Questionnaire DD updated - 5 new entries recorded.
-2015-12-09 11:32:25,047 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,047 export.safeWrite INFO     Questionnaire DD updated - 6 new entries recorded.
-2015-12-09 11:32:25,047 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,047 export.safeWrite INFO     Questionnaire DD updated - 7 new entries recorded.
-2015-12-09 11:32:25,047 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,047 export.safeWrite INFO     Questionnaire DD updated - 8 new entries recorded.
-2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,048 export.safeWrite INFO     Questionnaire DD updated - 9 new entries recorded.
-2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,048 export.safeWrite INFO     Questionnaire DD updated - 10 new entries recorded.
-2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,048 export.safeWrite INFO     Questionnaire DD updated - 11 new entries recorded.
-2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,048 export.safeWrite INFO     Questionnaire DD updated - 12 new entries recorded.
-2015-12-09 11:32:25,048 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,049 export.safeWrite INFO     Questionnaire DD updated - 13 new entries recorded.
-2015-12-09 11:32:25,049 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,049 export.safeWrite INFO     Questionnaire DD updated - 14 new entries recorded.
-2015-12-09 11:32:25,049 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,049 export.safeWrite INFO     Questionnaire DD updated - 15 new entries recorded.
-2015-12-09 11:32:25,049 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,050 export.safeWrite INFO     Questionnaire DD updated - 16 new entries recorded.
-2015-12-09 11:32:25,050 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,050 export.safeWrite INFO     Questionnaire DD updated - 17 new entries recorded.
-2015-12-09 11:32:25,050 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,050 export.safeWrite INFO     Questionnaire DD updated - 18 new entries recorded.
-2015-12-09 11:32:25,050 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,050 export.safeWrite INFO     Questionnaire DD updated - 19 new entries recorded.
-2015-12-09 11:32:25,051 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,051 export.safeWrite INFO     Questionnaire DD updated - 20 new entries recorded.
-2015-12-09 11:32:25,051 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,051 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:25,051 export.safeWrite INFO     Questionnaire DD updated - 21 new entries recorded.
-2015-12-09 11:32:25,052 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,095 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/MultiUserExperience
-Error: None
-2015-12-09 11:32:25,095 export.safeExport INFO     Questionnaire MultiUserExperience updated - 2 new entries exported.
-2015-12-09 11:32:25,099 export.createFile INFO     New data file created: active_data/MultiUserExperience_Dec_09_2015.csv
-2015-12-09 11:32:25,100 export.safeWrite INFO     Questionnaire MultiUserExperience updated - 1 new entries recorded.
-2015-12-09 11:32:25,100 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,100 export.safeWrite INFO     Questionnaire MultiUserExperience updated - 2 new entries recorded.
-2015-12-09 11:32:25,101 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,156 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/RR
-Error: None
-2015-12-09 11:32:25,157 export.safeExport INFO     Questionnaire RR updated - 25 new entries exported.
-2015-12-09 11:32:25,157 export.createFile INFO     New data file created: active_data/RR_Dec_09_2015.csv
-2015-12-09 11:32:25,158 export.safeWrite INFO     Questionnaire RR updated - 1 new entries recorded.
-2015-12-09 11:32:25,158 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,158 export.safeWrite INFO     Questionnaire RR updated - 2 new entries recorded.
-2015-12-09 11:32:25,158 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,158 export.safeWrite INFO     Questionnaire RR updated - 3 new entries recorded.
-2015-12-09 11:32:25,159 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,159 export.safeWrite INFO     Questionnaire RR updated - 4 new entries recorded.
-2015-12-09 11:32:25,159 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,159 export.safeWrite INFO     Questionnaire RR updated - 5 new entries recorded.
-2015-12-09 11:32:25,159 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,160 export.safeWrite INFO     Questionnaire RR updated - 6 new entries recorded.
-2015-12-09 11:32:25,160 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,160 export.safeWrite INFO     Questionnaire RR updated - 7 new entries recorded.
-2015-12-09 11:32:25,160 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,160 export.safeWrite INFO     Questionnaire RR updated - 8 new entries recorded.
-2015-12-09 11:32:25,160 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,161 export.safeWrite INFO     Questionnaire RR updated - 9 new entries recorded.
-2015-12-09 11:32:25,161 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,161 export.safeWrite INFO     Questionnaire RR updated - 10 new entries recorded.
-2015-12-09 11:32:25,161 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,161 export.safeWrite INFO     Questionnaire RR updated - 11 new entries recorded.
-2015-12-09 11:32:25,161 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,161 export.safeWrite INFO     Questionnaire RR updated - 12 new entries recorded.
-2015-12-09 11:32:25,162 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,162 export.safeWrite INFO     Questionnaire RR updated - 13 new entries recorded.
-2015-12-09 11:32:25,162 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,162 export.safeWrite INFO     Questionnaire RR updated - 14 new entries recorded.
-2015-12-09 11:32:25,162 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,162 export.safeWrite INFO     Questionnaire RR updated - 15 new entries recorded.
-2015-12-09 11:32:25,162 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,163 export.safeWrite INFO     Questionnaire RR updated - 16 new entries recorded.
-2015-12-09 11:32:25,163 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,163 export.safeWrite INFO     Questionnaire RR updated - 17 new entries recorded.
-2015-12-09 11:32:25,163 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,164 export.safeWrite INFO     Questionnaire RR updated - 18 new entries recorded.
-2015-12-09 11:32:25,164 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,165 export.safeWrite INFO     Questionnaire RR updated - 19 new entries recorded.
-2015-12-09 11:32:25,166 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,167 export.safeWrite INFO     Questionnaire RR updated - 20 new entries recorded.
-2015-12-09 11:32:25,167 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,168 export.safeWrite INFO     Questionnaire RR updated - 21 new entries recorded.
-2015-12-09 11:32:25,168 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,169 export.safeWrite INFO     Questionnaire RR updated - 22 new entries recorded.
-2015-12-09 11:32:25,169 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,169 export.safeWrite INFO     Questionnaire RR updated - 23 new entries recorded.
-2015-12-09 11:32:25,170 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,170 export.safeWrite INFO     Questionnaire RR updated - 24 new entries recorded.
-2015-12-09 11:32:25,171 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,171 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:25,172 export.safeWrite INFO     Questionnaire RR updated - 25 new entries recorded.
-2015-12-09 11:32:25,172 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,215 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/FollowUp_ChangeInTreatment
-Error: None
-2015-12-09 11:32:25,292 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/DASS21_DS
-Error: None
-2015-12-09 11:32:25,293 export.safeExport INFO     Questionnaire DASS21_DS updated - 25 new entries exported.
-2015-12-09 11:32:25,294 export.createFile INFO     New data file created: active_data/DASS21_DS_Dec_09_2015.csv
-2015-12-09 11:32:25,295 export.safeWrite INFO     Questionnaire DASS21_DS updated - 1 new entries recorded.
-2015-12-09 11:32:25,295 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,295 export.safeWrite INFO     Questionnaire DASS21_DS updated - 2 new entries recorded.
-2015-12-09 11:32:25,295 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,295 export.safeWrite INFO     Questionnaire DASS21_DS updated - 3 new entries recorded.
-2015-12-09 11:32:25,296 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,296 export.safeWrite INFO     Questionnaire DASS21_DS updated - 4 new entries recorded.
-2015-12-09 11:32:25,296 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,296 export.safeWrite INFO     Questionnaire DASS21_DS updated - 5 new entries recorded.
-2015-12-09 11:32:25,296 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,296 export.safeWrite INFO     Questionnaire DASS21_DS updated - 6 new entries recorded.
-2015-12-09 11:32:25,297 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,297 export.safeWrite INFO     Questionnaire DASS21_DS updated - 7 new entries recorded.
-2015-12-09 11:32:25,297 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,297 export.safeWrite INFO     Questionnaire DASS21_DS updated - 8 new entries recorded.
-2015-12-09 11:32:25,297 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,297 export.safeWrite INFO     Questionnaire DASS21_DS updated - 9 new entries recorded.
-2015-12-09 11:32:25,298 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,298 export.safeWrite INFO     Questionnaire DASS21_DS updated - 10 new entries recorded.
-2015-12-09 11:32:25,298 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,298 export.safeWrite INFO     Questionnaire DASS21_DS updated - 11 new entries recorded.
-2015-12-09 11:32:25,298 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,298 export.safeWrite INFO     Questionnaire DASS21_DS updated - 12 new entries recorded.
-2015-12-09 11:32:25,298 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,298 export.safeWrite INFO     Questionnaire DASS21_DS updated - 13 new entries recorded.
-2015-12-09 11:32:25,299 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,299 export.safeWrite INFO     Questionnaire DASS21_DS updated - 14 new entries recorded.
-2015-12-09 11:32:25,299 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,299 export.safeWrite INFO     Questionnaire DASS21_DS updated - 15 new entries recorded.
-2015-12-09 11:32:25,299 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,299 export.safeWrite INFO     Questionnaire DASS21_DS updated - 16 new entries recorded.
-2015-12-09 11:32:25,299 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,299 export.safeWrite INFO     Questionnaire DASS21_DS updated - 17 new entries recorded.
-2015-12-09 11:32:25,300 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,300 export.safeWrite INFO     Questionnaire DASS21_DS updated - 18 new entries recorded.
-2015-12-09 11:32:25,300 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,300 export.safeWrite INFO     Questionnaire DASS21_DS updated - 19 new entries recorded.
-2015-12-09 11:32:25,300 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,300 export.safeWrite INFO     Questionnaire DASS21_DS updated - 20 new entries recorded.
-2015-12-09 11:32:25,300 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,301 export.safeWrite INFO     Questionnaire DASS21_DS updated - 21 new entries recorded.
-2015-12-09 11:32:25,301 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,301 export.safeWrite INFO     Questionnaire DASS21_DS updated - 22 new entries recorded.
-2015-12-09 11:32:25,301 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,301 export.safeWrite INFO     Questionnaire DASS21_DS updated - 23 new entries recorded.
-2015-12-09 11:32:25,301 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,301 export.safeWrite INFO     Questionnaire DASS21_DS updated - 24 new entries recorded.
-2015-12-09 11:32:25,302 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,302 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:25,302 export.safeWrite INFO     Questionnaire DASS21_DS updated - 25 new entries recorded.
-2015-12-09 11:32:25,302 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,336 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/PilotUserExperience
-Error: None
-2015-12-09 11:32:25,396 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/ImpactAnxiousImagery
-Error: None
-2015-12-09 11:32:25,397 export.safeExport INFO     Questionnaire ImpactAnxiousImagery updated - 36 new entries exported.
-2015-12-09 11:32:25,399 export.createFile INFO     New data file created: active_data/ImpactAnxiousImagery_Dec_09_2015.csv
-2015-12-09 11:32:25,400 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 1 new entries recorded.
-2015-12-09 11:32:25,400 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,401 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 2 new entries recorded.
-2015-12-09 11:32:25,401 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,401 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 3 new entries recorded.
-2015-12-09 11:32:25,401 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,401 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 4 new entries recorded.
-2015-12-09 11:32:25,401 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,401 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 5 new entries recorded.
-2015-12-09 11:32:25,402 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,402 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 6 new entries recorded.
-2015-12-09 11:32:25,402 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,402 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 7 new entries recorded.
-2015-12-09 11:32:25,402 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,403 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 8 new entries recorded.
-2015-12-09 11:32:25,403 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,403 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 9 new entries recorded.
-2015-12-09 11:32:25,403 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,403 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 10 new entries recorded.
-2015-12-09 11:32:25,403 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,403 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 11 new entries recorded.
-2015-12-09 11:32:25,403 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,404 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 12 new entries recorded.
-2015-12-09 11:32:25,404 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,404 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 13 new entries recorded.
-2015-12-09 11:32:25,404 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,404 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 14 new entries recorded.
-2015-12-09 11:32:25,404 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,404 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 15 new entries recorded.
-2015-12-09 11:32:25,404 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,405 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 16 new entries recorded.
-2015-12-09 11:32:25,405 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,405 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 17 new entries recorded.
-2015-12-09 11:32:25,405 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,405 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 18 new entries recorded.
-2015-12-09 11:32:25,405 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,405 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 19 new entries recorded.
-2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,406 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 20 new entries recorded.
-2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,406 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 21 new entries recorded.
-2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,406 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 22 new entries recorded.
-2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,406 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 23 new entries recorded.
-2015-12-09 11:32:25,406 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,407 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 24 new entries recorded.
-2015-12-09 11:32:25,407 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,407 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 25 new entries recorded.
-2015-12-09 11:32:25,407 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,407 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 26 new entries recorded.
-2015-12-09 11:32:25,408 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,408 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 27 new entries recorded.
-2015-12-09 11:32:25,408 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,409 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 28 new entries recorded.
-2015-12-09 11:32:25,409 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,409 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 29 new entries recorded.
-2015-12-09 11:32:25,409 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,409 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 30 new entries recorded.
-2015-12-09 11:32:25,409 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,409 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 31 new entries recorded.
-2015-12-09 11:32:25,410 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,410 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 32 new entries recorded.
-2015-12-09 11:32:25,410 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,410 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 33 new entries recorded.
-2015-12-09 11:32:25,410 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,410 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 34 new entries recorded.
-2015-12-09 11:32:25,410 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,410 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 35 new entries recorded.
-2015-12-09 11:32:25,411 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,411 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery updated - 36 new entries recorded.
-2015-12-09 11:32:25,411 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,499 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/CC
-Error: None
-2015-12-09 11:32:25,500 export.safeExport INFO     Questionnaire CC updated - 17 new entries exported.
-2015-12-09 11:32:25,500 export.createFile INFO     New data file created: active_data/CC_Dec_09_2015.csv
-2015-12-09 11:32:25,500 export.safeWrite INFO     Questionnaire CC updated - 1 new entries recorded.
-2015-12-09 11:32:25,500 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,501 export.safeWrite INFO     Questionnaire CC updated - 2 new entries recorded.
-2015-12-09 11:32:25,501 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,501 export.safeWrite INFO     Questionnaire CC updated - 3 new entries recorded.
-2015-12-09 11:32:25,501 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,502 export.safeWrite INFO     Questionnaire CC updated - 4 new entries recorded.
-2015-12-09 11:32:25,502 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,502 export.safeWrite INFO     Questionnaire CC updated - 5 new entries recorded.
-2015-12-09 11:32:25,502 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,502 export.safeWrite INFO     Questionnaire CC updated - 6 new entries recorded.
-2015-12-09 11:32:25,502 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,502 export.safeWrite INFO     Questionnaire CC updated - 7 new entries recorded.
-2015-12-09 11:32:25,502 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,503 export.safeWrite INFO     Questionnaire CC updated - 8 new entries recorded.
-2015-12-09 11:32:25,503 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,503 export.safeWrite INFO     Questionnaire CC updated - 9 new entries recorded.
-2015-12-09 11:32:25,503 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,503 export.safeWrite INFO     Questionnaire CC updated - 10 new entries recorded.
-2015-12-09 11:32:25,503 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,503 export.safeWrite INFO     Questionnaire CC updated - 11 new entries recorded.
-2015-12-09 11:32:25,504 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,504 export.safeWrite INFO     Questionnaire CC updated - 12 new entries recorded.
-2015-12-09 11:32:25,504 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,504 export.safeWrite INFO     Questionnaire CC updated - 13 new entries recorded.
-2015-12-09 11:32:25,504 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,504 export.safeWrite INFO     Questionnaire CC updated - 14 new entries recorded.
-2015-12-09 11:32:25,504 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,505 export.safeWrite INFO     Questionnaire CC updated - 15 new entries recorded.
-2015-12-09 11:32:25,505 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,505 export.safeWrite INFO     Questionnaire CC updated - 16 new entries recorded.
-2015-12-09 11:32:25,505 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,505 export.safeWrite INFO     Questionnaire CC updated - 17 new entries recorded.
-2015-12-09 11:32:25,505 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,565 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/BBSIQ
-Error: None
-2015-12-09 11:32:25,567 export.safeExport INFO     Questionnaire BBSIQ updated - 25 new entries exported.
-2015-12-09 11:32:25,568 export.createFile INFO     New data file created: active_data/BBSIQ_Dec_09_2015.csv
-2015-12-09 11:32:25,568 export.safeWrite INFO     Questionnaire BBSIQ updated - 1 new entries recorded.
-2015-12-09 11:32:25,569 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,569 export.safeWrite INFO     Questionnaire BBSIQ updated - 2 new entries recorded.
-2015-12-09 11:32:25,569 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,570 export.safeWrite INFO     Questionnaire BBSIQ updated - 3 new entries recorded.
-2015-12-09 11:32:25,570 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,570 export.safeWrite INFO     Questionnaire BBSIQ updated - 4 new entries recorded.
-2015-12-09 11:32:25,570 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,571 export.safeWrite INFO     Questionnaire BBSIQ updated - 5 new entries recorded.
-2015-12-09 11:32:25,571 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,571 export.safeWrite INFO     Questionnaire BBSIQ updated - 6 new entries recorded.
-2015-12-09 11:32:25,571 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,571 export.safeWrite INFO     Questionnaire BBSIQ updated - 7 new entries recorded.
-2015-12-09 11:32:25,571 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,572 export.safeWrite INFO     Questionnaire BBSIQ updated - 8 new entries recorded.
-2015-12-09 11:32:25,572 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,572 export.safeWrite INFO     Questionnaire BBSIQ updated - 9 new entries recorded.
-2015-12-09 11:32:25,572 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,573 export.safeWrite INFO     Questionnaire BBSIQ updated - 10 new entries recorded.
-2015-12-09 11:32:25,573 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,573 export.safeWrite INFO     Questionnaire BBSIQ updated - 11 new entries recorded.
-2015-12-09 11:32:25,573 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,573 export.safeWrite INFO     Questionnaire BBSIQ updated - 12 new entries recorded.
-2015-12-09 11:32:25,574 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,574 export.safeWrite INFO     Questionnaire BBSIQ updated - 13 new entries recorded.
-2015-12-09 11:32:25,574 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,574 export.safeWrite INFO     Questionnaire BBSIQ updated - 14 new entries recorded.
-2015-12-09 11:32:25,574 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,575 export.safeWrite INFO     Questionnaire BBSIQ updated - 15 new entries recorded.
-2015-12-09 11:32:25,575 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,575 export.safeWrite INFO     Questionnaire BBSIQ updated - 16 new entries recorded.
-2015-12-09 11:32:25,575 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,575 export.safeWrite INFO     Questionnaire BBSIQ updated - 17 new entries recorded.
-2015-12-09 11:32:25,575 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,576 export.safeWrite INFO     Questionnaire BBSIQ updated - 18 new entries recorded.
-2015-12-09 11:32:25,576 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,576 export.safeWrite INFO     Questionnaire BBSIQ updated - 19 new entries recorded.
-2015-12-09 11:32:25,576 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,576 export.safeWrite INFO     Questionnaire BBSIQ updated - 20 new entries recorded.
-2015-12-09 11:32:25,577 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,577 export.safeWrite INFO     Questionnaire BBSIQ updated - 21 new entries recorded.
-2015-12-09 11:32:25,577 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,577 export.safeWrite INFO     Questionnaire BBSIQ updated - 22 new entries recorded.
-2015-12-09 11:32:25,578 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,578 export.safeWrite INFO     Questionnaire BBSIQ updated - 23 new entries recorded.
-2015-12-09 11:32:25,578 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,578 export.safeWrite INFO     Questionnaire BBSIQ updated - 24 new entries recorded.
-2015-12-09 11:32:25,578 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,578 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:25,579 export.safeWrite INFO     Questionnaire BBSIQ updated - 25 new entries recorded.
-2015-12-09 11:32:25,579 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,623 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/AnxietyTriggers
-Error: None
-2015-12-09 11:32:25,623 export.safeExport INFO     Questionnaire AnxietyTriggers updated - 21 new entries exported.
-2015-12-09 11:32:25,624 export.createFile INFO     New data file created: active_data/AnxietyTriggers_Dec_09_2015.csv
-2015-12-09 11:32:25,624 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 1 new entries recorded.
-2015-12-09 11:32:25,624 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,624 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 2 new entries recorded.
-2015-12-09 11:32:25,625 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,625 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 3 new entries recorded.
-2015-12-09 11:32:25,625 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,625 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 4 new entries recorded.
-2015-12-09 11:32:25,625 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,625 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 5 new entries recorded.
-2015-12-09 11:32:25,626 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,626 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 6 new entries recorded.
-2015-12-09 11:32:25,626 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,626 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 7 new entries recorded.
-2015-12-09 11:32:25,626 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,626 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 8 new entries recorded.
-2015-12-09 11:32:25,627 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,627 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 9 new entries recorded.
-2015-12-09 11:32:25,627 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,627 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 10 new entries recorded.
-2015-12-09 11:32:25,627 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,627 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 11 new entries recorded.
-2015-12-09 11:32:25,627 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,628 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 12 new entries recorded.
-2015-12-09 11:32:25,628 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,628 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 13 new entries recorded.
-2015-12-09 11:32:25,628 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,628 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 14 new entries recorded.
-2015-12-09 11:32:25,629 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,629 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 15 new entries recorded.
-2015-12-09 11:32:25,629 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,629 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 16 new entries recorded.
-2015-12-09 11:32:25,629 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,630 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 17 new entries recorded.
-2015-12-09 11:32:25,630 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,630 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 18 new entries recorded.
-2015-12-09 11:32:25,630 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,630 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 19 new entries recorded.
-2015-12-09 11:32:25,631 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,631 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 20 new entries recorded.
-2015-12-09 11:32:25,631 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,631 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:25,632 export.safeWrite INFO     Questionnaire AnxietyTriggers updated - 21 new entries recorded.
-2015-12-09 11:32:25,632 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,701 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/SUDS
-Error: None
-2015-12-09 11:32:25,702 export.safeExport INFO     Questionnaire SUDS updated - 43 new entries exported.
-2015-12-09 11:32:25,703 export.createFile INFO     New data file created: active_data/SUDS_Dec_09_2015.csv
-2015-12-09 11:32:25,703 export.safeWrite INFO     Questionnaire SUDS updated - 1 new entries recorded.
-2015-12-09 11:32:25,703 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,704 export.safeWrite INFO     Questionnaire SUDS updated - 2 new entries recorded.
-2015-12-09 11:32:25,704 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,704 export.safeWrite INFO     Questionnaire SUDS updated - 3 new entries recorded.
-2015-12-09 11:32:25,704 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,704 export.safeWrite INFO     Questionnaire SUDS updated - 4 new entries recorded.
-2015-12-09 11:32:25,704 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,704 export.safeWrite INFO     Questionnaire SUDS updated - 5 new entries recorded.
-2015-12-09 11:32:25,704 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,705 export.safeWrite INFO     Questionnaire SUDS updated - 6 new entries recorded.
-2015-12-09 11:32:25,705 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,705 export.safeWrite INFO     Questionnaire SUDS updated - 7 new entries recorded.
-2015-12-09 11:32:25,705 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,705 export.safeWrite INFO     Questionnaire SUDS updated - 8 new entries recorded.
-2015-12-09 11:32:25,705 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,705 export.safeWrite INFO     Questionnaire SUDS updated - 9 new entries recorded.
-2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 10 new entries recorded.
-2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 11 new entries recorded.
-2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 12 new entries recorded.
-2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 13 new entries recorded.
-2015-12-09 11:32:25,706 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,706 export.safeWrite INFO     Questionnaire SUDS updated - 14 new entries recorded.
-2015-12-09 11:32:25,707 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,707 export.safeWrite INFO     Questionnaire SUDS updated - 15 new entries recorded.
-2015-12-09 11:32:25,707 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,707 export.safeWrite INFO     Questionnaire SUDS updated - 16 new entries recorded.
-2015-12-09 11:32:25,707 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,707 export.safeWrite INFO     Questionnaire SUDS updated - 17 new entries recorded.
-2015-12-09 11:32:25,707 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,707 export.safeWrite INFO     Questionnaire SUDS updated - 18 new entries recorded.
-2015-12-09 11:32:25,708 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,708 export.safeWrite INFO     Questionnaire SUDS updated - 19 new entries recorded.
-2015-12-09 11:32:25,708 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,708 export.safeWrite INFO     Questionnaire SUDS updated - 20 new entries recorded.
-2015-12-09 11:32:25,708 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,708 export.safeWrite INFO     Questionnaire SUDS updated - 21 new entries recorded.
-2015-12-09 11:32:25,708 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,709 export.safeWrite INFO     Questionnaire SUDS updated - 22 new entries recorded.
-2015-12-09 11:32:25,709 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,709 export.safeWrite INFO     Questionnaire SUDS updated - 23 new entries recorded.
-2015-12-09 11:32:25,709 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,709 export.safeWrite INFO     Questionnaire SUDS updated - 24 new entries recorded.
-2015-12-09 11:32:25,709 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,709 export.safeWrite INFO     Questionnaire SUDS updated - 25 new entries recorded.
-2015-12-09 11:32:25,709 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,710 export.safeWrite INFO     Questionnaire SUDS updated - 26 new entries recorded.
-2015-12-09 11:32:25,710 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,710 export.safeWrite INFO     Questionnaire SUDS updated - 27 new entries recorded.
-2015-12-09 11:32:25,710 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,710 export.safeWrite INFO     Questionnaire SUDS updated - 28 new entries recorded.
-2015-12-09 11:32:25,710 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,710 export.safeWrite INFO     Questionnaire SUDS updated - 29 new entries recorded.
-2015-12-09 11:32:25,711 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,711 export.safeWrite INFO     Questionnaire SUDS updated - 30 new entries recorded.
-2015-12-09 11:32:25,711 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,711 export.safeWrite INFO     Questionnaire SUDS updated - 31 new entries recorded.
-2015-12-09 11:32:25,711 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,711 export.safeWrite INFO     Questionnaire SUDS updated - 32 new entries recorded.
-2015-12-09 11:32:25,711 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,712 export.safeWrite INFO     Questionnaire SUDS updated - 33 new entries recorded.
-2015-12-09 11:32:25,712 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,712 export.safeWrite INFO     Questionnaire SUDS updated - 34 new entries recorded.
-2015-12-09 11:32:25,712 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,712 export.safeWrite INFO     Questionnaire SUDS updated - 35 new entries recorded.
-2015-12-09 11:32:25,712 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,712 export.safeWrite INFO     Questionnaire SUDS updated - 36 new entries recorded.
-2015-12-09 11:32:25,713 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,713 export.safeWrite INFO     Questionnaire SUDS updated - 37 new entries recorded.
-2015-12-09 11:32:25,713 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,713 export.safeWrite INFO     Questionnaire SUDS updated - 38 new entries recorded.
-2015-12-09 11:32:25,713 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,713 export.safeWrite INFO     Questionnaire SUDS updated - 39 new entries recorded.
-2015-12-09 11:32:25,713 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,714 export.safeWrite INFO     Questionnaire SUDS updated - 40 new entries recorded.
-2015-12-09 11:32:25,714 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,714 export.safeWrite INFO     Questionnaire SUDS updated - 41 new entries recorded.
-2015-12-09 11:32:25,714 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,714 export.safeWrite INFO     Questionnaire SUDS updated - 42 new entries recorded.
-2015-12-09 11:32:25,714 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,715 export.decrypt  ERROR    Decode failed, item skipped. See information: Incorrect padding
-Traceback (most recent call last):
-  File "export.py", line 139, in decrypt
-    value = crypto.decode('base64')
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
-    output = base64.decodestring(input)
-  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
-    return binascii.a2b_base64(s)
-Error: Incorrect padding
-2015-12-09 11:32:25,715 export.safeWrite INFO     Questionnaire SUDS updated - 43 new entries recorded.
-2015-12-09 11:32:25,715 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,862 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/DASS21_AS
-Error: None
-2015-12-09 11:32:25,862 export.safeExport INFO     Questionnaire DASS21_AS updated - 21 new entries exported.
-2015-12-09 11:32:25,863 export.createFile INFO     New data file created: active_data/DASS21_AS_Dec_09_2015.csv
-2015-12-09 11:32:25,863 export.safeWrite INFO     Questionnaire DASS21_AS updated - 1 new entries recorded.
-2015-12-09 11:32:25,863 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,863 export.safeWrite INFO     Questionnaire DASS21_AS updated - 2 new entries recorded.
-2015-12-09 11:32:25,863 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,864 export.safeWrite INFO     Questionnaire DASS21_AS updated - 3 new entries recorded.
-2015-12-09 11:32:25,864 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,864 export.safeWrite INFO     Questionnaire DASS21_AS updated - 4 new entries recorded.
-2015-12-09 11:32:25,864 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,864 export.safeWrite INFO     Questionnaire DASS21_AS updated - 5 new entries recorded.
-2015-12-09 11:32:25,864 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,865 export.safeWrite INFO     Questionnaire DASS21_AS updated - 6 new entries recorded.
-2015-12-09 11:32:25,865 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,865 export.safeWrite INFO     Questionnaire DASS21_AS updated - 7 new entries recorded.
-2015-12-09 11:32:25,865 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,865 export.safeWrite INFO     Questionnaire DASS21_AS updated - 8 new entries recorded.
-2015-12-09 11:32:25,865 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,865 export.safeWrite INFO     Questionnaire DASS21_AS updated - 9 new entries recorded.
-2015-12-09 11:32:25,866 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,866 export.safeWrite INFO     Questionnaire DASS21_AS updated - 10 new entries recorded.
-2015-12-09 11:32:25,866 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,866 export.safeWrite INFO     Questionnaire DASS21_AS updated - 11 new entries recorded.
-2015-12-09 11:32:25,866 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,866 export.safeWrite INFO     Questionnaire DASS21_AS updated - 12 new entries recorded.
-2015-12-09 11:32:25,867 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,867 export.safeWrite INFO     Questionnaire DASS21_AS updated - 13 new entries recorded.
-2015-12-09 11:32:25,867 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,867 export.safeWrite INFO     Questionnaire DASS21_AS updated - 14 new entries recorded.
-2015-12-09 11:32:25,867 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,867 export.safeWrite INFO     Questionnaire DASS21_AS updated - 15 new entries recorded.
-2015-12-09 11:32:25,867 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,868 export.safeWrite INFO     Questionnaire DASS21_AS updated - 16 new entries recorded.
-2015-12-09 11:32:25,868 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,868 export.safeWrite INFO     Questionnaire DASS21_AS updated - 17 new entries recorded.
-2015-12-09 11:32:25,868 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,868 export.safeWrite INFO     Questionnaire DASS21_AS updated - 18 new entries recorded.
-2015-12-09 11:32:25,868 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,869 export.safeWrite INFO     Questionnaire DASS21_AS updated - 19 new entries recorded.
-2015-12-09 11:32:25,869 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,869 export.safeWrite INFO     Questionnaire DASS21_AS updated - 20 new entries recorded.
-2015-12-09 11:32:25,869 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,869 export.safeWrite INFO     Questionnaire DASS21_AS updated - 21 new entries recorded.
-2015-12-09 11:32:25,869 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,912 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/DD_FU
-Error: None
-2015-12-09 11:32:25,912 export.safeExport INFO     Questionnaire DD_FU updated - 5 new entries exported.
-2015-12-09 11:32:25,917 export.createFile INFO     New data file created: active_data/DD_FU_Dec_09_2015.csv
-2015-12-09 11:32:25,918 export.safeWrite INFO     Questionnaire DD_FU updated - 1 new entries recorded.
-2015-12-09 11:32:25,919 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,919 export.safeWrite INFO     Questionnaire DD_FU updated - 2 new entries recorded.
-2015-12-09 11:32:25,919 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,919 export.safeWrite INFO     Questionnaire DD_FU updated - 3 new entries recorded.
-2015-12-09 11:32:25,920 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,920 export.safeWrite INFO     Questionnaire DD_FU updated - 4 new entries recorded.
-2015-12-09 11:32:25,920 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,920 export.safeWrite INFO     Questionnaire DD_FU updated - 5 new entries recorded.
-2015-12-09 11:32:25,921 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,965 export.safeRequest INFO     Data request successfully, see below for request detail:
-http://localhost:9000/api/export/ReasonsForEnding
-Error: None
-2015-12-09 11:32:25,966 export.safeExport INFO     Questionnaire ReasonsForEnding updated - 3 new entries exported.
-2015-12-09 11:32:25,967 export.createFile INFO     New data file created: active_data/ReasonsForEnding_Dec_09_2015.csv
-2015-12-09 11:32:25,967 export.safeWrite INFO     Questionnaire ReasonsForEnding updated - 1 new entries recorded.
-2015-12-09 11:32:25,967 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,967 export.safeWrite INFO     Questionnaire ReasonsForEnding updated - 2 new entries recorded.
-2015-12-09 11:32:25,968 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:25,968 export.safeWrite INFO     Questionnaire ReasonsForEnding updated - 3 new entries recorded.
-2015-12-09 11:32:25,968 export.safeWrite INFO     How many entry failed to record.
-2015-12-09 11:32:26,012 export.safeRequest INFO     Data request successfully, see below for request detail:
+Issues: None
+2015-12-09 18:29:59,865 export.safeExport INFO     No new entries found in StateAnxiety
+2015-12-09 18:29:59,865 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/AUDIT ......
+2015-12-09 18:29:59,867 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:29:59,934 export.safeRequest INFO     Data request successfully, see below for request detail:
 http://localhost:9000/api/export/AUDIT
-Error: None
-2015-12-09 11:32:26,012 debug           INFO     Trying!
-2015-12-09 11:32:26,012 daily           INFO     Trying! This is an error!
+Issues: None
+2015-12-09 18:29:59,935 export.safeExport INFO     No new entries found in AUDIT
+2015-12-09 18:29:59,935 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/MultiUserExperience ......
+2015-12-09 18:29:59,937 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:00,017 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MultiUserExperience
+Issues: None
+2015-12-09 18:30:00,018 export.safeExport INFO     Questionnaire MultiUserExperience updated - 2 new entries received.
+2015-12-09 18:30:00,020 export.createFile INFO     New data file created: active_data/MultiUserExperience_Dec_09_2015.csv
+2015-12-09 18:30:00,020 export.safeWrite INFO     Writing new entries from MultiUserExperience to active_data/MultiUserExperience_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:00,027 export.safeWrite INFO     Questionnaire MultiUserExperience update finished - 2 new entries recoded successfully.
+2015-12-09 18:30:00,027 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/Vivid ......
+2015-12-09 18:30:00,028 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:00,091 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Vivid
+Issues: None
+2015-12-09 18:30:00,092 export.safeExport INFO     No new entries found in Vivid
+2015-12-09 18:30:00,093 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/CC ......
+2015-12-09 18:30:00,095 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:00,158 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CC
+Issues: None
+2015-12-09 18:30:00,159 export.safeExport INFO     Questionnaire CC updated - 17 new entries received.
+2015-12-09 18:30:00,160 export.createFile INFO     New data file created: active_data/CC_Dec_09_2015.csv
+2015-12-09 18:30:00,160 export.safeWrite INFO     Writing new entries from CC to active_data/CC_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:00,175 export.safeWrite INFO     Questionnaire CC update finished - 17 new entries recoded successfully.
+2015-12-09 18:30:00,176 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/BBSIQ ......
+2015-12-09 18:30:00,177 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:00,262 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/BBSIQ
+Issues: None
+2015-12-09 18:30:00,266 export.safeExport INFO     Questionnaire BBSIQ updated - 25 new entries received.
+2015-12-09 18:30:00,266 export.createFile INFO     New data file created: active_data/BBSIQ_Dec_09_2015.csv
+2015-12-09 18:30:00,266 export.safeWrite INFO     Writing new entries from BBSIQ to active_data/BBSIQ_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:00,402 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = BBSIQ, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:00,407 export.safeWrite INFO     Questionnaire BBSIQ update finished - 25 new entries recoded successfully.
+2015-12-09 18:30:00,407 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DASS21_DS ......
+2015-12-09 18:30:00,408 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:00,464 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_DS
+Issues: None
+2015-12-09 18:30:00,466 export.safeExport INFO     Questionnaire DASS21_DS updated - 25 new entries received.
+2015-12-09 18:30:00,466 export.createFile INFO     New data file created: active_data/DASS21_DS_Dec_09_2015.csv
+2015-12-09 18:30:00,466 export.safeWrite INFO     Writing new entries from DASS21_DS to active_data/DASS21_DS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:00,503 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DASS21_DS, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:00,504 export.safeWrite INFO     Questionnaire DASS21_DS update finished - 25 new entries recoded successfully.
+2015-12-09 18:30:00,504 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/QOL ......
+2015-12-09 18:30:00,506 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:00,564 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/QOL
+Issues: None
+2015-12-09 18:30:00,566 export.safeExport INFO     Questionnaire QOL updated - 28 new entries received.
+2015-12-09 18:30:00,566 export.createFile INFO     New data file created: active_data/QOL_Dec_09_2015.csv
+2015-12-09 18:30:00,566 export.safeWrite INFO     Writing new entries from QOL to active_data/QOL_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:00,635 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = QOL, Entry ID: 28, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:00,637 export.safeWrite INFO     Questionnaire QOL update finished - 28 new entries recoded successfully.
+2015-12-09 18:30:00,638 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/OA ......
+2015-12-09 18:30:00,639 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:00,890 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/OA
+Issues: None
+2015-12-09 18:30:00,891 export.safeExport INFO     Questionnaire OA updated - 49 new entries received.
+2015-12-09 18:30:00,891 export.createFile INFO     New data file created: active_data/OA_Dec_09_2015.csv
+2015-12-09 18:30:00,891 export.safeWrite INFO     Writing new entries from OA to active_data/OA_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:00,947 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:00,948 export.safeWrite INFO     Questionnaire OA update finished - 49 new entries recoded successfully.
+2015-12-09 18:30:00,948 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/RR ......
+2015-12-09 18:30:00,950 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,007 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/RR
+Issues: None
+2015-12-09 18:30:01,009 export.safeExport INFO     Questionnaire RR updated - 25 new entries received.
+2015-12-09 18:30:01,009 export.createFile INFO     New data file created: active_data/RR_Dec_09_2015.csv
+2015-12-09 18:30:01,010 export.safeWrite INFO     Writing new entries from RR to active_data/RR_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:01,112 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = RR, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,114 export.safeWrite INFO     Questionnaire RR update finished - 25 new entries recoded successfully.
+2015-12-09 18:30:01,115 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ImpactAnxiousImagery ......
+2015-12-09 18:30:01,116 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,163 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImpactAnxiousImagery
+Issues: None
+2015-12-09 18:30:01,164 export.safeExport INFO     Questionnaire ImpactAnxiousImagery updated - 36 new entries received.
+2015-12-09 18:30:01,165 export.createFile INFO     New data file created: active_data/ImpactAnxiousImagery_Dec_09_2015.csv
+2015-12-09 18:30:01,165 export.safeWrite INFO     Writing new entries from ImpactAnxiousImagery to active_data/ImpactAnxiousImagery_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:01,207 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery update finished - 36 new entries recoded successfully.
+2015-12-09 18:30:01,207 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/SUDS ......
+2015-12-09 18:30:01,208 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,258 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/SUDS
+Issues: None
+2015-12-09 18:30:01,259 export.safeExport INFO     Questionnaire SUDS updated - 43 new entries received.
+2015-12-09 18:30:01,260 export.createFile INFO     New data file created: active_data/SUDS_Dec_09_2015.csv
+2015-12-09 18:30:01,260 export.safeWrite INFO     Writing new entries from SUDS to active_data/SUDS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:01,291 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = SUDS, Entry ID: 43, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,292 export.safeWrite INFO     Questionnaire SUDS update finished - 43 new entries recoded successfully.
+2015-12-09 18:30:01,292 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/PilotUserExperience ......
+2015-12-09 18:30:01,294 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,333 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/PilotUserExperience
+Issues: None
+2015-12-09 18:30:01,333 export.safeExport INFO     No new entries found in PilotUserExperience
+2015-12-09 18:30:01,334 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ReRu ......
+2015-12-09 18:30:01,335 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,381 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Issues: None
+2015-12-09 18:30:01,381 export.safeExport INFO     No new entries found in ReRu
+2015-12-09 18:30:01,382 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/AnxietyTriggers ......
+2015-12-09 18:30:01,383 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,438 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/AnxietyTriggers
+Issues: None
+2015-12-09 18:30:01,439 export.safeExport INFO     Questionnaire AnxietyTriggers updated - 21 new entries received.
+2015-12-09 18:30:01,440 export.createFile INFO     New data file created: active_data/AnxietyTriggers_Dec_09_2015.csv
+2015-12-09 18:30:01,440 export.safeWrite INFO     Writing new entries from AnxietyTriggers to active_data/AnxietyTriggers_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:01,472 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = AnxietyTriggers, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,473 export.safeWrite INFO     Questionnaire AnxietyTriggers update finished - 21 new entries recoded successfully.
+2015-12-09 18:30:01,473 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DD ......
+2015-12-09 18:30:01,475 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,529 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD
+Issues: None
+2015-12-09 18:30:01,531 export.safeExport INFO     Questionnaire DD updated - 21 new entries received.
+2015-12-09 18:30:01,531 export.createFile INFO     New data file created: active_data/DD_Dec_09_2015.csv
+2015-12-09 18:30:01,531 export.safeWrite INFO     Writing new entries from DD to active_data/DD_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:01,584 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DD, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,587 export.safeWrite INFO     Questionnaire DD update finished - 21 new entries recoded successfully.
+2015-12-09 18:30:01,587 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/FollowUp_ChangeInTreatment ......
+2015-12-09 18:30:01,589 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,638 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/FollowUp_ChangeInTreatment
+Issues: None
+2015-12-09 18:30:01,638 export.safeExport INFO     No new entries found in FollowUp_ChangeInTreatment
+2015-12-09 18:30:01,638 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/Credibility ......
+2015-12-09 18:30:01,640 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,681 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Issues: None
+2015-12-09 18:30:01,682 export.safeExport INFO     Questionnaire Credibility updated - 21 new entries received.
+2015-12-09 18:30:01,683 export.createFile INFO     New data file created: active_data/Credibility_Dec_09_2015.csv
+2015-12-09 18:30:01,683 export.safeWrite INFO     Writing new entries from Credibility to active_data/Credibility_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:01,706 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = Credibility, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,707 export.safeWrite INFO     Questionnaire Credibility update finished - 21 new entries recoded successfully.
+2015-12-09 18:30:01,707 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/MentalHealthHxTx ......
+2015-12-09 18:30:01,709 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:01,845 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MentalHealthHxTx
+Issues: None
+2015-12-09 18:30:01,848 export.safeExport INFO     Questionnaire MentalHealthHxTx updated - 24 new entries received.
+2015-12-09 18:30:01,848 export.createFile INFO     New data file created: active_data/MentalHealthHxTx_Dec_09_2015.csv
+2015-12-09 18:30:01,849 export.safeWrite INFO     Writing new entries from MentalHealthHxTx to active_data/MentalHealthHxTx_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:01,968 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = MentalHealthHxTx, Entry ID: 24, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,970 export.safeWrite INFO     Questionnaire MentalHealthHxTx update finished - 24 new entries recoded successfully.
+2015-12-09 18:30:01,970 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ImageryPrime ......
+2015-12-09 18:30:01,972 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:02,019 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImageryPrime
+Issues: None
+2015-12-09 18:30:02,020 export.safeExport INFO     Questionnaire ImageryPrime updated - 36 new entries received.
+2015-12-09 18:30:02,021 export.createFile INFO     New data file created: active_data/ImageryPrime_Dec_09_2015.csv
+2015-12-09 18:30:02,021 export.safeWrite INFO     Writing new entries from ImageryPrime to active_data/ImageryPrime_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:02,061 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = ImageryPrime, Entry ID: 36, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:02,063 export.safeWrite INFO     Questionnaire ImageryPrime update finished - 36 new entries recoded successfully.
+2015-12-09 18:30:02,063 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ReasonsForEnding ......
+2015-12-09 18:30:02,065 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:02,121 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReasonsForEnding
+Issues: None
+2015-12-09 18:30:02,123 export.safeExport INFO     Questionnaire ReasonsForEnding updated - 3 new entries received.
+2015-12-09 18:30:02,124 export.createFile INFO     New data file created: active_data/ReasonsForEnding_Dec_09_2015.csv
+2015-12-09 18:30:02,124 export.safeWrite INFO     Writing new entries from ReasonsForEnding to active_data/ReasonsForEnding_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:02,137 export.safeWrite INFO     Questionnaire ReasonsForEnding update finished - 3 new entries recoded successfully.
+2015-12-09 18:30:02,137 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/StateAnxietyPost ......
+2015-12-09 18:30:02,139 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:02,183 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Issues: None
+2015-12-09 18:30:02,183 export.safeExport INFO     No new entries found in StateAnxietyPost
+2015-12-09 18:30:02,184 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/Demographic ......
+2015-12-09 18:30:02,185 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:02,231 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Demographic
+Issues: None
+2015-12-09 18:30:02,232 export.safeExport INFO     Questionnaire Demographic updated - 21 new entries received.
+2015-12-09 18:30:02,232 export.createFile INFO     New data file created: active_data/Demographic_Dec_09_2015.csv
+2015-12-09 18:30:02,232 export.safeWrite INFO     Writing new entries from Demographic to active_data/Demographic_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:02,269 export.safeWrite INFO     Questionnaire Demographic update finished - 21 new entries recoded successfully.
+2015-12-09 18:30:02,269 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/CIHS ......
+2015-12-09 18:30:02,271 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:02,311 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Issues: None
+2015-12-09 18:30:02,312 export.safeExport INFO     Questionnaire CIHS updated - 2 new entries received.
+2015-12-09 18:30:02,313 export.createFile INFO     New data file created: active_data/CIHS_Dec_09_2015.csv
+2015-12-09 18:30:02,313 export.safeWrite INFO     Writing new entries from CIHS to active_data/CIHS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:02,315 export.safeWrite INFO     Questionnaire CIHS update finished - 2 new entries recoded successfully.
+2015-12-09 18:30:02,315 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DASS21_AS ......
+2015-12-09 18:30:02,317 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:02,447 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_AS
+Issues: None
+2015-12-09 18:30:02,448 export.safeExport INFO     Questionnaire DASS21_AS updated - 21 new entries received.
+2015-12-09 18:30:02,449 export.createFile INFO     New data file created: active_data/DASS21_AS_Dec_09_2015.csv
+2015-12-09 18:30:02,449 export.safeWrite INFO     Writing new entries from DASS21_AS to active_data/DASS21_AS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:02,482 export.safeWrite INFO     Questionnaire DASS21_AS update finished - 21 new entries recoded successfully.
+2015-12-09 18:30:02,482 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DD_FU ......
+2015-12-09 18:30:02,484 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:30:02,528 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD_FU
+Issues: None
+2015-12-09 18:30:02,529 export.safeExport INFO     Questionnaire DD_FU updated - 5 new entries received.
+2015-12-09 18:30:02,530 export.createFile INFO     New data file created: active_data/DD_FU_Dec_09_2015.csv
+2015-12-09 18:30:02,530 export.safeWrite INFO     Writing new entries from DD_FU to active_data/DD_FU_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:30:02,542 export.safeWrite INFO     Questionnaire DD_FU update finished - 5 new entries recoded successfully.
+2015-12-09 18:30:02,542 export.safeExport INFO     Database update finished: 19 questionnaires' data updated.
+2015-12-09 18:33:48,147 export          INFO     Hi PACT Lab, this is faithful android Martin from Laura's server. Everything is alright here, and seems to be
+     a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
+     take too long.
+2015-12-09 18:33:48,148 export          INFO      (Martin is out for hunting data......) 
+2015-12-09 18:33:48,148 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export ......
+2015-12-09 18:33:48,160 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:48,247 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Issues: None
+2015-12-09 18:33:48,247 export          INFO     Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
+     I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin
+2015-12-09 18:33:48,247 export.safeExport INFO     Database update in progress......
+2015-12-09 18:33:48,248 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/StateAnxiety ......
+2015-12-09 18:33:48,249 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:48,282 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Issues: None
+2015-12-09 18:33:48,282 export.safeExport INFO     No new entries found in StateAnxiety
+2015-12-09 18:33:48,282 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/AUDIT ......
+2015-12-09 18:33:48,291 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:48,349 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/AUDIT
+Issues: None
+2015-12-09 18:33:48,349 export.safeExport INFO     No new entries found in AUDIT
+2015-12-09 18:33:48,349 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/MultiUserExperience ......
+2015-12-09 18:33:48,351 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:48,393 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MultiUserExperience
+Issues: None
+2015-12-09 18:33:48,393 export.safeExport INFO     Questionnaire MultiUserExperience updated - 2 new entries received.
+2015-12-09 18:33:48,394 export.safeWrite INFO     Writing new entries from MultiUserExperience to active_data/MultiUserExperience_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:48,404 export.safeWrite INFO     Questionnaire MultiUserExperience update finished - 2 new entries recoded successfully.
+2015-12-09 18:33:48,405 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/Vivid ......
+2015-12-09 18:33:48,411 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:48,462 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Vivid
+Issues: None
+2015-12-09 18:33:48,462 export.safeExport INFO     No new entries found in Vivid
+2015-12-09 18:33:48,462 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/CC ......
+2015-12-09 18:33:48,466 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:48,523 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CC
+Issues: None
+2015-12-09 18:33:48,524 export.safeExport INFO     Questionnaire CC updated - 17 new entries received.
+2015-12-09 18:33:48,524 export.safeWrite INFO     Writing new entries from CC to active_data/CC_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:48,542 export.safeWrite INFO     Questionnaire CC update finished - 17 new entries recoded successfully.
+2015-12-09 18:33:48,542 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/BBSIQ ......
+2015-12-09 18:33:48,544 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:48,602 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/BBSIQ
+Issues: None
+2015-12-09 18:33:48,605 export.safeExport INFO     Questionnaire BBSIQ updated - 25 new entries received.
+2015-12-09 18:33:48,606 export.safeWrite INFO     Writing new entries from BBSIQ to active_data/BBSIQ_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:48,780 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = BBSIQ, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:48,783 export.safeWrite INFO     Questionnaire BBSIQ update finished - 25 new entries recoded successfully.
+2015-12-09 18:33:48,784 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DASS21_DS ......
+2015-12-09 18:33:48,786 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:48,821 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_DS
+Issues: None
+2015-12-09 18:33:48,823 export.safeExport INFO     Questionnaire DASS21_DS updated - 25 new entries received.
+2015-12-09 18:33:48,823 export.safeWrite INFO     Writing new entries from DASS21_DS to active_data/DASS21_DS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:48,862 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DASS21_DS, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:48,862 export.safeWrite INFO     Questionnaire DASS21_DS update finished - 25 new entries recoded successfully.
+2015-12-09 18:33:48,864 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/QOL ......
+2015-12-09 18:33:48,867 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:48,903 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/QOL
+Issues: None
+2015-12-09 18:33:48,905 export.safeExport INFO     Questionnaire QOL updated - 28 new entries received.
+2015-12-09 18:33:48,906 export.safeWrite INFO     Writing new entries from QOL to active_data/QOL_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:48,981 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = QOL, Entry ID: 28, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:48,983 export.safeWrite INFO     Questionnaire QOL update finished - 28 new entries recoded successfully.
+2015-12-09 18:33:48,986 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/OA ......
+2015-12-09 18:33:48,989 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,121 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/OA
+Issues: None
+2015-12-09 18:33:49,122 export.safeExport INFO     Questionnaire OA updated - 49 new entries received.
+2015-12-09 18:33:49,123 export.safeWrite INFO     Writing new entries from OA to active_data/OA_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:49,191 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,192 export.safeWrite INFO     Questionnaire OA update finished - 49 new entries recoded successfully.
+2015-12-09 18:33:49,193 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/RR ......
+2015-12-09 18:33:49,194 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,233 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/RR
+Issues: None
+2015-12-09 18:33:49,236 export.safeExport INFO     Questionnaire RR updated - 25 new entries received.
+2015-12-09 18:33:49,236 export.safeWrite INFO     Writing new entries from RR to active_data/RR_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:49,335 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = RR, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,336 export.safeWrite INFO     Questionnaire RR update finished - 25 new entries recoded successfully.
+2015-12-09 18:33:49,338 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ImpactAnxiousImagery ......
+2015-12-09 18:33:49,339 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,374 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImpactAnxiousImagery
+Issues: None
+2015-12-09 18:33:49,376 export.safeExport INFO     Questionnaire ImpactAnxiousImagery updated - 36 new entries received.
+2015-12-09 18:33:49,377 export.safeWrite INFO     Writing new entries from ImpactAnxiousImagery to active_data/ImpactAnxiousImagery_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:49,416 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery update finished - 36 new entries recoded successfully.
+2015-12-09 18:33:49,417 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/SUDS ......
+2015-12-09 18:33:49,419 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,455 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/SUDS
+Issues: None
+2015-12-09 18:33:49,456 export.safeExport INFO     Questionnaire SUDS updated - 43 new entries received.
+2015-12-09 18:33:49,456 export.safeWrite INFO     Writing new entries from SUDS to active_data/SUDS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:49,491 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = SUDS, Entry ID: 43, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,492 export.safeWrite INFO     Questionnaire SUDS update finished - 43 new entries recoded successfully.
+2015-12-09 18:33:49,493 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/PilotUserExperience ......
+2015-12-09 18:33:49,494 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,530 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/PilotUserExperience
+Issues: None
+2015-12-09 18:33:49,531 export.safeExport INFO     No new entries found in PilotUserExperience
+2015-12-09 18:33:49,531 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ReRu ......
+2015-12-09 18:33:49,532 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,561 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Issues: None
+2015-12-09 18:33:49,562 export.safeExport INFO     No new entries found in ReRu
+2015-12-09 18:33:49,562 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/AnxietyTriggers ......
+2015-12-09 18:33:49,564 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,598 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/AnxietyTriggers
+Issues: None
+2015-12-09 18:33:49,599 export.safeExport INFO     Questionnaire AnxietyTriggers updated - 21 new entries received.
+2015-12-09 18:33:49,599 export.safeWrite INFO     Writing new entries from AnxietyTriggers to active_data/AnxietyTriggers_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:49,634 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = AnxietyTriggers, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,636 export.safeWrite INFO     Questionnaire AnxietyTriggers update finished - 21 new entries recoded successfully.
+2015-12-09 18:33:49,637 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DD ......
+2015-12-09 18:33:49,639 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,673 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD
+Issues: None
+2015-12-09 18:33:49,675 export.safeExport INFO     Questionnaire DD updated - 21 new entries received.
+2015-12-09 18:33:49,675 export.safeWrite INFO     Writing new entries from DD to active_data/DD_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:49,730 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DD, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,732 export.safeWrite INFO     Questionnaire DD update finished - 21 new entries recoded successfully.
+2015-12-09 18:33:49,732 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/FollowUp_ChangeInTreatment ......
+2015-12-09 18:33:49,734 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,767 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/FollowUp_ChangeInTreatment
+Issues: None
+2015-12-09 18:33:49,768 export.safeExport INFO     No new entries found in FollowUp_ChangeInTreatment
+2015-12-09 18:33:49,768 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/Credibility ......
+2015-12-09 18:33:49,770 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,800 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Issues: None
+2015-12-09 18:33:49,801 export.safeExport INFO     Questionnaire Credibility updated - 21 new entries received.
+2015-12-09 18:33:49,801 export.safeWrite INFO     Writing new entries from Credibility to active_data/Credibility_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:49,821 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = Credibility, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,822 export.safeWrite INFO     Questionnaire Credibility update finished - 21 new entries recoded successfully.
+2015-12-09 18:33:49,823 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/MentalHealthHxTx ......
+2015-12-09 18:33:49,825 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:49,915 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MentalHealthHxTx
+Issues: None
+2015-12-09 18:33:49,917 export.safeExport INFO     Questionnaire MentalHealthHxTx updated - 24 new entries received.
+2015-12-09 18:33:49,917 export.safeWrite INFO     Writing new entries from MentalHealthHxTx to active_data/MentalHealthHxTx_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:50,044 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = MentalHealthHxTx, Entry ID: 24, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:50,046 export.safeWrite INFO     Questionnaire MentalHealthHxTx update finished - 24 new entries recoded successfully.
+2015-12-09 18:33:50,046 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ImageryPrime ......
+2015-12-09 18:33:50,048 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:50,085 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImageryPrime
+Issues: None
+2015-12-09 18:33:50,087 export.safeExport INFO     Questionnaire ImageryPrime updated - 36 new entries received.
+2015-12-09 18:33:50,087 export.safeWrite INFO     Writing new entries from ImageryPrime to active_data/ImageryPrime_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:50,128 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = ImageryPrime, Entry ID: 36, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:50,130 export.safeWrite INFO     Questionnaire ImageryPrime update finished - 36 new entries recoded successfully.
+2015-12-09 18:33:50,130 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ReasonsForEnding ......
+2015-12-09 18:33:50,132 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:50,199 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReasonsForEnding
+Issues: None
+2015-12-09 18:33:50,199 export.safeExport INFO     Questionnaire ReasonsForEnding updated - 3 new entries received.
+2015-12-09 18:33:50,200 export.safeWrite INFO     Writing new entries from ReasonsForEnding to active_data/ReasonsForEnding_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:50,211 export.safeWrite INFO     Questionnaire ReasonsForEnding update finished - 3 new entries recoded successfully.
+2015-12-09 18:33:50,211 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/StateAnxietyPost ......
+2015-12-09 18:33:50,213 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:50,247 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Issues: None
+2015-12-09 18:33:50,248 export.safeExport INFO     No new entries found in StateAnxietyPost
+2015-12-09 18:33:50,248 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/Demographic ......
+2015-12-09 18:33:50,249 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:50,288 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Demographic
+Issues: None
+2015-12-09 18:33:50,289 export.safeExport INFO     Questionnaire Demographic updated - 21 new entries received.
+2015-12-09 18:33:50,289 export.safeWrite INFO     Writing new entries from Demographic to active_data/Demographic_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:50,331 export.safeWrite INFO     Questionnaire Demographic update finished - 21 new entries recoded successfully.
+2015-12-09 18:33:50,331 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/CIHS ......
+2015-12-09 18:33:50,333 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:50,368 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Issues: None
+2015-12-09 18:33:50,369 export.safeExport INFO     Questionnaire CIHS updated - 2 new entries received.
+2015-12-09 18:33:50,369 export.safeWrite INFO     Writing new entries from CIHS to active_data/CIHS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:50,371 export.safeWrite INFO     Questionnaire CIHS update finished - 2 new entries recoded successfully.
+2015-12-09 18:33:50,371 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DASS21_AS ......
+2015-12-09 18:33:50,373 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:50,474 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_AS
+Issues: None
+2015-12-09 18:33:50,474 export.safeExport INFO     Questionnaire DASS21_AS updated - 21 new entries received.
+2015-12-09 18:33:50,475 export.safeWrite INFO     Writing new entries from DASS21_AS to active_data/DASS21_AS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:50,506 export.safeWrite INFO     Questionnaire DASS21_AS update finished - 21 new entries recoded successfully.
+2015-12-09 18:33:50,508 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DD_FU ......
+2015-12-09 18:33:50,510 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:33:50,543 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD_FU
+Issues: None
+2015-12-09 18:33:50,544 export.safeExport INFO     Questionnaire DD_FU updated - 5 new entries received.
+2015-12-09 18:33:50,544 export.safeWrite INFO     Writing new entries from DD_FU to active_data/DD_FU_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:33:50,555 export.safeWrite INFO     Questionnaire DD_FU update finished - 5 new entries recoded successfully.
+2015-12-09 18:33:50,558 export.safeExport INFO     Database update finished: 19 questionnaires' data updated.
+2015-12-09 18:34:31,448 export          INFO     Hi PACT Lab, this is faithful android Martin from Laura's server. Everything is alright here, and seems to be
+     a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
+     take too long.
+2015-12-09 18:34:31,449 export          INFO      (Martin is out for hunting data......) 
+2015-12-09 18:34:31,449 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export ......
+2015-12-09 18:34:31,461 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:31,537 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export
+Issues: None
+2015-12-09 18:34:31,538 export          INFO     Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
+     I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin
+2015-12-09 18:34:31,538 export.safeExport INFO     Database update in progress......
+2015-12-09 18:34:31,538 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/StateAnxiety ......
+2015-12-09 18:34:31,540 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:31,567 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxiety
+Issues: None
+2015-12-09 18:34:31,567 export.safeExport INFO     No new entries found in StateAnxiety
+2015-12-09 18:34:31,567 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/AUDIT ......
+2015-12-09 18:34:31,569 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:31,608 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/AUDIT
+Issues: None
+2015-12-09 18:34:31,609 export.safeExport INFO     No new entries found in AUDIT
+2015-12-09 18:34:31,609 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/MultiUserExperience ......
+2015-12-09 18:34:31,612 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:31,644 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MultiUserExperience
+Issues: None
+2015-12-09 18:34:31,644 export.safeExport INFO     Questionnaire MultiUserExperience updated - 2 new entries received.
+2015-12-09 18:34:31,645 export.safeWrite INFO     Writing new entries from MultiUserExperience to active_data/MultiUserExperience_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:31,650 export.safeWrite INFO     Questionnaire MultiUserExperience update finished - 2 new entries recoded successfully.
+2015-12-09 18:34:31,651 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/Vivid ......
+2015-12-09 18:34:31,652 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:31,689 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Vivid
+Issues: None
+2015-12-09 18:34:31,689 export.safeExport INFO     No new entries found in Vivid
+2015-12-09 18:34:31,689 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/CC ......
+2015-12-09 18:34:31,691 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:31,719 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CC
+Issues: None
+2015-12-09 18:34:31,720 export.safeExport INFO     Questionnaire CC updated - 17 new entries received.
+2015-12-09 18:34:31,720 export.safeWrite INFO     Writing new entries from CC to active_data/CC_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:31,732 export.safeWrite INFO     Questionnaire CC update finished - 17 new entries recoded successfully.
+2015-12-09 18:34:31,732 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/BBSIQ ......
+2015-12-09 18:34:31,733 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:31,770 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/BBSIQ
+Issues: None
+2015-12-09 18:34:31,773 export.safeExport INFO     Questionnaire BBSIQ updated - 25 new entries received.
+2015-12-09 18:34:31,773 export.safeWrite INFO     Writing new entries from BBSIQ to active_data/BBSIQ_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:31,916 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = BBSIQ, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:31,920 export.safeWrite INFO     Questionnaire BBSIQ update finished - 25 new entries recoded successfully.
+2015-12-09 18:34:31,921 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DASS21_DS ......
+2015-12-09 18:34:31,922 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:31,958 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_DS
+Issues: None
+2015-12-09 18:34:31,961 export.safeExport INFO     Questionnaire DASS21_DS updated - 25 new entries received.
+2015-12-09 18:34:31,962 export.safeWrite INFO     Writing new entries from DASS21_DS to active_data/DASS21_DS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:31,997 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DASS21_DS, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:31,998 export.safeWrite INFO     Questionnaire DASS21_DS update finished - 25 new entries recoded successfully.
+2015-12-09 18:34:31,998 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/QOL ......
+2015-12-09 18:34:32,000 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,033 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/QOL
+Issues: None
+2015-12-09 18:34:32,035 export.safeExport INFO     Questionnaire QOL updated - 28 new entries received.
+2015-12-09 18:34:32,035 export.safeWrite INFO     Writing new entries from QOL to active_data/QOL_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:32,112 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = QOL, Entry ID: 28, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,115 export.safeWrite INFO     Questionnaire QOL update finished - 28 new entries recoded successfully.
+2015-12-09 18:34:32,115 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/OA ......
+2015-12-09 18:34:32,117 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,228 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/OA
+Issues: None
+2015-12-09 18:34:32,230 export.safeExport INFO     Questionnaire OA updated - 49 new entries received.
+2015-12-09 18:34:32,230 export.safeWrite INFO     Writing new entries from OA to active_data/OA_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:32,296 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,296 export.safeWrite INFO     Questionnaire OA update finished - 49 new entries recoded successfully.
+2015-12-09 18:34:32,297 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/RR ......
+2015-12-09 18:34:32,299 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,334 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/RR
+Issues: None
+2015-12-09 18:34:32,336 export.safeExport INFO     Questionnaire RR updated - 25 new entries received.
+2015-12-09 18:34:32,337 export.safeWrite INFO     Writing new entries from RR to active_data/RR_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:32,436 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = RR, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,438 export.safeWrite INFO     Questionnaire RR update finished - 25 new entries recoded successfully.
+2015-12-09 18:34:32,439 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ImpactAnxiousImagery ......
+2015-12-09 18:34:32,441 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,476 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImpactAnxiousImagery
+Issues: None
+2015-12-09 18:34:32,477 export.safeExport INFO     Questionnaire ImpactAnxiousImagery updated - 36 new entries received.
+2015-12-09 18:34:32,477 export.safeWrite INFO     Writing new entries from ImpactAnxiousImagery to active_data/ImpactAnxiousImagery_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:32,517 export.safeWrite INFO     Questionnaire ImpactAnxiousImagery update finished - 36 new entries recoded successfully.
+2015-12-09 18:34:32,518 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/SUDS ......
+2015-12-09 18:34:32,520 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,552 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/SUDS
+Issues: None
+2015-12-09 18:34:32,553 export.safeExport INFO     Questionnaire SUDS updated - 43 new entries received.
+2015-12-09 18:34:32,554 export.safeWrite INFO     Writing new entries from SUDS to active_data/SUDS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:32,590 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = SUDS, Entry ID: 43, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,591 export.safeWrite INFO     Questionnaire SUDS update finished - 43 new entries recoded successfully.
+2015-12-09 18:34:32,592 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/PilotUserExperience ......
+2015-12-09 18:34:32,594 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,626 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/PilotUserExperience
+Issues: None
+2015-12-09 18:34:32,626 export.safeExport INFO     No new entries found in PilotUserExperience
+2015-12-09 18:34:32,627 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ReRu ......
+2015-12-09 18:34:32,628 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,658 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReRu
+Issues: None
+2015-12-09 18:34:32,659 export.safeExport INFO     No new entries found in ReRu
+2015-12-09 18:34:32,659 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/AnxietyTriggers ......
+2015-12-09 18:34:32,662 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,688 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/AnxietyTriggers
+Issues: None
+2015-12-09 18:34:32,688 export.safeExport INFO     Questionnaire AnxietyTriggers updated - 21 new entries received.
+2015-12-09 18:34:32,689 export.safeWrite INFO     Writing new entries from AnxietyTriggers to active_data/AnxietyTriggers_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:32,720 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = AnxietyTriggers, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,721 export.safeWrite INFO     Questionnaire AnxietyTriggers update finished - 21 new entries recoded successfully.
+2015-12-09 18:34:32,722 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DD ......
+2015-12-09 18:34:32,724 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,757 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD
+Issues: None
+2015-12-09 18:34:32,758 export.safeExport INFO     Questionnaire DD updated - 21 new entries received.
+2015-12-09 18:34:32,759 export.safeWrite INFO     Writing new entries from DD to active_data/DD_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:32,817 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DD, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,818 export.safeWrite INFO     Questionnaire DD update finished - 21 new entries recoded successfully.
+2015-12-09 18:34:32,819 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/FollowUp_ChangeInTreatment ......
+2015-12-09 18:34:32,820 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,852 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/FollowUp_ChangeInTreatment
+Issues: None
+2015-12-09 18:34:32,853 export.safeExport INFO     No new entries found in FollowUp_ChangeInTreatment
+2015-12-09 18:34:32,853 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/Credibility ......
+2015-12-09 18:34:32,855 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:32,884 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Credibility
+Issues: None
+2015-12-09 18:34:32,885 export.safeExport INFO     Questionnaire Credibility updated - 21 new entries received.
+2015-12-09 18:34:32,886 export.safeWrite INFO     Writing new entries from Credibility to active_data/Credibility_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:32,906 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = Credibility, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,906 export.safeWrite INFO     Questionnaire Credibility update finished - 21 new entries recoded successfully.
+2015-12-09 18:34:32,907 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/MentalHealthHxTx ......
+2015-12-09 18:34:32,910 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:33,000 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/MentalHealthHxTx
+Issues: None
+2015-12-09 18:34:33,002 export.safeExport INFO     Questionnaire MentalHealthHxTx updated - 24 new entries received.
+2015-12-09 18:34:33,003 export.safeWrite INFO     Writing new entries from MentalHealthHxTx to active_data/MentalHealthHxTx_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:33,120 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = MentalHealthHxTx, Entry ID: 24, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:33,122 export.safeWrite INFO     Questionnaire MentalHealthHxTx update finished - 24 new entries recoded successfully.
+2015-12-09 18:34:33,122 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ImageryPrime ......
+2015-12-09 18:34:33,124 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:33,161 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ImageryPrime
+Issues: None
+2015-12-09 18:34:33,163 export.safeExport INFO     Questionnaire ImageryPrime updated - 36 new entries received.
+2015-12-09 18:34:33,163 export.safeWrite INFO     Writing new entries from ImageryPrime to active_data/ImageryPrime_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:33,216 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = ImageryPrime, Entry ID: 36, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:33,217 export.safeWrite INFO     Questionnaire ImageryPrime update finished - 36 new entries recoded successfully.
+2015-12-09 18:34:33,218 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/ReasonsForEnding ......
+2015-12-09 18:34:33,220 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:33,256 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/ReasonsForEnding
+Issues: None
+2015-12-09 18:34:33,257 export.safeExport INFO     Questionnaire ReasonsForEnding updated - 3 new entries received.
+2015-12-09 18:34:33,257 export.safeWrite INFO     Writing new entries from ReasonsForEnding to active_data/ReasonsForEnding_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:33,269 export.safeWrite INFO     Questionnaire ReasonsForEnding update finished - 3 new entries recoded successfully.
+2015-12-09 18:34:33,270 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/StateAnxietyPost ......
+2015-12-09 18:34:33,272 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:33,304 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/StateAnxietyPost
+Issues: None
+2015-12-09 18:34:33,304 export.safeExport INFO     No new entries found in StateAnxietyPost
+2015-12-09 18:34:33,305 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/Demographic ......
+2015-12-09 18:34:33,306 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:33,337 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/Demographic
+Issues: None
+2015-12-09 18:34:33,338 export.safeExport INFO     Questionnaire Demographic updated - 21 new entries received.
+2015-12-09 18:34:33,338 export.safeWrite INFO     Writing new entries from Demographic to active_data/Demographic_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:33,378 export.safeWrite INFO     Questionnaire Demographic update finished - 21 new entries recoded successfully.
+2015-12-09 18:34:33,379 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/CIHS ......
+2015-12-09 18:34:33,380 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:33,414 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/CIHS
+Issues: None
+2015-12-09 18:34:33,415 export.safeExport INFO     Questionnaire CIHS updated - 2 new entries received.
+2015-12-09 18:34:33,415 export.safeWrite INFO     Writing new entries from CIHS to active_data/CIHS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:33,417 export.safeWrite INFO     Questionnaire CIHS update finished - 2 new entries recoded successfully.
+2015-12-09 18:34:33,417 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DASS21_AS ......
+2015-12-09 18:34:33,419 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:33,515 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DASS21_AS
+Issues: None
+2015-12-09 18:34:33,516 export.safeExport INFO     Questionnaire DASS21_AS updated - 21 new entries received.
+2015-12-09 18:34:33,516 export.safeWrite INFO     Writing new entries from DASS21_AS to active_data/DASS21_AS_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:33,546 export.safeWrite INFO     Questionnaire DASS21_AS update finished - 21 new entries recoded successfully.
+2015-12-09 18:34:33,547 export.safeRequest INFO     Trying to Request data for http://localhost:9000/api/export/DD_FU ......
+2015-12-09 18:34:33,549 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): localhost
+2015-12-09 18:34:33,585 export.safeRequest INFO     Data request successfully, see below for request detail:
+http://localhost:9000/api/export/DD_FU
+Issues: None
+2015-12-09 18:34:33,586 export.safeExport INFO     Questionnaire DD_FU updated - 5 new entries received.
+2015-12-09 18:34:33,586 export.safeWrite INFO     Writing new entries from DD_FU to active_data/DD_FU_Dec_09_2015.csv: writing in progress......
+2015-12-09 18:34:33,598 export.safeWrite INFO     Questionnaire DD_FU update finished - 5 new entries recoded successfully.
+2015-12-09 18:34:33,601 export.safeExport INFO     Database update finished: 19 questionnaires' data updated.
