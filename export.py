@@ -43,25 +43,18 @@ def decrypt(crypto, id, scaleName, field):
     except (UnicodeDecodeError, binascii.Error):
         log.error('Decode failed, item skipped. Questionnaire = %s, Entry ID: %s, Field: %s See information:', scaleName, id, field, exc_info = 1)
 
-# ------------------------------------------#
-# DF: Should likely write our own method that will make the request and return
-# a json response, since things can go wrong here in lots of ways and we want
-# to try and catch all of them. In this way we can handle exceptions, emailing
-# us in the event of an error. THIS CODE IS NOT COMPLETE. I'm just roughly
-# trying to show what it should do.
+# Request data from the MindTrails server, and report on any errors.
 def safeRequest(url):
     log = logging.getLogger('export.safeRequest')
     log.info("Trying to Request data for %s ......", url)
     try:
-        # DF: Make request, and check the status code of the response.
         response = requests.get(url, auth=(config["USER"],config["PASS"]))
         m = response.raise_for_status()
         log.info("Data request successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data request
         return response.json()
-    except requests.exceptions.RequestException:  # DF: We may loose some detail here, better to check all exceptions.
+    except requests.exceptions.RequestException:
         log.critical("Data request failed, fatal, emailed admin. see below for error information:\n", exc_info = 1)
 
-     # DF: Callers should handle the exception and continue processing other questionnaires if possible.
 
 # SafeDelete function, use this to delete data entries and log down system message
 def safeDelete(url):
@@ -139,7 +132,6 @@ def safeExport(data):
     s = 0
     log.info("Database update in progress......")
     for scale in data:
-        #DF: Should write something to a log file in here somewhere recording # of records exported for each
         quest = safeRequest(config["SERVER"]+'/'+scale['name'])
         if quest != None:
             if scale['size'] != 0:
@@ -166,7 +158,7 @@ def export():
      a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
      take too long.""")
     log.info(" (Martin is out for hunting data......) ")
-    oneShot = safeRequest(config["SERVER"])  # DF: Use the method above instead of the direct call.
+    oneShot = safeRequest(config["SERVER"])
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
