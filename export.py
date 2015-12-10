@@ -1,7 +1,3 @@
-# Install the package is needed:
-# DF: (You can't really do that from here, I don't think, but you could abort the app
-#     with a thoughtful message ... like "please install 'requests' with pip install requests' and
-#     try running again.")
 # ------------------------------------------#
 # Import the Requests
 
@@ -21,22 +17,14 @@ import yaml
 # Set up logging config files
 logging.config.dictConfig(yaml.load(open('log.config', 'r')))
 
+# Load the Configruration file
+if __name__ == "__main__":
+    config = {}
+    execfile("export.config", config)
 
-# Set up the server link:
-# Use this link for testing phrase 
-SERVER='http://localhost:9000/api/export'
-USER='daniel.h.funk@gmail.com'
-PASS='ereiamjh'
-PRIVATE_FILE='private_key.pem'
-
-# Use this link for actual phrase
-# SERVER = 'http://localhost:9000/admin/export'
-
-# Get the date
-DATE_FORMAT = "%b_%d_%Y"
 
 # Decrypting
-with open(PRIVATE_FILE) as privatefile:
+with open(config["PRIVATE_FILE"]) as privatefile:
     keydata = privatefile.read()
 priv_key = rsa.PrivateKey.load_pkcs1(keydata)
 def decrypt(crypto, id, scaleName, field):
@@ -66,7 +54,7 @@ def safeRequest(url):
     log.info("Trying to Request data for %s ......", url)
     try:
         # DF: Make request, and check the status code of the response.
-        response = requests.get(url, auth=(USER,PASS))
+        response = requests.get(url, auth=(config["USER"],config["PASS"]))
         m = response.raise_for_status()
         log.info("Data request successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data request
         return response.json()
@@ -80,7 +68,7 @@ def safeDelete(url):
     log = logging.getLogger('export.safeDelete')
     try:
         # DH: Make request, and check the status code of the response.
-        delete = requests.delete(url, auth=(USER, PASS))
+        delete = requests.delete(url, auth=(config["USER"],config["PASS"]))
         m = delete.raise_for_status()
         message = "Data delete successfully, see below for deleting detail:\n"
         log.info(message + url + "\n" + "Error: " + str(m)) # DH: Log successful data delete request
@@ -152,14 +140,14 @@ def safeExport(data):
     log.info("Database update in progress......")
     for scale in data:
         #DF: Should write something to a log file in here somewhere recording # of records exported for each
-        quest = safeRequest(SERVER+'/'+scale['name'])
+        quest = safeRequest(config["SERVER"]+'/'+scale['name'])
         if quest != None:
             if scale['size'] != 0:
                 ks = list(quest[0].keys())
                 ks.sort()
                 log.info("Questionnaire %s updated - %s new entries received.", str(scale['name']), str(scale['size']))
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
-                date_file = 'active_data/'+ scale['name'] + '_' + time.strftime(DATE_FORMAT) +'.csv'
+                date_file = 'active_data/'+ scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.csv'
                 createFile(date_file, ks)  # Create a new data file with Date in name if not already exists
                 safeWrite(quest, date_file, ks, str(scale['name'])) # Safely write the whoe questionnaire into the data file
                 s += 1
@@ -178,7 +166,7 @@ def export():
      a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
      take too long.""")
     log.info(" (Martin is out for hunting data......) ")
-    oneShot = safeRequest(SERVER)  # DF: Use the method above instead of the direct call.
+    oneShot = safeRequest(config["SERVER"])  # DF: Use the method above instead of the direct call.
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")

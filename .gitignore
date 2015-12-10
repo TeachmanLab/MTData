@@ -3,3 +3,4 @@ venv/*
 .idea
 logs
 .DS_Store
+export.config

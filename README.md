@@ -11,7 +11,13 @@ Create a virtual environment with python 2.7, and install dependencies
     $ virtualenv venv           
     $ source venv/bin/activate
     $ pip install -r requirements.txt
+    $ cp export.config.example export.config
 ```
+
+## Configuration
+
+Copy the export.config.example file to export.config, and edit the settings so they
+match your configuration needs. 
 
 
 ## Basic Overview

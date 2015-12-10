@@ -1,0 +1,12 @@
+# Set up the server link:
+# Use this link for testing phrase
+SERVER='http://localhost:9000/api/export'
+USER='daniel.h.funk@gmail.com'
+PASS='ereiamjh'
+PRIVATE_FILE='private_key.pem'
+
+# Use this link for actual phrase
+# SERVER = 'http://localhost:9000/admin/export'
+
+# Get the date
+DATE_FORMAT = "%b_%d_%Y"
