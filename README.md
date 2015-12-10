@@ -33,7 +33,15 @@ D\ Close file, Log down the action and output to log.txt. If there is an error, 
 
 What is done:
 
-Read and write data
+    Read and write data
+
+    Error alert
+
+    Error logs
+
+    Normal running logs
+
+
 
 What needed to be done:
 
@@ -42,5 +50,12 @@ What needed to be done:
 2\ Save the logs
 
 3\ Error alert and skip
+
+
+Note to myself:
+    LOG_CFG=my_logging.yaml python my_server.py
+
+
+
 
 
