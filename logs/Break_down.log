@@ -492,3 +492,267 @@ Traceback (most recent call last):
   File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
     return mod.open(file, flag, mode)
 error: (2, 'No such file or directory')
+
+2015-12-11 17:20:56,829:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:20:56,829 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 98, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+
+2015-12-11 17:21:03,552:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:21:03,552 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 98, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+
+2015-12-11 17:31:20,638:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:31:20,638 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+
+2015-12-11 17:31:23,552:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:31:23,552 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+
+2015-12-11 17:31:35,819:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:31:35,819 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+
+2015-12-11 17:31:37,010:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:31:37,010 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+
+2015-12-11 17:31:42,229:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:31:42,229 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+
+2015-12-11 17:31:43,610:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:31:43,610 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+
+2015-12-11 17:41:08,172:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:41:08,172 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+
+2015-12-11 17:41:11,206:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:41:11,206 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+
+2015-12-11 17:45:59,890:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:45:59,890 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+
+2015-12-11 17:46:02,196:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 17:46:02,196 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2

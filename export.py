@@ -19,6 +19,11 @@ import shelve
 
 # ------------------------------------------#
 
+
+# Turn on the Delete Mode here:
+
+DELETE_MODE = False
+
 # Set up logging config files
 logging.config.dictConfig(yaml.load(open('log.config', 'r')))
 
@@ -67,8 +72,10 @@ def safeKeep(scaleName, quest, file):
         db[scaleName + '_' + stamp] = quest
         log.info(scaleName + ' data successfully backup as raw data.')
         db.close()
+        return True
     except:
         log.critical(scaleName + ' data backup failed, immediate attention needed.\n', exc_info = 1)
+        return False
 
 # DF: Should likely write our own method that will make the request and return
 # a json response, since things can go wrong here in lots of ways and we want
@@ -103,13 +110,12 @@ def safeDelete(url):
         return False
 
 
-
 # SafeWrite function, use this to write questionnaire data into csv files
 def safeWrite(quest, date_file, raw_file, ks, scaleName, deleteable):
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
     log = logging.getLogger('export.safeWrite')
     log.info("Writing new entries from %s to %s: writing in progress......", scaleName, date_file)
-    safeKeep(scaleName, quest, raw_file)
+    backup = safeKeep(scaleName, quest, raw_file)
     with open(date_file, 'a') as datacsv:
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
@@ -131,8 +137,9 @@ def safeWrite(quest, date_file, raw_file, ks, scaleName, deleteable):
                 dataWriter.writerow(entry)
                 t += 1
                 log.debug("%s entries wrote successfully.", str(t))
-#                if deleteable:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
-#                    if safeDelete(SERVER + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
+                if deleteable and backup and DELETE_MODE:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
+                    if safeDelete(SERVER + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
+                else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Deleteable: %s, Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(deleteable), str(backup), str(DELETE_MODE))
             except csv.Error:
                 error += 1
                 log.critical("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, entry['id'], exc_info = 1)
@@ -174,7 +181,7 @@ def safeExport(data):
                 date_file = 'active_data/'+ scale['name'] + '_' + time.strftime(DATE_FORMAT) +'.csv'
                 raw_file = 'raw_data/' + scale['name'] + '_' + time.strftime(DATE_FORMAT) +'.raw'
                 createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
-                safeWrite(quest, date_file, raw_file, ks, str(scale['name'], scale['deleteable'])) # Safely write the whoe questionnaire into the data file
+                safeWrite(quest, date_file, raw_file, ks, str(scale['name']), scale['deleteable']) # Safely write the whoe questionnaire into the data file
                 s += 1
             else: log.info("No new entries found in %s", str(scale['name']))
         else:
@@ -199,6 +206,7 @@ def export():
     else:
         log.warning("""This is weired... It seems that there is nothing out there or I am blocked from MindTrails. You might already get an email from me
      reporting some network issues. Be alerted, stay tuned.""")
+    log.info("I am tired and I am going back to Laura's server for a rest. See you later!")
 
 
 export()

@@ -76,6 +76,10 @@ Break_down situation includes:
 
     C\ Data writing failure. Imply a breakdown in csv module and need immediate attention.
 
+Basic documentation about logging could be found here:
+
+https://docs.python.org/2/library/logging.html
+
 
 
 ## Decrypting
@@ -99,7 +103,15 @@ Break_down situation includes:
 
     HEAD UP: Creating new raw data files will not be logged into log files, but creating new active data files will.
 
+Basic documentation about shelve:
 
+https://docs.python.org/2/library/shelve.html
+
+
+# Data deleting:
+
+    Just so you know, turn on Delete mode by setting constant DELETE_MODE to True. (Highly NOT recommended in testing
+    phrase.)
 
 What is done:
 
@@ -115,10 +127,10 @@ What is done:
 
     Save the raw data
 
+    Deleting the raw data - Done but not yet tested
+
+
 What needed to be done:
-
-
-    4\ Deleting the raw data - Done but not yet tested
 
     5\ Double check on the data collecting part
 
