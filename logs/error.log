@@ -702,3 +702,240 @@ Traceback (most recent call last):
   File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
     return binascii.a2b_base64(s)
 Error: Incorrect padding
+2015-12-11 17:20:48,199 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = BBSIQ, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:20:49,450 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DASS21_DS, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:20:50,640 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = QOL, Entry ID: 28, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:20:50,875 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:20:51,844 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = RR, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:20:54,747 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = SUDS, Entry ID: 43, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:20:55,373 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = AnxietyTriggers, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:20:55,934 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DD, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:20:56,531 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = Credibility, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:20:56,829 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 98, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+2015-12-11 17:21:03,552 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 98, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+2015-12-11 17:21:14,436 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = MentalHealthHxTx, Entry ID: 24, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:21:15,671 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = ImageryPrime, Entry ID: 36, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:31:20,309 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:31:20,638 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+2015-12-11 17:31:23,552 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+2015-12-11 17:31:35,463 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:31:35,819 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+2015-12-11 17:31:37,010 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+2015-12-11 17:31:41,910 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:31:42,229 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+2015-12-11 17:31:43,610 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+2015-12-11 17:41:07,813 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:41:08,172 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+2015-12-11 17:41:11,206 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+2015-12-11 17:45:59,559 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-11 17:45:59,890 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/1
+2015-12-11 17:46:02,196 export.safeDelete CRITICAL Data delete failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 100, in safeDelete
+    m = delete.raise_for_status()
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/models.py", line 837, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:9000/api/export/MentalHealthHxTx/2
+2015-12-11 17:52:46,395 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 53, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
