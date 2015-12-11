@@ -84,6 +84,23 @@ Break_down situation includes:
 
 
 
+## Backup system:
+
+    Data backup is done via shelve module.
+
+    A\ All new data package(quest within any oneShot) will be stored in
+    raw_data/[scaleName]_[Date].raw.db before they are decrypted and recorded into active_data/[scaleName]_[Date].csv.
+
+    B\ Raw data will be stored as Objects, and could be reversed into Objects via shelve.
+
+    C\ Keys for backup data are in form of [[scaleName] + '_' + TIME].
+
+    D\ Backup data files is consistent with active data file in name and will be created in a daily base.
+
+    HEAD UP: Creating new raw data files will not be logged into log files, but creating new active data files will.
+
+
+
 What is done:
 
     Read and write data
@@ -96,9 +113,10 @@ What is done:
 
     Added where to skip error
 
+    Save the raw data
+
 What needed to be done:
 
-    1\ Save the raw data
 
     4\ Deleting the raw data - Done but not yet tested
 
