@@ -65,6 +65,9 @@ Logging behaviors list below:
 
     E\ All information reach critical level will be stored in bread_down.log, and emails will be sent to admin meanwhile.
 
+    F\ All log files will rotate at midnight. Old log files will be added suffix with local date. Log files will be
+    rotating in a year long period(366 days).
+
 Break_down situation includes:
 
     A\ Data request failure. Imply a network breakdown.
