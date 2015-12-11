@@ -122,10 +122,10 @@ def safeWrite(quest, date_file, ks, scaleName):
                 log.debug("%s entries wrote successfully.", str(t))
             except csv.Error:
                 error += 1
-                log.error("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, entry['id'], exc_info = 1)
+                log.critical("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, entry['id'], exc_info = 1)
         log.info("Questionnaire %s update finished - %s new entries recoded successfully.", scaleName, str(t))
         if error > 0:
-            log.error("Questionnaire %s update error - %s new entries failed to recode.", scaleName, str(error))
+            log.critical("Questionnaire %s update error - %s new entries failed to recode.", scaleName, str(error))
 #           if scale['deleteable']:
 #             safeDelete(SERVER+'/'+scale['name']+'/'+str(entry['id'])) #[And then send back delete commend one by one]
 #             d += 1
