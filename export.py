@@ -15,6 +15,7 @@ import binascii
 import logging
 import logging.config
 import yaml
+import shelve
 
 # ------------------------------------------#
 
@@ -34,6 +35,7 @@ PRIVATE_FILE='private_key.pem'
 
 # Get the date
 DATE_FORMAT = "%b_%d_%Y"
+TIME_FORMAT = "%H_%M_%S"
 
 # Decrypting
 with open(PRIVATE_FILE) as privatefile:
@@ -56,6 +58,20 @@ def decrypt(crypto, id, scaleName, field):
         log.error('Decode failed, item skipped. Questionnaire = %s, Entry ID: %s, Field: %s See information:', scaleName, id, field, exc_info = 1)
 
 # ------------------------------------------#
+
+def safeKeep(scaleName, quest, file):
+    log = logging.getLogger('export.safeKeep')
+    stamp = time.strftime(TIME_FORMAT)
+    try:
+        db = shelve.open(file)
+        db[scaleName + '_' + stamp] = quest
+        log.debug('Data successfully backup as raw data')
+        db.close()
+    except:
+        log.critical(scaleName + ' data backup failed, immediate attention needed.\n', exc_info = 1)
+
+
+
 # DF: Should likely write our own method that will make the request and return
 # a json response, since things can go wrong here in lots of ways and we want
 # to try and catch all of them. In this way we can handle exceptions, emailing
@@ -95,10 +111,11 @@ def safeDelete(url):
 
 
 # SafeWrite function, use this to write questionnaire data into csv files
-def safeWrite(quest, date_file, ks, scaleName):
+def safeWrite(quest, date_file, raw_file, ks, scaleName):
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
     log = logging.getLogger('export.safeWrite')
     log.info("Writing new entries from %s to %s: writing in progress......", scaleName, date_file)
+    safeKeep(scaleName, quest, raw_file)
     with open(date_file, 'a') as datacsv:
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
@@ -133,16 +150,17 @@ def safeWrite(quest, date_file, ks, scaleName):
 
 
 # Create data files with date as name:
-def createFile(date_file, ks):
+def createFile(file, ks):
     log = logging.getLogger('export.createFile')
-    if not os.path.exists(date_file): # Create new file if file doesn't exist
-                with open(date_file, 'w') as datacsv:
-                    headerwriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
-                    try:
-                        headerwriter.writeheader()
-                        log.info("New data file created: %s", date_file)
-                    except csv.Error:
-                        log.critcal("Failed to create new data files, fatal, emailed admin.", exc_info=1)
+    if not os.path.exists(file): # Create new file if file doesn't exist
+        with open(file, 'w') as datacsv:
+            headerwriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
+            try:
+                headerwriter.writeheader()
+                log.info("New data file created: %s", file)
+            except csv.Error:
+                log.critcal("Failed to create new data files, fatal, emailed admin.", exc_info=1)
+
 
 # Main function, use this to read and save questionnaire data
 def safeExport(data):
@@ -160,8 +178,9 @@ def safeExport(data):
                 log.info("Questionnaire %s updated - %s new entries received.", str(scale['name']), str(scale['size']))
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
                 date_file = 'active_data/'+ scale['name'] + '_' + time.strftime(DATE_FORMAT) +'.csv'
-                createFile(date_file, ks)  # Create a new data file with Date in name if not already exists
-                safeWrite(quest, date_file, ks, str(scale['name'])) # Safely write the whoe questionnaire into the data file
+                raw_file = 'raw_data/' + scale['name'] + '_' + time.strftime(DATE_FORMAT) +'.raw'
+                createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
+                safeWrite(quest, date_file, raw_file, ks, str(scale['name'])) # Safely write the whoe questionnaire into the data file
                 s += 1
             else: log.info("No new entries found in %s", str(scale['name']))
         else:
