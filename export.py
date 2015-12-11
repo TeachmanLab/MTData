@@ -65,12 +65,10 @@ def safeKeep(scaleName, quest, file):
     try:
         db = shelve.open(file)
         db[scaleName + '_' + stamp] = quest
-        log.debug('Data successfully backup as raw data')
+        log.info(scaleName + ' data successfully backup as raw data.')
         db.close()
     except:
         log.critical(scaleName + ' data backup failed, immediate attention needed.\n', exc_info = 1)
-
-
 
 # DF: Should likely write our own method that will make the request and return
 # a json response, since things can go wrong here in lots of ways and we want

@@ -1,0 +1,314 @@
+2015-12-09 18:27:59,155 export.safeRequest CRITICAL Data request failed, fatal, emailed admin. see below for error information:
+Traceback (most recent call last):
+  File "export.py", line 76, in safeRequest
+    response = requests.get(url, auth=(USER,PASS))
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/api.py", line 69, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/sessions.py", line 468, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/sessions.py", line 576, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/adapters.py", line 423, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/export (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x10b4c36d0>: Failed to establish a new connection: [Errno 61] Connection refused',))
+2015-12-09 18:28:02,047 export          WARNING  This is weired... It seems that there is nothing out there or I am blocked from MindTrails. You might already get an email from me
+     reporting some network issues. Be alerted, stay tuned.
+2015-12-09 18:30:00,402 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = BBSIQ, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:00,503 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DASS21_DS, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:00,635 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = QOL, Entry ID: 28, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:00,947 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,112 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = RR, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,291 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = SUDS, Entry ID: 43, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,472 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = AnxietyTriggers, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,584 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DD, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,706 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = Credibility, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:01,968 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = MentalHealthHxTx, Entry ID: 24, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:30:02,061 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = ImageryPrime, Entry ID: 36, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 49, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:48,780 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = BBSIQ, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:48,862 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DASS21_DS, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:48,981 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = QOL, Entry ID: 28, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,191 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,335 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = RR, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,491 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = SUDS, Entry ID: 43, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,634 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = AnxietyTriggers, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,730 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DD, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:49,821 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = Credibility, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:50,044 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = MentalHealthHxTx, Entry ID: 24, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:33:50,128 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = ImageryPrime, Entry ID: 36, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 48, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:31,916 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = BBSIQ, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:31,997 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DASS21_DS, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,112 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = QOL, Entry ID: 28, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,296 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = OA, Entry ID: 49, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,436 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = RR, Entry ID: 25, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,590 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = SUDS, Entry ID: 43, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,720 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = AnxietyTriggers, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,817 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = DD, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:32,906 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = Credibility, Entry ID: 21, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:33,120 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = MentalHealthHxTx, Entry ID: 24, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding
+2015-12-09 18:34:33,216 export.decrypt  ERROR    Decode failed, item skipped. Questionnaire = ImageryPrime, Entry ID: 36, Field: participantRSA See information:
+Traceback (most recent call last):
+  File "export.py", line 47, in decrypt
+    value = crypto.decode('base64')
+  File "/Users/Diheng/PIExporter/venv/lib/python2.7/encodings/base64_codec.py", line 42, in base64_decode
+    output = base64.decodestring(input)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/base64.py", line 321, in decodestring
+    return binascii.a2b_base64(s)
+Error: Incorrect padding

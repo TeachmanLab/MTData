@@ -1,11 +1,11 @@
 
-2015-12-09 18:27:59,155:
+2015-12-11 16:18:55,020:
 
 Hello,
 
 Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
 
-2015-12-09 18:27:59,155 export.safeRequest CRITICAL Data request failed, fatal, emailed admin. see below for error information:
+2015-12-11 16:18:55,020 export.safeKeep CRITICAL MultiUserExperience data backup failed, immediate attention needed.
 
 Hope that you are not sleeping now. Please check it up immediately!
 
@@ -15,16 +15,480 @@ Martin
 
 Exception Information:
 Traceback (most recent call last):
-  File "export.py", line 76, in safeRequest
-    response = requests.get(url, auth=(USER,PASS))
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/api.py", line 69, in get
-    return request('get', url, params=params, **kwargs)
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/api.py", line 50, in request
-    response = session.request(method=method, url=url, **kwargs)
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/sessions.py", line 468, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/sessions.py", line 576, in send
-    r = adapter.send(request, **kwargs)
-  File "/Users/Diheng/PIExporter/venv/lib/python2.7/site-packages/requests/adapters.py", line 423, in send
-    raise ConnectionError(e, request=request)
-ConnectionError: HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/export (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x10b4c36d0>: Failed to establish a new connection: [Errno 61] Connection refused',))
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:18:57,822:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:18:57,822 export.safeKeep CRITICAL CC data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:18:59,823:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:18:59,823 export.safeKeep CRITICAL BBSIQ data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:01,370:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:01,370 export.safeKeep CRITICAL DASS21_DS data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:02,662:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:02,662 export.safeKeep CRITICAL QOL data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:04,880:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:04,880 export.safeKeep CRITICAL OA data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:06,329:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:06,329 export.safeKeep CRITICAL RR data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:08,306:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:08,306 export.safeKeep CRITICAL ImpactAnxiousImagery data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:09,652:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:09,652 export.safeKeep CRITICAL SUDS data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:11,167:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:11,167 export.safeKeep CRITICAL AnxietyTriggers data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:12,845:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:12,845 export.safeKeep CRITICAL DD data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:14,201:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:14,201 export.safeKeep CRITICAL Credibility data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:16,030:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:16,030 export.safeKeep CRITICAL MentalHealthHxTx data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:17,883:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:17,883 export.safeKeep CRITICAL ImageryPrime data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:19,691:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:19,691 export.safeKeep CRITICAL ReasonsForEnding data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:21,072:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:21,072 export.safeKeep CRITICAL Demographic data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:22,459:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:22,459 export.safeKeep CRITICAL CIHS data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:24,223:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:24,223 export.safeKeep CRITICAL DASS21_AS data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
+
+2015-12-11 16:19:25,612:
+
+Hello,
+
+Sorry to tell you that it seems something is wrong on the MindTrails data collecting server, and below is the error message:
+
+2015-12-11 16:19:25,612 export.safeKeep CRITICAL DD_FU data backup failed, immediate attention needed.
+
+Hope that you are not sleeping now. Please check it up immediately!
+
+Your faithfully,
+Mindtrails Android
+Martin
+
+Exception Information:
+Traceback (most recent call last):
+  File "export.py", line 66, in safeKeep
+    db = shelve.open(file)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shelve.py", line 227, in __init__
+    Shelf.__init__(self, anydbm.open(filename, flag), protocol, writeback)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/anydbm.py", line 85, in open
+    return mod.open(file, flag, mode)
+error: (2, 'No such file or directory')
