@@ -93,23 +93,19 @@ def safeRequest(url):
 def safeDelete(url):
     log = logging.getLogger('export.safeDelete')
     try:
-        # DH: Make request, and check the status code of the response.
+        # DH: Make request, delete and check the status code of the response.
         delete = requests.delete(url, auth=(USER, PASS))
         m = delete.raise_for_status()
-        message = "Data delete successfully, see below for deleting detail:\n"
-        log.info(message + url + "\n" + "Error: " + str(m)) # DH: Log successful data delete request
-        print message + str(m)
+        log.debug("Data delete successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data delete
         return True
     except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
-        message = "Data delete failed, see below for error information:\n"
-        log.error(message + str(e), exc_info = 1)
-        log.critical(str(e), exc_info = 1)
-        print e # DF: Callers should handle the exception and continue processing other questionnaires if possible.
+        log.critical("Data delete failed, fatal, emailed admin. see below for error information:\n", exc_info = 1)
+        return False
 
 
 
 # SafeWrite function, use this to write questionnaire data into csv files
-def safeWrite(quest, date_file, raw_file, ks, scaleName):
+def safeWrite(quest, date_file, raw_file, ks, scaleName, deleteable):
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
     log = logging.getLogger('export.safeWrite')
     log.info("Writing new entries from %s to %s: writing in progress......", scaleName, date_file)
@@ -128,23 +124,23 @@ def safeWrite(quest, date_file, raw_file, ks, scaleName):
                     try:
                         entry[key] = value.encode('utf-8')
                         log.debug("Data successfully encoded.")
-                    except UnicodeEncodeError as e:
+                    except UnicodeEncodeError:
                         log.error("Data encode failed, data lost. Questionnaire: %s, Entry ID: %s, Field: %s", scaleName, entry['id'], key, exc_info = 1) # Should log error, entry ID and data field
                 else: entry[key] = ""
             try:
                 dataWriter.writerow(entry)
                 t += 1
                 log.debug("%s entries wrote successfully.", str(t))
+#                if deleteable:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
+#                    if safeDelete(SERVER + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
             except csv.Error:
                 error += 1
                 log.critical("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, entry['id'], exc_info = 1)
         log.info("Questionnaire %s update finished - %s new entries recoded successfully.", scaleName, str(t))
+        log.info("Questionnaire %s data cleaning finished - %s new entries successfully deleted on MindTrails.", scaleName, str(d))
         if error > 0:
             log.critical("Questionnaire %s update error - %s new entries failed to recode.", scaleName, str(error))
-#           if scale['deleteable']:
-#             safeDelete(SERVER+'/'+scale['name']+'/'+str(entry['id'])) #[And then send back delete commend one by one]
-#             d += 1
-#           log.info(message + str(d) + " entries deleted.")
+
 
 
 # Create data files with date as name:
@@ -178,7 +174,7 @@ def safeExport(data):
                 date_file = 'active_data/'+ scale['name'] + '_' + time.strftime(DATE_FORMAT) +'.csv'
                 raw_file = 'raw_data/' + scale['name'] + '_' + time.strftime(DATE_FORMAT) +'.raw'
                 createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
-                safeWrite(quest, date_file, raw_file, ks, str(scale['name'])) # Safely write the whoe questionnaire into the data file
+                safeWrite(quest, date_file, raw_file, ks, str(scale['name'], scale['deleteable'])) # Safely write the whoe questionnaire into the data file
                 s += 1
             else: log.info("No new entries found in %s", str(scale['name']))
         else:

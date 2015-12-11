@@ -122,6 +122,8 @@ What needed to be done:
 
     5\ Double check on the data collecting part
 
+    6\ Write a Recovery program to recover data from raw data files.
+
 
 Note to myself:
     LOG_CFG=my_logging.yaml python my_server.py
