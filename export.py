@@ -19,8 +19,9 @@ import shelve
 
 # ------------------------------------------#
 
-
-# Set up logging config files
+# Setting up files directories and logging config files
+if not os.path.exists("logs/"): # Can't find a better way to do this......
+    os.makedirs("logs/")
 logging.config.dictConfig(yaml.load(open('log.config', 'r')))
 
 
@@ -177,6 +178,18 @@ def safeExport(data):
      reporting some network issues. Be alerted, stay tuned.""")
     log.info("Database update finished: %s questionnaires' data updated.", str(s))
 
+def pathCheck():
+    log = logging.getLogger('export.pathCheck')
+    try:
+        if not os.path.exists("raw_data/"):
+            os.makedirs("raw_data/")
+            log.info("Successfully created raw_data folder.")
+        if not os.path.exists("active_data/"):
+            os.makedirs("active_data/")
+            log.info("Successfully created active_data folder.")
+    except:
+        log.critical("Failed to create data or log files, fatal, emailed admin.", exc_info=1)
+
 # ------------------------------------------#
 # This is the main module
 def export():
@@ -185,6 +198,7 @@ def export():
     log.info("""Hi PACT Lab, this is faithful android Martin from Laura\'s server. Everything is alright here, and seems to be
      a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
      take too long.""")
+    pathCheck() #Check storage path
     log.info(" (Martin is out for hunting data......) ")
     oneShot = safeRequest(config["SERVER"])  # DF: Use the method above instead of the direct call.
     if oneShot != None:
@@ -197,4 +211,6 @@ def export():
     log.info("I am tired and I am going back to Laura's server for a rest. See you later!")
 
 
+
+# Works here:
 export()

@@ -125,6 +125,10 @@ loggers:
     handlers: [console, dailyLog, errorLog, debugLog, emailNotify, sandyLog]
     propagate: false
 
+  export.pathCheck:
+    handlers: [console, dailyLog, errorLog, debugLog, emailNotify, sandyLog]
+    propagate: false
+
 root:
   level: DEBUG
   handlers: [console, dailyLog, errorLog, debugLog, emailNotify, sandyLog]
