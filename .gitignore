@@ -1,2 +1,5 @@
 active_data/*
+.idea/*
+logs/*
+raw_data/*
 venv/*
