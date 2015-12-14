@@ -20,30 +20,18 @@ import shelve
 # ------------------------------------------#
 
 
-# Turn on the Delete Mode here:
-
-DELETE_MODE = False
-
 # Set up logging config files
 logging.config.dictConfig(yaml.load(open('log.config', 'r')))
 
 
-# Set up the server link:
-# Use this link for testing phrase 
-SERVER='http://localhost:9000/api/export'
-USER='daniel.h.funk@gmail.com'
-PASS='ereiamjh'
-PRIVATE_FILE='private_key.pem'
+# Load the Configuration file
+if __name__ == "__main__":
+    config = {}
+    execfile("export.config", config)
 
-# Use this link for actual phrase
-# SERVER = 'http://localhost:9000/admin/export'
-
-# Get the date
-DATE_FORMAT = "%b_%d_%Y"
-TIME_FORMAT = "%H_%M_%S"
 
 # Decrypting
-with open(PRIVATE_FILE) as privatefile:
+with open(config["PRIVATE_FILE"]) as privatefile:
     keydata = privatefile.read()
 priv_key = rsa.PrivateKey.load_pkcs1(keydata)
 def decrypt(crypto, id, scaleName, field):
@@ -66,7 +54,7 @@ def decrypt(crypto, id, scaleName, field):
 
 def safeKeep(scaleName, quest, file):
     log = logging.getLogger('export.safeKeep')
-    stamp = time.strftime(TIME_FORMAT)
+    stamp = time.strftime(config["TIME_FORMAT"])
     try:
         db = shelve.open(file)
         db[scaleName + '_' + stamp] = quest
@@ -87,7 +75,7 @@ def safeRequest(url):
     log.info("Trying to Request data for %s ......", url)
     try:
         # DF: Make request, and check the status code of the response.
-        response = requests.get(url, auth=(USER,PASS))
+        response = requests.get(url, auth=(config["USER"],config["PASS"]))
         m = response.raise_for_status()
         log.info("Data request successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data request
         return response.json()
@@ -101,7 +89,7 @@ def safeDelete(url):
     log = logging.getLogger('export.safeDelete')
     try:
         # DH: Make request, delete and check the status code of the response.
-        delete = requests.delete(url, auth=(USER, PASS))
+        delete = requests.delete(url, auth=(config["USER"], config["PASS"]))
         m = delete.raise_for_status()
         log.debug("Data delete successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data delete
         return True
@@ -137,9 +125,9 @@ def safeWrite(quest, date_file, raw_file, ks, scaleName, deleteable):
                 dataWriter.writerow(entry)
                 t += 1
                 log.debug("%s entries wrote successfully.", str(t))
-                if deleteable and backup and DELETE_MODE:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
-                    if safeDelete(SERVER + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
-                else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Deleteable: %s, Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(deleteable), str(backup), str(DELETE_MODE))
+                if deleteable and backup and config["DELETE_MODE"]:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
+                    if safeDelete(config["SERVER"] + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
+                else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Deleteable: %s, Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(deleteable), str(backup), str(config["DELETE_MODE"]))
             except csv.Error:
                 error += 1
                 log.critical("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, entry['id'], exc_info = 1)
@@ -171,15 +159,15 @@ def safeExport(data):
     log.info("Database update in progress......")
     for scale in data:
         #DF: Should write something to a log file in here somewhere recording # of records exported for each
-        quest = safeRequest(SERVER+'/'+scale['name'])
+        quest = safeRequest(config["SERVER"]+'/'+scale['name'])
         if quest != None:
             if scale['size'] != 0:
                 ks = list(quest[0].keys())
                 ks.sort()
                 log.info("Questionnaire %s updated - %s new entries received.", str(scale['name']), str(scale['size']))
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
-                date_file = 'active_data/'+ scale['name'] + '_' + time.strftime(DATE_FORMAT) +'.csv'
-                raw_file = 'raw_data/' + scale['name'] + '_' + time.strftime(DATE_FORMAT) +'.raw'
+                date_file = 'active_data/'+ scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.csv'
+                raw_file = 'raw_data/' + scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.raw'
                 createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
                 safeWrite(quest, date_file, raw_file, ks, str(scale['name']), scale['deleteable']) # Safely write the whoe questionnaire into the data file
                 s += 1
@@ -198,7 +186,7 @@ def export():
      a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
      take too long.""")
     log.info(" (Martin is out for hunting data......) ")
-    oneShot = safeRequest(SERVER)  # DF: Use the method above instead of the direct call.
+    oneShot = safeRequest(config["SERVER"])  # DF: Use the method above instead of the direct call.
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
