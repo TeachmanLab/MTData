@@ -12,6 +12,7 @@ Create a virtual environment with python 2.7, and install dependencies
     $ source venv/bin/activate
     $ pip install -r requirements.txt
     $ cp export.config.example export.config
+    $ cp log.config.example log.config
 ````
 
 ## Configuration
