@@ -143,6 +143,8 @@ What needed to be done:
 
     6\ Write a Recovery program to recover data from raw data files.
 
+	7\ Write up the bash code to automatically run export.py regulary.
+
 
 Note to myself:
     LOG_CFG=my_logging.yaml python my_server.py
