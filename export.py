@@ -19,11 +19,6 @@ import shelve
 
 # ------------------------------------------#
 
-# Setting up files directories and logging config files
-if not os.path.exists("logs/"): # Can't find a better way to do this......
-    os.makedirs("logs/")
-logging.config.dictConfig(yaml.load(open('log.config', 'r')))
-
 
 # Load the Configuration file
 if __name__ == "__main__":
@@ -50,6 +45,13 @@ def decrypt(crypto, id, scaleName, field):
             return crypto
     except (UnicodeDecodeError, binascii.Error):
         log.error('Decode failed, item skipped. Questionnaire = %s, Entry ID: %s, Field: %s See information:', scaleName, id, field, exc_info = 1)
+
+
+# Setting up files directories and logging config files
+if not os.path.exists(config["PATH"]+"logs/"): # Can't find a better way to do this......
+    os.makedirs(config["PATH"]+"logs/")
+logging.config.dictConfig(yaml.load(open('log.config', 'r')))
+
 
 # ------------------------------------------#
 
@@ -167,8 +169,8 @@ def safeExport(data):
                 ks.sort()
                 log.info("Questionnaire %s updated - %s new entries received.", str(scale['name']), str(scale['size']))
 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one 
-                date_file = 'active_data/'+ scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.csv'
-                raw_file = 'raw_data/' + scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.raw'
+                date_file = config["PATH"] + 'active_data/'+ scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.csv'
+                raw_file = config["PATH"] + 'raw_data/' + scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.raw'
                 createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
                 safeWrite(quest, date_file, raw_file, ks, str(scale['name']), scale['deleteable']) # Safely write the whoe questionnaire into the data file
                 s += 1
@@ -181,11 +183,11 @@ def safeExport(data):
 def pathCheck():
     log = logging.getLogger('export.pathCheck')
     try:
-        if not os.path.exists("raw_data/"):
-            os.makedirs("raw_data/")
+        if not os.path.exists(config["PATH"]+"raw_data/"):
+            os.makedirs(config["PATH"]+"raw_data/")
             log.info("Successfully created raw_data folder.")
-        if not os.path.exists("active_data/"):
-            os.makedirs("active_data/")
+        if not os.path.exists(config["PATH"]+"active_data/"):
+            os.makedirs(config["PATH"]+"active_data/")
             log.info("Successfully created active_data folder.")
     except:
         log.critical("Failed to create data or log files, fatal, emailed admin.", exc_info=1)
