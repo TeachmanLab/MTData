@@ -50,7 +50,7 @@ handlers:
   debugLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: default
-    filename: logs/Debug.log
+    filename: /Users/Diheng/Box Sync/logs/Debug.log
     level: DEBUG
     backupCount: 366
     when: midnight
@@ -58,7 +58,7 @@ handlers:
   dailyLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: default
-    filename: logs/Daily.log
+    filename: /Users/Diheng/Box Sync/logs/Daily.log
     level: INFO
     backupCount: 366
     when: midnight
@@ -66,7 +66,7 @@ handlers:
   errorLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: default
-    filename: logs/Error.log
+    filename: /Users/Diheng/Box Sync/logs/Error.log
     level: WARNING
     backupCount: 366
     when: midnight
@@ -74,7 +74,7 @@ handlers:
   sandyLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: email
-    filename: logs/Break_down.log
+    filename: /Users/Diheng/Box Sync/logs/Break_down.log
     level: CRITICAL
     backupCount: 366
     when: midnight
@@ -87,7 +87,7 @@ handlers:
     mailhost: !!python/tuple [smtp.gmail.com, 587]
     fromaddr: projectimplicitmentalhealth1@gmail.com
     toaddrs: [dihengz@gmail.com]
-    subject: 'Something goes wrong on MindTrails'
+    subject: '[MindTrais]Something goes wrong'
     credentials: !!python/tuple [projectimplicitmentalhealth1@gmail.com, b3BFbaOLuDTe]
     secure: !!python/tuple [] # force to start tls
 
@@ -121,6 +121,13 @@ loggers:
     handlers: [console, dailyLog, errorLog, debugLog, emailNotify, sandyLog]
     propagate: false
 
+  export.safeKeep:
+    handlers: [console, dailyLog, errorLog, debugLog, emailNotify, sandyLog]
+    propagate: false
+
+  export.pathCheck:
+    handlers: [console, dailyLog, errorLog, debugLog, emailNotify, sandyLog]
+    propagate: false
 
 root:
   level: DEBUG

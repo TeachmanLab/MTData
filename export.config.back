@@ -1,11 +1,11 @@
-# Turn on the Delete Mode here:
+
 DELETE_MODE = False
 
 # Set up the server link:
 # Use this link for testing phrase
 SERVER='http://localhost:9000/api/export'
 USER='daniel.h.funk@gmail.com'
-PASS='ereiamjh'
+PASS='1234!@#$Abc'
 PRIVATE_FILE='private_key.pem'
 
 # Use this link for actual phrase
@@ -14,6 +14,3 @@ PRIVATE_FILE='private_key.pem'
 # Get the date
 DATE_FORMAT = "%b_%d_%Y"
 TIME_FORMAT = "%H_%M_%S"
-
-# Data storage path
-PATH = "/Users/Diheng/Box Sync/"
