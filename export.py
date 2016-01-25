@@ -81,7 +81,11 @@ def safeRequest(url):
         response = requests.get(url, auth=(config["USER"],config["PASS"]))
         m = response.raise_for_status()
         log.info("Data request successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data request
-        return response.json()
+        try:
+            shot = response.json()
+            return shot
+        except :
+            log.critical("Data request failed, fatal, emailed admin. see below for error information:\n", exc_info = 1)
     except requests.exceptions.RequestException:  # DF: We may loose some detail here, better to check all exceptions.
         log.critical("Data request failed, fatal, emailed admin. see below for error information:\n", exc_info = 1)
 
