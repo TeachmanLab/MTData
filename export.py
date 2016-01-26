@@ -4,14 +4,12 @@
 import requests # To make REST requests of the client.
 import time
 import os.path
-import sys
 import rsa # To decrypt values.
 import csv # To write the data into CSV file safely
 import binascii
 import logging
 import logging.config
 import yaml
-import shelve
 
 # ------------------------------------------#
 
@@ -77,8 +75,12 @@ def safeRequest(url):
         m = response.raise_for_status()
         log.info("Data request successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data request
         return response
-    except requests.exceptions.RequestException:
-        log.critical("Data request failed, fatal, emailed admin. see below for error information:\n", exc_info = 1)
+    except requests.exceptions.Timeout:
+        log.critical("Data request timed out for url: " + url + ". See below for error information:\n", exc_info = 1)
+    except requests.exceptions.TooManyRedirects:
+        log.critical("Too many redirects for url: " + url + ". See below for error information:\n", exc_info = 1)
+    except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
+        log.critical("Data request failed, fatal, emailed admin. Error was " + str(e) + " see below for error information:\n", exc_info = 1)
 
 
 # SafeDelete function, use this to delete data entries and log down system message
