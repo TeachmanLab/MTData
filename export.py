@@ -201,7 +201,11 @@ def export():
      take too long.""")
     pathCheck() #Check storage path
     log.info(" (Martin is out for hunting data......) ")
-    oneShot = safeRequest(config["SERVER"]).json()
+    request = safeRequest(config["SERVER"])
+    try:
+        oneShot = request.json()
+    except ValueError as e:
+        log.critical("Did not receive a json response, perhaps log-in credentials are incorrect?")
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
