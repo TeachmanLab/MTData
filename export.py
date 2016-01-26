@@ -53,14 +53,12 @@ logging.config.dictConfig(yaml.load(open('log.config', 'r')))
 
 # ------------------------------------------#
 
-def safeKeep(scaleName, quest, file):
+def safeKeep(scaleName, response, file):
     log = logging.getLogger('export.safeKeep')
     stamp = time.strftime(config["TIME_FORMAT"])
     try:
-        db = shelve.open(file)
-        db[scaleName + '_' + stamp] = quest
-        log.info(scaleName + ' data successfully backup as raw data.')
-        db.close()
+        with open(file, 'a') as dataJson:
+           dataJson.write(response.text.encode('utf-8'))
         return True
     except:
         log.critical(scaleName + ' data backup failed, immediate attention needed.\n', exc_info = 1)
@@ -78,7 +76,7 @@ def safeRequest(url):
         response = requests.get(url, auth=(config["USER"],config["PASS"]))
         m = response.raise_for_status()
         log.info("Data request successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data request
-        return response.json()
+        return response
     except requests.exceptions.RequestException:
         log.critical("Data request failed, fatal, emailed admin. see below for error information:\n", exc_info = 1)
 
@@ -98,16 +96,17 @@ def safeDelete(url):
 
 
 # SafeWrite function, use this to write questionnaire data into csv files
-def safeWrite(quest, date_file, raw_file, ks, scaleName, deleteable):
+def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
     log = logging.getLogger('export.safeWrite')
     log.info("Writing new entries from %s to %s: writing in progress......", scaleName, date_file)
-    backup = safeKeep(scaleName, quest, raw_file)
+    backup = safeKeep(scaleName, response, raw_file)
     with open(date_file, 'a') as datacsv:
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
         error = 0
         d = 0
+        quest = response.json()
         for entry in quest:
             for key in ks:
                 if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key)
@@ -157,7 +156,10 @@ def safeExport(data):
     s = 0
     log.info("Database update in progress......")
     for scale in data:
-        quest = safeRequest(config["SERVER"]+'/'+scale['name'])
+
+        response = safeRequest(config["SERVER"]+'/'+scale['name'])
+        quest = response.json()
+
         if quest != None:
             if scale['size'] != 0:
                 ks = list(quest[0].keys())
@@ -165,9 +167,9 @@ def safeExport(data):
                 log.info("Questionnaire %s updated - %s new entries received.", str(scale['name']), str(scale['size']))
                 #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
                 date_file = config["PATH"] + 'active_data/'+ scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.csv'
-                raw_file = config["PATH"] + 'raw_data/' + scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.raw'
+                raw_file = config["PATH"] + 'raw_data/' + scale['name'] + '_' + time.strftime(config["DATE_FORMAT"] + '_' + time.strftime(config["TIME_FORMAT"]) +'.json')
                 createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
-                safeWrite(quest, date_file, raw_file, ks, str(scale['name']), scale['deleteable']) # Safely write the whoe questionnaire into the data file
+                safeWrite(response, date_file, raw_file, ks, str(scale['name']), scale['deleteable']) # Safely write the whoe questionnaire into the data file
                 s += 1
             else: log.info("No new entries found in %s", str(scale['name']))
         else:
@@ -197,7 +199,7 @@ def export():
      take too long.""")
     pathCheck() #Check storage path
     log.info(" (Martin is out for hunting data......) ")
-    oneShot = safeRequest(config["SERVER"])
+    oneShot = safeRequest(config["SERVER"]).json()
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
