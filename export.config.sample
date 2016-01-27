@@ -8,11 +8,7 @@ DELETE_MODE = False
 # PASS='ereiamjh'
 # PRIVATE_FILE='private_key.pem'
 
-# Use this link for actual phrase
-# SERVER = 'http://localhost:9000/admin/export'
-#
-
-# Use this link for Laura's server testing
+# Use this link for Amazon server testing
 # SERVER = 'http://ec2-54-208-207-125.compute-1.amazonaws.com:8080/api/export'
 # USER='daniel.h.funk@gmail.com'
 # PASS='ereiamjh'
@@ -30,8 +26,9 @@ TIME_FORMAT = "%H_%M_%S"
 
 
 # Data storage path in Diheng's laptop
-PATH = "/Users/Diheng/Box Sync/TEST_Diheng/"
+# Use this for testing
+# PATH = "/Users/Diheng/Box Sync/TEST_Diheng/"
 #
 
 # Data storage path in Laura's server
-# PATH = "/Users/dz8t/Box Sync/"
+PATH = "/Users/dz8t/Box Sync/"
