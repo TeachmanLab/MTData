@@ -50,7 +50,7 @@ handlers:
   debugLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: default
-    filename: /Users/dz8t/Documents/TESTING_DATA/logs/Debug.log
+    filename: /Users/dz8t/Box Sync/logs/Debug.log
     level: DEBUG
     backupCount: 366
     when: midnight
@@ -58,7 +58,7 @@ handlers:
   dailyLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: default
-    filename: /Users/dz8t/Documents/TESTING_DATA/logs/Daily.log
+    filename: /Users/dz8t/Box Sync/logs/Daily.log
     level: INFO
     backupCount: 366
     when: midnight
@@ -66,7 +66,7 @@ handlers:
   errorLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: default
-    filename: /Users/dz8t/Documents/TESTING_DATA/logs/Error.log
+    filename: /Users/dz8t/Box Sync/logs/Error.log
     level: WARNING
     backupCount: 366
     when: midnight
@@ -74,7 +74,7 @@ handlers:
   sandyLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: email
-    filename: /Users/dz8t/Documents/TESTING_DATA/logs/Break_down.log
+    filename: /Users/dz8t/Box Sync/logs/Break_down.log
     level: CRITICAL
     backupCount: 366
     when: midnight
@@ -133,5 +133,3 @@ root:
   level: DEBUG
   handlers: [console, dailyLog, errorLog, debugLog, emailNotify, sandyLog]
   propagate: true
-
-
