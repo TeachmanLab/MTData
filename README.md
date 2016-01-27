@@ -60,6 +60,8 @@ https://docs.python.org/2/library/csv.html#csv-fmt-params
 Logging is done via the logging module. Configuration is through log.config. ALL temple and account information should
 configure via log.config. See comments for reminder.
 
+Bugs: MAKE SURE THAT YOU HAVE A "logs" FOLDER IN THE STORAGE PATH BEFORE YOU RUN THE PROGRAM. IT IS A STUPID BUG THAT I DON'T KNOW HOW TO FIX.
+
 ### Logging behaviors list below:
 
      A\ There are five level of logging information, from low to high in priority are: debug/info/warning/error/critical
