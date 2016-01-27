@@ -1,5 +1,8 @@
 active_data/*
-.idea/*
-logs/*
-raw_data/*
 venv/*
+.idea
+logs
+.DS_Store
+export.config
+log.config
+raw_data
