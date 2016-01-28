@@ -10,8 +10,13 @@ import binascii
 import logging
 import logging.config
 import yaml
+import pickle
 
 # ------------------------------------------#
+
+
+# Empty Global variables created here:
+
 
 # Set up logging config files
 logging.config.dictConfig(yaml.load(open('log.config', 'r')))
@@ -57,6 +62,7 @@ def safeKeep(scaleName, response, file):
     try:
         with open(file, 'a') as dataJson:
            dataJson.write(response.text.encode('utf-8'))
+           log.info(scaleName + " data backup successfully.")
         return True
     except:
         log.critical(scaleName + ' data backup failed, immediate attention needed.\n', exc_info = 1)
@@ -111,38 +117,64 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
     log.info("Writing new entries from %s to %s: writing in progress......", scaleName, date_file)
     backup = safeKeep(scaleName, response, raw_file)
     quest = response.json()
+    benchMark = {}
+    try:
+        benchMark = pickle.load(open(config["PATH"]+'active_data/benchMark.txt',"rb"))
+        log.info("benchMark information successfully retrived.")
+    except:
+        log.critical("benchMark information retrived failed, immediate attention needed. Detail:\n", exc_info = 1)
     with open(date_file, 'a') as datacsv:
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
         error = 0
         d = 0
+        if scaleName in benchMark:
+            log.info("benchMark found for %s", scaleName)
+        else:
+            benchMark[scaleName] = 0 # Set benchMark for this scale
+            log.info("New benchMark created for %s", scaleName)
+        newBenchMark = benchMark[scaleName]
         for entry in quest:
-            for key in ks:
-                if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key)
-                elif entry[key] is None: value = ""
-                else: value = str(entry[key]) # could be an int, make sure it is a string so we can encode it.
-                if (value != None):
+            if int(entry['id']) > benchMark[scaleName]: # Check if entries are new comparing to last request
+                if newBenchMark < int(entry['id']): newBenchMark = int(entry['id']) # Record the lastes ID within current request
+                for key in ks:
+                    if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key)
+                    elif entry[key] is None: value = ""
+                    else:
+                        try:
+                            value = str(entry[key]) # could be an int, make sure it is a string so we can encode it.
+                        except:
+                            log.error("Data encode failed, data lost. Questionnaire: %s, Entry ID: %s, Field: %s", scaleName, entry['id'], key, exc_info = 1) # Should log error, entry ID and data field
+                    if (value != None):
+                        try:
+                            entry[key] = value.encode('utf-8')
+                            log.debug("Data successfully encoded.")
+                        except UnicodeEncodeError:
+                            log.error("Data encode failed, data lost. Questionnaire: %s, Entry ID: %s, Field: %s", scaleName, entry['id'], key, exc_info = 1) # Should log error, entry ID and data field
+                    else: entry[key] = ""
                     try:
-                        entry[key] = value.encode('utf-8')
-                        log.debug("Data successfully encoded.")
-                    except UnicodeEncodeError:
-                        log.error("Data encode failed, data lost. Questionnaire: %s, Entry ID: %s, Field: %s", scaleName, entry['id'], key, exc_info = 1) # Should log error, entry ID and data field
-                else: entry[key] = ""
-            try:
-                dataWriter.writerow(entry)
-                t += 1
-                log.debug("%s entries wrote successfully.", str(t))
-                if deleteable and backup and config["DELETE_MODE"]:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
-                    if safeDelete(config["SERVER"] + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
-                else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Deleteable: %s, Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(deleteable), str(backup), str(config["DELETE_MODE"]))
-            except csv.Error:
-                error += 1
-                log.critical("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, entry['id'], exc_info = 1)
+                        dataWriter.writerow(entry)
+                        t += 1
+                        log.debug("%s entries wrote successfully.", str(t))
+                        if deleteable and backup and config["DELETE_MODE"]:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
+                            if safeDelete(config["SERVER"] + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
+                        else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Deleteable: %s, Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(deleteable), str(backup), str(config["DELETE_MODE"]))
+                    except csv.Error:
+                        error += 1
+                        log.critical("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, str(entry['id']), exc_info = 1)
+            else:
+                log.info('Questionnaire - %s, ID - %s, data writing skipped. Reason: Not a new entry.', scaleName, str(entry['id']))
+                if deleteable : log.critical('Warning: Previous sensitive data is found on server, please delete it ASAP. Detail: Questionnaire - %s, ID - %s. ', scaleName, str(entry['id'])) #
         log.info("Questionnaire %s update finished - %s new entries recoded successfully.", scaleName, str(t))
         log.info("Questionnaire %s data cleaning finished - %s new entries successfully deleted on MindTrails.", scaleName, str(d))
+        if newBenchMark > benchMark[scaleName]: benchMark[scaleName] = newBenchMark # Update the lastest ID after all the new data writing
         if error > 0:
             log.critical("Questionnaire %s update error - %s new entries failed to recode.", scaleName, str(error))
-
+    try:
+        pickle.dump(benchMark,open(config["PATH"]+'active_data/benchMark.txt',"wb"))
+        log.info("benchMark information update successfully.")
+    except:
+        log.warning("benchMark information update failed, duplicated record may created, please check:\n", exc_info = 1)
 
 
 # Create data files with date as name:
@@ -163,6 +195,7 @@ def safeExport(data):
 # One by one, read out the data form names(scale names) in d, and then:
     log = logging.getLogger('export.safeExport')
     s = 0
+
     log.info("Database update in progress......")
     for scale in data:
         response = safeRequest(config["SERVER"]+'/'+scale['name'])
@@ -185,6 +218,7 @@ def safeExport(data):
                 reporting some network issues. Be alerted, stay tuned.""")
     log.info("Database update finished: %s questionnaires' data updated.", str(s))
 
+
 def pathCheck():
     log = logging.getLogger('export.pathCheck')
     try:
@@ -200,7 +234,6 @@ def pathCheck():
 # ------------------------------------------#
 # This is the main module
 def export():
-
     log = logging.getLogger('export')
     log.info("""Hi PACT Lab, this is faithful android Martin from Laura\'s server. Everything is alright here, and seems to be
      a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
