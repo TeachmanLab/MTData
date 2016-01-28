@@ -74,7 +74,13 @@ def safeRequest(url):
         response = requests.get(url, auth=(config["USER"],config["PASS"]))
         m = response.raise_for_status()
         log.info("Data request successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data request
-        return response
+        if response != None:
+            try:
+                data = response.json()
+                log.info("We got something new! Let's have a closer look!")
+                return response
+            except:
+                log.critical("Can't read data in json form. Did not receive a json response, perhaps log-in credentials are incorrect? See below for error information:\n", exc_info = 1)
     except requests.exceptions.Timeout:
         log.critical("Data request timed out for url: " + url + ". See below for error information:\n", exc_info = 1)
     except requests.exceptions.TooManyRedirects:
@@ -86,11 +92,12 @@ def safeRequest(url):
 # SafeDelete function, use this to delete data entries and log down system message
 def safeDelete(url):
     log = logging.getLogger('export.safeDelete')
+    log.info("Trying to Delete data for %s ......", url)
     try:
         # DH: Make request, delete and check the status code of the response.
         delete = requests.delete(url, auth=(config["USER"],config["PASS"]))
         m = delete.raise_for_status()
-        log.debug("Data delete successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data delete
+        log.info("Data delete successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data delete
         return True
     except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
         log.critical("Data delete failed, fatal, emailed admin. see below for error information:\n", exc_info = 1)
@@ -103,12 +110,12 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
     log = logging.getLogger('export.safeWrite')
     log.info("Writing new entries from %s to %s: writing in progress......", scaleName, date_file)
     backup = safeKeep(scaleName, response, raw_file)
+    quest = response.json()
     with open(date_file, 'a') as datacsv:
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
         error = 0
         d = 0
-        quest = response.json()
         for entry in quest:
             for key in ks:
                 if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key)
@@ -158,25 +165,24 @@ def safeExport(data):
     s = 0
     log.info("Database update in progress......")
     for scale in data:
-
         response = safeRequest(config["SERVER"]+'/'+scale['name'])
-        quest = response.json()
-
-        if quest != None:
-            if scale['size'] != 0:
-                ks = list(quest[0].keys())
-                ks.sort()
-                log.info("Questionnaire %s updated - %s new entries received.", str(scale['name']), str(scale['size']))
-                #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
-                date_file = config["PATH"] + 'active_data/'+ scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.csv'
-                raw_file = config["PATH"] + 'raw_data/' + scale['name'] + '_' + time.strftime(config["DATE_FORMAT"] + '_' + time.strftime(config["TIME_FORMAT"]) +'.json')
-                createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
-                safeWrite(response, date_file, raw_file, ks, str(scale['name']), scale['deleteable']) # Safely write the whoe questionnaire into the data file
-                s += 1
-            else: log.info("No new entries found in %s", str(scale['name']))
-        else:
-            log.warning("""This is weired... It seems that there is nothing out there or I am blocked from MindTrails. You might already get an email from me
-     reporting some network issues. Be alerted, stay tuned.""")
+        if response!= None:
+            quest = response.json()
+            if quest != None:
+                if scale['size'] != 0:
+                    ks = list(quest[0].keys())
+                    ks.sort()
+                    log.info("Questionnaire %s updated - %s new entries received.", str(scale['name']), str(scale['size']))
+                    #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
+                    date_file = config["PATH"] + 'active_data/'+ scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.csv'
+                    raw_file = config["PATH"] + 'raw_data/' + scale['name'] + '_' + time.strftime(config["DATE_FORMAT"] + '_' + time.strftime(config["TIME_FORMAT"]) +'.json')
+                    createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
+                    safeWrite(response, date_file, raw_file, ks, str(scale['name']), scale['deleteable']) # Safely write the whoe questionnaire into the data file
+                    s += 1
+                else: log.info("No new entries found in %s", str(scale['name']))
+            else:
+                log.warning("""This is weired... It seems that there is nothing out there or I am blocked from MindTrails. You might already get an email from me
+                reporting some network issues. Be alerted, stay tuned.""")
     log.info("Database update finished: %s questionnaires' data updated.", str(s))
 
 def pathCheck():
@@ -201,15 +207,11 @@ def export():
      take too long.""")
     pathCheck() #Check storage path
     log.info(" (Martin is out for hunting data......) ")
-    request = safeRequest(config["SERVER"])
-    try:
-        oneShot = request.json()
-    except ValueError as e:
-        log.critical("Did not receive a json response, perhaps log-in credentials are incorrect?")
+    oneShot = safeRequest(config["SERVER"])
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
-        safeExport(oneShot)
+        if (oneShot.json() != None): safeExport(oneShot.json())
     else:
         log.warning("""This is weired... It seems that there is nothing out there or I am blocked from MindTrails. You might already get an email from me
      reporting some network issues. Be alerted, stay tuned.""")
