@@ -152,16 +152,16 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
                         except UnicodeEncodeError:
                             log.error("Data encode failed, data lost. Questionnaire: %s, Entry ID: %s, Field: %s", scaleName, entry['id'], key, exc_info = 1) # Should log error, entry ID and data field
                     else: entry[key] = ""
-                    try:
-                        dataWriter.writerow(entry)
-                        t += 1
-                        log.debug("%s entries wrote successfully.", str(t))
-                        if deleteable and backup and config["DELETE_MODE"]:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
-                            if safeDelete(config["SERVER"] + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
-                        else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Deleteable: %s, Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(deleteable), str(backup), str(config["DELETE_MODE"]))
-                    except csv.Error:
-                        error += 1
-                        log.critical("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, str(entry['id']), exc_info = 1)
+                try:
+                    dataWriter.writerow(entry)
+                    t += 1
+                    log.debug("%s entries wrote successfully.", str(t))
+                    if deleteable and backup and config["DELETE_MODE"]:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
+                        if safeDelete(config["SERVER"] + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
+                    else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Deleteable: %s, Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(deleteable), str(backup), str(config["DELETE_MODE"]))
+                except csv.Error:
+                    error += 1
+                    log.critical("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, str(entry['id']), exc_info = 1)
             else:
                 log.info('Questionnaire - %s, ID - %s, data writing skipped. Reason: Not a new entry.', scaleName, str(entry['id']))
                 if deleteable : log.critical('Warning: Previous sensitive data is found on server, please delete it ASAP. Detail: Questionnaire - %s, ID - %s. ', scaleName, str(entry['id'])) #
