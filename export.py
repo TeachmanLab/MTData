@@ -140,6 +140,7 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
                 for key in ks:
                     if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key)
                     elif entry[key] is None: value = ""
+                    elif isinstance(entry[key], unicode): value = entry[key]
                     else:
                         try:
                             value = str(entry[key]) # could be an int, make sure it is a string so we can encode it.
