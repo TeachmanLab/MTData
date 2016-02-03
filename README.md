@@ -33,7 +33,7 @@ What this little application is going to do:
 
     B. Open [form_name]_[date].csv, append the data we have into it, one by one. 
 
-    C. Keep the raw data, and then send back delete commend one by one?
+    C. Keep the raw data, and then send back delete commend one by one
 
     D. Close file, Log down the action and output to log files. If there is an error, email admin.
 
@@ -99,12 +99,12 @@ https://docs.python.org/2/library/logging.html
 
 ## Backup system:
 
-    Data backup is done via shelve module.
+    Data backup is done by storing the raw data package in json format. Data will be stored daily.
 
      A\ All new data package(quest within any oneShot) will be stored in
-    raw_data/[scaleName]_[Date].raw.db before they are decrypted and recorded into active_data/[scaleName]_[Date].csv.
+    raw_data/[scaleName]_[Date].json before they are decrypted and recorded into active_data/[scaleName]_[Date].csv.
 
-     B\ Raw data will be stored as Objects, and could be reversed into Objects via shelve.
+     B\ Raw data will be stored as json, and could be read as json objects.
 
      C\ Keys for backup data are in form of [[scaleName] + '_' + TIME].
 
@@ -112,13 +112,17 @@ https://docs.python.org/2/library/logging.html
 
 **HEADS UP**: *Creating new raw data files will not be logged into log files, but creating new active data files will.*
 
-[Basic documentation about shelve.](https://docs.python.org/2/library/shelve.html)
 
 
 # Data deleting:
 
     Just so you know, turn on Delete mode by setting constant DELETE_MODE to True. (Highly NOT recommended in testing
     phrase.)
+
+
+# Deploy and run on Server
+
+This program will run every 5 minutes on the server. Done by martin.sh and crontab setting on server.
 
 ### What is done:
 
@@ -128,12 +132,12 @@ https://docs.python.org/2/library/logging.html
 * Normal running logs
 * Added where to skip error
 * Save the raw data
-* Deleting the raw data - Done but not yet tested
+* Deleting the raw data 
+* Write up the bash code to automatically run export.py regulary.
+
 
 ### What needed to be done:
-* Save the logs
 * Write a Recovery program to recover data from raw data files.
-* Write up the bash code to automatically run export.py regulary.
 
 
 Note to myself:
