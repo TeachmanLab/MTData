@@ -86,7 +86,7 @@ handlers:
     formatter: email
     mailhost: !!python/tuple [smtp.gmail.com, 587]
     fromaddr: projectimplicitmentalhealth1@gmail.com
-    toaddrs: [dihengz@gmail.com]
+    toaddrs: [mindtrails_tech@virginia.edu]
     subject: '[MindTrais]Something goes wrong'
     credentials: !!python/tuple [projectimplicitmentalhealth1@gmail.com, b3BFbaOLuDTe]
     secure: !!python/tuple [] # force to start tls
