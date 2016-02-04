@@ -119,6 +119,13 @@ https://docs.python.org/2/library/logging.html
     Just so you know, turn on Delete mode by setting constant DELETE_MODE to True. (Highly NOT recommended in testing
     phrase.)
 
+# BenchMark
+    
+	BenchMark is a file which contains the highest ID number(benchmarks) for each questionnaire. It will stop the exporter
+	downloading duplicated data and remind the admin old data which suppose to be deleted remained on the server. You don't
+	need to have a BenchMark.txt for the program to run. You will get an email for creating the new benchMark file.
+
+	HEADS UP:
 
 # Deploy and run on Server
 
