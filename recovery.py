@@ -35,6 +35,7 @@ def readMe(scaleName,data_file,fileList,deleteable,entryNo,error):
     readme.write("\t%d data files found in recovery_pool folder:\n\t\tStart file: %s\n\t\tEnd file: %s\n" % (len(fileList),fileList[0],fileList[-1]));
     readme.write("\t%d data entry recovered, %d error in recovery. HEADUP: There might be duplication in entries.\n" % (entryNo,error));
     readme.write("\tRecovered data file path: %s\n" % data_file);
+    readme.write("\n");
     if not deleteable: readme.write("*****WARNING******: This questionnaire is not deleteable on the server. Make sure that you only recovered the most recent raw data file otherwise you might have high amount of duplicated data.\n");
     readme.close()
 
