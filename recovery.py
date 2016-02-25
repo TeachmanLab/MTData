@@ -19,7 +19,11 @@ import json
 # Load the Configuration file
 if __name__ == "__main__":
     config = {}
-    execfile("export.config", config)
+    execfile("recovery.config", config)
+
+
+# Set up logging config files
+logging.config.dictConfig(yaml.load(open('recovery_log.config', 'r')))
 
 
 
@@ -43,17 +47,27 @@ def decrypt(crypto, id, scaleName, field):
     except (UnicodeDecodeError, binascii.Error):
         log.error('Decode failed, item skipped. Questionnaire = %s, Entry ID: %s, Field: %s See information:', scaleName, id, field, exc_info = 1)
 
+# Create data files with date as name:
+def createFile(file, ks):
+    log = logging.getLogger('recovery.createFile')
+    if not os.path.exists(file): # Create new file if file doesn't exist
+        with open(file, 'w') as datacsv:
+            headerwriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
+            try:
+                headerwriter.writeheader()
+                log.info("New data file created: %s", file)
+            except csv.Error:
+                log.critcal("Failed to create new data files, fatal, emailed admin.", exc_info=1)
 
 # SafeWrite function, use this to write questionnaire data into csv files
 def safeWrite(response, date_file, scaleName, deleteable):
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
     log = logging.getLogger('recovery.safeWrite')
     log.info("Writing new entries from %s to %s: writing in progress......", scaleName, date_file)
-    if !deleteable:
-        print("Make sure that you only recover the most recent data file instead of all of them, otherwise the recovered data will contain a lot of replication.")
     quest = response.json()
     ks = list(quest[0].keys())
     ks.sort()
+    createFile(date_file, ks)
     with open(date_file, 'a') as datacsv:
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
@@ -124,9 +138,11 @@ def takeOrder():
         raw data files.\nscaleName:"""))
     deleteable = str(raw_input("Is this scale deleteable?[Y/N]:"))
     while (deleteable == "Y" | deleteable == "N"):
-        deleteable str(raw_input("I don't get it. Is this scale deleteable or not?[Y/N]:"))
+        deleteable = str(raw_input("I don't get it. Is this scale deleteable or not?[Y/N]:"))
     deleteable = True if deleteable == "Y" else False
     print("Thanks!\n")
+    if !(deleteable):
+        print("Make sure that you only recover the most recent data file instead of all of them, otherwise the recovered data will contain a lot of replication.")
     date_file = config["PATH"]+"recovered_data/" + scaleName + "_recovered_" + time.strftime(config["DATE_FORMAT"]) +'.csv'
     safeRecover(scaleName, date_file, deleteable)
 
