@@ -25,6 +25,19 @@ if __name__ == "__main__":
 # Set up logging config files
 logging.config.dictConfig(yaml.load(open('recovery_log.config', 'r')))
 
+# export Readme file
+
+def readMe(scaleName,data_file,fileList,deleteable,entryNo,error):
+    export = config["PATH"]+"recovered_data/" + "README_" + scaleName + "_recovered_" + time.strftime(config["DATE_FORMAT"]) +'.txt'
+    readme = open(export,"w")
+    readme.write("Data recovery done at %s, %s for %s questionnaire. Recovery information are as follow:\n" % (time.strftime(config["TIME_FORMAT"]), time.strftime(config["DATE_FORMAT"]), scaleName));
+    readme.write("\n");
+    readme.write("\t%d data files found in recovery_pool folder:\n\t\tStart file: %s\n\t\tEnd file: %s\n" % (len(fileList),fileList[0],fileList[-1]));
+    readme.write("\t%d data entry recovered, %d error in recovery. HEADUP: There might be duplication in entries.\n" % (entryNo,error));
+    readme.write("\tRecovered data file path: %s\n" % data_file);
+    if not deleteable: readme.write("*****WARNING******: This questionnaire is not deleteable on the server. Make sure that you only recovered the most recent raw data file otherwise you might have high amount of duplicated data.\n");
+    readme.close()
+
 
 
 # Decrypting
@@ -71,7 +84,6 @@ def safeWrite(quest, date_file, scaleName, deleteable):
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
         error = 0
-        d = 0
         for entry in quest:
             for key in ks:
                 if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key)
@@ -97,9 +109,9 @@ def safeWrite(quest, date_file, scaleName, deleteable):
                 error += 1
                 log.critical("Failed in writing entry, Questionnaire: %s, Entry ID: %s", scaleName, str(entry['id']), exc_info = 1)
         log.info("Questionnaire %s update finished - %s new entries recoded successfully.", scaleName, str(t))
-        log.info("Questionnaire %s data cleaning finished - %s new entries successfully deleted on MindTrails.", scaleName, str(d))
         if error > 0:
             log.critical("Questionnaire %s update error - %s new entries failed to recode.", scaleName, str(error))
+    return (t, error)
 
 # Check the path before doing anything
 def pathCheck():
@@ -124,12 +136,16 @@ def pathCheck():
 def safeRecover(scaleName, data_file, deleteable):
     log = logging.getLogger('recovery.safeRecover')
     fileList = sorted(glob.glob(config["PATH"]+"recovery_pool/"+'*.json'))
-    print fileList
+    entryNo = 0
+    error = 0
     for infile in fileList:
         with open(infile) as json_file:
             response = json.load(json_file)
-            print response
-            safeWrite(response,data_file,scaleName,deleteable)
+            t, e = safeWrite(response,data_file,scaleName,deleteable)
+            entryNo += t
+            error += e
+    readMe(scaleName,data_file,fileList,deleteable,entryNo,error)
+
 
 # Take your order so that we know what scale and how much data you want to recover:
 def takeOrder():
@@ -138,7 +154,8 @@ def takeOrder():
         to recover data for. Reminder: Type in the name exactly as it is on the
         raw data files.\nscaleName:"""))
     deleteable = str(raw_input("Is this scale deleteable?[Y/N]:"))
-    while ((deleteable == 'Y') | (deleteable == 'N')):
+    yn = set(['Y','N'])
+    while (not (deleteable in yn)):
         deleteable = str(raw_input("I don't get it. Is this scale deleteable or not?[Y/N]:"))
     deleteable = True if deleteable == 'Y' else False
     print("Thanks!\n")
