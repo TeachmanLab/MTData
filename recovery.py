@@ -36,7 +36,9 @@ def readMe(scaleName,data_file,fileList,deleteable,entryNo,error):
     readme.write("\t%d data entry recovered, %d error in recovery. HEADUP: There might be duplication in entries.\n" % (entryNo,error));
     readme.write("\tRecovered data file path: %s\n" % data_file);
     readme.write("\n");
-    if not deleteable: readme.write("*****WARNING******: This questionnaire is not deleteable on the server. Make sure that you only recovered the most recent raw data file otherwise you might have high amount of duplicated data.\n");
+    if not deleteable:
+        readme.write("*****WARNING******: This questionnaire is not deleteable on the server. Make sure that you only recovered the most recent raw data file otherwise you might have high amount of duplicated data.\n");
+        readme.write("*****WARNING******: For undeletable questionnaire, active dataset is a more acurrate and completed dataset than recovered dataset.\n");
     readme.close()
 
 
@@ -160,9 +162,17 @@ def takeOrder():
         deleteable = str(raw_input("I don't get it. Is this scale deleteable or not?[Y/N]:"))
     deleteable = True if deleteable == 'Y' else False
     print("Thanks!\n")
-    if (not deleteable): print("Make sure that you only recover the most recent data file instead of all of them, otherwise the recovered data will contain a lot of replication.")
-    date_file = config["PATH"]+"recovered_data/" + scaleName + "_recovered_" + time.strftime(config["DATE_FORMAT"]) +'.csv'
-    safeRecover(scaleName, date_file, deleteable)
+    if (not deleteable):
+        go = str(raw_input("*****WARNING******: Make sure that you only recover the most recent data file instead of all of them, otherwise the recovered data will contain a lot of replication. Do you want to continue the recovery?[Y/N]:"))
+        while (not (go in yn)):
+            go = str(raw_input("I don't get it. Do you want to continue the recovery?[Y/N]:"))
+        go = True if go == 'Y' else False
+    if go:
+        date_file = config["PATH"]+"recovered_data/" + scaleName + "_recovered_" + time.strftime(config["DATE_FORMAT"]) +'.csv'
+        log.info("Recovery started.")
+        safeRecover(scaleName, date_file, deleteable)
+    else:
+        log.info("Recovery aborted.")
 
 # ------------------------------------------#
 # This is the main module
