@@ -138,7 +138,8 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
             if int(entry['id']) > benchMark[scaleName]: # Check if entries are new comparing to last request
                 if newBenchMark < int(entry['id']): newBenchMark = int(entry['id']) # Record the lastes ID within current request
                 for key in ks:
-                    if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key)
+                    if(key.endswith("RSA")):
+                        value = decrypt(entry[key], entry['id'], scaleName, key)
                     elif entry[key] is None: value = ""
                     elif isinstance(entry[key], unicode): value = entry[key]
                     else:
@@ -148,6 +149,7 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
                             log.error("Data encode failed, data lost. Questionnaire: %s, Entry ID: %s, Field: %s", scaleName, entry['id'], key, exc_info = 1) # Should log error, entry ID and data field
                     if (value != None):
                         try:
+                            if(key == "participantDAO" or key == "participantRSA"): key = "participantId"
                             entry[key] = value.encode('utf-8')
                             log.debug("Data successfully encoded.")
                         except UnicodeEncodeError:
