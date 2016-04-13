@@ -32,7 +32,7 @@ def readMe(scaleName,data_file,fileList,deleteable,entryNo,error):
     readme = open(export,"w")
     readme.write("Data recovery done at %s, %s for %s questionnaire. Recovery information are as follow:\n" % (time.strftime(config["TIME_FORMAT"]), time.strftime(config["DATE_FORMAT"]), scaleName));
     readme.write("\n");
-    readme.write("\t%d data files found in recovery_pool folder:\n\t\tStart file: %s\n\t\tEnd file: %s\n" % (len(fileList),fileList[0],fileList[-1]));
+    readme.write("\t%d data files found in raw_data folder:\n\t\tStart file: %s\n\t\tEnd file: %s\n" % (len(fileList),fileList[0],fileList[-1]));
     readme.write("\t%d data entry recovered, %d error in recovery. HEADUP: There might be duplication in entries.\n" % (entryNo,error));
     readme.write("\tRecovered data file path: %s\n" % data_file);
     readme.write("\n");
@@ -119,7 +119,7 @@ def safeWrite(quest, date_file, scaleName, deleteable):
 # Check the path before doing anything
 def pathCheck():
     log = logging.getLogger('recovery.pathCheck')
-    if not os.path.exists(config["PATH"]+"recovery_pool/"):
+    if not os.path.exists(config["PATH"]+"raw_data/"):
         log.error("No raw_data folder is found, please double check before continuing.")
         print("No raw_data folder is found, please double check before continuing.")
         return False
@@ -138,7 +138,7 @@ def pathCheck():
 # Read in files here and recover the data
 def safeRecover(scaleName, data_file, deleteable):
     log = logging.getLogger('recovery.safeRecover')
-    fileList = sorted(glob.glob(config["PATH"]+"recovery_pool/"+'*.json'))
+    fileList = sorted(glob.glob(config["PATH"]+'raw_data/'+scaleName+'*.json'))
     entryNo = 0
     error = 0
     for infile in fileList:
