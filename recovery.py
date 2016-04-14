@@ -167,6 +167,7 @@ def takeOrder():
         while (not (go in yn)):
             go = str(raw_input("I don't get it. Do you want to continue the recovery?[Y/N]:"))
         go = True if go == 'Y' else False
+    else: go = True
     if go:
         date_file = config["PATH"]+"recovered_data/" + scaleName + "_recovered_" + time.strftime(config["DATE_FORMAT"]) +'.csv'
         log.info("Recovery started.")
