@@ -11,6 +11,7 @@ import logging
 import logging.config
 import yaml
 import pickle
+import json
 
 # ------------------------------------------#
 
@@ -119,7 +120,8 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
     quest = response.json()
     benchMark = {}
     try:
-        benchMark = pickle.load(open(config["PATH"]+'active_data/benchMark.txt',"rb"))
+        with open(config["PATH"]+'active_data/benchMark.json',"rb") as benchMarkJson:
+            benchMark = json.load(benchMarkJson)
         log.info("benchMark information successfully retrived.")
     except:
         log.critical("benchMark information retrived failed, immediate attention needed. Detail:\n", exc_info = 1)
@@ -174,7 +176,8 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
         if error > 0:
             log.critical("Questionnaire %s update error - %s new entries failed to recode.", scaleName, str(error))
     try:
-        pickle.dump(benchMark,open(config["PATH"]+'active_data/benchMark.txt',"wb"))
+        with open(config["PATH"]+'active_data/benchMark.json',"wb") as benchMarkJson:
+            json.dump(benchMark,benchMarkJson)
         log.info("benchMark information update successfully.")
     except:
         log.warning("benchMark information update failed, duplicated record may created, please check:\n", exc_info = 1)
