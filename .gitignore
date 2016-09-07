@@ -9,3 +9,5 @@ raw_data
 private_laura.pem
 private_key.pem
 server.config
+export.config.sample
+export.config.example
