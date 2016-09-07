@@ -8,3 +8,4 @@ log.config
 raw_data
 private_laura.pem
 private_key.pem
+server.config
