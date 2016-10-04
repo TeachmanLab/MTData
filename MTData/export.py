@@ -18,8 +18,8 @@ import json
 
 # Set up logging config files
 # Setting up files directories and logging config files
-if not os.path.exists("/Users/dz8t/Box Sync/logs/"): # Can't find a better way to do this......
-    os.makedirs("/Users/dz8t/Box Sync/logs/")
+if not os.path.exists("/Users/diheng/Box Sync/logs/"): # Can't find a better way to do this......
+    os.makedirs("/Users/diheng/Box Sync/logs/")
 logging.config.dictConfig(yaml.load(open('config/log.config', 'r')))
 
 # Load the Configuration file
@@ -91,6 +91,7 @@ def safeSave(response, ks, scaleName, config):
     log = logging.getLogger('export.safeSave')
     backup = safeKeep(scaleName, response, raw_file, config)
     d = 0
+    error = 0
     quest = response.json()
     benchMark = {}
 # Read in benchMark information
