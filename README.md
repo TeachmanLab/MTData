@@ -1,6 +1,34 @@
 # PIExporter
 
-A python application that drag data to server and secue them automatically
+A python application that handle data exporting, decrypting and basic checking for
+mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.
+
+# New Structure looks like this:
+
+MTData/
+├── MTData           <- actual codes
+│   ├── com.py
+│   ├── export.py
+│   ├── export_old.py
+│   ├── helloworld.py
+│   ├── recovery.py
+│   └── scales.py
+├── README.md
+├── bin
+│   └── martin.sh
+├── config           <- configuration files. In actural phrase, use \*.config instead of \*.config.sample
+│   ├── export.config
+│   ├── log.config
+│   ├── recovery.config
+│   ├── recovery_log.config
+│   └── server.config
+├── docs
+├── keys             <- Keys for decrypting
+│   ├── private_key.pem
+│   └── private_laura.pem
+├── requirements.txt
+├── setup.py
+└── tests
 
 
 ## Getting Started
@@ -149,30 +177,3 @@ This program will run every 5 minutes on the server. Done by martin.sh and cront
 
 Note to myself:
     LOG_CFG=my_logging.yaml python my_server.py
-
-# New Structure looks like this:
-
-MTData/
-├── MTData
-│   ├── com.py
-│   ├── export.py
-│   ├── export_old.py
-│   ├── helloworld.py
-│   ├── recovery.py
-│   └── scales.py
-├── README.md
-├── bin
-│   └── martin.sh
-├── config
-│   ├── export.config
-│   ├── log.config
-│   ├── recovery.config
-│   ├── recovery_log.config
-│   └── server.config
-├── docs
-├── keys
-│   ├── private_key.pem
-│   └── private_laura.pem
-├── requirements.txt
-├── setup.py
-└── tests

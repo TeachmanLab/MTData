@@ -1,6 +1,6 @@
 venv/*
-config/*
-keys/*
+config/*.config
+keys/*.pem
 .idea
 .DS_Store
 *.pyc
