@@ -4,7 +4,7 @@ A python application that handle data exporting, decrypting and basic checking f
 mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.
 
 # New Structure looks like this:
-
+```
 MTData/
 ├── MTData           <- actual codes
 │   ├── com.py
@@ -29,7 +29,7 @@ MTData/
 ├── requirements.txt
 ├── setup.py
 └── tests
-
+```
 
 ## Getting Started
 
