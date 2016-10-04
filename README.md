@@ -6,7 +6,7 @@ A python application that drag data to server and secue them automatically
 ## Getting Started
 
 Create a virtual environment with python 2.7, and install dependencies
-(see http://docs.python-guide.org/en/latest/dev/virtualenvs/) 
+(see http://docs.python-guide.org/en/latest/dev/virtualenvs/)
 ```bash
     $ virtualenv venv           
     $ source venv/bin/activate
@@ -18,7 +18,7 @@ Create a virtual environment with python 2.7, and install dependencies
 ## Configuration
 
 Copy the export.config.example file to export.config, and edit the settings so they
-match your configuration needs. 
+match your configuration needs.
 
 
 ## Basic Overview
@@ -31,7 +31,7 @@ What this little application is going to do:
 
     A. Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
 
-    B. Open [form_name]_[date].csv, append the data we have into it, one by one. 
+    B. Open [form_name]_[date].csv, append the data we have into it, one by one.
 
     C. Keep the raw data, and then send back delete commend one by one
 
@@ -120,7 +120,7 @@ https://docs.python.org/2/library/logging.html
     phrase.)
 
 # BenchMark
-    
+
 	BenchMark is a file which contains the highest ID number(benchmarks) for each questionnaire. It will stop the exporter
 	downloading duplicated data and remind the admin old data which suppose to be deleted remained on the server. You don't
 	need to have a BenchMark.txt for the program to run. You will get an email for creating the new benchMark file.
@@ -139,7 +139,7 @@ This program will run every 5 minutes on the server. Done by martin.sh and cront
 * Normal running logs
 * Added where to skip error
 * Save the raw data
-* Deleting the raw data 
+* Deleting the raw data
 * Write up the bash code to automatically run export.py regulary.
 
 
@@ -150,7 +150,29 @@ This program will run every 5 minutes on the server. Done by martin.sh and cront
 Note to myself:
     LOG_CFG=my_logging.yaml python my_server.py
 
+# New Structure looks like this:
 
-
-
-
+MTData/
+├── MTData
+│   ├── com.py
+│   ├── export.py
+│   ├── export_old.py
+│   ├── helloworld.py
+│   ├── recovery.py
+│   └── scales.py
+├── README.md
+├── bin
+│   └── martin.sh
+├── config
+│   ├── export.config
+│   ├── log.config
+│   ├── recovery.config
+│   ├── recovery_log.config
+│   └── server.config
+├── docs
+├── keys
+│   ├── private_key.pem
+│   └── private_laura.pem
+├── requirements.txt
+├── setup.py
+└── tests

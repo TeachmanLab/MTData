@@ -1,11 +1,15 @@
-from setuptools import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
 
-setup(name='mindtrails',
+setup(name='MTData',
       version='0.1',
-      description='Toolbox for MindTrails Project',
-      url='http://github.com/Diheng/mindtrails',
-      author='Diheng Zhang',
+      description='Data Toolbox for MindTrails Projects',
+      url='http://github.com/Diheng/MTData',
+      author='Diheng Zhang','Dan Funk', 'Sam Portnow',
       author_email='dzhang@virginia.edu`',
       license='MIT',
-      packages=['mindtrails'],
+      version='0.1',
+      packages=['MTData'],
       zip_safe=False)
