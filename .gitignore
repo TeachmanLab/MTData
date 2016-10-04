@@ -1,13 +1,5 @@
-active_data/*
 venv/*
+config/*
+keys/*
 .idea
-logs
 .DS_Store
-export.config
-log.config
-raw_data
-private_laura.pem
-private_key.pem
-server.config
-export.config.sample
-export.config.example
