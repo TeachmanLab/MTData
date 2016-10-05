@@ -3,7 +3,7 @@
 A python application that handle data exporting, decrypting and basic checking for
 mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.
 
-# New Structure looks like this:
+## New Structure looks like this:
 ```
 MTData/
 ├── MTData           <- actual codes
@@ -30,6 +30,73 @@ MTData/
 ├── setup.py
 └── tests
 ```
+## Structure of data folder looks like this:
+
+```
+Data Pool
+├── logs    <- All website share one log folder
+├── mindtrails  
+│   ├── active_data     <- for the csv files we decoded from raw_data
+│   ├── raw_data        <- for the json files we saved from export. BenchMark file sits here as well.
+│   └── reports         <- for the data checking report we generated based on active_data
+├── mobile
+│   ├── active_data
+│   ├── raw_data
+│   └── reports
+└── templeton
+    ├── active_data
+    ├── raw_data
+    └── reports
+```
+
+## Plan:
+
+We want to make MTData a standalone program that could be installed on server, and provides commend line tools for data downloading and basic checking. When we finish, we should have tools like:
+
+```
+# download and delete all the deleteable questionnaire entries on multiple servers
+$ MT export deleteable
+
+# download all the questionnaire entries that should not be deleted from the templeton server.
+$ MT export static templeton
+
+# Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.
+$ MT report questionnaire
+
+# Generate data checking tables that calculate the percentage of missing questionnaire for each participant in mindtrails project(servers)
+$ MT report participant mindtrails
+```
+So that users could create simple bash script with these tools to setup their export, decode and report schedule.
+
+## Here is our to do list:
+1\ Finish all the basic functions(export, decode, report)
+  A\ export <- basic over all function is done and deployed to Laura's server. Need to add more flexible functions.*
+  B\ decode <- Almost done. Not yet tested*
+  C\ report <- not yet started and need helps on.*
+
+2\ Make the functions to be commend line tools and test them.  <- not yet done.*
+
+3\ Deploy to server and test it in commend line(currently, the .py files are called with python.)
+
+*Extra: Toolbox for data analysis*
+We could add small tools that make our data analysis less boring and a lot faster. For example, almost all the questionnaire need to be scored and transform, so we have a scale.py that has the definition for the common actions shared with every scale. Each scale could have there own definition of action as well.
+
+**Example:**
+1\ com.py  <- in previous section, we have multiple csv files for scales in different dates. Use com to put them all together.
+2\ Scale.py <- has the function of score and trans, I used it for scoring. Need to be extended*
+
+Also, we could write function that do basic analysis that we would need for time to time. For example, we would need to generate a attrition rate report pretty often. Diheng has python codes that works with pandas and Sam probably has tons of R code as well, which could be turn into python small tools pretty easily.*
+
+**Let Diheng or Sam know if you would like to work on getting the most frequently used analysis codes into small tools.**
+
+*All the items that end with a \* would apprecitate helps!*
+
+
+
+
+
+
+
 
 ## Getting Started
 
