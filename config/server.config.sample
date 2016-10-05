@@ -1,0 +1,54 @@
+mindtrails:
+  READY: False
+  DELETE_MODE: False
+  SERVER: 'https://MindTrails.virginia.edu/api/export'
+  USER: 
+  PASS: 
+  PRIVATE_FILE: 
+  DATE_FORMAT: "%b_%d_%Y"
+  TIME_FORMAT: "%H_%M_%S"
+  PATH: "/Users/dz8t/Box Sync/"
+
+mobile_local:
+  READY: True
+  DELETE_MODE: False
+  SERVER: 'http://localhost:9000/api/export'
+  USER: 
+  PASS: 
+  PRIVATE_FILE: 'key_for_decrypt.pem'
+  DATE_FORMAT: "%b_%d_%Y"
+  TIME_FORMAT: "%H_%M_%S"
+  PATH: "/Users/Diheng/Box Sync/TEST_Diheng/"
+
+mobile_aws:
+  READY: True
+  DELETE_MODE: True
+  SERVER: 'http://ec2-54-208-207-125.compute-1.amazonaws.com:8080/mobile/api/export'
+  USER: 'admin@gmail.com'
+  PASS: 'AdminPassWord!'
+  PRIVATE_FILE: 
+  DATE_FORMAT: "%b_%d_%Y"
+  TIME_FORMAT: "%H_%M_%S"
+  PATH: "/Users/Diheng/Box Sync/TEST_Diheng/"
+
+templeton:
+  READY: False
+  DELETE_MODE: False
+  SERVER: 'https://mindtrails.virginia.edu/templeton/api/export'
+  USER: 
+  PASS: 
+  PRIVATE_FILE: 
+  DATE_FORMAT: "%b_%d_%Y"
+  TIME_FORMAT: "%H_%M_%S"
+  PATH: "/Users/dz8t/Box Sync/Templeton/"
+
+cbm_mobile:
+  READY: False
+  DELETE_MODE: False
+  SERVER: 'https://mindtrails.virginia.edu/mobile/api/export'
+  USER: 
+  PASS: 
+  PRIVATE_FILE: 
+  DATE_FORMAT: "%b_%d_%Y"
+  TIME_FORMAT: "%H_%M_%S"
+  PATH: "/Users/dz8t/Box Sync/mobile/"
