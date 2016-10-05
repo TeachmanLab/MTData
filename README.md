@@ -70,9 +70,9 @@ So that users could create simple bash script with these tools to setup their ex
 
 ## Here is our to do list:
 1. Finish all the basic functions(export, decode, report)
-- export <- basic over all function is done and deployed to Laura's server. Need to add more flexible functions.*
-- decode <- Almost done. Not yet tested*
-- report <- not yet started and need helps on.*
+  - export <- basic over all function is done and deployed to Laura's server. Need to add more flexible functions.*
+  - decode <- Almost done. Not yet tested*
+  - report <- not yet started and need helps on.*
 
 2. Make the functions to be commend line tools and test them.  <- not yet done.*
 
