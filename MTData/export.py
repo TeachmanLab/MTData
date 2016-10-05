@@ -18,12 +18,12 @@ import json
 
 # Set up logging config files
 # Setting up files directories and logging config files
-if not os.path.exists("/Users/diheng/Box Sync/logs/"): # Can't find a better way to do this......
-    os.makedirs("/Users/diheng/Box Sync/logs/")
-logging.config.dictConfig(yaml.load(open('config/log.config', 'r')))
+if not os.path.exists("/Users/dz8t/Box Sync/logs/"): # Can't find a better way to do this......
+    os.makedirs("/Users/dz8t/Box Sync/logs/")
+logging.config.dictConfig(yaml.load(open('/Users/dz8t/MTData/config/log.config', 'r')))
 
 # Load the Configuration file
-SERVER_CONFIG = 'config/server.config'
+SERVER_CONFIG = '/Users/dz8t/MTData/config/server.config'
 
 
 # ------------------------------------------#
