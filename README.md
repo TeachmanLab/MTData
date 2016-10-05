@@ -69,21 +69,21 @@ $ MT report participant mindtrails
 So that users could create simple bash script with these tools to setup their export, decode and report schedule.
 
 ## Here is our to do list:
-1\ Finish all the basic functions(export, decode, report)
-  A\ export <- basic over all function is done and deployed to Laura's server. Need to add more flexible functions.*
-  B\ decode <- Almost done. Not yet tested*
-  C\ report <- not yet started and need helps on.*
+1. Finish all the basic functions(export, decode, report)
+  A. export <- basic over all function is done and deployed to Laura's server. Need to add more flexible functions.*
+  B. decode <- Almost done. Not yet tested*
+  C. report <- not yet started and need helps on.*
 
-2\ Make the functions to be commend line tools and test them.  <- not yet done.*
+2. Make the functions to be commend line tools and test them.  <- not yet done.*
 
-3\ Deploy to server and test it in commend line(currently, the .py files are called with python.)
+3. Deploy to server and test it in commend line(currently, the .py files are called with python.)
 
 *Extra: Toolbox for data analysis*
 We could add small tools that make our data analysis less boring and a lot faster. For example, almost all the questionnaire need to be scored and transform, so we have a scale.py that has the definition for the common actions shared with every scale. Each scale could have there own definition of action as well.
 
 **Example:**
-1\ com.py  <- in previous section, we have multiple csv files for scales in different dates. Use com to put them all together.
-2\ Scale.py <- has the function of score and trans, I used it for scoring. Need to be extended*
+1. com.py  <- in previous section, we have multiple csv files for scales in different dates. Use com to put them all together.
+2. Scale.py <- has the function of score and trans, I used it for scoring. Need to be extended*
 
 Also, we could write function that do basic analysis that we would need for time to time. For example, we would need to generate a attrition rate report pretty often. Diheng has python codes that works with pandas and Sam probably has tons of R code as well, which could be turn into python small tools pretty easily.*
 
@@ -159,26 +159,26 @@ Bugs: MAKE SURE THAT YOU HAVE A "logs" FOLDER IN THE STORAGE PATH BEFORE YOU RUN
 
 ### Logging behaviors list below:
 
-     A\ There are five level of logging information, from low to high in priority are: debug/info/warning/error/critical
+     A. There are five level of logging information, from low to high in priority are: debug/info/warning/error/critical
 
-     B\ All information will be stored in DEBUG.log.
+     B. All information will be stored in DEBUG.log.
 
-     C\ All information belong to and beyond info level will be stored in Daily.log.
+     C. All information belong to and beyond info level will be stored in Daily.log.
 
-     D\ All information belong to and beyond warning level will be stored in error.log.
+     D. All information belong to and beyond warning level will be stored in error.log.
 
-     E\ All information reach critical level will be stored in bread_down.log, and emails will be sent to admin meanwhile.
+     E. All information reach critical level will be stored in bread_down.log, and emails will be sent to admin meanwhile.
 
-     F\ All log files will rotate at midnight. Old log files will be added suffix with local date. Log files will be
+     F. All log files will rotate at midnight. Old log files will be added suffix with local date. Log files will be
     rotating in a year long period(366 days).
 
 ### Break_down situation includes:
 
-     A\ Data request failure. Imply a network breakdown.
+     A. Data request failure. Imply a network breakdown.
 
-     B\ Data delete failure. Imply a network breakdown and post a serious data security threat.
+     B. Data delete failure. Imply a network breakdown and post a serious data security threat.
 
-     C\ Data writing failure. Imply a breakdown in csv module and need immediate attention.
+     C. Data writing failure. Imply a breakdown in csv module and need immediate attention.
 
 Basic documentation about logging could be found here:
 
@@ -196,14 +196,14 @@ https://docs.python.org/2/library/logging.html
 
     Data backup is done by storing the raw data package in json format. Data will be stored daily.
 
-     A\ All new data package(quest within any oneShot) will be stored in
-    raw_data/[scaleName]_[Date].json before they are decrypted and recorded into active_data/[scaleName]_[Date].csv.
+     A. All new data package(quest within any oneShot) will be stored in
+    raw_data/[scaleName]\_[Date].json before they are decrypted and recorded into active_data/[scaleName]\_[Date].csv.
 
-     B\ Raw data will be stored as json, and could be read as json objects.
+     B. Raw data will be stored as json, and could be read as json objects.
 
-     C\ Keys for backup data are in form of [[scaleName] + '_' + TIME].
+     C. Keys for backup data are in form of [[scaleName] + '\_' + TIME].
 
-     D\ Backup data files is consistent with active data file in name and will be created in a daily base.
+     D. Backup data files is consistent with active data file in name and will be created in a daily base.
 
 **HEADS UP**: *Creating new raw data files will not be logged into log files, but creating new active data files will.*
 
@@ -232,14 +232,12 @@ This program will run every 5 minutes on the server. Done by martin.sh and cront
 * Error alert
 * Error logs
 * Normal running logs
-* Added where to skip error
+* Added where to skip Error
 * Save the raw data
 * Deleting the raw data
 * Write up the bash code to automatically run export.py regulary.
-
-
-### What needed to be done:
 * Write a Recovery program to recover data from raw data files.
+
 
 
 Note to myself:
