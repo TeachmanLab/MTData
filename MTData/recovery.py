@@ -19,11 +19,11 @@ import json
 # Load the Configuration file
 if __name__ == "__main__":
     config = {}
-    execfile("recovery.config", config)
+    execfile("config/recovery.config", config)
 
 
 # Set up logging config files
-logging.config.dictConfig(yaml.load(open('recovery_log.config', 'r')))
+logging.config.dictConfig(yaml.load(open('config/recovery_log.config', 'r')))
 
 # export Readme file
 

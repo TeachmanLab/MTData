@@ -1,0 +1,16 @@
+PRIVATE_FILE='keys/private_key.pem'
+
+# Get the date
+DATE_FORMAT = "%b_%d_%Y"
+TIME_FORMAT = "%H_%M_%S"
+
+
+# Data storage path in Diheng's laptop
+# PATH = "/Users/Diheng/Box Sync/TEST_Diheng/"
+#
+
+# Data storage path in Laura's server
+# PATH = "/Users/dz8t/Box Sync/"
+
+# Data storage path in Diheng's laptop
+PATH = "/Users/Diheng/Desktop/DataforShari_10_3_2016/"
