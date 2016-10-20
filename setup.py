@@ -34,9 +34,10 @@ setup(name=PROJECT,
             'MTData = MTData.main:main'
         ],
         'MTData': [
-            'export = MTData.export:export',
-            'recover = MTData.recover:recovery',
+            'export = MTData.export:Export',
+            'decode = MTData.recovery:Decode',
             'error = cliffdemo.simple:Error',
+            'simple = MTData.simple:Simple',
             'list files = cliffdemo.list:Files',
             'files = cliffdemo.list:Files',
             'file = cliffdemo.show:File',

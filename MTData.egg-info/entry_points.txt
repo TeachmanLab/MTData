@@ -1,0 +1,14 @@
+[MTData]
+decode = MTData.recovery:Decode
+error = cliffdemo.simple:Error
+export = MTData.export:Export
+file = cliffdemo.show:File
+files = cliffdemo.list:Files
+list files = cliffdemo.list:Files
+show file = cliffdemo.show:File
+simple = MTData.simple:Simple
+unicode = cliffdemo.encoding:Encoding
+
+[console_scripts]
+MTData = MTData.main:main
+
