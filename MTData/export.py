@@ -103,16 +103,19 @@ def safeSave(response, ks, scaleName, deleteable, config):
             benchMark = json.load(benchMarkJson)
         log.info("benchMark information successfully retrived.")
     except:
-        log.critical("benchMark information retrived failed, immediate attention needed. Detail:\n", exc_info = 1)
-    if scaleName in benchMark:
+        log.info("benchMark information retrived failed, immediate attention needed. Detail:\n", exc_info = 1)
+    if scaleName in benchMark.keys():
         log.info("benchMark found for %s", scaleName)
     else:
-        benchMark[scaleName] = 0 # Set benchMark for this scale
+        benchMark[scaleName] = {}
+        benchMark[scaleName]['current'] = 0 # Set benchMark for this scale
+        benchMark[scaleName]['deleteable'] = deleteable # Set benchMark for this scale
         log.info("New benchMark created for %s", scaleName)
-    newBenchMark = benchMark[scaleName]
+    newBenchMark = benchMark[scaleName]['current']
+
     if deleteable:
         for entry in quest:
-            if int(entry['id']) > benchMark[scaleName]: # Check if entries are new comparing to last request
+            if int(entry['id']) > benchMark[scaleName]['current']: # Check if entries are new comparing to last request
                 if newBenchMark < int(entry['id']): newBenchMark = int(entry['id']) # Record the lastes ID within current request
                 try:
                     if backup and config["DELETE_MODE"]:                              # If the scale is backed-up, delete the entry after it is successfully recorded.
@@ -127,9 +130,16 @@ def safeSave(response, ks, scaleName, deleteable, config):
     else:
         log.info("Non-deleteable data downloaded. Please make sure you only decode the most recent copy.")
     log.info("Questionnaire %s data cleaning finished - %s new entries successfully deleted on MindTrails.", scaleName, str(d))
-    if newBenchMark > benchMark[scaleName]: benchMark[scaleName] = newBenchMark # Update the lastest ID after all the new data writing
+    if newBenchMark > benchMark[scaleName]['current']: benchMark[scaleName]['current'] = newBenchMark # Update the lastest ID after all the new data writing
     if error > 0:
         log.critical("Questionnaire %s update error - %s new entries failed to save.", scaleName, str(error))
+
+    try:
+        with open(config["PATH"]+'active_data/benchMark.json',"wb") as benchMarkJson:
+            json.dump(benchMark,benchMarkJson)
+        log.info("benchMark information update successfully.")
+    except:
+        log.warning("benchMark information update failed, duplicated record may created, please check:\n", exc_info = 1)
 
 # Sub function within safeExport:
 def safeCollect(scale,config):
@@ -162,7 +172,6 @@ def safeExport(data,scaleName,config):
     if scaleName == '.':
         for scale in data:
             # Only download deleteable scales:
-            log.info(scale)
             if scale['deleteable']:
                 s = safeCollect(scale,config)
             else:
@@ -206,7 +215,7 @@ def pathCheck(config):
 
 # ------------------------------------------#
 # This is the main module
-def martin(scaleName,config):
+def export(scaleName,config):
     log = logging.getLogger('martin')
     log.info("""Hi PACT Lab, this is faithful android Martin from Laura\'s server. Everything is alright here, and seems to be
      a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
@@ -224,22 +233,24 @@ def martin(scaleName,config):
     log.info("I am tired and I am going back to Laura's server for a rest. See you later!")
 
 # This is a over all program
-def export(task_list,serverName,scaleName):
-    log = logging.getLogger('export')
+def martin(task_list,serverName,scaleName):
+    log = logging.getLogger('martin')
     try:
         address = yaml.load(open(task_list, 'r'))
         log.info('Address book read successfully.')
     except:
-        log.info('Address book read failed. Emailed admin.', exc_info=1)
+        log.critical('Address book read failed. Emailed admin.', exc_info=1)
     if serverName == '.':
         for key in address:
             config = address[key]
             log.info('Address for export: %s. Ready?: %s',str(key),str(config['READY']))
-            if config['READY']: martin(scaleName,config)
+            if config['READY']: export(scaleName,config)
     elif (serverName in address.keys()):
         config = address[serverName]
         log.info('Address for export: %s. Ready?: %s',str(serverName),str(config['READY']))
-        if config['READY']: martin(scaleName,config)
+        if config['READY']: export(scaleName,config)
+    else:
+        log.info("Server name is not correct, please check.")
 
 
 # Works here:
@@ -259,7 +270,7 @@ class Export(Command):
     def take_action(self, parsed_args):
         self.log.info('sending greeting')
         self.log.debug('debugging')
-        export(SERVER_CONFIG,parsed_args.serverName,parsed_args.scaleName)
+        martin(SERVER_CONFIG,parsed_args.serverName,parsed_args.scaleName)
 
 class Error(Command):
     "Always raises an error"
