@@ -5,6 +5,7 @@ export = MTData.export:Export
 file = cliffdemo.show:File
 files = cliffdemo.list:Files
 list files = cliffdemo.list:Files
+report = MTData.report:Report
 show file = cliffdemo.show:File
 simple = MTData.simple:Simple
 unicode = cliffdemo.encoding:Encoding

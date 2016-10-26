@@ -49,22 +49,36 @@ Data Pool
     └── reports
 ```
 
+## Current Usage
+
+  - export
+
+  ```sh
+  $ MTData export [serverName, default=.(All)] [scaleName =./static/All]
+
+  $ MTData decode [serverName, default=.(All)] [scaleName, default=.(All)]
+  ```
+
 ## Plan:
 
 We want to make MTData a standalone program that could be installed on server, and provides commend line tools for data downloading and basic checking. When we finish, we should have tools like:
 
 ```sh
 # download and delete all the deleteable questionnaire entries on multiple servers
-$ MT export deleteable
+$ MTData export . .
+
+# or
+
+$ MTData export
 
 # download all the questionnaire entries that should not be deleted from the templeton server.
-$ MT export static templeton
+$ MTData export templeton static
 
 # Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.
-$ MT report questionnaire
+$ MTData report questionnaire
 
 # Generate data checking tables that calculate the percentage of missing questionnaire for each participant in mindtrails project(servers)
-$ MT report participant mindtrails
+$ MTData report participant mindtrails
 ```
 So that users could create simple bash script with these tools to setup their export, decode and report schedule.
 

@@ -204,7 +204,7 @@ def recovery(scaleName,config):
 
 
 # This is a over all program
-def martin(task_list,serverName,scaleName,replace):
+def martin(task_list,serverName,scaleName):
     log = logging.getLogger('martin')
     try:
         address = yaml.load(open(task_list, 'r'))
@@ -234,13 +234,12 @@ class Decode(Command):
         parser = super(Decode, self).get_parser(prog_name)
         parser.add_argument('serverName', nargs='?', default='.')
         parser.add_argument('scaleName', nargs='?', default='.')
-        parser.add_argument('replace',nargs='?',default=False)
         return parser
 
     def take_action(self, parsed_args):
         self.log.info('sending greeting')
         self.log.debug('debugging')
-        martin(SERVER_CONFIG,parsed_args.serverName,parsed_args.scaleName,parsed_args.replace)
+        martin(SERVER_CONFIG,parsed_args.serverName,parsed_args.scaleName)
 
 class Error(Command):
     "Always raises an error"
