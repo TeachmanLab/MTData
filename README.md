@@ -56,6 +56,11 @@ Data Pool
   ```sh
   $ MTData export [serverName, default=.(All)] [scaleName =./static/All]
 
+  ```
+
+  - decode
+
+  ```sh
   $ MTData decode [serverName, default=.(All)] [scaleName, default=.(All)]
   ```
 
@@ -84,15 +89,19 @@ So that users could create simple bash script with these tools to setup their ex
 
 ## Here is our to do list:
 1. Finish all the basic functions(export, decode, report)
-  - export <- basic over all function is done and deployed to Laura's server. Need to add more flexible functions.*
-  - decode <- Almost done. Not yet tested*
+  - export <- Done.
+  - decode <- Done.
   - report <- not yet started and need helps on.*
 
-2. Make the functions to be commend line tools and test them.  <- not yet done.*
+2. Make the functions to be commend line tools and test them.  <- Done.
 
-3. Deploy to server and test it in commend line(currently, the .py files are called with python.)
+3. Make the code more concise by re-using (instead of copy&paste) methods. <- not yet done.
 
-4. Update documentation.
+3. Redesign the logging system. <- not yet done.
+
+3. Deploy to server and test it in commend line(currently, the .py files are called with python.) <- not yet done.
+
+4. Update documentation. <- not yet done.
 
 *Extra: Toolbox for data analysis*
 We could add small tools that make our data analysis less boring and a lot faster. For example, almost all the questionnaire need to be scored and transform, so we have a scale.py that has the definition for the common actions shared with every scale. Each scale could have there own definition of action as well.
@@ -100,6 +109,7 @@ We could add small tools that make our data analysis less boring and a lot faste
 **Example:**
 - com.py  <- in previous section, we have multiple csv files for scales in different dates. Use com to put them all together.
 - Scale.py <- has the function of score and trans, I used it for scoring. Need to be extended*
+- SSS.py <- function used to print out the standard schedule sheet.
 
 Also, we could write function that do basic analysis that we would need for time to time. For example, we would need to generate a attrition rate report pretty often. Diheng has python codes that works with pandas and Sam probably has tons of R code as well, which could be turn into python small tools pretty easily.*
 

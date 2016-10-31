@@ -10,6 +10,7 @@ import logging.config
 import yaml
 import json
 from cliff.command import Command
+from tools import safeRequest
 
 
 # ------------------------------------------#
@@ -49,26 +50,7 @@ def safeKeep(scaleName, response, file, config):
 # to try and catch all of them. In this way we can handle exceptions, emailing
 # us in the event of an error. THIS CODE IS NOT COMPLETE. I'm just roughly
 # trying to show what it should do.
-def safeRequest(url, config):
-    log = logging.getLogger('export.safeRequest')
-    log.info("Trying to Request data for %s ......", url)
-    try:
-        response = requests.get(url, auth=(config["USER"],config["PASS"]))
-        m = response.raise_for_status()
-        log.info("Data request successfully, see below for request detail:\n%s\nIssues: %s", url, str(m)) # Log successful data request
-        if response != None:
-            try:
-                data = response.json()
-                log.info("We got something new! Let's have a closer look!")
-                return response
-            except:
-                log.critical("Server: %s. Can't read data in json form. Did not receive a json response, perhaps log-in credentials are incorrect? See below for error information:\n", config['SERVER'], exc_info = 1)
-    except requests.exceptions.Timeout:
-        log.critical("Data request timed out for url: " + url + ". See below for error information:\n", exc_info = 1)
-    except requests.exceptions.TooManyRedirects:
-        log.critical("Too many redirects for url: " + url + ". See below for error information:\n", exc_info = 1)
-    except requests.exceptions.RequestException as e:  # DF: We may loose some detail here, better to check all exceptions.
-        log.critical("Server: %s. Data request failed, fatal, emailed admin. Error was " + str(e) + " see below for error information:\n", config['SERVER'], exc_info = 1)
+
 
 
 # SafeDelete function, use this to delete data entries and log down system message
