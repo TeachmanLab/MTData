@@ -1,9 +1,9 @@
-# PIExporter
+# MTData
 
 A python application that handle data exporting, decrypting and basic checking for
 mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.
 
-## New Structure looks like this:
+## Structure of installed program:
 ```
 MTData/
 ├── MTData           <- actual codes
@@ -30,7 +30,7 @@ MTData/
 ├── setup.py
 └── tests
 ```
-## Structure of data folder looks like this:
+## Structure of data folder:
 
 ```
 Data Pool
@@ -64,6 +64,12 @@ Data Pool
   $ MTData decode [serverName, default=.(All)] [scaleName, default=.(All)]
   ```
 
+  - report
+  ```sh
+  $ MTData report client [serverName, default=.(All)]
+  $ MTData report scale [serverName, default=.(All)]
+  ```
+
 ## Plan:
 
 We want to make MTData a standalone program that could be installed on server, and provides commend line tools for data downloading and basic checking. When we finish, we should have tools like:
@@ -80,18 +86,18 @@ $ MTData export
 $ MTData export templeton static
 
 # Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.
-$ MTData report questionnaire
+$ MTData report scale
 
 # Generate data checking tables that calculate the percentage of missing questionnaire for each participant in mindtrails project(servers)
-$ MTData report participant mindtrails
+$ MTData report client mindtrails
 ```
 So that users could create simple bash script with these tools to setup their export, decode and report schedule.
 
-## Here is our to do list:
+## TODO:
 1. Finish all the basic functions(export, decode, report)
   - export <- Done.
   - decode <- Done.
-  - report <- not yet started and need helps on.*
+  - report <- Done, not yet tested*
 
 2. Make the functions to be commend line tools and test them.  <- Done.
 
@@ -101,15 +107,14 @@ So that users could create simple bash script with these tools to setup their ex
 
 3. Deploy to server and test it in commend line(currently, the .py files are called with python.) <- not yet done.
 
-4. Update documentation. <- not yet done.
+4. Update documentation. <- Done.
 
 *Extra: Toolbox for data analysis*
 We could add small tools that make our data analysis less boring and a lot faster. For example, almost all the questionnaire need to be scored and transform, so we have a scale.py that has the definition for the common actions shared with every scale. Each scale could have there own definition of action as well.
 
 **Example:**
-- com.py  <- in previous section, we have multiple csv files for scales in different dates. Use com to put them all together.
+- tools.py  <- Tools that could be used in different situation.
 - Scale.py <- has the function of score and trans, I used it for scoring. Need to be extended*
-- SSS.py <- function used to print out the standard schedule sheet.
 
 Also, we could write function that do basic analysis that we would need for time to time. For example, we would need to generate a attrition rate report pretty often. Diheng has python codes that works with pandas and Sam probably has tons of R code as well, which could be turn into python small tools pretty easily.*
 
@@ -131,14 +136,15 @@ Create a virtual environment with python 2.7, and install dependencies
 ```bash
     $ virtualenv venv           
     $ source venv/bin/activate
-    $ pip install -r requirements.txt
-    $ cp export.config.example export.config
+    $ python setup.py install
+    $ cd config
+    $ cp server.config.example server.config
     $ cp log.config.example log.config
 ```
 
 ## Configuration
 
-Copy the export.config.example file to export.config, and edit the settings so they
+Copy the server.config.example file to server.config, and edit the settings so they
 match your configuration needs.
 
 
