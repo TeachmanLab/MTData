@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PIExporter &mdash; MTData 2.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="MTData 2.0.1 documentation" href="#" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="piexporter">
+<span id="piexporter"></span><h1>PIExporter<a class="headerlink" href="#piexporter" title="Permalink to this headline">¶</a></h1>
+<p>A python application that handle data exporting, decrypting and basic checking for
+mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.</p>
+<div class="section" id="new-structure-looks-like-this">
+<span id="new-structure-looks-like-this"></span><h2>New Structure looks like this:<a class="headerlink" href="#new-structure-looks-like-this" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span>MTData/
+├── MTData           &lt;- actual codes
+│   ├── com.py
+│   ├── export.py
+│   ├── export_old.py
+│   ├── helloworld.py
+│   ├── recovery.py
+│   └── scales.py
+├── README.md
+├── bin
+│   └── martin.sh
+├── config           &lt;- configuration files. In actural phrase, use \*.config instead of \*.config.sample
+│   ├── export.config
+│   ├── log.config
+│   ├── recovery.config
+│   ├── recovery_log.config
+│   └── server.config
+├── docs
+├── keys             &lt;- Keys for decrypting
+│   ├── private_key.pem
+│   └── private_laura.pem
+├── requirements.txt
+├── setup.py
+└── tests
+</pre></div>
+</div>
+</div>
+<div class="section" id="structure-of-data-folder-looks-like-this">
+<span id="structure-of-data-folder-looks-like-this"></span><h2>Structure of data folder looks like this:<a class="headerlink" href="#structure-of-data-folder-looks-like-this" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Data Pool
+├── logs    &lt;- All website share one log folder
+├── mindtrails  
+│   ├── active_data     &lt;- for the csv files we decoded from raw_data
+│   ├── raw_data        &lt;- for the json files we saved from export. BenchMark file sits here as well.
+│   └── reports         &lt;- for the data checking report we generated based on active_data
+├── mobile
+│   ├── active_data
+│   ├── raw_data
+│   └── reports
+└── templeton
+    ├── active_data
+    ├── raw_data
+    └── reports
+</pre></div>
+</div>
+</div>
+<div class="section" id="current-usage">
+<span id="current-usage"></span><h2>Current Usage<a class="headerlink" href="#current-usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>export</li>
+</ul>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ MTData <span class="nb">export</span> <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span> <span class="o">[</span><span class="nv">scaleName</span> <span class="o">=</span>./static/All<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>decode</li>
+</ul>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ MTData decode <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span> <span class="o">[</span>scaleName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plan">
+<span id="plan"></span><h2>Plan:<a class="headerlink" href="#plan" title="Permalink to this headline">¶</a></h2>
+<p>We want to make MTData a standalone program that could be installed on server, and provides commend line tools for data downloading and basic checking. When we finish, we should have tools like:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># download and delete all the deleteable questionnaire entries on multiple servers</span>
+$ MTData <span class="nb">export</span> . .
+
+<span class="c1"># or</span>
+
+$ MTData <span class="nb">export</span>
+
+<span class="c1"># download all the questionnaire entries that should not be deleted from the templeton server.</span>
+$ MTData <span class="nb">export</span> templeton static
+
+<span class="c1"># Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.</span>
+$ MTData report questionnaire
+
+<span class="c1"># Generate data checking tables that calculate the percentage of missing questionnaire for each participant in mindtrails project(servers)</span>
+$ MTData report participant mindtrails
+</pre></div>
+</div>
+<p>So that users could create simple bash script with these tools to setup their export, decode and report schedule.</p>
+</div>
+<div class="section" id="here-is-our-to-do-list">
+<span id="here-is-our-to-do-list"></span><h2>Here is our to do list:<a class="headerlink" href="#here-is-our-to-do-list" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li>Finish all the basic functions(export, decode, report)</li>
+</ol>
+<ul class="simple">
+<li>export &lt;- Done.</li>
+<li>decode &lt;- Done.</li>
+<li>report &lt;- not yet started and need helps on.*</li>
+</ul>
+<ol class="simple">
+<li>Make the functions to be commend line tools and test them.  &lt;- Done.</li>
+<li>Make the code more concise by re-using (instead of copy&amp;paste) methods. &lt;- not yet done.</li>
+<li>Redesign the logging system. &lt;- not yet done.</li>
+<li>Deploy to server and test it in commend line(currently, the .py files are called with python.) &lt;- not yet done.</li>
+<li>Update documentation. &lt;- not yet done.</li>
+</ol>
+<p><em>Extra: Toolbox for data analysis</em>
+We could add small tools that make our data analysis less boring and a lot faster. For example, almost all the questionnaire need to be scored and transform, so we have a scale.py that has the definition for the common actions shared with every scale. Each scale could have there own definition of action as well.</p>
+<p><strong>Example:</strong></p>
+<ul class="simple">
+<li>com.py  &lt;- in previous section, we have multiple csv files for scales in different dates. Use com to put them all together.</li>
+<li>Scale.py &lt;- has the function of score and trans, I used it for scoring. Need to be extended*</li>
+<li>SSS.py &lt;- function used to print out the standard schedule sheet.</li>
+</ul>
+<p>Also, we could write function that do basic analysis that we would need for time to time. For example, we would need to generate a attrition rate report pretty often. Diheng has python codes that works with pandas and Sam probably has tons of R code as well, which could be turn into python small tools pretty easily.*</p>
+<p><strong>Let Diheng or Sam know if you would like to work on getting the most frequently used analysis codes into small tools.</strong></p>
+<p><em>All the items that end with a * would apprecitate helps!</em></p>
+</div>
+<div class="section" id="getting-started">
+<span id="getting-started"></span><h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Create a virtual environment with python 2.7, and install dependencies
+(see http://docs.python-guide.org/en/latest/dev/virtualenvs/)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>    $ virtualenv venv           
+    $ <span class="nb">source</span> venv/bin/activate
+    $ pip install -r requirements.txt
+    $ cp export.config.example export.config
+    $ cp log.config.example log.config
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Copy the export.config.example file to export.config, and edit the settings so they
+match your configuration needs.</p>
+</div>
+<div class="section" id="basic-overview">
+<span id="basic-overview"></span><h2>Basic Overview<a class="headerlink" href="#basic-overview" title="Permalink to this headline">¶</a></h2>
+<p>What this little application is going to do:</p>
+<ol>
+<li><p class="first">Read in a data package (oneShot).</p>
+</li>
+<li><p class="first">One by one, read out the data form names(scale names) in oneShot, and then:</p>
+<p>A. Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one</p>
+<p>B. Open [form_name]_[date].csv, append the data we have into it, one by one.</p>
+<p>C. Keep the raw data, and then send back delete commend one by one</p>
+<p>D. Close file, Log down the action and output to log files. If there is an error, email admin.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="data-requesting">
+<span id="data-requesting"></span><h2>Data requesting<a class="headerlink" href="#data-requesting" title="Permalink to this headline">¶</a></h2>
+<p>Data requesting is done via the requests module, basic documentation could be found here:</p>
+<p>http://docs.python-requests.org/en/latest/</p>
+</div>
+<div class="section" id="data-writing">
+<span id="data-writing"></span><h2>Data writing<a class="headerlink" href="#data-writing" title="Permalink to this headline">¶</a></h2>
+<p>Data writing is doen via the csv module, basic documentation could be found here:</p>
+<p>https://docs.python.org/2/library/csv.html#csv-fmt-params</p>
+</div>
+<div class="section" id="logging">
+<span id="logging"></span><h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<p>Logging is done via the logging module. Configuration is through log.config. ALL temple and account information should
+configure via log.config. See comments for reminder.</p>
+<p>Bugs: MAKE SURE THAT YOU HAVE A &#8220;logs&#8221; FOLDER IN THE STORAGE PATH BEFORE YOU RUN THE PROGRAM. IT IS A STUPID BUG THAT I DON&#8217;T KNOW HOW TO FIX.</p>
+<div class="section" id="logging-behaviors-list-below">
+<span id="logging-behaviors-list-below"></span><h3>Logging behaviors list below:<a class="headerlink" href="#logging-behaviors-list-below" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span> A. There are five level of logging information, from low to high in priority are: debug/info/warning/error/critical
+
+ B. All information will be stored in DEBUG.log.
+
+ C. All information belong to and beyond info level will be stored in Daily.log.
+
+ D. All information belong to and beyond warning level will be stored in error.log.
+
+ E. All information reach critical level will be stored in bread_down.log, and emails will be sent to admin meanwhile.
+
+ F. All log files will rotate at midnight. Old log files will be added suffix with local date. Log files will be
+rotating in a year long period(366 days).
+</pre></div>
+</div>
+</div>
+<div class="section" id="break-down-situation-includes">
+<span id="break-down-situation-includes"></span><h3>Break_down situation includes:<a class="headerlink" href="#break-down-situation-includes" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span> A. Data request failure. Imply a network breakdown.
+
+ B. Data delete failure. Imply a network breakdown and post a serious data security threat.
+
+ C. Data writing failure. Imply a breakdown in csv module and need immediate attention.
+</pre></div>
+</div>
+<p>Basic documentation about logging could be found here:</p>
+<p>https://docs.python.org/2/library/logging.html</p>
+</div>
+</div>
+<div class="section" id="decrypting">
+<span id="decrypting"></span><h2>Decrypting<a class="headerlink" href="#decrypting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Original module. Need more documentation here:
+</pre></div>
+</div>
+</div>
+<div class="section" id="backup-system">
+<span id="backup-system"></span><h2>Backup system:<a class="headerlink" href="#backup-system" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Data backup is done by storing the raw data package in json format. Data will be stored daily.
+
+ A. All new data package(quest within any oneShot) will be stored in
+raw_data/[scaleName]\_[Date].json before they are decrypted and recorded into active_data/[scaleName]\_[Date].csv.
+
+ B. Raw data will be stored as json, and could be read as json objects.
+
+ C. Keys for backup data are in form of [[scaleName] + &#39;\_&#39; + TIME].
+
+ D. Backup data files is consistent with active data file in name and will be created in a daily base.
+</pre></div>
+</div>
+<p><strong>HEADS UP</strong>: <em>Creating new raw data files will not be logged into log files, but creating new active data files will.</em></p>
+</div>
+</div>
+<div class="section" id="data-deleting">
+<span id="data-deleting"></span><h1>Data deleting:<a class="headerlink" href="#data-deleting" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Just so you know, turn on Delete mode by setting constant DELETE_MODE to True. (Highly NOT recommended in testing
+phrase.)
+</pre></div>
+</div>
+</div>
+<div class="section" id="benchmark">
+<span id="benchmark"></span><h1>BenchMark<a class="headerlink" href="#benchmark" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span>BenchMark is a file which contains the highest ID number(benchmarks) for each questionnaire. It will stop the exporter
+downloading duplicated data and remind the admin old data which suppose to be deleted remained on the server. You don&#39;t
+need to have a BenchMark.txt for the program to run. You will get an email for creating the new benchMark file.
+
+HEADS UP:
+</pre></div>
+</div>
+</div>
+<div class="section" id="deploy-and-run-on-server">
+<span id="deploy-and-run-on-server"></span><h1>Deploy and run on Server<a class="headerlink" href="#deploy-and-run-on-server" title="Permalink to this headline">¶</a></h1>
+<p>This program will run every 5 minutes on the server. Done by martin.sh and crontab setting on server.</p>
+<div class="section" id="what-is-done">
+<span id="what-is-done"></span><h2>What is done:<a class="headerlink" href="#what-is-done" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Read and write data</li>
+<li>Error alert</li>
+<li>Error logs</li>
+<li>Normal running logs</li>
+<li>Added where to skip Error</li>
+<li>Save the raw data</li>
+<li>Deleting the raw data</li>
+<li>Write up the bash code to automatically run export.py regulary.</li>
+<li>Write a Recovery program to recover data from raw data files.</li>
+</ul>
+<p>Note to myself:
+LOG_CFG=my_logging.yaml python my_server.py</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PIExporter</a><ul>
+<li><a class="reference internal" href="#new-structure-looks-like-this">New Structure looks like this:</a></li>
+<li><a class="reference internal" href="#structure-of-data-folder-looks-like-this">Structure of data folder looks like this:</a></li>
+<li><a class="reference internal" href="#current-usage">Current Usage</a></li>
+<li><a class="reference internal" href="#plan">Plan:</a></li>
+<li><a class="reference internal" href="#here-is-our-to-do-list">Here is our to do list:</a></li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#basic-overview">Basic Overview</a></li>
+<li><a class="reference internal" href="#data-requesting">Data requesting</a></li>
+<li><a class="reference internal" href="#data-writing">Data writing</a></li>
+<li><a class="reference internal" href="#logging">Logging</a><ul>
+<li><a class="reference internal" href="#logging-behaviors-list-below">Logging behaviors list below:</a></li>
+<li><a class="reference internal" href="#break-down-situation-includes">Break_down situation includes:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#decrypting">Decrypting</a></li>
+<li><a class="reference internal" href="#backup-system">Backup system:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-deleting">Data deleting:</a></li>
+<li><a class="reference internal" href="#benchmark">BenchMark</a></li>
+<li><a class="reference internal" href="#deploy-and-run-on-server">Deploy and run on Server</a><ul>
+<li><a class="reference internal" href="#what-is-done">What is done:</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Diheng Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/index.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
