@@ -85,6 +85,7 @@ def clientScan(config):
     result['target_task_no'] = result.apply(d.correct_number,axis=1)
     result['logged_task_no'] = result.apply(lambda entry:len(table[table.participantdao_id == entry['participantdao_id']]), axis = 1)
     result['Missing_no'] = result.apply(lambda entry:entry['target_task_no']-entry['logged_task_no'], axis=1)
+    print('Number of participants finished as least a task: %s. \n',str(len(result)))
     print tabulate(result. headers='keys',tablefmt='psql')
     return result
 
