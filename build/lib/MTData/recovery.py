@@ -176,7 +176,6 @@ def takeOrder(scaleName,config):
         log.info("benchMark information successfully retrived.")
     except:
         log.critical("benchMark information retrived failed, immediate attention needed. Detail:\n", exc_info = 1)
-
     s = 0
     if scaleName == '.':
         for scale in benchMark.keys():

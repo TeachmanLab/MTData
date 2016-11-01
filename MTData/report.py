@@ -21,7 +21,22 @@ from tabulate import tabulate
 SERVER_CONFIG = 'config/server.config'
 
 # Code needed to be added here to create a completed list of scales should have:
-def completed_list(sss):
+# Code needed to be added here for checking one participant
+class Checker(object):
+    """docstring for ."""
+    def __init__(self, standard):
+        super(, self).__init__()
+        self.standard = standard
+    def correct_number(self,entry):
+
+        return number
+
+    def completed_list(self):
+
+        return comList
+
+
+
 
 # Actually functions:
 def scaleScan(config):
@@ -30,9 +45,9 @@ def scaleScan(config):
     # Download Standard Scale Sheet
     sss_url = config[SERVER] + '/sss'
     sss = safeRequest(sss_url,config)
+    d = Checker(sss)
     # Create checking table
-    comList = completed_list(sss)
-    result = pd.DataFrame(index = comList, columns = ['data_found','entries_in_log','entries_in_dataset','missing_rate'])
+    result = pd.DataFrame(index = d.completed_list(sss), columns = ['data_found','entries_in_log','entries_in_dataset','missing_rate'])
     newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
     taskLog = pd.read_csv(newest)
     # Check if data exists for scale
@@ -52,6 +67,26 @@ def scaleScan(config):
 
 
 def clientScan(config):
+    log = logging.getLogger(__name__)
+    log.info('Data checking started.')
+    # Download Standard Scale Sheet
+    sss_url = config[SERVER] + '/sss'
+    sss = safeRequest(sss_url,config)
+    d = Checker(sss)
+    # Create a table with the last task of each participant
+    newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
+    table = pd.read_csv(newest)
+    date = pd.to_datetime(table.datetime)
+    table['datetime_CR'] = date
+    idx = table.groupby(['participantdao_id'])['datetime_CR'].transform(max) == table['datetime_CR']
+    check_tb = table[idx].sort(['participantdao_id'])
+    result = check_tb[['participantdao_id','session_name','task_name']]
+    # Get checking information
+    result['target_task_no'] = result.apply(d.correct_number,axis=1)
+    result['logged_task_no'] = result.apply(lambda entry:len(table[table.participantdao_id == entry['participantdao_id']]), axis = 1)
+    result['Missing_no'] = result.apply(lambda entry:entry['target_task_no']-entry['logged_task_no'], axis=1)
+    print tabulate(result. headers='keys',tablefmt='psql')
+    return result
 
 
 
