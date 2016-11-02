@@ -84,6 +84,33 @@ $ MTData report client mindtrails
 </div>
 <div class="section" id="configuration">
 <span id="configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Create needed config and keys files. They should be place in folders within MTData, like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>MTData/
+├── MTData           &lt;- actual codes
+│   ├── com.py
+│   ├── export.py
+│   ├── export_old.py
+│   ├── helloworld.py
+│   ├── recovery.py
+│   └── scales.py
+├── README.md
+├── bin
+│   └── martin.sh
+├── config           &lt;- configuration files. In actural phrase, use \*.config instead of \*.config.sample
+│   ├── export.config
+│   ├── log.config
+│   ├── recovery.config
+│   ├── recovery_log.config
+│   └── server.config
+├── docs
+├── keys             &lt;- Keys for decrypting
+│   ├── private_2.pem
+│   └── private_1.pem
+├── requirements.txt
+├── setup.py
+└── tests
+</pre></div>
+</div>
 <p>Edit the server.config and log.config as needed.</p>
 <p>Here is an example of server.config with comments:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="c1"># create a new block for each new study you launch. Assign a name to it.</span>
@@ -127,6 +154,26 @@ In mindtrails, all tables have a &#8216;deleteable&#8217; attribute. &#8216;dele
 </div>
 <p>Not yet done, please see log.config.sample for now.</p>
 </div>
+<div class="section" id="structure-your-data-folders">
+<span id="structure-your-data-folders"></span><h2>Structure your data folders<a class="headerlink" href="#structure-your-data-folders" title="Permalink to this headline">¶</a></h2>
+<p>Create folders for your studies. They should looks like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Data_pool
+├── logs    &lt;- All website share one log folder
+├── name_of_server1  
+│   ├── active_data     &lt;- for the csv files we decoded from raw_data
+│   ├── raw_data        &lt;- for the json files we saved from export. BenchMark file sits here as well.
+│   └── reports         &lt;- for the data checking report we generated based on active_data
+├── name_of_server2
+│   ├── active_data
+│   ├── raw_data
+│   └── reports
+└── name_of_server3
+    ├── active_data
+    ├── raw_data
+    └── reports
+</pre></div>
+</div>
+</div>
 <div class="section" id="setup-routine">
 <span id="setup-routine"></span><h2>Setup routine<a class="headerlink" href="#setup-routine" title="Permalink to this headline">¶</a></h2>
 <p>Once you have done the installation and configuration, you can now write your own bash file and set up your own data managing routine:
@@ -137,7 +184,7 @@ MTData <span class="nb">export</span> . .
 </pre></div>
 </div>
 <p>Then you edit your <strong>crontab</strong> by:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>crontab -e
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ crontab -e
 </pre></div>
 </div>
 <p>Add a line to crontab:</p>
@@ -145,54 +192,6 @@ MTData <span class="nb">export</span> . .
 </pre></div>
 </div>
 <p>Similarly you can create routine to do the needfuls.</p>
-</div>
-<div class="section" id="structure-of-installed-program">
-<span id="structure-of-installed-program"></span><h2>Structure of installed program:<a class="headerlink" href="#structure-of-installed-program" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span></span>MTData/
-├── MTData           &lt;- actual codes
-│   ├── com.py
-│   ├── export.py
-│   ├── export_old.py
-│   ├── helloworld.py
-│   ├── recovery.py
-│   └── scales.py
-├── README.md
-├── bin
-│   └── martin.sh
-├── config           &lt;- configuration files. In actural phrase, use \*.config instead of \*.config.sample
-│   ├── export.config
-│   ├── log.config
-│   ├── recovery.config
-│   ├── recovery_log.config
-│   └── server.config
-├── docs
-├── keys             &lt;- Keys for decrypting
-│   ├── private_key.pem
-│   └── private_laura.pem
-├── requirements.txt
-├── setup.py
-└── tests
-</pre></div>
-</div>
-</div>
-<div class="section" id="structure-of-data-folder">
-<span id="structure-of-data-folder"></span><h2>Structure of data folder:<a class="headerlink" href="#structure-of-data-folder" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span></span>Data Pool
-├── logs    &lt;- All website share one log folder
-├── mindtrails  
-│   ├── active_data     &lt;- for the csv files we decoded from raw_data
-│   ├── raw_data        &lt;- for the json files we saved from export. BenchMark file sits here as well.
-│   └── reports         &lt;- for the data checking report we generated based on active_data
-├── mobile
-│   ├── active_data
-│   ├── raw_data
-│   └── reports
-└── templeton
-    ├── active_data
-    ├── raw_data
-    └── reports
-</pre></div>
-</div>
 </div>
 <div class="section" id="current-usage">
 <span id="current-usage"></span><h2>Current Usage<a class="headerlink" href="#current-usage" title="Permalink to this headline">¶</a></h2>
@@ -377,9 +376,8 @@ LOG_CFG=my_logging.yaml python my_server.py</p>
 <li><a class="reference internal" href="#download">Download</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#structure-your-data-folders">Structure your data folders</a></li>
 <li><a class="reference internal" href="#setup-routine">Setup routine</a></li>
-<li><a class="reference internal" href="#structure-of-installed-program">Structure of installed program:</a></li>
-<li><a class="reference internal" href="#structure-of-data-folder">Structure of data folder:</a></li>
 <li><a class="reference internal" href="#current-usage">Current Usage</a></li>
 <li><a class="reference internal" href="#todo">TODO:</a></li>
 <li><a class="reference internal" href="#basic-overview">Basic Overview</a></li>

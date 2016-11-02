@@ -54,6 +54,35 @@ Create a virtual environment with python 2.7, and install dependencies
 Configuration
 ---------
 
+Create needed config and keys files. They should be place in folders within MTData, like this:
+
+```
+MTData/
+├── MTData           <- actual codes
+│   ├── com.py
+│   ├── export.py
+│   ├── export_old.py
+│   ├── helloworld.py
+│   ├── recovery.py
+│   └── scales.py
+├── README.md
+├── bin
+│   └── martin.sh
+├── config           <- configuration files. In actural phrase, use \*.config instead of \*.config.sample
+│   ├── export.config
+│   ├── log.config
+│   ├── recovery.config
+│   ├── recovery_log.config
+│   └── server.config
+├── docs
+├── keys             <- Keys for decrypting
+│   ├── private_2.pem
+│   └── private_1.pem
+├── requirements.txt
+├── setup.py
+└── tests
+```
+
 Edit the server.config and log.config as needed.
 
 Here is an example of server.config with comments:
@@ -100,6 +129,29 @@ Here is an example of log.config with comments:
 ```
 Not yet done, please see log.config.sample for now.
 
+
+Structure your data folders
+----------
+
+Create folders for your studies. They should looks like this:
+
+```
+Data_pool
+├── logs    <- All website share one log folder
+├── name_of_server1  
+│   ├── active_data     <- for the csv files we decoded from raw_data
+│   ├── raw_data        <- for the json files we saved from export. BenchMark file sits here as well.
+│   └── reports         <- for the data checking report we generated based on active_data
+├── name_of_server2
+│   ├── active_data
+│   ├── raw_data
+│   └── reports
+└── name_of_server3
+    ├── active_data
+    ├── raw_data
+    └── reports
+```
+
 Setup routine
 ----------
 
@@ -113,7 +165,7 @@ MTData export . .
 
 Then you edit your **crontab** by:
 ```sh
-crontab -e
+$ crontab -e
 ```
 Add a line to crontab:
 ```sh
@@ -121,51 +173,8 @@ Add a line to crontab:
 ```
 Similarly you can create routine to do the needfuls.
 
-## Structure of installed program:
-```
-MTData/
-├── MTData           <- actual codes
-│   ├── com.py
-│   ├── export.py
-│   ├── export_old.py
-│   ├── helloworld.py
-│   ├── recovery.py
-│   └── scales.py
-├── README.md
-├── bin
-│   └── martin.sh
-├── config           <- configuration files. In actural phrase, use \*.config instead of \*.config.sample
-│   ├── export.config
-│   ├── log.config
-│   ├── recovery.config
-│   ├── recovery_log.config
-│   └── server.config
-├── docs
-├── keys             <- Keys for decrypting
-│   ├── private_key.pem
-│   └── private_laura.pem
-├── requirements.txt
-├── setup.py
-└── tests
-```
-## Structure of data folder:
 
-```
-Data Pool
-├── logs    <- All website share one log folder
-├── mindtrails  
-│   ├── active_data     <- for the csv files we decoded from raw_data
-│   ├── raw_data        <- for the json files we saved from export. BenchMark file sits here as well.
-│   └── reports         <- for the data checking report we generated based on active_data
-├── mobile
-│   ├── active_data
-│   ├── raw_data
-│   └── reports
-└── templeton
-    ├── active_data
-    ├── raw_data
-    └── reports
-```
+
 
 ## Current Usage
 
