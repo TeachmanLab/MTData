@@ -40,7 +40,18 @@
 <span id="about-mindtrails-data"></span><h1>About MindTrails Data<a class="headerlink" href="#about-mindtrails-data" title="Permalink to this headline">¶</a></h1>
 <p>A command-line tool that handle data exporting, decrypting and basic checking for
 mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.</p>
-<p><strong>For Example:</strong></p>
+<div class="section" id="basic-idea">
+<span id="basic-idea"></span><h2>Basic idea<a class="headerlink" href="#basic-idea" title="Permalink to this headline">¶</a></h2>
+<p>The main idea of MTData is three-fold:</p>
+<ol class="simple">
+<li><code class="docutils literal"><span class="pre">export</span></code> encrypted data as json files</li>
+<li><code class="docutils literal"><span class="pre">decode</span></code> json files locally into csv files</li>
+<li><code class="docutils literal"><span class="pre">report</span></code> basic missing data measurements based on the decrypted csv files</li>
+</ol>
+<p>At the end of the day you will have raw backup json data and ready-to-use csv format data for your analysis. You also can refer to automatically generated reports and logs for data integrity issues.</p>
+</div>
+<div class="section" id="examples">
+<span id="examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># download and delete all the deleteable questionnaire entries on multiple servers</span>
 $ MTData <span class="nb">export</span> . .
 
@@ -51,6 +62,9 @@ $ MTData <span class="nb">export</span>
 <span class="c1"># download all the questionnaire entries that should not be deleted from the templeton server.</span>
 $ MTData <span class="nb">export</span> templeton static
 
+<span class="c1"># decode all the questionnaire for mindtrails server.</span>
+$ MTData decode mindtrails .
+
 <span class="c1"># Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.</span>
 $ MTData report scale
 
@@ -59,6 +73,7 @@ $ MTData report client mindtrails
 </pre></div>
 </div>
 <p>You could also create simple bash script with these tools to setup their export, decode and report schedule.</p>
+</div>
 </div>
 <div class="section" id="getting-started">
 <span id="getting-started"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
@@ -115,20 +130,27 @@ $ MTData report client mindtrails
 <p>Here is an example of server.config with comments:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="c1"># create a new block for each new study you launch. Assign a name to it.</span>
 <span class="l l-Scalar l-Scalar-Plain">name_of_server1</span><span class="p p-Indicator">:</span>
+
   <span class="c1"># READY variables tells MTData whether it should export data for this study. Change it to True when you are ready.</span>
   <span class="l l-Scalar l-Scalar-Plain">READY</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+
   <span class="c1"># DELETE_MODE tells MTData if it should delete deleteable entries on server.</span>
   <span class="l l-Scalar l-Scalar-Plain">DELETE_MODE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+
   <span class="c1"># SERVER: where you host your study. Remember to add &#39;/api/exort&#39; at the end of url.</span>
   <span class="l l-Scalar l-Scalar-Plain">SERVER</span><span class="p p-Indicator">:</span> <span class="s">&#39;https://MindTrails.virginia.edu/api/export&#39;</span>
+
   <span class="c1"># Put in the account information of an admin account.</span>
   <span class="l l-Scalar l-Scalar-Plain">USER</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">PASS</span><span class="p p-Indicator">:</span>
+
   <span class="c1"># Name of the key files for decrypting, you should have the actual files in the MTData/keys folder.</span>
   <span class="l l-Scalar l-Scalar-Plain">PRIVATE_FILE</span><span class="p p-Indicator">:</span>
+
   <span class="c1"># This is for the time stamp on output csv files. You don&#39;t need to change it.</span>
   <span class="l l-Scalar l-Scalar-Plain">DATE_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%b_%d_%Y&quot;</span>
   <span class="l l-Scalar l-Scalar-Plain">TIME_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%H_%M_%S&quot;</span>
+
   <span class="c1"># Absolute path for the folder where you want to store your exported data. You should make a separated folder for each study.</span>
   <span class="l l-Scalar l-Scalar-Plain">PATH</span><span class="p p-Indicator">:</span> <span class="s">&quot;/Users/X/Data_pool/name_of_server1/&quot;</span>
 
@@ -145,9 +167,9 @@ $ MTData report client mindtrails
 </pre></div>
 </div>
 <p><strong>Note for &#8216;READY&#8217;</strong>
-You can override READY:False in <code class="docutils literal"><span class="pre">report</span></code> and <code class="docutils literal"><span class="pre">decode</span></code> by specifying the name of server, but you <em>CANNOT</em> export a server&#8217;s data if READY is False at any time.</p>
+You can override READY:False in <code class="docutils literal"><span class="pre">report</span></code> and <code class="docutils literal"><span class="pre">decode</span></code> by specifying the name of server, but you <em>CANNOT</em> <code class="docutils literal"><span class="pre">export</span></code> a server&#8217;s data if READY is False at any time.</p>
 <p><strong>Note for &#8216;deleteable&#8217;</strong>
-In mindtrails, all tables have a &#8216;deleteable&#8217; attribute. &#8216;deleteable&#8217; is True when this table contains sensitive data that you don&#8217;t want to keep on your front end server, and therefore requires to be downloaded and deleted frequently(like, every 5 minutes). &#8216;deleteable&#8217; is False when this table is needed for the online study constantly(like, baseline score for alarming, task logs needed for reference).</p>
+In MindTrails, all tables have a &#8216;deleteable&#8217; attribute. &#8216;deleteable&#8217; is True when this table contains sensitive data that you don&#8217;t want to keep on your front end server, and therefore requires to be downloaded and deleted frequently (like, every 5 minutes). &#8216;deleteable&#8217; is False when this table is needed for the online study constantly (like, baseline score for alarming, task logs needed for reference).</p>
 <p>Here is an example of log.config with comments:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -193,30 +215,34 @@ MTData <span class="nb">export</span> . .
 </div>
 <p>Similarly you can create routine to do the needfuls.</p>
 </div>
+</div>
 <div class="section" id="current-usage">
-<span id="current-usage"></span><h2>Current Usage<a class="headerlink" href="#current-usage" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>export</li>
-</ul>
+<span id="current-usage"></span><h1>Current Usage<a class="headerlink" href="#current-usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="export">
+<span id="export"></span><h2>export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ MTData <span class="nb">export</span> <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span> <span class="o">[</span><span class="nv">scaleName</span> <span class="o">=</span>./static/All<span class="o">]</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>decode</li>
-</ul>
+</div>
+<div class="section" id="decode">
+<span id="decode"></span><h2>decode<a class="headerlink" href="#decode" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ MTData decode <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span> <span class="o">[</span>scaleName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>report</li>
-</ul>
+</div>
+<div class="section" id="report">
+<span id="report"></span><h2>report<a class="headerlink" href="#report" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ MTData report client <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span>
 $ MTData report scale <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="tools">
+<span id="tools"></span><h2>tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
 <div class="section" id="todo">
-<span id="todo"></span><h2>TODO:<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<span id="todo"></span><h1>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h1>
 <ol class="simple">
 <li>Finish all the basic functions(export, decode, report)</li>
 </ol>
@@ -243,110 +269,8 @@ We could add small tools that make our data analysis less boring and a lot faste
 <p><strong>Let Diheng or Sam know if you would like to work on getting the most frequently used analysis codes into small tools.</strong></p>
 <p><em>All the items that end with a * would apprecitate helps!</em></p>
 </div>
-<div class="section" id="basic-overview">
-<span id="basic-overview"></span><h2>Basic Overview<a class="headerlink" href="#basic-overview" title="Permalink to this headline">¶</a></h2>
-<p>What this little application is going to do:</p>
-<ol>
-<li><p class="first">Read in a data package (oneShot).</p>
-</li>
-<li><p class="first">One by one, read out the data form names(scale names) in oneShot, and then:</p>
-<p>A. Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one</p>
-<p>B. Open [form_name]_[date].csv, append the data we have into it, one by one.</p>
-<p>C. Keep the raw data, and then send back delete commend one by one</p>
-<p>D. Close file, Log down the action and output to log files. If there is an error, email admin.</p>
-</li>
-</ol>
-</div>
-<div class="section" id="data-requesting">
-<span id="data-requesting"></span><h2>Data requesting<a class="headerlink" href="#data-requesting" title="Permalink to this headline">¶</a></h2>
-<p>Data requesting is done via the requests module, basic documentation could be found here:</p>
-<p>http://docs.python-requests.org/en/latest/</p>
-</div>
-<div class="section" id="data-writing">
-<span id="data-writing"></span><h2>Data writing<a class="headerlink" href="#data-writing" title="Permalink to this headline">¶</a></h2>
-<p>Data writing is doen via the csv module, basic documentation could be found here:</p>
-<p>https://docs.python.org/2/library/csv.html#csv-fmt-params</p>
-</div>
-<div class="section" id="logging">
-<span id="logging"></span><h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
-<p>Logging is done via the logging module. Configuration is through log.config. ALL temple and account information should
-configure via log.config. See comments for reminder.</p>
-<p>Bugs: MAKE SURE THAT YOU HAVE A &#8220;logs&#8221; FOLDER IN THE STORAGE PATH BEFORE YOU RUN THE PROGRAM. IT IS A STUPID BUG THAT I DON&#8217;T KNOW HOW TO FIX.</p>
-<div class="section" id="logging-behaviors-list-below">
-<span id="logging-behaviors-list-below"></span><h3>Logging behaviors list below:<a class="headerlink" href="#logging-behaviors-list-below" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span></span> A. There are five level of logging information, from low to high in priority are: debug/info/warning/error/critical
-
- B. All information will be stored in DEBUG.log.
-
- C. All information belong to and beyond info level will be stored in Daily.log.
-
- D. All information belong to and beyond warning level will be stored in error.log.
-
- E. All information reach critical level will be stored in bread_down.log, and emails will be sent to admin meanwhile.
-
- F. All log files will rotate at midnight. Old log files will be added suffix with local date. Log files will be
-rotating in a year long period(366 days).
-</pre></div>
-</div>
-</div>
-<div class="section" id="break-down-situation-includes">
-<span id="break-down-situation-includes"></span><h3>Break_down situation includes:<a class="headerlink" href="#break-down-situation-includes" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span></span> A. Data request failure. Imply a network breakdown.
-
- B. Data delete failure. Imply a network breakdown and post a serious data security threat.
-
- C. Data writing failure. Imply a breakdown in csv module and need immediate attention.
-</pre></div>
-</div>
-<p>Basic documentation about logging could be found here:</p>
-<p>https://docs.python.org/2/library/logging.html</p>
-</div>
-</div>
-<div class="section" id="decrypting">
-<span id="decrypting"></span><h2>Decrypting<a class="headerlink" href="#decrypting" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span></span>Original module. Need more documentation here:
-</pre></div>
-</div>
-</div>
-<div class="section" id="backup-system">
-<span id="backup-system"></span><h2>Backup system:<a class="headerlink" href="#backup-system" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span></span>Data backup is done by storing the raw data package in json format. Data will be stored daily.
-
- A. All new data package(quest within any oneShot) will be stored in
-raw_data/[scaleName]\_[Date].json before they are decrypted and recorded into active_data/[scaleName]\_[Date].csv.
-
- B. Raw data will be stored as json, and could be read as json objects.
-
- C. Keys for backup data are in form of [[scaleName] + &#39;\_&#39; + TIME].
-
- D. Backup data files is consistent with active data file in name and will be created in a daily base.
-</pre></div>
-</div>
-<p><strong>HEADS UP</strong>: <em>Creating new raw data files will not be logged into log files, but creating new active data files will.</em></p>
-</div>
-</div>
-<div class="section" id="data-deleting">
-<span id="data-deleting"></span><h1>Data deleting:<a class="headerlink" href="#data-deleting" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span></span>Just so you know, turn on Delete mode by setting constant DELETE_MODE to True. (Highly NOT recommended in testing
-phrase.)
-</pre></div>
-</div>
-</div>
-<div class="section" id="benchmark">
-<span id="benchmark"></span><h1>BenchMark<a class="headerlink" href="#benchmark" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span></span>BenchMark is a file which contains the highest ID number(benchmarks) for each questionnaire. It will stop the exporter
-downloading duplicated data and remind the admin old data which suppose to be deleted remained on the server. You don&#39;t
-need to have a BenchMark.txt for the program to run. You will get an email for creating the new benchMark file.
-
-HEADS UP:
-</pre></div>
-</div>
-</div>
-<div class="section" id="deploy-and-run-on-server">
-<span id="deploy-and-run-on-server"></span><h1>Deploy and run on Server<a class="headerlink" href="#deploy-and-run-on-server" title="Permalink to this headline">¶</a></h1>
-<p>This program will run every 5 minutes on the server. Done by martin.sh and crontab setting on server.</p>
 <div class="section" id="what-is-done">
-<span id="what-is-done"></span><h2>What is done:<a class="headerlink" href="#what-is-done" title="Permalink to this headline">¶</a></h2>
+<span id="what-is-done"></span><h1>What is done<a class="headerlink" href="#what-is-done" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li>Read and write data</li>
 <li>Error alert</li>
@@ -361,7 +285,6 @@ HEADS UP:
 <p>Note to myself:
 LOG_CFG=my_logging.yaml python my_server.py</p>
 </div>
-</div>
 
 
           </div>
@@ -371,33 +294,28 @@ LOG_CFG=my_logging.yaml python my_server.py</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">About MindTrails Data</a></li>
+<li><a class="reference internal" href="#">About MindTrails Data</a><ul>
+<li><a class="reference internal" href="#basic-idea">Basic idea</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
 <li><a class="reference internal" href="#download">Download</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#configuration">Configuration</a></li>
 <li><a class="reference internal" href="#structure-your-data-folders">Structure your data folders</a></li>
 <li><a class="reference internal" href="#setup-routine">Setup routine</a></li>
-<li><a class="reference internal" href="#current-usage">Current Usage</a></li>
-<li><a class="reference internal" href="#todo">TODO:</a></li>
-<li><a class="reference internal" href="#basic-overview">Basic Overview</a></li>
-<li><a class="reference internal" href="#data-requesting">Data requesting</a></li>
-<li><a class="reference internal" href="#data-writing">Data writing</a></li>
-<li><a class="reference internal" href="#logging">Logging</a><ul>
-<li><a class="reference internal" href="#logging-behaviors-list-below">Logging behaviors list below:</a></li>
-<li><a class="reference internal" href="#break-down-situation-includes">Break_down situation includes:</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#decrypting">Decrypting</a></li>
-<li><a class="reference internal" href="#backup-system">Backup system:</a></li>
+<li><a class="reference internal" href="#current-usage">Current Usage</a><ul>
+<li><a class="reference internal" href="#export">export</a></li>
+<li><a class="reference internal" href="#decode">decode</a></li>
+<li><a class="reference internal" href="#report">report</a></li>
+<li><a class="reference internal" href="#tools">tools</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#data-deleting">Data deleting:</a></li>
-<li><a class="reference internal" href="#benchmark">BenchMark</a></li>
-<li><a class="reference internal" href="#deploy-and-run-on-server">Deploy and run on Server</a><ul>
-<li><a class="reference internal" href="#what-is-done">What is done:</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#todo">TODO</a></li>
+<li><a class="reference internal" href="#what-is-done">What is done</a></li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>

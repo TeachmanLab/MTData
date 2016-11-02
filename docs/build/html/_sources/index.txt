@@ -4,7 +4,19 @@ About MindTrails Data
 A command-line tool that handle data exporting, decrypting and basic checking for
 mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.
 
-**For Example:**
+Basic idea
+---------
+
+The main idea of MTData is three-fold:
+1. ```export``` encrypted data as json files
+2. ```decode``` json files locally into csv files
+3. ```report``` basic missing data measurements based on the decrypted csv files
+
+At the end of the day you will have raw backup json data and ready-to-use csv format data for your analysis. You also can refer to automatically generated reports and logs for data integrity issues.
+
+
+Examples
+---------
 
 ```sh
 # download and delete all the deleteable questionnaire entries on multiple servers
@@ -17,6 +29,9 @@ $ MTData export
 # download all the questionnaire entries that should not be deleted from the templeton server.
 $ MTData export templeton static
 
+# decode all the questionnaire for mindtrails server.
+$ MTData decode mindtrails .
+
 # Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.
 $ MTData report scale
 
@@ -25,6 +40,7 @@ $ MTData report client mindtrails
 ```
 
 You could also create simple bash script with these tools to setup their export, decode and report schedule.
+
 
 Getting Started
 ============
@@ -89,20 +105,27 @@ Here is an example of server.config with comments:
 ```yaml
 # create a new block for each new study you launch. Assign a name to it.
 name_of_server1:
+
   # READY variables tells MTData whether it should export data for this study. Change it to True when you are ready.
   READY: False
+
   # DELETE_MODE tells MTData if it should delete deleteable entries on server.
   DELETE_MODE: False
+
   # SERVER: where you host your study. Remember to add '/api/exort' at the end of url.
   SERVER: 'https://MindTrails.virginia.edu/api/export'
+
   # Put in the account information of an admin account.
   USER:
   PASS:
+
   # Name of the key files for decrypting, you should have the actual files in the MTData/keys folder.
   PRIVATE_FILE:
+
   # This is for the time stamp on output csv files. You don't need to change it.
   DATE_FORMAT: "%b_%d_%Y"
   TIME_FORMAT: "%H_%M_%S"
+
   # Absolute path for the folder where you want to store your exported data. You should make a separated folder for each study.
   PATH: "/Users/X/Data_pool/name_of_server1/"
 
@@ -118,10 +141,10 @@ name_of_server2:
   PATH: "/Users/Diheng/Box Sync/TEST_Diheng/"
 ```
 **Note for 'READY'**
-You can override READY:False in ```report``` and ```decode``` by specifying the name of server, but you *CANNOT* export a server's data if READY is False at any time.
+You can override READY:False in ```report``` and ```decode``` by specifying the name of server, but you *CANNOT* ```export``` a server's data if READY is False at any time.
 
 **Note for 'deleteable'**
-In mindtrails, all tables have a 'deleteable' attribute. 'deleteable' is True when this table contains sensitive data that you don't want to keep on your front end server, and therefore requires to be downloaded and deleted frequently(like, every 5 minutes). 'deleteable' is False when this table is needed for the online study constantly(like, baseline score for alarming, task logs needed for reference).
+In MindTrails, all tables have a 'deleteable' attribute. 'deleteable' is True when this table contains sensitive data that you don't want to keep on your front end server, and therefore requires to be downloaded and deleted frequently (like, every 5 minutes). 'deleteable' is False when this table is needed for the online study constantly (like, baseline score for alarming, task logs needed for reference).
 
 Here is an example of log.config with comments:
 ```yaml
@@ -176,30 +199,40 @@ Similarly you can create routine to do the needfuls.
 
 
 
-## Current Usage
+Current Usage
+===========
 
-  - export
+export
+---------
 
   ```sh
   $ MTData export [serverName, default=.(All)] [scaleName =./static/All]
 
   ```
 
-  - decode
+decode
+--------
 
   ```sh
   $ MTData decode [serverName, default=.(All)] [scaleName, default=.(All)]
   ```
 
-  - report
+report
+----------
+
   ```sh
   $ MTData report client [serverName, default=.(All)]
   $ MTData report scale [serverName, default=.(All)]
   ```
+  
+tools
+---------
 
 
 
-## TODO:
+
+TODO
+=========
 1. Finish all the basic functions(export, decode, report)
   - export <- Done.
   - decode <- Done.
@@ -228,127 +261,8 @@ Also, we could write function that do basic analysis that we would need for time
 
 *All the items that end with a * would apprecitate helps!*
 
-
-
-
-
-
-
-
-
-
-## Basic Overview
-
-What this little application is going to do:
-
-1. Read in a data package (oneShot).
-
-1. One by one, read out the data form names(scale names) in oneShot, and then:
-
-    A. Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
-
-    B. Open [form_name]_[date].csv, append the data we have into it, one by one.
-
-    C. Keep the raw data, and then send back delete commend one by one
-
-    D. Close file, Log down the action and output to log files. If there is an error, email admin.
-
-
-
-## Data requesting
-
-Data requesting is done via the requests module, basic documentation could be found here:
-
-http://docs.python-requests.org/en/latest/
-
-
-
-## Data writing
-
-Data writing is doen via the csv module, basic documentation could be found here:
-
-https://docs.python.org/2/library/csv.html#csv-fmt-params
-
-
-
-## Logging
-
-Logging is done via the logging module. Configuration is through log.config. ALL temple and account information should
-configure via log.config. See comments for reminder.
-
-Bugs: MAKE SURE THAT YOU HAVE A "logs" FOLDER IN THE STORAGE PATH BEFORE YOU RUN THE PROGRAM. IT IS A STUPID BUG THAT I DON'T KNOW HOW TO FIX.
-
-### Logging behaviors list below:
-
-     A. There are five level of logging information, from low to high in priority are: debug/info/warning/error/critical
-
-     B. All information will be stored in DEBUG.log.
-
-     C. All information belong to and beyond info level will be stored in Daily.log.
-
-     D. All information belong to and beyond warning level will be stored in error.log.
-
-     E. All information reach critical level will be stored in bread_down.log, and emails will be sent to admin meanwhile.
-
-     F. All log files will rotate at midnight. Old log files will be added suffix with local date. Log files will be
-    rotating in a year long period(366 days).
-
-### Break_down situation includes:
-
-     A. Data request failure. Imply a network breakdown.
-
-     B. Data delete failure. Imply a network breakdown and post a serious data security threat.
-
-     C. Data writing failure. Imply a breakdown in csv module and need immediate attention.
-
-Basic documentation about logging could be found here:
-
-https://docs.python.org/2/library/logging.html
-
-
-
-## Decrypting
-
-    Original module. Need more documentation here:
-
-
-
-## Backup system:
-
-    Data backup is done by storing the raw data package in json format. Data will be stored daily.
-
-     A. All new data package(quest within any oneShot) will be stored in
-    raw_data/[scaleName]\_[Date].json before they are decrypted and recorded into active_data/[scaleName]\_[Date].csv.
-
-     B. Raw data will be stored as json, and could be read as json objects.
-
-     C. Keys for backup data are in form of [[scaleName] + '\_' + TIME].
-
-     D. Backup data files is consistent with active data file in name and will be created in a daily base.
-
-**HEADS UP**: *Creating new raw data files will not be logged into log files, but creating new active data files will.*
-
-
-
-# Data deleting:
-
-    Just so you know, turn on Delete mode by setting constant DELETE_MODE to True. (Highly NOT recommended in testing
-    phrase.)
-
-# BenchMark
-
-	BenchMark is a file which contains the highest ID number(benchmarks) for each questionnaire. It will stop the exporter
-	downloading duplicated data and remind the admin old data which suppose to be deleted remained on the server. You don't
-	need to have a BenchMark.txt for the program to run. You will get an email for creating the new benchMark file.
-
-	HEADS UP:
-
-# Deploy and run on Server
-
-This program will run every 5 minutes on the server. Done by martin.sh and crontab setting on server.
-
-### What is done:
-
+What is done
+=========
 * Read and write data
 * Error alert
 * Error logs
