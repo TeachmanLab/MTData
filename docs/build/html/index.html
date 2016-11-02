@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>MTData &mdash; MTData 2.0.1 documentation</title>
+    <title>About MindTrails Data &mdash; MTData 2.0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -36,10 +36,116 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="mtdata">
-<span id="mtdata"></span><h1>MTData<a class="headerlink" href="#mtdata" title="Permalink to this headline">¶</a></h1>
-<p>A python application that handle data exporting, decrypting and basic checking for
+  <div class="section" id="about-mindtrails-data">
+<span id="about-mindtrails-data"></span><h1>About MindTrails Data<a class="headerlink" href="#about-mindtrails-data" title="Permalink to this headline">¶</a></h1>
+<p>A command-line tool that handle data exporting, decrypting and basic checking for
 mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.</p>
+<p><strong>For Example:</strong></p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># download and delete all the deleteable questionnaire entries on multiple servers</span>
+$ MTData <span class="nb">export</span> . .
+
+<span class="c1"># or</span>
+
+$ MTData <span class="nb">export</span>
+
+<span class="c1"># download all the questionnaire entries that should not be deleted from the templeton server.</span>
+$ MTData <span class="nb">export</span> templeton static
+
+<span class="c1"># Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.</span>
+$ MTData report scale
+
+<span class="c1"># Generate data checking tables that calculate the percentage of missing questionnaire for each participant in mindtrails project(servers)</span>
+$ MTData report client mindtrails
+</pre></div>
+</div>
+<p>You could also create simple bash script with these tools to setup their export, decode and report schedule.</p>
+</div>
+<div class="section" id="getting-started">
+<span id="getting-started"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="download">
+<span id="download"></span><h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p>You can download it <a class="reference external" href="https://github.com/Diheng/MTData">here</a> or type this in your command-line:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ git clone https://github.com/Diheng/MTData.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation">
+<span id="installation"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Create a virtual environment with python 2.7, and install dependencies
+(see http://docs.python-guide.org/en/latest/dev/virtualenvs/)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>    $ virtualenv venv           
+    $ <span class="nb">source</span> venv/bin/activate
+    $ python setup.py install
+    $ <span class="nb">cd</span> config
+    $ cp server.config.example server.config
+    $ cp log.config.example log.config
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Edit the server.config and log.config as needed.</p>
+<p>Here is an example of server.config with comments:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="c1"># create a new block for each new study you launch. Assign a name to it.</span>
+<span class="l l-Scalar l-Scalar-Plain">name_of_server1</span><span class="p p-Indicator">:</span>
+  <span class="c1"># READY variables tells MTData whether it should export data for this study. Change it to True when you are ready.</span>
+  <span class="l l-Scalar l-Scalar-Plain">READY</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+  <span class="c1"># DELETE_MODE tells MTData if it should delete deleteable entries on server.</span>
+  <span class="l l-Scalar l-Scalar-Plain">DELETE_MODE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+  <span class="c1"># SERVER: where you host your study. Remember to add &#39;/api/exort&#39; at the end of url.</span>
+  <span class="l l-Scalar l-Scalar-Plain">SERVER</span><span class="p p-Indicator">:</span> <span class="s">&#39;https://MindTrails.virginia.edu/api/export&#39;</span>
+  <span class="c1"># Put in the account information of an admin account.</span>
+  <span class="l l-Scalar l-Scalar-Plain">USER</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">PASS</span><span class="p p-Indicator">:</span>
+  <span class="c1"># Name of the key files for decrypting, you should have the actual files in the MTData/keys folder.</span>
+  <span class="l l-Scalar l-Scalar-Plain">PRIVATE_FILE</span><span class="p p-Indicator">:</span>
+  <span class="c1"># This is for the time stamp on output csv files. You don&#39;t need to change it.</span>
+  <span class="l l-Scalar l-Scalar-Plain">DATE_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%b_%d_%Y&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">TIME_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%H_%M_%S&quot;</span>
+  <span class="c1"># Absolute path for the folder where you want to store your exported data. You should make a separated folder for each study.</span>
+  <span class="l l-Scalar l-Scalar-Plain">PATH</span><span class="p p-Indicator">:</span> <span class="s">&quot;/Users/X/Data_pool/name_of_server1/&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">name_of_server2</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">READY</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+  <span class="l l-Scalar l-Scalar-Plain">DELETE_MODE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+  <span class="l l-Scalar l-Scalar-Plain">SERVER</span><span class="p p-Indicator">:</span> <span class="s">&#39;http://localhost:9000/api/export&#39;</span>
+  <span class="l l-Scalar l-Scalar-Plain">USER</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">PASS</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">PRIVATE_FILE</span><span class="p p-Indicator">:</span> <span class="s">&#39;key_for_decrypt.pem&#39;</span>
+  <span class="l l-Scalar l-Scalar-Plain">DATE_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%b_%d_%Y&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">TIME_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%H_%M_%S&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">PATH</span><span class="p p-Indicator">:</span> <span class="s">&quot;/Users/Diheng/Box</span><span class="nv"> </span><span class="s">Sync/TEST_Diheng/&quot;</span>
+</pre></div>
+</div>
+<p><strong>Note for &#8216;READY&#8217;</strong>
+You can override READY:False in <code class="docutils literal"><span class="pre">report</span></code> and <code class="docutils literal"><span class="pre">decode</span></code> by specifying the name of server, but you <em>CANNOT</em> export a server&#8217;s data if READY is False at any time.</p>
+<p><strong>Note for &#8216;deleteable&#8217;</strong>
+In mindtrails, all tables have a &#8216;deleteable&#8217; attribute. &#8216;deleteable&#8217; is True when this table contains sensitive data that you don&#8217;t want to keep on your front end server, and therefore requires to be downloaded and deleted frequently(like, every 5 minutes). &#8216;deleteable&#8217; is False when this table is needed for the online study constantly(like, baseline score for alarming, task logs needed for reference).</p>
+<p>Here is an example of log.config with comments:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>Not yet done, please see log.config.sample for now.</p>
+</div>
+<div class="section" id="setup-routine">
+<span id="setup-routine"></span><h2>Setup routine<a class="headerlink" href="#setup-routine" title="Permalink to this headline">¶</a></h2>
+<p>Once you have done the installation and configuration, you can now write your own bash file and set up your own data managing routine:
+First you write a <strong>download.sh</strong>:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># download all deleteable data from all server.</span>
+MTData <span class="nb">export</span> . .
+</pre></div>
+</div>
+<p>Then you edit your <strong>crontab</strong> by:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>crontab -e
+</pre></div>
+</div>
+<p>Add a line to crontab:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>*/5 * * * * /Path/to/your/download.sh
+</pre></div>
+</div>
+<p>Similarly you can create routine to do the needfuls.</p>
+</div>
 <div class="section" id="structure-of-installed-program">
 <span id="structure-of-installed-program"></span><h2>Structure of installed program:<a class="headerlink" href="#structure-of-installed-program" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span></span>MTData/
@@ -110,28 +216,6 @@ $ MTData report scale <span class="o">[</span>serverName, <span class="nv">defau
 </pre></div>
 </div>
 </div>
-<div class="section" id="plan">
-<span id="plan"></span><h2>Plan:<a class="headerlink" href="#plan" title="Permalink to this headline">¶</a></h2>
-<p>We want to make MTData a standalone program that could be installed on server, and provides commend line tools for data downloading and basic checking. When we finish, we should have tools like:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># download and delete all the deleteable questionnaire entries on multiple servers</span>
-$ MTData <span class="nb">export</span> . .
-
-<span class="c1"># or</span>
-
-$ MTData <span class="nb">export</span>
-
-<span class="c1"># download all the questionnaire entries that should not be deleted from the templeton server.</span>
-$ MTData <span class="nb">export</span> templeton static
-
-<span class="c1"># Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.</span>
-$ MTData report scale
-
-<span class="c1"># Generate data checking tables that calculate the percentage of missing questionnaire for each participant in mindtrails project(servers)</span>
-$ MTData report client mindtrails
-</pre></div>
-</div>
-<p>So that users could create simple bash script with these tools to setup their export, decode and report schedule.</p>
-</div>
 <div class="section" id="todo">
 <span id="todo"></span><h2>TODO:<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
@@ -159,24 +243,6 @@ We could add small tools that make our data analysis less boring and a lot faste
 <p>Also, we could write function that do basic analysis that we would need for time to time. For example, we would need to generate a attrition rate report pretty often. Diheng has python codes that works with pandas and Sam probably has tons of R code as well, which could be turn into python small tools pretty easily.*</p>
 <p><strong>Let Diheng or Sam know if you would like to work on getting the most frequently used analysis codes into small tools.</strong></p>
 <p><em>All the items that end with a * would apprecitate helps!</em></p>
-</div>
-<div class="section" id="getting-started">
-<span id="getting-started"></span><h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>Create a virtual environment with python 2.7, and install dependencies
-(see http://docs.python-guide.org/en/latest/dev/virtualenvs/)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>    $ virtualenv venv           
-    $ <span class="nb">source</span> venv/bin/activate
-    $ python setup.py install
-    $ <span class="nb">cd</span> config
-    $ cp server.config.example server.config
-    $ cp log.config.example log.config
-</pre></div>
-</div>
-</div>
-<div class="section" id="configuration">
-<span id="configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>Copy the server.config.example file to server.config, and edit the settings so they
-match your configuration needs.</p>
 </div>
 <div class="section" id="basic-overview">
 <span id="basic-overview"></span><h2>Basic Overview<a class="headerlink" href="#basic-overview" title="Permalink to this headline">¶</a></h2>
@@ -306,14 +372,16 @@ LOG_CFG=my_logging.yaml python my_server.py</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">MTData</a><ul>
+<li><a class="reference internal" href="#">About MindTrails Data</a></li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li><a class="reference internal" href="#download">Download</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#setup-routine">Setup routine</a></li>
 <li><a class="reference internal" href="#structure-of-installed-program">Structure of installed program:</a></li>
 <li><a class="reference internal" href="#structure-of-data-folder">Structure of data folder:</a></li>
 <li><a class="reference internal" href="#current-usage">Current Usage</a></li>
-<li><a class="reference internal" href="#plan">Plan:</a></li>
 <li><a class="reference internal" href="#todo">TODO:</a></li>
-<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a></li>
 <li><a class="reference internal" href="#basic-overview">Basic Overview</a></li>
 <li><a class="reference internal" href="#data-requesting">Data requesting</a></li>
 <li><a class="reference internal" href="#data-writing">Data writing</a></li>

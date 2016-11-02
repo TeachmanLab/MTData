@@ -1,7 +1,125 @@
-# MTData
+About MindTrails Data
+======
 
-A python application that handle data exporting, decrypting and basic checking for
+A command-line tool that handle data exporting, decrypting and basic checking for
 mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.
+
+**For Example:**
+
+```sh
+# download and delete all the deleteable questionnaire entries on multiple servers
+$ MTData export . .
+
+# or
+
+$ MTData export
+
+# download all the questionnaire entries that should not be deleted from the templeton server.
+$ MTData export templeton static
+
+# Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.
+$ MTData report scale
+
+# Generate data checking tables that calculate the percentage of missing questionnaire for each participant in mindtrails project(servers)
+$ MTData report client mindtrails
+```
+
+You could also create simple bash script with these tools to setup their export, decode and report schedule.
+
+Getting Started
+============
+
+Download
+---------
+
+You can download it [here](https://github.com/Diheng/MTData) or type this in your command-line:
+```sh
+$ git clone https://github.com/Diheng/MTData.git
+```
+
+Installation
+---------
+
+Create a virtual environment with python 2.7, and install dependencies
+(see http://docs.python-guide.org/en/latest/dev/virtualenvs/)
+```bash
+    $ virtualenv venv           
+    $ source venv/bin/activate
+    $ python setup.py install
+    $ cd config
+    $ cp server.config.example server.config
+    $ cp log.config.example log.config
+```
+
+Configuration
+---------
+
+Edit the server.config and log.config as needed.
+
+Here is an example of server.config with comments:
+```yaml
+# create a new block for each new study you launch. Assign a name to it.
+name_of_server1:
+  # READY variables tells MTData whether it should export data for this study. Change it to True when you are ready.
+  READY: False
+  # DELETE_MODE tells MTData if it should delete deleteable entries on server.
+  DELETE_MODE: False
+  # SERVER: where you host your study. Remember to add '/api/exort' at the end of url.
+  SERVER: 'https://MindTrails.virginia.edu/api/export'
+  # Put in the account information of an admin account.
+  USER:
+  PASS:
+  # Name of the key files for decrypting, you should have the actual files in the MTData/keys folder.
+  PRIVATE_FILE:
+  # This is for the time stamp on output csv files. You don't need to change it.
+  DATE_FORMAT: "%b_%d_%Y"
+  TIME_FORMAT: "%H_%M_%S"
+  # Absolute path for the folder where you want to store your exported data. You should make a separated folder for each study.
+  PATH: "/Users/X/Data_pool/name_of_server1/"
+
+name_of_server2:
+  READY: True
+  DELETE_MODE: False
+  SERVER: 'http://localhost:9000/api/export'
+  USER:
+  PASS:
+  PRIVATE_FILE: 'key_for_decrypt.pem'
+  DATE_FORMAT: "%b_%d_%Y"
+  TIME_FORMAT: "%H_%M_%S"
+  PATH: "/Users/Diheng/Box Sync/TEST_Diheng/"
+```
+**Note for 'READY'**
+You can override READY:False in ```report``` and ```decode``` by specifying the name of server, but you *CANNOT* export a server's data if READY is False at any time.
+
+**Note for 'deleteable'**
+In mindtrails, all tables have a 'deleteable' attribute. 'deleteable' is True when this table contains sensitive data that you don't want to keep on your front end server, and therefore requires to be downloaded and deleted frequently(like, every 5 minutes). 'deleteable' is False when this table is needed for the online study constantly(like, baseline score for alarming, task logs needed for reference).
+
+Here is an example of log.config with comments:
+```yaml
+
+```
+Not yet done, please see log.config.sample for now.
+
+Setup routine
+----------
+
+Once you have done the installation and configuration, you can now write your own bash file and set up your own data managing routine:
+First you write a **download.sh**:
+```sh
+#!/bin/bash
+# download all deleteable data from all server.
+MTData export . .
+```
+
+Then you edit your **crontab** by:
+```sh
+crontab -e
+```
+Add a line to crontab:
+```sh
+*/5 * * * * /Path/to/your/download.sh
+```
+Similarly you can create routine to do the needfuls.
 
 ## Structure of installed program:
 ```
@@ -70,28 +188,7 @@ Data Pool
   $ MTData report scale [serverName, default=.(All)]
   ```
 
-## Plan:
 
-We want to make MTData a standalone program that could be installed on server, and provides commend line tools for data downloading and basic checking. When we finish, we should have tools like:
-
-```sh
-# download and delete all the deleteable questionnaire entries on multiple servers
-$ MTData export . .
-
-# or
-
-$ MTData export
-
-# download all the questionnaire entries that should not be deleted from the templeton server.
-$ MTData export templeton static
-
-# Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.
-$ MTData report scale
-
-# Generate data checking tables that calculate the percentage of missing questionnaire for each participant in mindtrails project(servers)
-$ MTData report client mindtrails
-```
-So that users could create simple bash script with these tools to setup their export, decode and report schedule.
 
 ## TODO:
 1. Finish all the basic functions(export, decode, report)
@@ -129,23 +226,6 @@ Also, we could write function that do basic analysis that we would need for time
 
 
 
-## Getting Started
-
-Create a virtual environment with python 2.7, and install dependencies
-(see http://docs.python-guide.org/en/latest/dev/virtualenvs/)
-```bash
-    $ virtualenv venv           
-    $ source venv/bin/activate
-    $ python setup.py install
-    $ cd config
-    $ cp server.config.example server.config
-    $ cp log.config.example log.config
-```
-
-## Configuration
-
-Copy the server.config.example file to server.config, and edit the settings so they
-match your configuration needs.
 
 
 ## Basic Overview
