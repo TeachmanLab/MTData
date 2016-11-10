@@ -26,12 +26,19 @@ class Checker(object):
     """docstring for ."""
     def __init__(self, standard):
         super(, self).__init__()
-        self.standard = standard
+        self.standard = standard.json()
     def correct_number(self,entry):
-
+        
         return number
 
     def completed_list(self):
+        comList = []
+
+        for study in self.standard:
+            for session in study['sessions']:
+                for task in session['tasks']:
+                    if task['name'] not in comList:
+                        comList.append(task['name'])
 
         return comList
 
@@ -43,11 +50,11 @@ def scaleScan(config):
     log = logging.getLogger(__name__)
     log.info('Data checking started.')
     # Download Standard Scale Sheet
-    sss_url = config[SERVER] + '/sss'
+    sss_url = config[SERVER] + '/api/study'
     sss = safeRequest(sss_url,config)
     d = Checker(sss)
     # Create checking table
-    result = pd.DataFrame(index = d.completed_list(sss), columns = ['data_found','entries_in_log','entries_in_dataset','missing_rate'])
+    result = pd.DataFrame(index = d.completed_list(), columns = ['data_found','entries_in_log','entries_in_dataset','missing_rate'])
     newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
     taskLog = pd.read_csv(newest)
     # Check if data exists for scale
@@ -70,20 +77,26 @@ def clientScan(config):
     log = logging.getLogger(__name__)
     log.info('Data checking started.')
     # Download Standard Scale Sheet
-    sss_url = config[SERVER] + '/sss'
+    sss_url = config[SERVER] + '/api/study'
     sss = safeRequest(sss_url,config)
     d = Checker(sss)
     # Create a table with the last task of each participant
     newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
+    newest_client = max(glob.iglob(config["PATH"]+'active_data/Participant'+'*.csv'), key=os.path.getctime)
+    table_client = pd.read_csv(newest_client)
     table = pd.read_csv(newest)
     date = pd.to_datetime(table.datetime)
     table['datetime_CR'] = date
     idx = table.groupby(['participantdao_id'])['datetime_CR'].transform(max) == table['datetime_CR']
     check_tb = table[idx].sort(['participantdao_id'])
+    study_info = table_client[['id','study','cbmCondition']]
+    study_info.rename(columns={'id':'participant_id'}, inplace=True)
     result = check_tb[['participantdao_id','session_name','task_name']]
+    result.rename(columns={'participantdao_id':'participant_id'}, inplace=True)
+    result = result.merge(study_info,on='participant_id',how='outer')
     # Get checking information
-    result['target_task_no'] = result.apply(d.correct_number,axis=1)
-    result['logged_task_no'] = result.apply(lambda entry:len(table[table.participantdao_id == entry['participantdao_id']]), axis = 1)
+    result['target_task_no'] = result.apply(lambda entry:d.correct_number(entry),axis=1)
+    result['logged_task_no'] = result.apply(lambda entry:len(table[table.participantdao_id == entry['participant_id']]), axis = 1)
     result['Missing_no'] = result.apply(lambda entry:entry['target_task_no']-entry['logged_task_no'], axis=1)
     print('Number of participants finished as least a task: %s. \n',str(len(result)))
     print tabulate(result. headers='keys',tablefmt='psql')
