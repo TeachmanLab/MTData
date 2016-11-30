@@ -155,7 +155,6 @@ def safeWrite(response, ks, scaleName, deleteable, config):
                             log.error("Data encode failed, data lost. Questionnaire: %s, Entry ID: %s, Field: %s", scaleName, entry['id'], key, exc_info = 1) # Should log error, entry ID and data field
                     if (value != None):
                         try:
-                            if(key == "participantDAO" or key == "participantRSA"): key = "participantId"
                             entry[key] = value.encode('utf-8')
                             log.debug("Data successfully encoded.")
                         except UnicodeEncodeError:
