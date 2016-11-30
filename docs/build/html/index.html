@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>About MindTrails Data &mdash; MTData 2.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="MTData 2.0.1 documentation" href="#" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="about-mindtrails-data">
+<span id="about-mindtrails-data"></span><h1>About MindTrails Data<a class="headerlink" href="#about-mindtrails-data" title="Permalink to this headline">¶</a></h1>
+<p>A command-line tool that handle data exporting, decrypting and basic checking for
+mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.</p>
+<div class="section" id="basic-idea">
+<span id="basic-idea"></span><h2>Basic idea<a class="headerlink" href="#basic-idea" title="Permalink to this headline">¶</a></h2>
+<p>The main idea of MTData is three-fold:</p>
+<ol class="simple">
+<li><code class="docutils literal"><span class="pre">export</span></code> encrypted data as json files</li>
+<li><code class="docutils literal"><span class="pre">decode</span></code> json files locally into csv files</li>
+<li><code class="docutils literal"><span class="pre">report</span></code> basic missing data measurements based on the decrypted csv files</li>
+</ol>
+<p>At the end of the day you will have raw backup json data and ready-to-use csv format data for your analysis. You also can refer to automatically generated reports and logs for data integrity issues.</p>
+</div>
+<div class="section" id="examples">
+<span id="examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># download and delete all the deleteable questionnaire entries on multiple servers</span>
+$ MTData <span class="nb">export</span> . .
+
+<span class="c1"># or</span>
+
+$ MTData <span class="nb">export</span>
+
+<span class="c1"># download all the questionnaire entries that should not be deleted from the templeton server.</span>
+$ MTData <span class="nb">export</span> templeton static
+
+<span class="c1"># decode all the questionnaire for mindtrails server.</span>
+$ MTData decode mindtrails .
+
+<span class="c1"># Generate data checking tables that calculate the percentage of missing data for each column by questionnaire, for all.</span>
+$ MTData report scale
+
+<span class="c1"># Generate data checking tables that calculate the percentage of missing questionnaire for each participant in mindtrails project(servers)</span>
+$ MTData report client mindtrails
+</pre></div>
+</div>
+<p>You could also create simple bash script with these tools to setup their export, decode and report schedule.</p>
+</div>
+</div>
+<div class="section" id="getting-started">
+<span id="getting-started"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="download">
+<span id="download"></span><h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p>You can download it <a class="reference external" href="https://github.com/Diheng/MTData">here</a> or type this in your command-line:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ git clone https://github.com/Diheng/MTData.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation">
+<span id="installation"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Create a virtual environment with python 2.7, and install dependencies
+(see http://docs.python-guide.org/en/latest/dev/virtualenvs/)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>    $ virtualenv venv           
+    $ <span class="nb">source</span> venv/bin/activate
+    $ python setup.py install
+    $ <span class="nb">cd</span> config
+    $ cp server.config.example server.config
+    $ cp log.config.example log.config
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Create needed config and keys files. They should be place in folders within MTData, like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>MTData/
+├── MTData           &lt;- actual codes
+│   ├── com.py
+│   ├── export.py
+│   ├── export_old.py
+│   ├── helloworld.py
+│   ├── recovery.py
+│   └── scales.py
+├── README.md
+├── bin
+│   └── martin.sh
+├── config           &lt;- configuration files. In actural phrase, use \*.config instead of \*.config.sample
+│   ├── export.config
+│   ├── log.config
+│   ├── recovery.config
+│   ├── recovery_log.config
+│   └── server.config
+├── docs
+├── keys             &lt;- Keys for decrypting
+│   ├── private_2.pem
+│   └── private_1.pem
+├── requirements.txt
+├── setup.py
+└── tests
+</pre></div>
+</div>
+<p>Edit the server.config and log.config as needed.</p>
+<p>Here is an example of server.config with comments:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="c1"># create a new block for each new study you launch. Assign a name to it.</span>
+<span class="l l-Scalar l-Scalar-Plain">name_of_server1</span><span class="p p-Indicator">:</span>
+
+  <span class="c1"># READY variables tells MTData whether it should export data for this study. Change it to True when you are ready.</span>
+  <span class="l l-Scalar l-Scalar-Plain">READY</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+
+  <span class="c1"># DELETE_MODE tells MTData if it should delete deleteable entries on server.</span>
+  <span class="l l-Scalar l-Scalar-Plain">DELETE_MODE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+
+  <span class="c1"># SERVER: where you host your study. Remember to add &#39;/api/exort&#39; at the end of url.</span>
+  <span class="l l-Scalar l-Scalar-Plain">SERVER</span><span class="p p-Indicator">:</span> <span class="s">&#39;https://MindTrails.virginia.edu/api/export&#39;</span>
+
+  <span class="c1"># Put in the account information of an admin account.</span>
+  <span class="l l-Scalar l-Scalar-Plain">USER</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">PASS</span><span class="p p-Indicator">:</span>
+
+  <span class="c1"># Name of the key files for decrypting, you should have the actual files in the MTData/keys folder.</span>
+  <span class="l l-Scalar l-Scalar-Plain">PRIVATE_FILE</span><span class="p p-Indicator">:</span>
+
+  <span class="c1"># This is for the time stamp on output csv files. You don&#39;t need to change it.</span>
+  <span class="l l-Scalar l-Scalar-Plain">DATE_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%b_%d_%Y&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">TIME_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%H_%M_%S&quot;</span>
+
+  <span class="c1"># Absolute path for the folder where you want to store your exported data. You should make a separated folder for each study.</span>
+  <span class="l l-Scalar l-Scalar-Plain">PATH</span><span class="p p-Indicator">:</span> <span class="s">&quot;/Users/X/Data_pool/name_of_server1/&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">name_of_server2</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">READY</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+  <span class="l l-Scalar l-Scalar-Plain">DELETE_MODE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+  <span class="l l-Scalar l-Scalar-Plain">SERVER</span><span class="p p-Indicator">:</span> <span class="s">&#39;http://localhost:9000/api/export&#39;</span>
+  <span class="l l-Scalar l-Scalar-Plain">USER</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">PASS</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">PRIVATE_FILE</span><span class="p p-Indicator">:</span> <span class="s">&#39;key_for_decrypt.pem&#39;</span>
+  <span class="l l-Scalar l-Scalar-Plain">DATE_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%b_%d_%Y&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">TIME_FORMAT</span><span class="p p-Indicator">:</span> <span class="s">&quot;%H_%M_%S&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">PATH</span><span class="p p-Indicator">:</span> <span class="s">&quot;/Users/Diheng/Box</span><span class="nv"> </span><span class="s">Sync/TEST_Diheng/&quot;</span>
+</pre></div>
+</div>
+<p><strong>Note for &#8216;READY&#8217;</strong>
+You can override READY:False in <code class="docutils literal"><span class="pre">report</span></code> and <code class="docutils literal"><span class="pre">decode</span></code> by specifying the name of server, but you <em>CANNOT</em> <code class="docutils literal"><span class="pre">export</span></code> a server&#8217;s data if READY is False at any time.</p>
+<p><strong>Note for &#8216;deleteable&#8217;</strong>
+In MindTrails, all tables have a &#8216;deleteable&#8217; attribute. &#8216;deleteable&#8217; is True when this table contains sensitive data that you don&#8217;t want to keep on your front end server, and therefore requires to be downloaded and deleted frequently (like, every 5 minutes). &#8216;deleteable&#8217; is False when this table is needed for the online study constantly (like, baseline score for alarming, task logs needed for reference).</p>
+<p>Here is an example of log.config with comments:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>Not yet done, please see log.config.sample for now.</p>
+</div>
+<div class="section" id="structure-your-data-folders">
+<span id="structure-your-data-folders"></span><h2>Structure your data folders<a class="headerlink" href="#structure-your-data-folders" title="Permalink to this headline">¶</a></h2>
+<p>Create folders for your studies. They should looks like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Data_pool
+├── logs    &lt;- All website share one log folder
+├── name_of_server1  
+│   ├── active_data     &lt;- for the csv files we decoded from raw_data
+│   ├── raw_data        &lt;- for the json files we saved from export. BenchMark file sits here as well.
+│   └── reports         &lt;- for the data checking report we generated based on active_data
+├── name_of_server2
+│   ├── active_data
+│   ├── raw_data
+│   └── reports
+└── name_of_server3
+    ├── active_data
+    ├── raw_data
+    └── reports
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-routine">
+<span id="setup-routine"></span><h2>Setup routine<a class="headerlink" href="#setup-routine" title="Permalink to this headline">¶</a></h2>
+<p>Once you have done the installation and configuration, you can now write your own bash file and set up your own data managing routine:
+First you write a <strong>download.sh</strong>:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># download all deleteable data from all server.</span>
+MTData <span class="nb">export</span> . .
+</pre></div>
+</div>
+<p>Then you edit your <strong>crontab</strong> by:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ crontab -e
+</pre></div>
+</div>
+<p>Add a line to crontab:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>*/5 * * * * /Path/to/your/download.sh
+</pre></div>
+</div>
+<p>Similarly you can create routine to do the needfuls.</p>
+</div>
+</div>
+<div class="section" id="current-usage">
+<span id="current-usage"></span><h1>Current Usage<a class="headerlink" href="#current-usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="export">
+<span id="export"></span><h2>export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ MTData <span class="nb">export</span> <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span> <span class="o">[</span><span class="nv">scaleName</span> <span class="o">=</span>./static/All<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="decode">
+<span id="decode"></span><h2>decode<a class="headerlink" href="#decode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ MTData decode <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span> <span class="o">[</span>scaleName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="report">
+<span id="report"></span><h2>report<a class="headerlink" href="#report" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ MTData report client <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span>
+$ MTData report scale <span class="o">[</span>serverName, <span class="nv">default</span><span class="o">=</span>.<span class="o">(</span>All<span class="o">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tools">
+<span id="tools"></span><h2>tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="todo">
+<span id="todo"></span><h1>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li>Finish all the basic functions(export, decode, report)</li>
+</ol>
+<ul class="simple">
+<li>export &lt;- Done.</li>
+<li>decode &lt;- Done.</li>
+<li>report &lt;- Done, not yet tested*</li>
+</ul>
+<ol class="simple">
+<li>Make the functions to be commend line tools and test them.  &lt;- Done.</li>
+<li>Make the code more concise by re-using (instead of copy&amp;paste) methods. &lt;- not yet done.</li>
+<li>Redesign the logging system. &lt;- not yet done.</li>
+<li>Deploy to server and test it in commend line(currently, the .py files are called with python.) &lt;- not yet done.</li>
+<li>Update documentation. &lt;- Done.</li>
+</ol>
+<p><em>Extra: Toolbox for data analysis</em>
+We could add small tools that make our data analysis less boring and a lot faster. For example, almost all the questionnaire need to be scored and transform, so we have a scale.py that has the definition for the common actions shared with every scale. Each scale could have there own definition of action as well.</p>
+<p><strong>Example:</strong></p>
+<ul class="simple">
+<li>tools.py  &lt;- Tools that could be used in different situation.</li>
+<li>Scale.py &lt;- has the function of score and trans, I used it for scoring. Need to be extended*</li>
+</ul>
+<p>Also, we could write function that do basic analysis that we would need for time to time. For example, we would need to generate a attrition rate report pretty often. Diheng has python codes that works with pandas and Sam probably has tons of R code as well, which could be turn into python small tools pretty easily.*</p>
+<p><strong>Let Diheng or Sam know if you would like to work on getting the most frequently used analysis codes into small tools.</strong></p>
+<p><em>All the items that end with a * would apprecitate helps!</em></p>
+</div>
+<div class="section" id="what-is-done">
+<span id="what-is-done"></span><h1>What is done<a class="headerlink" href="#what-is-done" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Read and write data</li>
+<li>Error alert</li>
+<li>Error logs</li>
+<li>Normal running logs</li>
+<li>Added where to skip Error</li>
+<li>Save the raw data</li>
+<li>Deleting the raw data</li>
+<li>Write up the bash code to automatically run export.py regulary.</li>
+<li>Write a Recovery program to recover data from raw data files.</li>
+</ul>
+<p>Note to myself:
+LOG_CFG=my_logging.yaml python my_server.py</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">About MindTrails Data</a><ul>
+<li><a class="reference internal" href="#basic-idea">Basic idea</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li><a class="reference internal" href="#download">Download</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#structure-your-data-folders">Structure your data folders</a></li>
+<li><a class="reference internal" href="#setup-routine">Setup routine</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#current-usage">Current Usage</a><ul>
+<li><a class="reference internal" href="#export">export</a></li>
+<li><a class="reference internal" href="#decode">decode</a></li>
+<li><a class="reference internal" href="#report">report</a></li>
+<li><a class="reference internal" href="#tools">tools</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#todo">TODO</a></li>
+<li><a class="reference internal" href="#what-is-done">What is done</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Diheng Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/index.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

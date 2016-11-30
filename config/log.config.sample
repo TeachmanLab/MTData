@@ -50,33 +50,37 @@ handlers:
   debugLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: default
-    filename: /Users/dz8t/Box Sync/logs/Debug.log
+    filename: /Users/diheng/Box Sync/logs/Debug.log
     level: DEBUG
     backupCount: 366
+    encoding: bz2
     when: midnight
 
   dailyLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: default
-    filename: /Users/dz8t/Box Sync/logs/Daily.log
+    filename: /Users/diheng/Box Sync/logs/Daily.log
     level: INFO
     backupCount: 366
+    encoding: bz2
     when: midnight
 
   errorLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: default
-    filename: /Users/dz8t/Box Sync/logs/Error.log
+    filename: /Users/diheng/Box Sync/logs/Error.log
     level: WARNING
     backupCount: 366
+    encoding: bz2
     when: midnight
 
   sandyLog:
     class: logging.handlers.TimedRotatingFileHandler
     formatter: email
-    filename: /Users/dz8t/Box Sync/logs/Break_down.log
+    filename: /Users/diheng/Box Sync/logs/Break_down.log
     level: CRITICAL
     backupCount: 366
+    encoding: bz2
     when: midnight
 
 
@@ -86,12 +90,16 @@ handlers:
     formatter: email
     mailhost: !!python/tuple [smtp.gmail.com, 587]
     fromaddr: projectimplicitmentalhealth1@gmail.com
-    toaddrs: [mindtrails_tech@virginia.edu]
+    toaddrs: [dihengz@gmail.com]
     subject: '[MindTrais]Something goes wrong'
-    credentials: !!python/tuple [projectimplicitmentalhealth1@gmail.com, b3BFbaOLuDTe]
+    credentials: !!python/tuple [address@gmail.com, password]
     secure: !!python/tuple [] # force to start tls
 
 loggers:
+
+  martin:
+    handlers: [console, dailyLog, errorLog, debugLog, emailNotify, sandyLog]
+    propagate: false
 
   export:
     handlers: [console, dailyLog, errorLog, debugLog, emailNotify, sandyLog]

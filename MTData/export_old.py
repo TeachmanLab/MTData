@@ -23,16 +23,11 @@ import json
 logging.config.dictConfig(yaml.load(open('log.config', 'r')))
 
 # Load the Configuration file
-if __name__ == "__main__":
-    config = {}
-    execfile("export.config", config)
+SERVER_CONFIG = 'server.config'
 
 
 # Decrypting
-with open(config["PRIVATE_FILE"]) as privatefile:
-    keydata = privatefile.read()
-priv_key = rsa.PrivateKey.load_pkcs1(keydata)
-def decrypt(crypto, id, scaleName, field):
+def decrypt(crypto, id, scaleName, field, priv_key):
     log = logging.getLogger('export.decrypt')
     if crypto is None: return ""
     try:
@@ -57,7 +52,7 @@ logging.config.dictConfig(yaml.load(open('log.config', 'r')))
 
 # ------------------------------------------#
 
-def safeKeep(scaleName, response, file):
+def safeKeep(scaleName, response, file, config):
     log = logging.getLogger('export.safeKeep')
     stamp = time.strftime(config["TIME_FORMAT"])
     try:
@@ -74,7 +69,7 @@ def safeKeep(scaleName, response, file):
 # to try and catch all of them. In this way we can handle exceptions, emailing
 # us in the event of an error. THIS CODE IS NOT COMPLETE. I'm just roughly
 # trying to show what it should do.
-def safeRequest(url):
+def safeRequest(url, config):
     log = logging.getLogger('export.safeRequest')
     log.info("Trying to Request data for %s ......", url)
     try:
@@ -97,7 +92,7 @@ def safeRequest(url):
 
 
 # SafeDelete function, use this to delete data entries and log down system message
-def safeDelete(url):
+def safeDelete(url, config):
     log = logging.getLogger('export.safeDelete')
     log.info("Trying to Delete data for %s ......", url)
     try:
@@ -112,19 +107,29 @@ def safeDelete(url):
 
 
 # SafeWrite function, use this to write questionnaire data into csv files
-def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
+def safeWrite(response, ks, scaleName, deleteable, config):
+    #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
+    date_file = config["PATH"] + 'active_data/'+ scaleName + '_' + time.strftime(config["DATE_FORMAT"]) +'.csv'
+    raw_file = config["PATH"] + 'raw_data/' + scaleName + '_' + time.strftime(config["DATE_FORMAT"] + '_' + time.strftime(config["TIME_FORMAT"]) +'.json')
+    createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
     log = logging.getLogger('export.safeWrite')
     log.info("Writing new entries from %s to %s: writing in progress......", scaleName, date_file)
-    backup = safeKeep(scaleName, response, raw_file)
+    backup = safeKeep(scaleName, response, raw_file, config)
     quest = response.json()
     benchMark = {}
+# Read in keys for decrypting
+    with open(config["PRIVATE_FILE"]) as privatefile:
+        keydata = privatefile.read()
+    priv_key = rsa.PrivateKey.load_pkcs1(keydata)
+# Read in benchMark information
     try:
         with open(config["PATH"]+'active_data/benchMark.json',"rb") as benchMarkJson:
             benchMark = json.load(benchMarkJson)
         log.info("benchMark information successfully retrived.")
     except:
         log.critical("benchMark information retrived failed, immediate attention needed. Detail:\n", exc_info = 1)
+# Writing starts here:
     with open(date_file, 'a') as datacsv:
         dataWriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
         t = 0
@@ -140,8 +145,7 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
             if int(entry['id']) > benchMark[scaleName]: # Check if entries are new comparing to last request
                 if newBenchMark < int(entry['id']): newBenchMark = int(entry['id']) # Record the lastes ID within current request
                 for key in ks:
-                    if(key.endswith("RSA")):
-                        value = decrypt(entry[key], entry['id'], scaleName, key)
+                    if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key, priv_key)
                     elif entry[key] is None: value = ""
                     elif isinstance(entry[key], unicode): value = entry[key]
                     else:
@@ -162,7 +166,7 @@ def safeWrite(response, date_file, raw_file, ks, scaleName, deleteable):
                     t += 1
                     log.debug("%s entries wrote successfully.", str(t))
                     if deleteable and backup and config["DELETE_MODE"]:                              # If the scale is deleteable, delete the entry after it is successfully recorded.
-                        if safeDelete(config["SERVER"] + '/' + scaleName + '/' + str(entry['id'])): d += 1 # If deleting success, d increase.
+                        if safeDelete(config["SERVER"] + '/' + scaleName + '/' + str(entry['id']), config): d += 1 # If deleting success, d increase.
                     else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Deleteable: %s, Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(deleteable), str(backup), str(config["DELETE_MODE"]))
                 except csv.Error:
                     error += 1
@@ -197,14 +201,14 @@ def createFile(file, ks):
 
 
 # Main function, use this to read and save questionnaire data
-def safeExport(data):
+def safeExport(data,config):
 # One by one, read out the data form names(scale names) in d, and then:
     log = logging.getLogger('export.safeExport')
     s = 0
 
     log.info("Database update in progress......")
     for scale in data:
-        response = safeRequest(config["SERVER"]+'/'+scale['name'])
+        response = safeRequest(config["SERVER"]+'/'+scale['name'], config)
         if response!= None:
             quest = response.json()
             if quest != None:
@@ -212,11 +216,7 @@ def safeExport(data):
                     ks = list(quest[0].keys())
                     ks.sort()
                     log.info("Questionnaire %s updated - %s new entries received.", str(scale['name']), str(scale['size']))
-                    #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
-                    date_file = config["PATH"] + 'active_data/'+ scale['name'] + '_' + time.strftime(config["DATE_FORMAT"]) +'.csv'
-                    raw_file = config["PATH"] + 'raw_data/' + scale['name'] + '_' + time.strftime(config["DATE_FORMAT"] + '_' + time.strftime(config["TIME_FORMAT"]) +'.json')
-                    createFile(date_file, ks)  # Create a new data file with Date in name for decrypted data if not already exists
-                    safeWrite(response, date_file, raw_file, ks, str(scale['name']), scale['deleteable']) # Safely write the whoe questionnaire into the data file
+                    safeWrite(response, ks, str(scale['name']), scale['deleteable'], config) # Safely write the whoe questionnaire into the data file
                     s += 1
                 else: log.info("No new entries found in %s", str(scale['name']))
             else:
@@ -225,7 +225,7 @@ def safeExport(data):
     log.info("Database update finished: %s questionnaires' data updated.", str(s))
 
 
-def pathCheck():
+def pathCheck(config):
     log = logging.getLogger('export.pathCheck')
     try:
         if not os.path.exists(config["PATH"]+"raw_data/"):
@@ -239,24 +239,29 @@ def pathCheck():
 
 # ------------------------------------------#
 # This is the main module
-def export():
+def export(config):
     log = logging.getLogger('export')
     log.info("""Hi PACT Lab, this is faithful android Martin from Laura\'s server. Everything is alright here, and seems to be
      a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
      take too long.""")
-    pathCheck() #Check storage path
+    pathCheck(config) #Check storage path
     log.info(" (Martin is out for hunting data......) ")
-    oneShot = safeRequest(config["SERVER"])
+    oneShot = safeRequest(config["SERVER"], config)
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
-        if (oneShot.json() != None): safeExport(oneShot.json())
+        if (oneShot.json() != None): safeExport(oneShot.json(),config)
     else:
         log.warning("""This is weired... It seems that there is nothing out there or I am blocked from MindTrails. You might already get an email from me
      reporting some network issues. Be alerted, stay tuned.""")
     log.info("I am tired and I am going back to Laura's server for a rest. See you later!")
 
-
+# This is a over all program
+def martin(task_list):
+    address = yaml.load(open(task_list, 'r'))
+    for key in address:
+        config = address[key]
+        if config['ON']: export(config)
 
 # Works here:
-export()
+martin(SERVER_CONFIG)

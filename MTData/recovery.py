@@ -13,21 +13,22 @@ import yaml
 import pickle
 import glob
 import os
+from cliff.command import Command
 import json
 
 # ------------------------------------------#
 # Load the Configuration file
-if __name__ == "__main__":
-    config = {}
-    execfile("recovery.config", config)
+SERVER_CONFIG = 'config/server.config'
+
 
 
 # Set up logging config files
-logging.config.dictConfig(yaml.load(open('recovery_log.config', 'r')))
+logging.config.dictConfig(yaml.load(open('config/recovery_log.config', 'r')))
 
 # export Readme file
 
-def readMe(scaleName,data_file,fileList,deleteable,entryNo,error):
+def readMe(scaleName,data_file,fileList,deleteable,entryNo,error,config):
+    log = logging.getLogger(__name__)
     export = config["PATH"]+"recovered_data/" + "README_" + scaleName + "_recovered_" + time.strftime(config["DATE_FORMAT"]) +'.txt'
     readme = open(export,"w")
     readme.write("Data recovery done at %s, %s for %s questionnaire. Recovery information are as follow:\n" % (time.strftime(config["TIME_FORMAT"]), time.strftime(config["DATE_FORMAT"]), scaleName));
@@ -44,11 +45,12 @@ def readMe(scaleName,data_file,fileList,deleteable,entryNo,error):
 
 
 # Decrypting
-with open(config["PRIVATE_FILE"]) as privatefile:
-    keydata = privatefile.read()
-priv_key = rsa.PrivateKey.load_pkcs1(keydata)
-def decrypt(crypto, id, scaleName, field):
-    log = logging.getLogger('recovery.decrypt')
+
+def decrypt(crypto, id, scaleName, field,config):
+    log = logging.getLogger(__name__)
+    with open(config["PRIVATE_FILE"]) as privatefile:
+        keydata = privatefile.read()
+    priv_key = rsa.PrivateKey.load_pkcs1(keydata)
     if crypto is None: return ""
     try:
         value = crypto.decode('base64')
@@ -65,7 +67,7 @@ def decrypt(crypto, id, scaleName, field):
 
 # Create data files with date as name:
 def createFile(file, ks):
-    log = logging.getLogger('recovery.createFile')
+    log = logging.getLogger(__name__)
     if not os.path.exists(file): # Create new file if file doesn't exist
         with open(file, 'w') as datacsv:
             headerwriter = csv.DictWriter(datacsv, dialect='excel', fieldnames= ks)
@@ -76,9 +78,9 @@ def createFile(file, ks):
                 log.critcal("Failed to create new data files, fatal, emailed admin.", exc_info=1)
 
 # SafeWrite function, use this to write questionnaire data into csv files
-def safeWrite(quest, date_file, scaleName, deleteable):
+def safeWrite(quest, date_file, scaleName, deleteable, config):
 #B\ Open [form_name]_[date].csv, append the data we have into it, one by one.
-    log = logging.getLogger('recovery.safeWrite')
+    log = logging.getLogger(__name__)
     log.info("Writing new entries from %s to %s: writing in progress......", scaleName, date_file)
     ks = list(quest[0].keys())
     ks.sort()
@@ -89,7 +91,7 @@ def safeWrite(quest, date_file, scaleName, deleteable):
         error = 0
         for entry in quest:
             for key in ks:
-                if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key)
+                if(key.endswith("RSA")): value = decrypt(entry[key], entry['id'], scaleName, key, config)
                 elif entry[key] is None: value = ""
                 elif isinstance(entry[key], unicode): value = entry[key]
                 else:
@@ -117,8 +119,8 @@ def safeWrite(quest, date_file, scaleName, deleteable):
     return (t, error)
 
 # Check the path before doing anything
-def pathCheck():
-    log = logging.getLogger('recovery.pathCheck')
+def pathCheck(config):
+    log = logging.getLogger(__name__)
     if not os.path.exists(config["PATH"]+"raw_data/"):
         log.error("No raw_data folder is found, please double check before continuing.")
         print("No raw_data folder is found, please double check before continuing.")
@@ -127,67 +129,122 @@ def pathCheck():
         try:
             os.makedirs(config["PATH"]+"recovered_data/")
             log.info("Successfully created recoverer_data folder.")
-            print("Successfully created recoveryed_data folder.")
             return True
         except:
             log.critical("Failed to create data folders, fatal, emailed admin.", exc_info=1)
-            print("Failed to create data folders, fatal, emailed admin.")
             return False
     else: return True
 
 # Read in files here and recover the data
-def safeRecover(scaleName, data_file, deleteable):
-    log = logging.getLogger('recovery.safeRecover')
+def safeRecover(scaleName,deleteable,config):
+    log = logging.getLogger(__name__)
     fileList = sorted(glob.glob(config["PATH"]+'raw_data/'+scaleName+'*.json'))
+    newest = max(glob.iglob(config["PATH"]+'raw_data/'+scaleName+'*.json'), key=os.path.getctime)
     entryNo = 0
     error = 0
-    for infile in fileList:
-        with open(infile) as json_file:
-            response = json.load(json_file)
-            t, e = safeWrite(response,data_file,scaleName,deleteable)
-            entryNo += t
-            error += e
-    readMe(scaleName,data_file,fileList,deleteable,entryNo,error)
+    data_file = config["PATH"]+"active_data/" + scaleName + "_recovered_" + time.strftime(config["DATE_FORMAT"]) +'.csv'
+    try:
+        if deleteable:
+            for infile in fileList:
+                with open(infile) as json_file:
+                    response = json.load(json_file)
+                    t, e = safeWrite(response,data_file,scaleName,deleteable,config)
+                    entryNo += t
+                    error += e
+        else:
+            with open(newest) as json_file:
+                response = json.load(json_file)
+                t, e = safeWrite(response,data_file,scaleName,deleteable,config)
+                entryNo += t
+                error += e
+        readMe(scaleName,data_file,fileList,deleteable,entryNo,error,config)
+        log.info("Successfully recover scale %s.",scaleName)
+        return True
+    except:
+        log.critical("Failed to recover scale %s. emailed admin.",scaleName,exc_info=1)
+        return False
 
 
 # Take your order so that we know what scale and how much data you want to recover:
-def takeOrder():
-    log = logging.getLogger('recovery.takeOrder')
-    scaleName = str(raw_input("""Please enter the scale name that you would like
-        to recover data for. Reminder: Type in the name exactly as it is on the
-        raw data files.\nscaleName:"""))
-    deleteable = str(raw_input("Is this scale deleteable?[Y/N]:"))
-    yn = set(['Y','N'])
-    while (not (deleteable in yn)):
-        deleteable = str(raw_input("I don't get it. Is this scale deleteable or not?[Y/N]:"))
-    deleteable = True if deleteable == 'Y' else False
-    print("Thanks!\n")
-    if (not deleteable):
-        go = str(raw_input("*****WARNING******: Make sure that you only recover the most recent data file instead of all of them, otherwise the recovered data will contain a lot of replication. Do you want to continue the recovery?[Y/N]:"))
-        while (not (go in yn)):
-            go = str(raw_input("I don't get it. Do you want to continue the recovery?[Y/N]:"))
-        go = True if go == 'Y' else False
-    else: go = True
-    if go:
-        date_file = config["PATH"]+"recovered_data/" + scaleName + "_recovered_" + time.strftime(config["DATE_FORMAT"]) +'.csv'
-        log.info("Recovery started.")
-        safeRecover(scaleName, date_file, deleteable)
+def takeOrder(scaleName,config):
+    log = logging.getLogger(__name__)
+    benchMark = {}
+    # Read in benchMark information
+    try:
+        with open(config["PATH"]+'active_data/benchMark.json',"rb") as benchMarkJson:
+            benchMark = json.load(benchMarkJson)
+        log.info("benchMark information successfully retrived.")
+    except:
+        log.critical("benchMark information retrived failed, immediate attention needed. Detail:\n", exc_info = 1)
+    s = 0
+    if scaleName == '.':
+        for scale in benchMark.keys():
+# Decode all the scales:
+            if safeRecover(scale,benchMark[scale]['deleteable'],config): s+=1
+    elif (scaleName in benchMark.keys()):
+        if safeRecover(scaleName,benchMark[scaleName]['deleteable'],config): s+=1
+        log.info("Scale %s is found and data are collected.", scaleName)
     else:
-        log.info("Recovery aborted.")
+        log.info("Scale name is not correct, please check.")
+
+    log.info("Database recovery finished: %s questionnaires' data recovered.", str(s))
+
+
 
 # ------------------------------------------#
 # This is the main module
-def recovery():
-    log = logging.getLogger('recovery')
-    print("Hello there!")
-    if pathCheck():
+def recovery(scaleName,config):
+    log = logging.getLogger(__name__)
+    if pathCheck(config):
         log.info("Data Recovery tried at %s, %s",time.strftime(config["DATE_FORMAT"]), time.strftime(config["TIME_FORMAT"]))
-        print("Data Recovery tried at %s, %s",time.strftime(config["DATE_FORMAT"]), time.strftime(config["TIME_FORMAT"]))
-        takeOrder()
+        takeOrder(scaleName,config)
     else:
         log.info("No raw data found or recovery data folder failed to be created. Please check before trying again. Thanks!")
-        print("No raw data found or recovery data folder failed to be created. Please check before trying again. Thanks!")
 
 
-# Works here:
-recovery()
+# This is a over all program
+def martin(task_list,serverName,scaleName):
+    log = logging.getLogger('martin')
+    try:
+        address = yaml.load(open(task_list, 'r'))
+        log.info('Address book read successfully.')
+    except:
+        log.critical('Address book read failed. Emailed admin.', exc_info=1)
+    if serverName == '.':
+        for key in address:
+            config = address[key]
+            log.info('Server for decode: %s. Ready?: %s',str(key),str(config['READY']))
+            if config['READY']: recovery(scaleName,config)
+    elif (serverName in address.keys()):
+        config = address[serverName]
+        log.info('Address for decode: %s. Ready?: %s(Ready Checked is overwrited).',str(serverName),str(config['READY']))
+        recovery(scaleName,config)
+    else:
+        log.info("Server name is not correct, please check.")
+
+# Make it a command line
+
+class Decode(Command):
+    "Command for recovering active data from raw data."
+
+    log = logging.getLogger(__name__)
+
+    def get_parser(self, prog_name):
+        parser = super(Decode, self).get_parser(prog_name)
+        parser.add_argument('serverName', nargs='?', default='.')
+        parser.add_argument('scaleName', nargs='?', default='.')
+        return parser
+
+    def take_action(self, parsed_args):
+        self.log.info('sending greeting')
+        self.log.debug('debugging')
+        martin(SERVER_CONFIG,parsed_args.serverName,parsed_args.scaleName)
+
+class Error(Command):
+    "Always raises an error"
+
+    log = logging.getLogger(__name__)
+
+    def take_action(self, parsed_args):
+        self.log.info('causing error')
+        raise RuntimeError('this is the expected exception')
