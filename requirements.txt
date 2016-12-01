@@ -3,3 +3,4 @@ PyYAML==3.11
 requests==2.8.1
 rsa==3.2.3
 wheel==0.24.0
+pandas==0.19.1
