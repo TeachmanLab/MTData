@@ -99,7 +99,10 @@ MTData/
 └── tests
 ```
 
-Edit the server.config and log.config as needed.
+Edit the server.config, log.config and recover_log.config.
+
+*Warning* Failed to setup the config files will probably lead to unexpected errors. For example, MTData might return a very confusing error "export is not a MTData command, do you mean?..." It will disappear after you correctly config all three config files.
+
 
 Here is an example of server.config with comments:
 ```yaml
@@ -224,7 +227,7 @@ report
   $ MTData report client [serverName, default=.(All)]
   $ MTData report scale [serverName, default=.(All)]
   ```
-  
+
 tools
 ---------
 
