@@ -57,7 +57,7 @@ class Checker(object):
             en_task_name=list(enumerate(task_name,start=wount));
             sess2task[sess['name']]=en_task_name;
         #check_dict[k['name']]=sess2task;
-    return sess2task;
+        return sess2task;
 
     """docstring for ."""
 
@@ -99,7 +99,7 @@ class Checker(object):
         for stask in check_diction[entry['session_name']]:
             if stask[1]==entry['task_name']:
                 number=stask[0];
-            #else
+            #elsete
             '''
             warning message? error report?
             '''
