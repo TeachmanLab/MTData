@@ -34,7 +34,6 @@ class Checker(object):
 
 
     def json_dict(self):
-
        d=self.standard;
        data_seg=d[0];
        data_sess=data_seg['session'];
