@@ -17,19 +17,108 @@ from tools import takeOrder
 from tools import safeRequest
 from tabulate import tabulate
 # ------------------------------------------#
+
+import numpy as np;
+from pandas import Series, DataFrame;
 # Load the Configuration file
 SERVER_CONFIG = 'config/server.config'
 
 # Code needed to be added here to create a completed list of scales should have:
 # Code needed to be added here for checking one participant
 class Checker(object):
-    """docstring for ."""
+
     def __init__(self, standard):
         super(, self).__init__()
         self.standard = standard.json()
-    def correct_number(self,entry):
-        
+
+
+
+    def json_dict(self):
+
+       d=self.standard;
+       data_seg=d[0];
+       data_sess=data_seg['session'];
+        #keyname=[];
+        #check_dict={};
+        #for k in d:
+            #keyname.append(k['name']);
+            #data_sess=k['sessions'];
+        sess_name=[];
+        sess2task={};
+        wount=0;
+        pount=1;
+        for sess in data_sess:
+            task_name=[];
+            sess_name.append(sess['name']);
+            wount=pount;
+            for task_id in sess['tasks']:
+                pount=pount+1;
+                task_name.append(task_id['name']);
+            en_task_name=list(enumerate(task_name,start=wount));
+            sess2task[sess['name']]=en_task_name;
+        #check_dict[k['name']]=sess2task;
+    return sess2task;
+
+    """docstring for ."""
+
+    '''
+    this is a function that transfer the json file into a list of dictionaries
+    '''
+'''
+    def json_dict(self):
+
+
+
+        #with open (filename) as f:
+            #data=f.read();
+        #d=json.loads(data);
+       d=self.standard;
+        keyname=[];
+        check_dict={};
+        for k in d:
+            keyname.append(k['name']);
+            data_sess=k['sessions'];
+            sess_name=[];
+            sess2task={};
+            wount=0;
+            pount=1;
+            for sess in data_sess:
+                task_name=[];
+                sess_name.append(sess['name']);
+                wount=pount;
+                for task_id in sess['tasks']:
+                    pount=pount+1;
+                    task_name.append(task_id['name']);
+                en_task_name=list(enumerate(task_name,start=wount));
+                sess2task[sess['name']]=en_task_name;
+            check_dict[k['name']]=sess2task;
+        return check_dict;
+'''
+    def correct_number(self，entry):
+        check_diction＝self.json_dict()
+        for stask in check_diction[entry['session_name']]:
+            if stask[1]==entry['task_name']:
+                number=stask[0];
+            #else
+            '''
+            warning message? error report?
+            '''
+
         return number
+
+'''
+        def checker(sname,tname):
+    se_list=sess2task[sname];
+    #print se_list;
+    for stask in se_list:
+        if stask[1]==tname:
+            numbb=stask[0];
+            #print numbb
+    return numbb
+'''
+
+
+
 
     def completed_list(self):
         comList = []
@@ -156,3 +245,10 @@ class Error(Command):
     def take_action(self, parsed_args):
         self.log.info('causing error')
         raise RuntimeError('this is the expected exception')
+
+
+
+
+############
+
+''' for the lambda ? it is defauted seted to be row wise , so we need to set axis=1 at the edn.
