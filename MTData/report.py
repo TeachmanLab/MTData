@@ -146,7 +146,12 @@ def scaleScan(config):
     newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
     taskLog = pd.read_csv(newest)
     # Check if data exists for scale
+
+    ## add JsPsychTrial  condition count the last trial in this sesstion
+
     for scale in comList:
+        #if
+
         filename = config[PATH]+'active_data/'+scale+'*.csv'
         if os.path.isfile(filename):
             result[scale].data_found = True
@@ -172,9 +177,66 @@ def clientScan(config):
     newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
     newest_client = max(glob.iglob(config["PATH"]+'active_data/Participant'+'*.csv'), key=os.path.getctime)
     table_client = pd.read_csv(newest_client)
-    table = pd.read_csv(newest)
-    date = pd.to_datetime(table.datetime)
-    table['datetime_CR'] = date
+
+    task_url=sss_url = config[SERVER] + '/api/study'
+
+
+    #table = pd.read_csv(newest)
+    #date = pd.to_datetime(table.datetime)
+    #table['datetime_CR'] = date
+'''
+### participant : current status from json;
+
+    with open("Participant.json","r") as f:
+        data = f.read()
+    d = json.loads(data)
+    pp=d
+    pi=[];
+    cs=[];
+    ct=[];
+    for k in d:
+
+        pi.append(k['id']);
+        cs.append(k['study']['currentSession']['name']);
+        ct.append(k['study']['currentSession']['currentTask']['name']);
+        #current_status = pd.DataFrame({'current_sesstion': cs,'current_task': ct},index=pi);
+        current_status = pd.DataFrame(
+    {
+        'participant_id':pi,
+     'current_sesstion': cs,
+     'current_task': ct
+    })
+
+
+'''
+'''
+    ###participant: current status from csv
+    current_status=table_client[['id','session_name','task_name']] # not sure about the names
+
+
+'''
+
+'''
+    ### tasklog from csv;
+
+    date = pd.to_datetime(table.date_completed)
+    table['datetime_CR'] = date;
+    task_count=tb.groupby(['participantdao_id'], sort=True)['datetime_CR'].count()
+
+    task_count = pd.DataFrame(task_count).reset_index()
+    task_count.rename(columns={'participantdao_id':'participant_id'}, inplace=True);
+    task_count.rename(columns={'datetime_CR':'task_no'}, inplace=True);
+
+    current_status = current_status.merge(task_count,on='participant_id',how='outer')
+
+'''
+
+
+    result=current_status;
+
+
+    '''
+    this is from diheng
     idx = table.groupby(['participantdao_id'])['datetime_CR'].transform(max) == table['datetime_CR']
     check_tb = table[idx].sort(['participantdao_id'])
     study_info = table_client[['id','study','cbmCondition']]
@@ -182,6 +244,11 @@ def clientScan(config):
     result = check_tb[['participantdao_id','session_name','task_name']]
     result.rename(columns={'participantdao_id':'participant_id'}, inplace=True)
     result = result.merge(study_info,on='participant_id',how='outer')
+'''
+
+
+
+
     # Get checking information
     result['target_task_no'] = result.apply(lambda entry:d.correct_number(entry),axis=1)
     result['logged_task_no'] = result.apply(lambda entry:len(table[table.participantdao_id == entry['participant_id']]), axis = 1)
