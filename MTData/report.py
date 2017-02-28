@@ -153,26 +153,29 @@ def scaleScan(config):
     # Create checking table
     result = pd.DataFrame(index = d.completed_list(), columns = ['data_found','entries_in_log','entries_in_dataset','missing_rate'])
     #newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
-    taskLog = pd.read_csv(logs)
-
+    taskLog = pd.read_json(logs)
 
     for scale in comList:
-
         filename = config[PATH]+'active_data/'+scale+'*.csv'
-            # Check if data exists for scale
-
-        if os.path.isfile(filename):
-                ## add JsPsychTrial  condition count the last trial in this sesstion
-            result[scale].data_found = True
-            result[scale].entries_in_log = a = len(taskLog[taskLog.task_name == scale])
+        exist = False
+        try:
             scale_data = pd.read_csv(max(glob.iglob(filename), key=os.path.getctime))
-            if scale == 'JsPsychTrial'
-                result[scale].entries_in_dataset = b = len(scale_data[scale_data.stimulus == 'final score screen'])
-            else
-                result[scale].entries_in_dataset = b = len(scale_data)
-            result[scale].missing_rate = 1 - float(b)/float(a)        
+            exist = True
+        except:
+            print "Data not found."
+            # Check if data exists for scale
+        if (exist):
+                ## add JsPsychTrial  condition count the last trial in this sesstion
+            result.loc[scale].data_found = True
+            result.loc[scale].entries_in_log = a = len(taskLog[(taskLog['taskName'] == scale)])
+            print result
+            if scale == 'JsPsychTrial':
+                result.loc[scale].entries_in_dataset = b = len(scale_data[scale_data.stimulus == 'final score screen'])
+            else:
+                result.loc[scale].entries_in_dataset = b = len(scale_data)
+            result.loc[scale].missing_rate = "{:.9f}".format(1 - float(b)/float(a))
         else:
-            result[scale].data_found = False
+            result.loc[scale].data_found = False
     print tabulate(result, headers='keys',tablefmt='psql')
     return result
 
