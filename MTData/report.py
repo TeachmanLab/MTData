@@ -33,6 +33,7 @@ class Checker(object):
 
 
 
+
     def json_dict(self):
        d=self.standard;
        data_seg=d[0];
@@ -103,6 +104,7 @@ class Checker(object):
             warning message? error report?
             '''
 
+
         return number
 
 '''
@@ -134,11 +136,15 @@ class Checker(object):
 
 
 # Actually functions:
+
+# scaleScan detect whether a scale or task is missing in the actual testing schedule
+# it will also report entries numbers in tasklong and entries numbers in dataset.
+# and calculate the missing rate for you.
 def scaleScan(config):
     log = logging.getLogger(__name__)
     log.info('Data checking started.')
     # Download Standard Scale Sheet
-    sss_url = config[SERVER] + '/api/study'
+    sss_url = config[SERVER] + '/api/export/schedule'
     sss = safeRequest(sss_url,config)
     d = Checker(sss)
     # Create checking table
@@ -165,12 +171,14 @@ def scaleScan(config):
     return result
 
 
-
+# clientScan will check missing data for individual participants.
+# It will list the last session/task, planned task number and logged task number for you,
+# and calculate the missing rate.
 def clientScan(config):
     log = logging.getLogger(__name__)
     log.info('Data checking started.')
     # Download Standard Scale Sheet
-    sss_url = config[SERVER] + '/api/study'
+    sss_url = config[SERVER] + '/api/export/schedule'
     sss = safeRequest(sss_url,config)
     d = Checker(sss)
     # Create a table with the last task of each participant
@@ -250,7 +258,11 @@ def clientScan(config):
 
 
     # Get checking information
+    # Anyi, please change the line below:
+    # Go over all the participants, find out the expected number of tasks:
     result['target_task_no'] = result.apply(lambda entry:d.correct_number(entry),axis=1)
+
+    # Check the actual number of task belongs to a participant
     result['logged_task_no'] = result.apply(lambda entry:len(table[table.participantdao_id == entry['participant_id']]), axis = 1)
     result['Missing_no'] = result.apply(lambda entry:entry['target_task_no']-entry['logged_task_no'], axis=1)
     print('Number of participants finished as least a task: %s. \n',str(len(result)))
