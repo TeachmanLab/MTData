@@ -166,7 +166,7 @@ def safeExport(data,scaleName,config):
 
     elif scaleName == 'static':
         for scale in data:
-            # Only download deleteable scales:
+            # Only download Non-deleteable scales:
             if not scale['deleteable']:
                 s = safeCollect(scale,config)
 
