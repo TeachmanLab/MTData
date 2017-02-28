@@ -147,24 +147,30 @@ def scaleScan(config):
     sss_url = config[SERVER] + '/api/export/schedule'
     sss = safeRequest(sss_url,config)
     d = Checker(sss)
+    # Download updated TaskLog
+    log_url = config[SERVER] + '/api/export/TaskLog'
+    logs = safeRequest(log_url,config)
     # Create checking table
     result = pd.DataFrame(index = d.completed_list(), columns = ['data_found','entries_in_log','entries_in_dataset','missing_rate'])
-    newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
-    taskLog = pd.read_csv(newest)
-    # Check if data exists for scale
+    #newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
+    taskLog = pd.read_csv(logs)
 
-    ## add JsPsychTrial  condition count the last trial in this sesstion
 
     for scale in comList:
-        #if
 
         filename = config[PATH]+'active_data/'+scale+'*.csv'
+            # Check if data exists for scale
+
         if os.path.isfile(filename):
+                ## add JsPsychTrial  condition count the last trial in this sesstion
             result[scale].data_found = True
             result[scale].entries_in_log = a = len(taskLog[taskLog.task_name == scale])
             scale_data = pd.read_csv(max(glob.iglob(filename), key=os.path.getctime))
-            result[scale].entries_in_dataset = b = len(scale_data)
-            result[scale].missing_rate = 1 - float(b)/float(a)
+            if scale == 'JsPsychTrial'
+                result[scale].entries_in_dataset = b = len(scale_data[scale_data.stimulus == 'final score screen'])
+            else
+                result[scale].entries_in_dataset = b = len(scale_data)
+            result[scale].missing_rate = 1 - float(b)/float(a)        
         else:
             result[scale].data_found = False
     print tabulate(result, headers='keys',tablefmt='psql')
