@@ -16,6 +16,8 @@ import pandas as pd
 import numpy as np
 from tools import takeOrder
 from tools import safeRequest
+from pandas.io.json import json_normalize
+
 #from tabulate import tabulate
 # ------------------------------------------#
 
@@ -116,32 +118,42 @@ def scaleScan(config):
     log.info("Successfully get TaskLog information.")
     # Create checking table
     result = pd.DataFrame(index = d.completed_list(), columns = ['data_found','entries_in_log','entries_in_dataset','missing_rate'])
+    log.info("Report format ready.")
     #newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
-    taskLog = pd.read_json(logs.json())
+    taskLog = json_normalize(logs.json())
+    print taskLog
     log.info("Ready to check.")
-    for scale in comList:
-        filename = config[PATH]+'active_data/'+scale+'*.csv'
+    for scaleName in d.completed_list():
+        log.info("Ready to search file %s",scaleName)
+        filename = config['PATH']+'active_data/'+ scaleName +'*.csv'
         exist = False
         try:
             scale_data = pd.read_csv(max(glob.iglob(filename), key=os.path.getctime))
             exist = True
+            log.info("%s data found.", str(scaleName))
         except:
             print "Data not found."
             # Check if data exists for scale
+        log.info("Data retrived successfully.")
         if (exist):
                 ## add JsPsychTrial  condition count the last trial in this sesstion
-            result.loc[scale].data_found = True
-            result.loc[scale].entries_in_log = a = len(taskLog[(taskLog['taskName'] == scale)])
-            print result
-            if scale == 'JsPsychTrial':
-                result.loc[scale].entries_in_dataset = b = len(scale_data[scale_data.stimulus == 'final score screen'])
+            result.set_value(scaleName,'data_found',True)
+            a = len(taskLog[(taskLog['taskName'] == scaleName)])
+            result.set_value(scaleName,'entries_in_log',a)
+            log.info("Report generated.")
+            if scaleName == 'JsPsychTrial':
+                b = len(scale_data[scale_data.stimulus == 'final score screen'])
+                result.set_value(scaleName,'entries_in_dataset',b)
             else:
-                result.loc[scale].entries_in_dataset = b = len(scale_data)
-            result.loc[scale].missing_rate = "{:.9f}".format(1 - float(b)/float(a))
+                b = len(scale_data)
+                result.set_value(scaleName,'entries_in_dataset',b)
+            result.set_value(scaleName,'missing_rate', "{:.9f}".format(1 - float(b)/float(a)))
+            log.info("Counting completed.")
         else:
-            result.loc[scale].data_found = False
+            result.set_value(scaleName,'data_found',False)
+            log.info("Data not found for %s",str(scaleName))
     #print tabulate(result, headers='keys',tablefmt='psql')
-    result
+    print result
     return result
 
 
