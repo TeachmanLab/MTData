@@ -14,19 +14,20 @@ from tools import safeRequest
 
 
 # ------------------------------------------#
-
+print 'hello'
 
 # Empty Global variables created here:
 
 # Load the Configuration file
 SERVER_CONFIG = 'config/server.config'
-
+print 'helloa'
 # Set up logging config files
 # Setting up files directories and logging config files
 # if not os.path.exists("/Users/dz8t/Box Sync/logs/"): # Can't find a better way to do this......
 #    os.makedirs("/Users/dz8t/Box Sync/logs/")
 logging.config.dictConfig(yaml.load(open('config/log.config', 'r')))
 
+print 'hellob'
 
 
 
@@ -44,7 +45,7 @@ def safeKeep(scaleName, response, file, config):
         log.critical(scaleName + ' data backup failed, immediate attention needed.\n', exc_info = 1)
         return False
 
-
+print 'hellob'
 # DF: Should likely write our own method that will make the request and return
 # a json response, since things can go wrong here in lots of ways and we want
 # to try and catch all of them. In this way we can handle exceptions, emailing
@@ -67,7 +68,7 @@ def safeDelete(url, config):
         log.critical("Server: %s. Data delete failed, fatal, emailed admin. see below for error information:\n", config['SERVER'], exc_info = 1)
         return False
 
-
+print 'helloc'
 # SafeWrite function, use this to write questionnaire data into csv files
 def safeSave(response, ks, scaleName, deleteable, config):
     #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
@@ -101,7 +102,7 @@ def safeSave(response, ks, scaleName, deleteable, config):
                 if newBenchMark < int(entry['id']): newBenchMark = int(entry['id']) # Record the lastes ID within current request
                 try:
                     if backup and config["DELETE_MODE"]:                              # If the scale is backed-up, delete the entry after it is successfully recorded.
-                        if safeDelete(config["SERVER"] + '/' + scaleName + '/' + str(entry['id']), config): d += 1 # If deleting success, d increase.
+                        if safeDelete(config["SERVER"] + 'export/' + scaleName + '/' + str(entry['id']), config): d += 1 # If deleting success, d increase.
                     else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(backup), str(config["DELETE_MODE"]))
                 except:
                     error += 1
@@ -127,7 +128,7 @@ def safeSave(response, ks, scaleName, deleteable, config):
 def safeCollect(scale,config):
     log = logging.getLogger(__name__)
     s = 0
-    response = safeRequest(config["SERVER"]+'/'+scale['name'], config)
+    response = safeRequest(config["SERVER"]+'export/'+scale['name'], config)
     if response!= None:
         quest = response.json()
         if quest != None:
@@ -204,7 +205,7 @@ def export(scaleName,config):
      take too long.""")
     pathCheck(config) #Check storage path
     log.info(" (Martin is out for hunting data......) ")
-    oneShot = safeRequest(config["SERVER"], config)
+    oneShot = safeRequest(config["SERVER"]+'export/', config)
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
