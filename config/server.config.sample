@@ -1,10 +1,10 @@
 mindtrails:
   READY: False
   DELETE_MODE: False
-  SERVER: 'https://MindTrails.virginia.edu/api/export'
-  USER: 
-  PASS: 
-  PRIVATE_FILE: 
+  SERVER: 'https://MindTrails.virginia.edu/api/'
+  USER:
+  PASS:
+  PRIVATE_FILE:
   DATE_FORMAT: "%b_%d_%Y"
   TIME_FORMAT: "%H_%M_%S"
   PATH: "/Users/dz8t/Box Sync/"
@@ -12,9 +12,9 @@ mindtrails:
 mobile_local:
   READY: True
   DELETE_MODE: False
-  SERVER: 'http://localhost:9000/api/export'
-  USER: 
-  PASS: 
+  SERVER: 'http://localhost:9000/api/'
+  USER:
+  PASS:
   PRIVATE_FILE: 'key_for_decrypt.pem'
   DATE_FORMAT: "%b_%d_%Y"
   TIME_FORMAT: "%H_%M_%S"
@@ -23,10 +23,10 @@ mobile_local:
 mobile_aws:
   READY: True
   DELETE_MODE: True
-  SERVER: 'http://ec2-54-208-207-125.compute-1.amazonaws.com:8080/mobile/api/export'
+  SERVER: 'http://ec2-54-208-207-125.compute-1.amazonaws.com:8080/mobile/api/'
   USER: 'admin@gmail.com'
   PASS: 'AdminPassWord!'
-  PRIVATE_FILE: 
+  PRIVATE_FILE:
   DATE_FORMAT: "%b_%d_%Y"
   TIME_FORMAT: "%H_%M_%S"
   PATH: "/Users/Diheng/Box Sync/TEST_Diheng/"
@@ -34,10 +34,10 @@ mobile_aws:
 templeton:
   READY: False
   DELETE_MODE: False
-  SERVER: 'https://mindtrails.virginia.edu/templeton/api/export'
-  USER: 
-  PASS: 
-  PRIVATE_FILE: 
+  SERVER: 'https://mindtrails.virginia.edu/templeton/api/'
+  USER:
+  PASS:
+  PRIVATE_FILE:
   DATE_FORMAT: "%b_%d_%Y"
   TIME_FORMAT: "%H_%M_%S"
   PATH: "/Users/dz8t/Box Sync/Templeton/"
@@ -45,10 +45,10 @@ templeton:
 cbm_mobile:
   READY: False
   DELETE_MODE: False
-  SERVER: 'https://mindtrails.virginia.edu/mobile/api/export'
-  USER: 
-  PASS: 
-  PRIVATE_FILE: 
+  SERVER: 'https://mindtrails.virginia.edu/mobile/api/'
+  USER:
+  PASS:
+  PRIVATE_FILE:
   DATE_FORMAT: "%b_%d_%Y"
   TIME_FORMAT: "%H_%M_%S"
   PATH: "/Users/dz8t/Box Sync/mobile/"

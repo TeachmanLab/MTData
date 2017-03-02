@@ -33,7 +33,6 @@ class Checker(object):
 
 
 
-
     def json_dict(self):
        d=self.standard;
        data_seg=d[0];
@@ -96,16 +95,15 @@ class Checker(object):
 '''
     def correct_number(self，entry):
         check_diction＝self.json_dict()
-        for stask in check_diction[entry['session_name']]:
-            if stask[1]==entry['task_name']:
+        for stask in check_diction[entry['current_sesstion']]:
+            if stask[1]==entry['current_task']:
                 number=stask[0];
             #elsete
             '''
             warning message? error report?
             '''
 
-
-        return number
+        return number-1;
 
 '''
         def checker(sname,tname):
@@ -136,19 +134,15 @@ class Checker(object):
 
 
 # Actually functions:
-
-# scaleScan detect whether a scale or task is missing in the actual testing schedule
-# it will also report entries numbers in tasklong and entries numbers in dataset.
-# and calculate the missing rate for you.
 def scaleScan(config):
     log = logging.getLogger(__name__)
     log.info('Data checking started.')
     # Download Standard Scale Sheet
-    sss_url = config[SERVER] + '/api/export/schedule'
+    sss_url = config[SERVER] + 'export/schedule'
     sss = safeRequest(sss_url,config)
     d = Checker(sss)
     # Download updated TaskLog
-    log_url = config[SERVER] + '/api/export/TaskLog'
+    log_url = config[SERVER] + 'export/TaskLog'
     logs = safeRequest(log_url,config)
     # Create checking table
     result = pd.DataFrame(index = d.completed_list(), columns = ['data_found','entries_in_log','entries_in_dataset','missing_rate'])
@@ -180,38 +174,75 @@ def scaleScan(config):
     return result
 
 
-# clientScan will check missing data for individual participants.
-# It will list the last session/task, planned task number and logged task number for you,
-# and calculate the missing rate.
+
 def clientScan(config):
     log = logging.getLogger(__name__)
     log.info('Data checking started.')
     # Download Standard Scale Sheet
-    sss_url = config[SERVER] + '/api/export/schedule'
+    sss_url = config[SERVER] + 'study'
     sss = safeRequest(sss_url,config)
     d = Checker(sss)
-    # Create a table with the last task of each participant
-    newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
-    newest_client = max(glob.iglob(config["PATH"]+'active_data/Participant'+'*.csv'), key=os.path.getctime)
-    table_client = pd.read_csv(newest_client)
+    log_url=config[SERVER]+'export/TaskLog';
+    task_data = safeRequest(log_url,config);
+    pat_url = config[SERVER] + 'export/Participant'
+    pat_data=safeRequest(pat_url,config);
 
-    task_url=sss_url = config[SERVER] + '/api/study'
+    table=pd.DataFrame(pat_data);
+
+    #table['dateCompleted']
+    date = pd.to_datetime(table.dateCompleted);
+
+    table['datetime_CR'] = date;
+    task_count=table.groupby(['participantId'], sort=True)['datetime_CR'].count()
+
+    task_count = pd.DataFrame(task_count).reset_index()
+    task_count.rename(columns={'participantId':'participant_id'}, inplace=True);
+    task_count.rename(columns={'datetime_CR':'task_no'}, inplace=True);
+    #task_count
+
+    pi=[];
+    cs=[];
+    ct=[];
+    for k in pat_data:
+
+        pi.append(k['id']);
+        cs.append(k['study']['currentSession']['name']);
+        ct.append(k['study']['currentSession']['currentTask']['name']);
+    current_status = pd.DataFrame(
+        {
+            'participant_id':pi,
+         'current_sesstion': cs,
+         'current_task': ct
+        })
+
+
+
+    current_status = current_status.merge(task_count,on='participant_id',how='outer');
+    result=current_status;
+
+
+    # Create a table with the last task of each participant
+    #newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
+    #newest_client = max(glob.iglob(config["PATH"]+'active_data/Participant'+'*.csv'), key=os.path.getctime)
+    #table_client = pd.read_csv(newest_client)
+
+
 
 
     #table = pd.read_csv(newest)
     #date = pd.to_datetime(table.datetime)
     #table['datetime_CR'] = date
-'''
-### participant : current status from json;
 
+### participant : current status from json;
+'''
     with open("Participant.json","r") as f:
         data = f.read()
     d = json.loads(data)
-    pp=d
+    pp=d;
     pi=[];
     cs=[];
     ct=[];
-    for k in d:
+    for k in pat_data:
 
         pi.append(k['id']);
         cs.append(k['study']['currentSession']['name']);
@@ -225,9 +256,13 @@ def clientScan(config):
     })
 
 
+
+
+
 '''
 '''
-    ###participant: current status from csv
+    ###participant: current status from json
+
     current_status=table_client[['id','session_name','task_name']] # not sure about the names
 
 
@@ -235,8 +270,13 @@ def clientScan(config):
 
 '''
     ### tasklog from csv;
+    with open("Tasklog.json","r") as p:
+        task_data = p.read()
+        task_json = json.loads(task_data)
+    table=pd.DataFrame(task_json);
 
-    date = pd.to_datetime(table.date_completed)
+    date = pd.to_datetime(table.dateCompleted);
+
     table['datetime_CR'] = date;
     task_count=tb.groupby(['participantdao_id'], sort=True)['datetime_CR'].count()
 
@@ -249,7 +289,7 @@ def clientScan(config):
 '''
 
 
-    result=current_status;
+
 
 
     '''
@@ -266,14 +306,15 @@ def clientScan(config):
 
 
 
-    # Get checking information
-    # Anyi, please change the line below:
-    # Go over all the participants, find out the expected number of tasks:
-    result['target_task_no'] = result.apply(lambda entry:d.correct_number(entry),axis=1)
+    #with open("Tasklog.json","r") as p:
+    #    task_data = p.read()
+        #task_json = json.loads(task_data)
 
-    # Check the actual number of task belongs to a participant
-    result['logged_task_no'] = result.apply(lambda entry:len(table[table.participantdao_id == entry['participant_id']]), axis = 1)
-    result['Missing_no'] = result.apply(lambda entry:entry['target_task_no']-entry['logged_task_no'], axis=1)
+
+    # Get checking information
+    result['target_task_no'] = result.apply(lambda entry:d.correct_number(entry),axis=1)
+    #result['logged_task_no'] = result.apply(lambda entry:len(table[table.participantdao_id == entry['participant_id']]), axis = 1)
+    result['Missing_no'] = result.apply(lambda entry:entry['target_task_no']-entry['task_no'], axis=1)
     print('Number of participants finished as least a task: %s. \n',str(len(result)))
     print tabulate(result. headers='keys',tablefmt='psql')
     return result

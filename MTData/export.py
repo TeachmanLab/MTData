@@ -102,7 +102,7 @@ def safeSave(response, ks, scaleName, deleteable, config):
                 if newBenchMark < int(entry['id']): newBenchMark = int(entry['id']) # Record the lastes ID within current request
                 try:
                     if backup and config["DELETE_MODE"]:                              # If the scale is backed-up, delete the entry after it is successfully recorded.
-                        if safeDelete(config["SERVER"] + '/' + scaleName + '/' + str(entry['id']), config): d += 1 # If deleting success, d increase.
+                        if safeDelete(config["SERVER"] + 'export/' + scaleName + '/' + str(entry['id']), config): d += 1 # If deleting success, d increase.
                     else: log.info('Questionnaire - %s, ID - %s, data cleaning on hold. Detail: Backup: %s, Delete Mode: %s', scaleName, str(entry['id']), str(backup), str(config["DELETE_MODE"]))
                 except:
                     error += 1
@@ -128,7 +128,7 @@ def safeSave(response, ks, scaleName, deleteable, config):
 def safeCollect(scale,config):
     log = logging.getLogger(__name__)
     s = 0
-    response = safeRequest(config["SERVER"]+'/'+scale['name'], config)
+    response = safeRequest(config["SERVER"]+'export/'+scale['name'], config)
     if response!= None:
         quest = response.json()
         if quest != None:
