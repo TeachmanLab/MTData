@@ -75,6 +75,10 @@ class Checker(object):
         #print check_diction[str(entry['current_session'])]
         if ((pd.isnull(entry['current_session'])) or (pd.isnull(entry["current_task"]))):
             log.info("Can't find task log for participant: id = %s",str(entry['participant_id']))
+        elif:
+            #because completed is an empty session;
+            if entry['current_session']=='Completed':
+                return 86;
         else:
             for stask in check_diction[str(entry['current_session'])]:
                 log.info("Let's find out the number!")
