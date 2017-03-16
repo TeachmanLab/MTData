@@ -38,11 +38,6 @@ class Checker(object):
         d=self.standard;
         data_seg=d[0];
         data_sess=data_seg['sessions'];
-        #keyname=[];
-        #check_dict={};
-        #for k in d:
-            #keyname.append(k['name']);
-            #data_sess=k['sessions'];
         sess_name=[];
         sess2task={};
         wount=0;
@@ -58,32 +53,29 @@ class Checker(object):
             sess2task[sess['name']]=en_task_name;
         #check_dict[k['name']]=sess2task;
         return sess2task;
+# describe the functions
 
-    """docstring for ."""
-    '''
-    this is a function that transfer the json file into a list of dictionaries
-    '''
     def correct_number(self, entry):
         log = logging.getLogger(__name__)
         log.info("Lanched in correct_number function.")
         check_diction=self.json_dict()
-        print (type(check_diction) is dict)
-        print check_diction
+        #created check_diction
         log.info("Check_diction ready.")
-        print entry['current_session']
-        print entry['current_task']
-        #print check_diction[str(entry['current_session'])]
+
         if ((pd.isnull(entry['current_session'])) or (pd.isnull(entry["current_task"]))):
             log.info("Can't find task log for participant: id = %s",str(entry['participant_id']))
+        elif(entry['current_session']=='Completed'):
+            #because completed is an empty session;
+            return 85;
         else:
             for stask in check_diction[str(entry['current_session'])]:
-                log.info("Let's find out the number!")
+                #log.info("Let's find out the number!")
                 if stask[1]==str(entry['current_task']):
                     number=stask[0];
-                    log.info("Number got!")
+                    #log.info("Number got!")
                     return number-1
-        log.info('Cannot find record, return -1.')
-        return -1
+        log.info('Cannot find record, return -999.')
+        return -999
 
 
 
@@ -172,9 +164,9 @@ def clientScan(config):
     pat_url = config["SERVER"] + 'export/Participant'
     pat_data=safeRequest(pat_url,config);
     log.info("Ready for checking.")
+
+    #counting tasks finished in TaskLog
     table=pd.DataFrame(task_data.json());
-    log.info("Well, just in case.")
-    #table['dateCompleted']
     date = pd.to_datetime(table.dateCompleted);
 
     table['datetime_CR'] = date;
@@ -182,8 +174,9 @@ def clientScan(config):
     task_count = pd.DataFrame(task_count).reset_index()
     task_count.rename(columns={'participantId':'participant_id'}, inplace=True);
     task_count.rename(columns={'datetime_CR':'task_no'}, inplace=True);
-    #task_count
-    log.info("Task count finished.")
+
+    log.info("Task count table created.")
+    # get status of current task
     pi=[];
     cs=[];
     ct=[];
@@ -198,12 +191,11 @@ def clientScan(config):
          'current_session': cs,
          'current_task': ct
         })
-    log.info("Table created.")
+    log.info("Current Task Status Table created.")
     current_status = current_status.merge(task_count,on='participant_id',how='outer');
     result=current_status;
-    log.info("Final report created.")
-    print result
-    print pd.isnull(result)
+    log.info("Tables Are Merged.")
+
     # Get checking information
     result['target_task_no'] = result.apply(lambda entry:d.correct_number(entry),axis=1)
     log.info("Checking completed.")

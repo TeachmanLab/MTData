@@ -1,6 +1,5 @@
 setup.py
 MTData/__init__.py
-MTData/export.py
 MTData/export_old.py
 MTData/main.py
 MTData/recovery.py
