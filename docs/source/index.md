@@ -4,6 +4,10 @@ About MindTrails Data
 A command-line tool that handle data exporting, decrypting and basic checking for
 mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.
 
+Environment Note:
+For Mac Users:
+Please update Xcode version to ensure successful update.
+
 Basic idea
 ---------
 
@@ -62,6 +66,7 @@ Create a virtual environment with python 2.7, and install dependencies
     $ virtualenv venv           
     $ source venv/bin/activate
     $ python setup.py install
+    $ pip install requirements.txt
     $ cd config
     $ cp server.config.example server.config
     $ cp log.config.example log.config

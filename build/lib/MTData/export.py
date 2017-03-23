@@ -205,6 +205,7 @@ def export(scaleName,config):
      take too long.""")
     pathCheck(config) #Check storage path
     log.info(" (Martin is out for hunting data......) ")
+    print config["SERVER"] + 'export/'
     oneShot = safeRequest(config["SERVER"]+'export/', config)
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
