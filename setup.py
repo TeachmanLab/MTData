@@ -3,7 +3,7 @@
 PROJECT = 'MTData'
 
 # Change docs/sphinx/conf.py too!
-VERSION = '0.2'
+VERSION = '0.3'
 
 
 try:
