@@ -75,9 +75,7 @@ class Checker(object):
         #print check_diction[str(entry['current_session'])]
         if ((pd.isnull(entry['current_session'])) or (pd.isnull(entry["current_task"]))):
             log.info("Can't find task log for participant: id = %s",str(entry['participant_id']))
-        elif:
-            #because completed is an empty session;
-            if entry['current_session']=='Completed':
+        elif entry['current_session']=='Completed':
                 return 86;
         else:
             for stask in check_diction[str(entry['current_session'])]:
@@ -136,26 +134,27 @@ def scaleScan(config):
             exist = True
             log.info("%s data found.", str(scaleName))
         except:
-            print "Data not found."
+            log.error('Data not found. Questionnaire = %s. See information:', scaleName, exc_info = 1)
+
             # Check if data exists for scale
-        log.info("Data retrived successfully.")
         if (exist):
                 ## add JsPsychTrial  condition count the last trial in this sesstion
             result.set_value(scaleName,'data_found',True)
-            a = len(taskLog[(taskLog['taskName'] == scaleName)])
-            result.set_value(scaleName,'entries_in_log',a)
-            log.info("Report generated.")
             if scaleName == 'JsPsychTrial':
                 b = len(scale_data[scale_data.stimulus == 'final score screen'])
                 result.set_value(scaleName,'entries_in_dataset',b)
             else:
                 b = len(scale_data)
                 result.set_value(scaleName,'entries_in_dataset',b)
-            result.set_value(scaleName,'missing_rate', "{:.9f}".format(1 - float(b)/float(a)))
-            log.info("Counting completed.")
         else:
             result.set_value(scaleName,'data_found',False)
             log.info("Data not found for %s",str(scaleName))
+
+        a = len(taskLog[(taskLog['taskName'] == scaleName)])
+        result.set_value(scaleName,'entries_in_log',a)
+        log.info("Report generated.")
+        result.set_value(scaleName,'missing_rate', "{:.9f}".format(1 - float(b)/float(a)))
+        log.info("Counting completed.")
     #print tabulate(result, headers='keys',tablefmt='psql')
     print result
     return result
