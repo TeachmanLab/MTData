@@ -16,6 +16,7 @@ import pandas as pd
 import numpy as np
 from tools import takeOrder
 from tools import safeRequest
+from tabulate import tabulate
 from pandas.io.json import json_normalize
 
 #from tabulate import tabulate
@@ -123,7 +124,6 @@ def scaleScan(config):
     log.info("Report format ready.")
     #newest = max(glob.iglob(config["PATH"]+'active_data/TaskLog'+'*.csv'), key=os.path.getctime)
     taskLog = json_normalize(logs.json())
-    print taskLog
     log.info("Ready to check.")
     for scaleName in d.completed_list():
         log.info("Ready to search file %s",scaleName)
@@ -140,7 +140,7 @@ def scaleScan(config):
         if (exist):
                 ## add JsPsychTrial  condition count the last trial in this sesstion
             result.set_value(scaleName,'data_found',True)
-            if scaleName == 'JsPsychTrial':
+            if scaleName == 'scenarios':
                 b = len(scale_data[scale_data.stimulus == 'final score screen'])
                 result.set_value(scaleName,'entries_in_dataset',b)
             else:
@@ -155,8 +155,7 @@ def scaleScan(config):
         log.info("Report generated.")
         result.set_value(scaleName,'missing_rate', "{:.9f}".format(1 - float(b)/float(a)))
         log.info("Counting completed.")
-    #print tabulate(result, headers='keys',tablefmt='psql')
-    print result
+    print tabulate(result, headers='keys',tablefmt='psql')
     return result
 
 
