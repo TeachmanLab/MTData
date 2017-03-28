@@ -18,6 +18,7 @@ from tools import takeOrder
 from tools import safeRequest
 from tabulate import tabulate
 from pandas.io.json import json_normalize
+from tabulate import tabulate
 
 #from tabulate import tabulate
 # ------------------------------------------#
@@ -39,54 +40,57 @@ class Checker(object):
         d=self.standard;
         data_seg=d[0];
         data_sess=data_seg['sessions'];
-        #keyname=[];
-        #check_dict={};
-        #for k in d:
-            #keyname.append(k['name']);
-            #data_sess=k['sessions'];
         sess_name=[];
         sess2task={};
         wount=0;
-        pount=1;
+        pount=0;
         for sess in data_sess:
             task_name=[];
             sess_name.append(sess['name']);
-            wount=pount;
+            wount=wount+pount+1;
+            pount=0;
             for task_id in sess['tasks']:
                 pount=pount+1;
                 task_name.append(task_id['name']);
             en_task_name=list(enumerate(task_name,start=wount));
             sess2task[sess['name']]=en_task_name;
-        #check_dict[k['name']]=sess2task;
-        return sess2task;
 
-    """docstring for ."""
-    '''
-    this is a function that transfer the json file into a list of dictionaries
-    '''
+        #print sess2task;#check_dict[k['name']]=sess2task;
+        return sess2task;
+# describe the functions
+
     def correct_number(self, entry):
+        #print entry['participant_id'];
         log = logging.getLogger(__name__)
         log.info("Lanched in correct_number function.")
         check_diction=self.json_dict()
-        print (type(check_diction) is dict)
-        print check_diction
+        #created check_diction
         log.info("Check_diction ready.")
-        print entry['current_session']
-        print entry['current_task']
-        #print check_diction[str(entry['current_session'])]
+
         if ((pd.isnull(entry['current_session'])) or (pd.isnull(entry["current_task"]))):
             log.info("Can't find task log for participant: id = %s",str(entry['participant_id']))
+<<<<<<< HEAD
         elif entry['current_session']=='Completed':
                 return 86;
+=======
+        elif(entry['current_session']=='COMPLETE'):
+            #because completed is an empty session;
+            return 38;
+>>>>>>> c0eb6a5360891ab924480aef91cd5292423017bd
         else:
-            for stask in check_diction[str(entry['current_session'])]:
-                log.info("Let's find out the number!")
-                if stask[1]==str(entry['current_task']):
-                    number=stask[0];
-                    log.info("Number got!")
-                    return number-1
-        log.info('Cannot find record, return -1.')
-        return -1
+            number=[stask[0] for stask in check_diction[str(entry['current_session'])] if stask[1]==str(entry['current_task'])];
+            #print number;
+            #print entry['participant_id'];
+            if (str(entry['tag'])=='post'):
+                #print entry['participant_id'];
+                #print "ok"
+                return number[1]-1;
+            else:
+                #print entry['participant_id'];
+                #print "ok"
+                return number[0]-1;
+        log.info('Cannot find record, return -999.')
+        return -999
 
 
 
@@ -149,6 +153,7 @@ def scaleScan(config):
         else:
             result.set_value(scaleName,'data_found',False)
             log.info("Data not found for %s",str(scaleName))
+<<<<<<< HEAD
 
         a = len(taskLog[(taskLog['taskName'] == scaleName)])
         result.set_value(scaleName,'entries_in_log',a)
@@ -156,6 +161,10 @@ def scaleScan(config):
         result.set_value(scaleName,'missing_rate', "{:.9f}".format(1 - float(b)/float(a)))
         log.info("Counting completed.")
     print tabulate(result, headers='keys',tablefmt='psql')
+=======
+    print tabulate(result, headers='keys',tablefmt='psql')
+
+>>>>>>> c0eb6a5360891ab924480aef91cd5292423017bd
     return result
 
 
@@ -174,9 +183,9 @@ def clientScan(config):
     pat_url = config["SERVER"] + 'export/Participant'
     pat_data=safeRequest(pat_url,config);
     log.info("Ready for checking.")
+
+    #counting tasks finished in TaskLog
     table=pd.DataFrame(task_data.json());
-    log.info("Well, just in case.")
-    #table['dateCompleted']
     date = pd.to_datetime(table.dateCompleted);
 
     table['datetime_CR'] = date;
@@ -184,37 +193,54 @@ def clientScan(config):
     task_count = pd.DataFrame(task_count).reset_index()
     task_count.rename(columns={'participantId':'participant_id'}, inplace=True);
     task_count.rename(columns={'datetime_CR':'task_no'}, inplace=True);
-    #task_count
-    log.info("Task count finished.")
+
+    log.info("Task count table created.")
+    # get status of current task
     pi=[];
     cs=[];
     ct=[];
+    adm=[];
+    tg=[];
     for k in pat_data.json():
         pi.append(k['id']);
+        adm.append(k['admin']);
         cs.append(k['study']['currentSession']['name']);
         ct.append(k['study']['currentSession']['currentTask']['name']);
+        tg.append(k['study']['currentSession']['currentTask']['tag']);
     log.info("Content filled.")
     current_status = pd.DataFrame(
         {
          'participant_id':pi,
          'current_session': cs,
-         'current_task': ct
+         'current_task': ct,
+         'admin':adm,
+         'tag':tg
         })
-    log.info("Table created.")
+    log.info("Current Task Status Table created.")
     current_status = current_status.merge(task_count,on='participant_id',how='outer');
     result=current_status;
-    log.info("Final report created.")
-    print result
-    print pd.isnull(result)
+
+    result.fillna(0);
+
+    log.info("Tables Are Merged.")
     # Get checking information
     result['target_task_no'] = result.apply(lambda entry:d.correct_number(entry),axis=1)
     log.info("Checking completed.")
     #result['logged_task_no'] = result.apply(lambda entry:len(table[table.participantdao_id == entry['participant_id']]), axis = 1)
     result['Missing_no'] = result.apply(lambda entry:entry['target_task_no']-entry['task_no'], axis=1)
+
     log.info('Number of participants finished as least a task: %s. \n',str(len(result)))
     #print tabulate(result, headers='keys',tablefmt='psql')
-    print result
-    return result
+    #result.to_csv('/Users/any/Desktop/testing data/reports/client_report_3.18.csv')
+    if not os.path.exists(config["PATH"] + 'report/'):
+        os.makedirs(config["PATH"] + 'report/')
+    result.to_csv(config["PATH"] + 'report/' + 'client_report' + '_' + time.strftime(config["DATE_FORMAT"] + '_' + time.strftime(config["TIME_FORMAT"]) +'.csv'))
+    #df = pd.read_csv('/Users/any/Desktop/testing data/reports/client_report_3.18.csv');
+    #df.fillna(0);
+    #print df
+    print tabulate(result,headers=['participant_id','admin','current_session','current_task','tag','task_no','target_task_no','Missing_no'],tablefmt='psql');
+    print 'data saved'
+    return result;
 
 
 
