@@ -69,14 +69,9 @@ class Checker(object):
 
         if ((pd.isnull(entry['current_session'])) or (pd.isnull(entry["current_task"]))):
             log.info("Can't find task log for participant: id = %s",str(entry['participant_id']))
-<<<<<<< HEAD
-        elif entry['current_session']=='Completed':
-                return 86;
-=======
         elif(entry['current_session']=='COMPLETE'):
             #because completed is an empty session;
             return 38;
->>>>>>> c0eb6a5360891ab924480aef91cd5292423017bd
         else:
             number=[stask[0] for stask in check_diction[str(entry['current_session'])] if stask[1]==str(entry['current_task'])];
             #print number;
@@ -153,7 +148,6 @@ def scaleScan(config):
         else:
             result.set_value(scaleName,'data_found',False)
             log.info("Data not found for %s",str(scaleName))
-<<<<<<< HEAD
 
         a = len(taskLog[(taskLog['taskName'] == scaleName)])
         result.set_value(scaleName,'entries_in_log',a)
@@ -161,10 +155,7 @@ def scaleScan(config):
         result.set_value(scaleName,'missing_rate', "{:.9f}".format(1 - float(b)/float(a)))
         log.info("Counting completed.")
     print tabulate(result, headers='keys',tablefmt='psql')
-=======
-    print tabulate(result, headers='keys',tablefmt='psql')
 
->>>>>>> c0eb6a5360891ab924480aef91cd5292423017bd
     return result
 
 

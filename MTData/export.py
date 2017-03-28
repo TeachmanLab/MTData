@@ -205,12 +205,9 @@ def export(scaleName,config):
      take too long.""")
     pathCheck(config) #Check storage path
     log.info(" (Martin is out for hunting data......) ")
-<<<<<<< HEAD
-    print config["SERVER"] + 'export/'
-    oneShot = safeRequest(config["SERVER"]+'export/', config)
-=======
+
     oneShot = safeRequest(config['SERVER']+"export/", config)
->>>>>>> c0eb6a5360891ab924480aef91cd5292423017bd
+
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
