@@ -158,7 +158,7 @@ def safeExport(data,scaleName,config):
             if scale['deleteable']:
                 s = safeCollect(scale,config)
             else:
-                log.info("Questionnaire %s is not deleteable. It will be download at the end of the day by another robot.", str(scale['name']))
+                log.info("Questionnaire %s is not deleteable. It will be downloaded at the end of the day by another robot.", str(scale['name']))
 
     elif scaleName == 'all':
         for scale in data:
