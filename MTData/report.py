@@ -213,7 +213,6 @@ def clientScan(config):
     result.fillna(0);
 
     log.info("Tables Are Merged.")
-    print result;
     # Get checking information
     result['target_task_no'] = result.apply(lambda entry:d.correct_number(entry),axis=1)
     log.info("Checking completed.")
@@ -222,7 +221,6 @@ def clientScan(config):
 
     log.info('Number of participants finished as least a task: %s. \n',str(len(result)))
     #print tabulate(result, headers='keys',tablefmt='psql')
-    print result
     #result.to_csv('/Users/any/Desktop/testing data/reports/client_report_3.18.csv')
     if not os.path.exists(config["PATH"] + 'report/'):
         os.makedirs(config["PATH"] + 'report/')
@@ -230,7 +228,7 @@ def clientScan(config):
     #df = pd.read_csv('/Users/any/Desktop/testing data/reports/client_report_3.18.csv');
     #df.fillna(0);
     #print df
-    print tabulate(result,headers=['admin','current_session','current_task','participant_id','tag','task_no','target_task_no','Missing_no']);
+    print tabulate(result,headers=['participant_id','admin','current_session','current_task','tag','task_no','target_task_no','Missing_no'],tablefmt='psql');
     print 'data saved'
     return result;
 
