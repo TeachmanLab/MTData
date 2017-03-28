@@ -204,9 +204,7 @@ def export(scaleName,config):
      a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
      take too long.""")
     pathCheck(config) #Check storage path
-    print ("helloaaa")
     log.info(" (Martin is out for hunting data......) ")
-    print ("hello")
     oneShot = safeRequest(config['SERVER']+"export/", config)
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
