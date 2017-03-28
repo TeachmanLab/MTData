@@ -153,8 +153,7 @@ def scaleScan(config):
         else:
             result.set_value(scaleName,'data_found',False)
             log.info("Data not found for %s",str(scaleName))
-    #print tabulate(result, headers='keys',tablefmt='psql')
-    print result;
+    print tabulate(result, headers='keys',tablefmt='psql')
 
     return result
 
