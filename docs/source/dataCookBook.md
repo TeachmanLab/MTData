@@ -98,17 +98,17 @@ Evaluation               False            NaN                NaN           NaN
   - Does the **total number of entries match** *across tables*?
   - Does it **match the number of accounts and logs** you have from the system?
 
-  If it doesn't (unfortunately it is ususally the case), then, **did these mismatches happen *systemmatically*?**
+  If it doesn't (unfortunately it is usually the case), then, **did these mismatches happen *systematically*?**
 
-  **Systemmetical mismatch** includes situations like:
-  - You are missing data **only for a period of time**.
+  **Systematical mismatch** includes situations like:
+  - You found missing/duplicated data **only for a period of time**.
 
-    For example, no enteries are recorded during Mar 3 to present.
-  - You are missing data **proportionally/only for one or some conditions**.
+    For example, no entries are recorded during Mar 3 to present.
+  - You found missing/duplicated data **proportionally/only for one or some conditions**.
 
     For example, if you are missing a third of records in a specific table, it will be worth to check if those missings are all from participants in the same condition.
 
-  - You are missing data **only for a specific session**.
+  - You found missing/duplicated data **only for a specific session**.
 
     In this case, something might go wrong in your *SSS*.
 
@@ -148,3 +148,18 @@ Number of participants finished as least a task: 52.
 50              27         NaN  
 51              -1       -13.0
   ```
+4. **One more word for *duplication* in data.**
+
+    Beside systematic duplication mentioned above, duplication could still happen due to other issues, of which the pattern might seem random. Two common cases that you might find random duplication:
+
+    A. Duplication happen **during the process of file writing.**
+
+      If there are errors happen during file writing process, due to events like bad Internet connection, there might be duplication of the copying/writing process. In this case, the duplication of entries should be exactly the same beside the time stamp. It will **show up in only in your data csv files, but not in the task log file.**
+
+      **Note:** If you use the ```MTData report``` function to check your data integrity, this issue will come up as *negative missing rate/number* in ```MTData report scale```, because the program found more entries in the data file than in the task log (scale-wise report).
+
+    B. Duplication happen **during the process of delivering measures/training.**
+
+      Things could happen that a measurement or a training would be administrated more than once, e.g. bad Internet causing failure of going on to next task, participants closing the browsers or click backward during the task. In this case the duplication of entries will **show up in both data files and task log file**. The duplication of entries might not be very obvious because participants might give different responses in the multiple delivery. But you can find that out by looking at your task log, because the same measure/training comes up more than your plan in the same session. You can find that out by using ```MTData report client```, too. It will show up as *negative missing rate/number* (due to more entries than your schedule) in the client-wise report.
+
+    **In both cases of duplication, we will only keep the first completed entry for the same measure/training for data analysis purpose.**

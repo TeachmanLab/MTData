@@ -71,7 +71,9 @@ class Checker(object):
             log.info("Can't find task log for participant: id = %s",str(entry['participant_id']))
         elif(entry['current_session']=='COMPLETE'):
             #because completed is an empty session;
-            return 38;
+            # Added 1 to counter balance the ELIGIBLE screener.
+            # You may want to edit this section to make it a more general function.
+            return 39;
         else:
             number=[stask[0] for stask in check_diction[str(entry['current_session'])] if stask[1]==str(entry['current_task'])];
             #print number;
@@ -79,11 +81,13 @@ class Checker(object):
             if (str(entry['tag'])=='post'):
                 #print entry['participant_id'];
                 #print "ok"
-                return number[1]-1;
+                # Deleted "-1" to counter balance the ELIGIBLE screener.
+                return number[1];
             else:
                 #print entry['participant_id'];
                 #print "ok"
-                return number[0]-1;
+                # Deleted "-1" to counter balance the ELIGIBLE screener.
+                return number[0];
         log.info('Cannot find record, return -999.')
         return -999
 
@@ -128,6 +132,7 @@ def scaleScan(config):
         log.info("Ready to search file %s",scaleName)
         filename = config['PATH']+'active_data/'+ scaleName +'*.csv'
         exist = False
+        b = 0
         try:
             scale_data = pd.read_csv(max(glob.iglob(filename), key=os.path.getctime))
             exist = True
@@ -139,7 +144,7 @@ def scaleScan(config):
         if (exist):
                 ## add JsPsychTrial  condition count the last trial in this sesstion
             result.set_value(scaleName,'data_found',True)
-            if scaleName == 'scenarios':
+            if scaleName == 'JsPsychTrial':
                 b = len(scale_data[scale_data.stimulus == 'final score screen'])
                 result.set_value(scaleName,'entries_in_dataset',b)
             else:
@@ -148,14 +153,23 @@ def scaleScan(config):
         else:
             result.set_value(scaleName,'data_found',False)
             log.info("Data not found for %s",str(scaleName))
-
         a = len(taskLog[(taskLog['taskName'] == scaleName)])
         result.set_value(scaleName,'entries_in_log',a)
         log.info("Report generated.")
-        result.set_value(scaleName,'missing_rate', "{:.9f}".format(1 - float(b)/float(a)))
+        if (a<>0):
+            result.set_value(scaleName,'missing_rate', "{:.9f}".format(1 - float(b)/float(a)))
+        else:
+            result.set_value(scaleName,'missing_rate', "Empty")
         log.info("Counting completed.")
+    if not os.path.exists(config["PATH"] + 'report/'):
+        os.makedirs(config["PATH"] + 'report/')
+        log.info("Report folder created.")
+    try:
+        result.to_csv(config["PATH"] + 'report/' + str(config['NAME']) + '_scale_report_' + time.strftime(config["DATE_FORMAT"] + '_' + time.strftime(config["TIME_FORMAT"]) +'.csv'))
+        log.info("Report saved.")
+    except:
+        log.error("Failed to save report. Info:",exc_info = 1)
     print tabulate(result, headers='keys',tablefmt='psql')
-
     return result
 
 
@@ -225,11 +239,11 @@ def clientScan(config):
     #result.to_csv('/Users/any/Desktop/testing data/reports/client_report_3.18.csv')
     if not os.path.exists(config["PATH"] + 'report/'):
         os.makedirs(config["PATH"] + 'report/')
-    result.to_csv(config["PATH"] + 'report/' + 'client_report' + '_' + time.strftime(config["DATE_FORMAT"] + '_' + time.strftime(config["TIME_FORMAT"]) +'.csv'))
+    result.to_csv(config["PATH"] + 'report/' + str(config['NAME']) + '_client_report' + '_' + time.strftime(config["DATE_FORMAT"] + '_' + time.strftime(config["TIME_FORMAT"]) +'.csv'))
     #df = pd.read_csv('/Users/any/Desktop/testing data/reports/client_report_3.18.csv');
     #df.fillna(0);
     #print df
-    print tabulate(result,headers=['participant_id','admin','current_session','current_task','tag','task_no','target_task_no','Missing_no'],tablefmt='psql');
+    print tabulate(result,headers=['admin','current_session','current_task',"participant_id",'tag','task_no','target_task_no','Missing_no'],tablefmt='psql');
     print 'data saved'
     return result;
 
