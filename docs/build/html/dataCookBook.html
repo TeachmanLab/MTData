@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data CookBook for MindTrails Project &#8212; MTData 2.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="MTData 2.0.1 documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="data-cookbook-for-mindtrails-project">
+<span id="data-cookbook-for-mindtrails-project"></span><h1>Data CookBook for MindTrails Project<a class="headerlink" href="#data-cookbook-for-mindtrails-project" title="Permalink to this headline">¶</a></h1>
+<p>Last update: 3/23/2017</p>
+<div class="section" id="data-check-list-before-launching">
+<span id="data-check-list-before-launching"></span><h2>Data Check List before launching<a class="headerlink" href="#data-check-list-before-launching" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="make-sure-your-program-has-all-the-measurements-that-you-plan-to-include">
+<span id="make-sure-your-program-has-all-the-measurements-that-you-plan-to-include"></span><h3>Make sure your program has all the measurements that you plan to include<a class="headerlink" href="#make-sure-your-program-has-all-the-measurements-that-you-plan-to-include" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><strong>Print out the Standard Schedule Sheet (<em>SSS</em>).</strong> Are all your trainings and measurements included and ordered as your plan?</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Address</span> <span class="k">for</span> <span class="o">*</span><span class="n">SSS</span><span class="o">*</span> <span class="p">:</span> <span class="p">[</span><span class="n">server</span> <span class="n">path</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;api/study&#39;</span><span class="p">,</span> <span class="n">admin</span> <span class="n">login</span> <span class="n">required</span><span class="o">.</span> <span class="p">[</span><span class="n">server</span> <span class="n">path</span><span class="p">]</span> <span class="n">could</span> <span class="n">be</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">the</span> <span class="o">*</span><span class="n">server</span><span class="o">.</span><span class="n">config</span><span class="o">*</span> <span class="n">file</span><span class="o">.</span> <span class="n">Example</span><span class="p">:</span>
+
+<span class="o">&gt;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">mindtrails</span><span class="o">.</span><span class="n">virginia</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">templeton</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">study</span>
+
+<span class="o">**</span><span class="n">Note</span><span class="p">:</span><span class="o">**</span> <span class="n">Please</span> <span class="n">make</span> <span class="n">sure</span> <span class="n">the</span> <span class="o">*</span><span class="n">SSS</span><span class="o">*</span> <span class="n">match</span> <span class="n">your</span> <span class="n">study</span> <span class="n">design</span> <span class="n">before</span> <span class="n">testing</span> <span class="ow">or</span> <span class="n">piloting</span><span class="o">.</span> <span class="n">For</span> <span class="n">older</span> <span class="n">version</span><span class="p">,</span> <span class="n">you</span> <span class="n">should</span> <span class="n">do</span> <span class="n">similar</span> <span class="n">checking</span> <span class="n">on</span> <span class="n">the</span> <span class="n">web</span> <span class="n">source</span> <span class="n">code</span><span class="o">.</span>
+</pre></div>
+</div>
+<ol>
+<li><p class="first"><strong>Compile a codebook</strong> for your study. Go over your source code, and compile a complete codebook that documents:
+- <strong>Variable ID</strong> for each items from each measure/training
+- <strong>Corresponding questions</strong> for each variable
+- <strong>Value chart</strong> for each variable</p>
+<p>and other information like:
+- <strong>Citation</strong> for measurements
+- <strong>Scoring methods</strong> for each measurements
+- <strong>Logs</strong> for change in variables across iterations</p>
+</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">Note</span><span class="p">:</span><span class="o">**</span> <span class="n">See</span> <span class="p">[</span><span class="n">Example</span><span class="p">]()</span> <span class="k">for</span> <span class="n">a</span> <span class="n">codebook</span> <span class="n">example</span><span class="o">.</span> <span class="n">You</span> <span class="n">are</span> <span class="n">encourage</span> <span class="n">to</span> <span class="n">do</span> <span class="n">this</span> <span class="n">before</span> <span class="n">testing</span><span class="o">/</span><span class="n">piloting</span><span class="o">.</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><strong>Go to your data folder</strong> after the testing/piloting started. Do you get all the data files that you are expecting?</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Path for data folder could be found in your *server.config* file.
+
+Example:
+```
+active_data/
+├── AnxietyTriggers_Apr_14_2016.csv
+├── AnxietyTriggers_Jan_28_2016.csv
+├── AnxietyTriggers_Sep_07_2016.csv
+...
+├── TrialDAO_Apr_14_2016.csv
+├── TrialDAO_Apr_24_2016.csv
+├── TrialDAO_Jan_28_2016.csv
+├── Trial_Sep_07_2016.csv
+├── Visit_Sep_07_2016.csv
+├── benchMark.json
+└── benchMark.txt
+```
+
+**Note:** In newer version of MindTrails, you can use the ```MTData report``` command to generate a quick check. Please note that ```MTData report``` relies on a correct *SSS*. Please make sure that you have done the previous step before using ```MTData report```. See [*MTData*](http://mtdata.readthedocs.io/en/latest/ &#39;MTData&#39;) for more details.
+
+Example:
+
+&gt; $ MTData report scale templeton_aws
+
+Output:
+```
+                     data_found entries_in_log entries_in_dataset  missing_rate
+</pre></div>
+</div>
+<p>Demographics              True             21                 40  -0.904761905
+MentalHealthHistory       True             20                 17   0.150000000
+WhatIBelieve              True             26                 26   0.000000000
+Phq4                      True             26                 34  -0.307692308
+Affect                   False            NaN                NaN           NaN
+scenarios                False            NaN                NaN           NaN
+Relatability              True             25                 31  -0.240000000
+ExpectancyBias            True             27                 25   0.074074074
+HelpSeeking               True              1                  1   0.000000000
+Evaluation               False            NaN                NaN           NaN
+```</p>
+</div>
+<div class="section" id="make-sure-all-your-tables-are-recording-data-the-way-you-want">
+<span id="make-sure-all-your-tables-are-recording-data-the-way-you-want"></span><h3>Make sure all your tables are recording data the way you want<a class="headerlink" href="#make-sure-all-your-tables-are-recording-data-the-way-you-want" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><strong>Do you have all the variables?</strong></li>
+</ol>
+<p>Look at the tables one by one, and find out:</p>
+<ul>
+<li><p class="first">Does it include <strong>all the variables</strong> in your corresponding questionnaire?</p>
+</li>
+<li><p class="first">Does it have a <strong>participant id</strong> column?</p>
+</li>
+<li><p class="first">Is there <strong>duplication in variable names</strong> across tables?</p>
+</li>
+<li><p class="first">If it is a <strong>recurrent measure</strong>, does the table include a <strong>session</strong> or a <strong>pre/post</strong> column/label or some sort?</p>
+</li>
+<li><p class="first">If it is needed, does it include a <strong>time stamp</strong> column?</p>
+<p>......</p>
+</li>
+</ul>
+<p><strong>Note:</strong> Use the <a class="reference external" href="#make-sure-that-your-program-has-all-the-measurements-that-you-plan-to-include:"><strong>codebook</strong></a> you compile earlier, your <strong>data tables</strong>, and your <strong>web source code</strong> to cross-reference the variable coding. <em>Make sure that they all match each other.</em></p>
+<ol class="simple">
+<li><strong>Does the ranges of variables look right?</strong></li>
+</ol>
+<p>A simple <code class="docutils literal"><span class="pre">summary()</span></code> in R/Python/SPSS would give you basic metrics of all the variables, and then look for anomalies including but not limited to:</p>
+<ul class="simple">
+<li>Does the <strong>range of a variables</strong> match the range by design?</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="k">if</span> <span class="n">a</span> <span class="n">measure</span> <span class="n">ranges</span> <span class="kn">from</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">5</span> <span class="ow">and</span> <span class="s2">&quot;Prefer not to answer&quot;</span> <span class="ow">is</span> <span class="n">coded</span> <span class="k">as</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">then</span> <span class="n">there</span> <span class="n">shouldn</span><span class="s1">&#39;t be 0s in your table.</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">Are you getting the <strong>variations</strong> as you would expected?</p>
+<p>For example, are you getting all 0 or 1 or NA?</p>
+</li>
+</ul>
+<ol class="simple">
+<li><strong>Does the number of entries match your cases?</strong></li>
+</ol>
+<p>For each table, do counts and counts by group with <code class="docutils literal"><span class="pre">count()</span></code> and <code class="docutils literal"><span class="pre">groupby.count()</span></code>, ask yourself these questions:</p>
+<ul class="simple">
+<li>Does the <strong>total number of entries match</strong> <em>across tables</em>?</li>
+<li>Does it <strong>match the number of accounts and logs</strong> you have from the system?</li>
+</ul>
+<p>If it doesn&#8217;t (unfortunately it is ususally the case), then, <strong>did these mismatches happen <em>systemmatically</em>?</strong></p>
+<p><strong>Systemmetical mismatch</strong> includes situations like:</p>
+<ul>
+<li><p class="first">You are missing data <strong>only for a period of time</strong>.</p>
+<p>For example, no enteries are recorded during Mar 3 to present.</p>
+</li>
+<li><p class="first">You are missing data <strong>proportionally/only for one or some conditions</strong>.</p>
+<p>For example, if you are missing a third of records in a specific table, it will be worth to check if those missings are all from participants in the same condition.</p>
+</li>
+<li><p class="first">You are missing data <strong>only for a specific session</strong>.</p>
+<p>In this case, something might go wrong in your <em>SSS</em>.</p>
+</li>
+</ul>
+<p><strong>Note:</strong> In newer version of MindTrails, you can use the <code class="docutils literal"><span class="pre">MTData</span> <span class="pre">report</span></code> command to generate a quick check. Please note that <code class="docutils literal"><span class="pre">MTData</span> <span class="pre">report</span></code> relies on a correct <em>SSS</em>. Please make sure that you have checked <em>SSS</em> carefully before using <code class="docutils literal"><span class="pre">MTData</span> <span class="pre">report</span></code>. See <a class="reference external" href="http://mtdata.readthedocs.io/en/latest/"><em>MTData</em></a> for more details.</p>
+<p>Example:</p>
+<blockquote>
+<div>$ MTData report client templeton_aws</div></blockquote>
+<p>Output:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Checking</span> <span class="n">completed</span><span class="o">.</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">participants</span> <span class="n">finished</span> <span class="k">as</span> <span class="n">least</span> <span class="n">a</span> <span class="n">task</span><span class="p">:</span> <span class="mf">52.</span>
+
+ <span class="n">current_session</span>         <span class="n">current_task</span>  <span class="n">participant_id</span>  <span class="n">task_no</span>  \
+<span class="mi">0</span>     <span class="n">PostFollowUp</span>         <span class="n">WhatIBelieve</span>             <span class="mf">2.0</span>      <span class="mf">6.0</span>   
+<span class="mi">1</span>    <span class="n">fourthSession</span>               <span class="n">Affect</span>             <span class="mf">3.0</span>     <span class="mf">26.0</span>   
+<span class="mi">2</span>    <span class="n">fourthSession</span>                 <span class="n">Phq4</span>             <span class="mf">4.0</span>     <span class="mf">30.0</span>   
+<span class="mi">3</span>     <span class="n">firstSession</span>            <span class="n">scenarios</span>             <span class="mf">5.0</span>      <span class="mf">6.0</span>   
+<span class="mi">4</span>     <span class="n">thirdSession</span>       <span class="n">ExpectancyBias</span>             <span class="mf">6.0</span>     <span class="mf">15.0</span>   
+<span class="o">......</span>
+<span class="mi">47</span>   <span class="n">secondSession</span>               <span class="n">Affect</span>            <span class="mf">50.0</span>      <span class="n">NaN</span>   
+<span class="mi">48</span>    <span class="n">thirdSession</span>               <span class="n">Affect</span>            <span class="mf">51.0</span>      <span class="n">NaN</span>   
+<span class="mi">49</span>   <span class="n">fourthSession</span>               <span class="n">Affect</span>            <span class="mf">52.0</span>      <span class="n">NaN</span>   
+<span class="mi">50</span>    <span class="n">PostFollowUp</span>       <span class="n">ExpectancyBias</span>            <span class="mf">53.0</span>      <span class="n">NaN</span>   
+<span class="mi">51</span>             <span class="n">NaN</span>                  <span class="n">NaN</span>             <span class="mf">1.0</span>     <span class="mf">12.0</span>   
+
+  <span class="n">target_task_no</span>  <span class="n">Missing_no</span>  
+<span class="mi">0</span>               <span class="mi">28</span>        <span class="mf">22.0</span>  
+<span class="mi">1</span>               <span class="mi">19</span>        <span class="o">-</span><span class="mf">7.0</span>  
+<span class="mi">2</span>               <span class="mi">25</span>        <span class="o">-</span><span class="mf">5.0</span>  
+<span class="mi">3</span>                <span class="mi">5</span>        <span class="o">-</span><span class="mf">1.0</span>  
+<span class="mi">4</span>               <span class="mi">18</span>         <span class="mf">3.0</span>   
+<span class="o">......</span>  
+<span class="mi">47</span>               <span class="mi">9</span>         <span class="n">NaN</span>  
+<span class="mi">48</span>              <span class="mi">15</span>         <span class="n">NaN</span>  
+<span class="mi">49</span>              <span class="mi">19</span>         <span class="n">NaN</span>  
+<span class="mi">50</span>              <span class="mi">27</span>         <span class="n">NaN</span>  
+<span class="mi">51</span>              <span class="o">-</span><span class="mi">1</span>       <span class="o">-</span><span class="mf">13.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Data CookBook for MindTrails Project</a><ul>
+<li><a class="reference internal" href="#data-check-list-before-launching">Data Check List before launching</a><ul>
+<li><a class="reference internal" href="#make-sure-your-program-has-all-the-measurements-that-you-plan-to-include">Make sure your program has all the measurements that you plan to include</a></li>
+<li><a class="reference internal" href="#make-sure-all-your-tables-are-recording-data-the-way-you-want">Make sure all your tables are recording data the way you want</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dataCookBook.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Diheng Zhang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/dataCookBook.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

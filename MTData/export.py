@@ -14,7 +14,7 @@ from tools import safeRequest
 
 
 # ------------------------------------------#
-print 'test!'
+
 
 # Empty Global variables created here:
 
@@ -158,7 +158,7 @@ def safeExport(data,scaleName,config):
             if scale['deleteable']:
                 s = safeCollect(scale,config)
             else:
-                log.info("Questionnaire %s is not deleteable. It will be download at the end of the day by another robot.", str(scale['name']))
+                log.info("Questionnaire %s is not deleteable. It will be downloaded at the end of the day by another robot.", str(scale['name']))
 
     elif scaleName == 'all':
         for scale in data:
@@ -204,10 +204,10 @@ def export(scaleName,config):
      a good time for a hunt. I am going out for a regular check and will come back soon. Don't miss me PACT Lab, it wouldn't
      take too long.""")
     pathCheck(config) #Check storage path
-    print ("helloaaa")
     log.info(" (Martin is out for hunting data......) ")
-    print ("hello")
+
     oneShot = safeRequest(config['SERVER']+"export/", config)
+
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
