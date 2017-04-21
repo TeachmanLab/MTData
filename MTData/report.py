@@ -73,7 +73,13 @@ class Checker(object):
             #because completed is an empty session;
             # Added 1 to counter balance the ELIGIBLE screener.
             # You may want to edit this section to make it a more general function.
-            return 39;
+            nb=[];
+            for ss in sess2task.keys():
+                for stask in sess2task[ss]:
+                print stask[0]
+                    nb.append(stask[0])
+            #return 39;
+            return max(nb)+2;
         else:
             number=[stask[0] for stask in check_diction[str(entry['current_session'])] if stask[1]==str(entry['current_task'])];
             #print number;
@@ -88,8 +94,8 @@ class Checker(object):
                 #print "ok"
                 # Deleted "-1" to counter balance the ELIGIBLE screener.
                 return number[0];
-        log.info('Cannot find record, return -999.')
-        return -999
+        log.info('Cannot find record, return NaN.')
+        return np.nan
 
 
 

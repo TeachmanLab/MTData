@@ -15,16 +15,19 @@ from tools import safeRequest
 
 # ------------------------------------------#
 
+
 # Empty Global variables created here:
 
 # Load the Configuration file
 SERVER_CONFIG = 'config/server.config'
+print 'helloa'
 # Set up logging config files
 # Setting up files directories and logging config files
 # if not os.path.exists("/Users/dz8t/Box Sync/logs/"): # Can't find a better way to do this......
 #    os.makedirs("/Users/dz8t/Box Sync/logs/")
 logging.config.dictConfig(yaml.load(open('config/log.config', 'r')))
 
+print 'hellob'
 
 
 
@@ -42,6 +45,7 @@ def safeKeep(scaleName, response, file, config):
         log.critical(scaleName + ' data backup failed, immediate attention needed.\n', exc_info = 1)
         return False
 
+print 'hellob'
 # DF: Should likely write our own method that will make the request and return
 # a json response, since things can go wrong here in lots of ways and we want
 # to try and catch all of them. In this way we can handle exceptions, emailing
@@ -64,6 +68,7 @@ def safeDelete(url, config):
         log.critical("Server: %s. Data delete failed, fatal, emailed admin. see below for error information:\n", config['SERVER'], exc_info = 1)
         return False
 
+print 'helloc'
 # SafeWrite function, use this to write questionnaire data into csv files
 def safeSave(response, ks, scaleName, deleteable, config):
     #A\ Check if there is a file named [form_name]_[date].csv in the Active Data Pool, if not, create one
@@ -153,7 +158,7 @@ def safeExport(data,scaleName,config):
             if scale['deleteable']:
                 s = safeCollect(scale,config)
             else:
-                log.info("Questionnaire %s is not deleteable. It will be download at the end of the day by another robot.", str(scale['name']))
+                log.info("Questionnaire %s is not deleteable. It will be downloaded at the end of the day by another robot.", str(scale['name']))
 
     elif scaleName == 'all':
         for scale in data:
@@ -200,12 +205,9 @@ def export(scaleName,config):
      take too long.""")
     pathCheck(config) #Check storage path
     log.info(" (Martin is out for hunting data......) ")
-<<<<<<< HEAD
-    print config["SERVER"] + 'export/'
-    oneShot = safeRequest(config["SERVER"]+'export/', config)
-=======
+
     oneShot = safeRequest(config['SERVER']+"export/", config)
->>>>>>> c0eb6a5360891ab924480aef91cd5292423017bd
+
     if oneShot != None:
         log.info("""Alright I am back! Pretty fruitful. Seem like it is going to be comfortable for a little while. Alright,
      I am heading to the server for a little rest, will talk to you guys in PACT Lab in a little while. -- Martin""")
