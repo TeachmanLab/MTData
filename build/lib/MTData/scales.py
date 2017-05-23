@@ -19,17 +19,50 @@ class Scale:
             self.readyData = data
             self.readyData.columns = [self.__class__.__name__+'_'+'_'.join(col).strip() for col in self.readyData.columns.values]
         return self
+
     def __repr__(self):
         return "<Scale: name = %s, state = %s>" % (self.__class__.__name__, self.state)
     def alo(self):
         print 'Scale_aloha'
+        # report the number of missing data
     def miss_DATA(self):
-        return self.dataset.isnull().sum().sum()
+        return self.dataset.isnull().sum()
+        # report the number of paricipants
     def pnum(self):
-        return self.dataset['participantRSA'].unique().size;
+        return self.dataset['participantRSA'].unique().size
+        #if 'session' in self.dataset.columns.values:
+            #print "session exits"
+            #if 'tag' in self.dataset.columns.values:
+                #print 'tag exits'
+                #return self.dataset['participantRSA','session','tag'].unique.size;
+            #print 'tag doesn't exits
+            #return self.dataset['participantRSA','session'].unique.size;
+        #else:
+            #print "session doesn't exits"
+            #return self.dataset['participantRSA'].unique.size
+        # report the number of duplicated records
+        # unique
     def isdup(self):
-        return self.dataset.duplicated().sum().sum()
+
+        return len(self.dataset.axes[0])-len(self.drop_dup().axes[0])
     #def di(self):
+
+    def drop_dup(self):
+        if 'session' in self.dataset.columns.values:
+            print "session exits"
+            if 'tag' in self.dataset.columns.values:
+                print 'tag exits'
+                return self.dataset.drop_duplicates(['participantRSA','session','tag'], keep='last', inplace=False)
+            print 'tag doesnt exits'
+            return self.dataset.drop_duplicates(['participantRSA','session'], keep='last', inplace=False)
+        else:
+            print "session and tag doesn't exits"
+            return self.dataset.drop_duplicates(['participantRSA'], keep='last', inplace=False)
+
+    # repor what columns have problem
+
+
+
 
 
 
@@ -52,6 +85,7 @@ class OA(Scale):
             self.dataset['SUM'] = self.dataset[col_list].mean(axis=1) * len(col_list)
             self.state = 'scored'
         return self
+        # report if data of every variable is within the data_range
     def data_range(self):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         af_range=[];
@@ -59,6 +93,7 @@ class OA(Scale):
         af_std.append(555);
         for sname in self.lname:
             af_range.append(set(self.dataset[sname].unique())<=set(af_std));
+
         return af_range;
 
 
@@ -133,7 +168,8 @@ class RR(Scale):
         af_std=range(0,4);
         af_std.append(-1);
         for sname in self.lname:
-            af_range.append(set(self.dataset[sname].unique())<=set(af_std));
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
         return af_range;
 
 
