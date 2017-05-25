@@ -8,6 +8,7 @@ list files = cliffdemo.list:Files
 report = MTData.report:Report
 show file = cliffdemo.show:File
 simple = MTData.simple:Simple
+status = MTData.status:Status
 unicode = cliffdemo.encoding:Encoding
 
 [console_scripts]
