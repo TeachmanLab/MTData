@@ -60,13 +60,13 @@ $ git clone https://github.com/Diheng/MTData.git
 Installation
 ---------
 
-Create a virtual environment with python 2.7, and install dependencies
+Create a virtual environment with python 2.7.12+, and install dependencies
 (see http://docs.python-guide.org/en/latest/dev/virtualenvs/)
 ```bash
     $ virtualenv venv           
     $ source venv/bin/activate
-    $ python setup.py install
     $ pip install requirements.txt
+    $ python setup.py install
     $ cd config
     $ cp server.config.example server.config
     $ cp log.config.example log.config
