@@ -1,6 +1,7 @@
 import requests # To make REST requests of the client.
 import time
 import os.path
+import csv
 import binascii
 import logging
 import logging.config
@@ -13,12 +14,21 @@ import pandas as pd
 from pandas import Series, DataFrame
 import numpy as np
 from tabulate import tabulate
+import glob
+import rsa # To decrypt values.
+import pickle
+import os
+import pandas as pd;
 
+
+SERVER_CONFIG = 'config/server.config';
+#logging.config.dictConfig(yaml.load(open('config/recovery_log.config', 'r')))
 
 def aloha(scaleName,scalePath):
     log = logging.getLogger('aloha')
     #print scaleName
     #print scalePath
+
     scale_df=pd.read_csv(scalePath);
     ob=eval(scaleName)(scale_df,'raw');
     oa_miss=ob.miss_DATA().sum();
@@ -27,9 +37,7 @@ def aloha(scaleName,scalePath):
     oa_dup=ob.isdup();
     #oa_nd=ob.drop_dup();
     #oa_nd_num=oa_nd.size;
-
     oa_range=all(ob.data_range());
-
     oa_ss={'data missed':[oa_miss],
            'data duplicated':[oa_dup],
            'paticipant number':[oa_num],
@@ -43,38 +51,92 @@ def aloha(scaleName,scalePath):
     #oa_st = pd.DataFrame(np.column_stack(oa_range),columns=ob.lname)
     #oa_form=pd.concat([oa_form, oa_st], axis=1)
 
-
     #print oa_form;
     #print oa_st;
     #print oa_num;
     #print oa_dup;
     #print oa_range;
 
-
     # print the result
-    print tabulate(oa_form,headers=['data duplicated','data in data_range','data missed','number of valid entries','paticipant number','total entries numbers'],tablefmt='psql');
+    print tabulate(oa_form,headers=['data duplicated','data in data_range','data missed','number of valid entries','paticipant number','total entries numbers'],tablefmt='psql',showindex="never");
     # if there is any data out of range print all variables's data range
     if not oa_range:
-        print "....................................................................."
-        print "it seems that we have some data that is out of range, please take a look"
+        #print "....................................................................."
+        print "we have some data that is out of range, please take a look"
 
-        oa_st=Series(ob.data_range(),index=ob.lname);
-        print oa_st[oa_st==False];
-        print "....................................................................."
+        oa_st=Series(ob.data_range(),name="out_of_range");
+        oa_names=Series(ob.lname,name="variable_names")
+        #oa_st = pd.DataFrame(np.column_stack(oa_range),columns=ob.lname)
+        #or_df=Series.to_frame(oa_st)
+        #or_df.columns
+        range_df=pd.concat([oa_names,oa_st], axis=1)
+        range_df=range_df[range_df.out_of_range==False]
+        print tabulate(range_df,headers=['variable out of range','in the range'],tablefmt='psql',showindex="never");
+        # if there is any data out of range print all variables's data range
+        #print range_df;
+        #print "....................................................................."
 
     if oa_miss!=0:
-        print "....................................................................."
-        print "it seems that we have some data missing, please take a look"
+        #print "....................................................................."
+        print "we have some data missing, please take a look"
 
-        print ob.miss_DATA()[ob.miss_DATA()!=0]
-        print "....................................................................."
+        miss_df=Series.to_frame(ob.miss_DATA()).reset_index()
+        miss_df.columns = ['variable_name', 'missing_number']
+        miss_df=miss_df[miss_df.missing_number!=0]
+
+        #print miss_df
+        #print type(ob.miss_DATA()[ob.miss_DATA()!=0])
+        print tabulate(miss_df,headers=['variable missing','number of missing data'],tablefmt='psql',showindex="never");
+        #print "....................................................................."
+    return oa_form;
 
 
 
+def read_servername(SERVER_CONFIG,scaleName,scalePath):
+    log = logging.getLogger('read_server')
+    try:
+        address = yaml.load(open(SERVER_CONFIG, 'r'))
+        log.info('Address book read successfully.')
+    except:
+        log.critical('Address book read failed. Emailed admin.', exc_info=1)
 
+    if (scalePath in address.keys()):
+        config = address[scalePath]
+        log.info('Address for export: %s. Ready?: %s',str(scalePath),str(config['READY']))
+        if config['READY']:
+            #print config
+            return config
+    else:
+        log.info("severname is wrong")
+        return None;
 
+def read_scalename(SERVER_CONFIG,scaleName,scalePath):
+    if scaleName == "all":
+        config=read_servername(SERVER_CONFIG,scaleName,scalePath);
+        filename=(config["PATH"]+'testing_data/bbmark.json');
+        #print filename
+        with open (filename) as f:
+            data=f.read();
+        dic=json.loads(data);
+        print("read BechMark ok!")
+        list_df=[];
+        list_scales=[];
+        #print dic.keys();
+        for sname in dic.keys():
+            #print type(sname)
+            list_scales.append(sname);
+            fileList = sorted(glob.glob(config["PATH"]+'testing_data/'+sname+'*.csv'))
+            newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
+            df=aloha(sname,newest)
+            list_df.append(df);
+        all_df=pd.concat(list_df,keys=dic.keys());
+        all_df = all_df.reset_index(level=1,drop=True)
 
+        #print all_df;
+        print tabulate(all_df,headers=['data duplicated','data in data_range','data missed','valid entries','paticipant number','total entries'],tablefmt='psql');
 
+    else:
+        aloha(scaleName,scalePath)
 
 
 
@@ -93,7 +155,7 @@ class Status(Command):
     def take_action(self, parsed_args):
         self.log.info('sending greeting')
         self.log.debug('debugging')
-        aloha(parsed_args.scaleName,parsed_args.scalePath);
+        read_scalename(SERVER_CONFIG,parsed_args.scaleName,parsed_args.scalePath);
 
 class Error(Command):
     "Always raises an error"
