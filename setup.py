@@ -44,7 +44,11 @@ setup(name=PROJECT,
             'file = cliffdemo.show:File',
             'show file = cliffdemo.show:File',
             'unicode = cliffdemo.encoding:Encoding',
-            'status = MTData.status:Status'
+            'status = MTData.status:Status',
+            'clean = MTData.clean_dup:Clean_Dup',
+            'scores = MTData.scores:Scores',
+            'LongToWide = MTData.transform:Trans',
+            'prepare = MTData.prepare:Prepare'
         ],
     },
       )

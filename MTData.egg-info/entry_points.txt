@@ -1,11 +1,15 @@
 [MTData]
+LongToWide = MTData.transform:Trans
+clean = MTData.clean_dup:Clean_Dup
 decode = MTData.recovery:Decode
 error = cliffdemo.simple:Error
 export = MTData.export:Export
 file = cliffdemo.show:File
 files = cliffdemo.list:Files
 list files = cliffdemo.list:Files
+prepare = MTData.prepare:Prepare
 report = MTData.report:Report
+scores = MTData.scores:Scores
 show file = cliffdemo.show:File
 simple = MTData.simple:Simple
 status = MTData.status:Status

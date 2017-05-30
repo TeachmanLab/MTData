@@ -10,15 +10,15 @@ class Scale:
     def __init__(self,dataset,state):
         self.dataset = dataset.drop('id', 1).drop_duplicates()
         self.state = state
+
     def score(self):
         raise NotImplementedError("Subclass must implement abstract method")
     def trans(self):
-        if self.state == 'scored':
-            data = pd.pivot_table(self.dataset, index="participantDAO", columns="session")
-            self.state = 'transformed'
-            self.readyData = data
-            self.readyData.columns = [self.__class__.__name__+'_'+'_'.join(col).strip() for col in self.readyData.columns.values]
-        return self
+        wide = pd.pivot_table(self.score(), index="participantRSA", columns="session")
+            #self.readyData = data
+            #self.readyData.columns
+        wide.columns = [self.__class__.__name__+'_'+'_'.join(col).strip() for col in wide.columns.values]
+        return wide
 
     def __repr__(self):
         return "<Scale: name = %s, state = %s>" % (self.__class__.__name__, self.state)
@@ -30,44 +30,21 @@ class Scale:
         # report the number of paricipants
     def pnum(self):
         return self.dataset['participantRSA'].unique().size
-        #if 'session' in self.dataset.columns.values:
-            #print "session exits"
-            #if 'tag' in self.dataset.columns.values:
-                #print 'tag exits'
-                #return self.dataset['participantRSA','session','tag'].unique.size;
-            #print 'tag doesn't exits
-            #return self.dataset['participantRSA','session'].unique.size;
-        #else:
-            #print "session doesn't exits"
-            #return self.dataset['participantRSA'].unique.size
-        # report the number of duplicated records
-        # unique
-    def isdup(self):
 
+    def isdup(self):
         return len(self.dataset.axes[0])-len(self.drop_dup().axes[0])
-    #def di(self):
 
     def drop_dup(self):
         if 'session' in self.dataset.columns.values:
-            print "session exits"
+            #print "session exits"
             if 'tag' in self.dataset.columns.values:
-                print 'tag exits'
+                #print 'tag exits'
                 return self.dataset.drop_duplicates(['participantRSA','session','tag'], keep='last', inplace=False)
-            print 'tag doesnt exits'
+            #print 'tag doesnt exits'
             return self.dataset.drop_duplicates(['participantRSA','session'], keep='last', inplace=False)
         else:
-            print "session and tag doesn't exits"
+            #print "session and tag doesn't exits"
             return self.dataset.drop_duplicates(['participantRSA'], keep='last', inplace=False)
-
-    # repor what columns have problem
-
-
-
-
-
-
-
-
 
 
 
@@ -80,11 +57,12 @@ class OA(Scale):
         #self.srange=list(range(0,5)).append(555);
 
     def score(self):
-        col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
+        #col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         if self.state == 'raw':
-            self.dataset['SUM'] = self.dataset[col_list].mean(axis=1) * len(col_list)
+            scores=self.drop_dup()[['participantRSA','session']].copy()
+            scores['SUM']= self.drop_dup()[self.lname].mean(axis=1) * len(self.lname)
             self.state = 'scored'
-        return self
+        return scores
         # report if data of every variable is within the data_range
     def data_range(self):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
@@ -103,11 +81,12 @@ class DASS21_AS(Scale):
         Scale.__init__(self,dataset,state)
         self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
     def score(self):
-        col_list=['breathing','dryness','heart','panic','scared','trembling','worry']
+        #col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         if self.state == 'raw':
-            self.dataset['SUM'] = self.dataset[col_list].mean(axis=1) * len(col_list)
+            scores=self.dataset[['participantRSA','session']].copy()
+            scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname) * 2
             self.state = 'scored'
-        return self
+        return scores
     def data_range(self):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         af_range=[];
@@ -123,11 +102,12 @@ class DASS21_DS(Scale):
         Scale.__init__(self,dataset,state)
         self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
     def score(self):
-        col_list=['blue','difficult','meaningless','hopeless','noenthusiastic','nopositive','noworth']
+        #col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         if self.state == 'raw':
-            self.dataset['SUM'] = self.dataset[col_list].mean(axis=1) * len(col_list)
+            scores=self.dataset[['participantRSA','session']].copy()
+            scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname) * 2
             self.state = 'scored'
-        return self
+        return scores
     def data_range(self):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         af_range=[];
@@ -141,11 +121,12 @@ class QOL(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
     def score(self):
-        col_list=['children', 'expression', 'friend', 'health', 'helping',  'independence', 'learning', 'material', 'reading', 'recreation', 'relationships', 'socializing', 'spouse', 'understanding', 'work']
+        #col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         if self.state == 'raw':
-            self.dataset['SUM'] = self.dataset[col_list].mean(axis=1) * len(col_list)
+            scores=self.dataset[['participantRSA','session']].copy()
+            scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname)
             self.state = 'scored'
-        return self
+        return scores
 
 
 class RR(Scale):
@@ -157,11 +138,12 @@ class RR(Scale):
         nonTarget_list= [itemname for itemname in list(self.dataset.columns.values) if itemname.endswith(tuple(['_NF','_PF','_PS']))]
         positive_list= [itemname for itemname in list(self.dataset.columns.values) if itemname.endswith('_PS')]
         if self.state == 'raw':
-            self.dataset['Score'] = self.dataset[target_list].mean(axis=1) / self.dataset[nonTarget_list].mean(axis=1)
-            self.dataset['Negative_Ave'] = self.dataset[target_list].mean(axis=1)
-            self.dataset['Positive_Ave'] = self.dataset[positive_list].mean(axis=1)
+            scores=self.dataset[['participantRSA','session']].copy()
+            scores['Score'] = self.dataset[target_list].mean(axis=1) / self.dataset[nonTarget_list].mean(axis=1)
+            scores['Negative_Ave'] = self.dataset[target_list].mean(axis=1)
+            scores['Positive_Ave'] = self.dataset[positive_list].mean(axis=1)
             self.state = 'scored'
-        return self
+        return scores
     def data_range(self):
         lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
         af_range=[];
@@ -183,12 +165,13 @@ class BBSIQ(Scale):
         threat_list=['visitors_bored', 'shop_irritating', 'smoke_house', 'friend_incompetent', 'jolt_burglar', 'party_boring', 'urgent_died']
         nonThreat_list=['visitors_engagement', 'visitors_outstay', 'shop_bored', 'shop_concentrating', 'smoke_cig', 'smoke_food', 'friend_helpful', 'friend_moreoften', 'jolt_dream', 'jolt_wind', 'party_hear', 'party_preoccupied','urgent_bill', 'urgent_junk']
         if self.state == 'raw':
-            self.dataset['Physical_Score'] = self.dataset[physical_list].mean(axis=1) / self.dataset[nonPhysical_list].mean(axis=1)
-            self.dataset['External_Threat_Score'] = self.dataset[threat_list].mean(axis=1) / self.dataset[nonThreat_list].mean(axis=1)
-            self.dataset['Negative_Ave'] = self.dataset[physical_list + threat_list].mean(axis=1)
-            self.dataset['Other_Ave'] = self.dataset[nonPhysical_list + nonThreat_list].mean(axis=1)
+            scores=self.dataset[['participantRSA','session']].copy()
+            scores['Physical_Score'] = self.dataset[physical_list].mean(axis=1) / self.dataset[nonPhysical_list].mean(axis=1)
+            scores['External_Threat_Score'] = self.dataset[threat_list].mean(axis=1) / self.dataset[nonThreat_list].mean(axis=1)
+            scores['Negative_Ave'] = self.dataset[physical_list + threat_list].mean(axis=1)
+            scores['Other_Ave'] = self.dataset[nonPhysical_list + nonThreat_list].mean(axis=1)
             self.state = 'scored'
-        return self
+        return scores
     def data_range(self):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         af_range=[];
