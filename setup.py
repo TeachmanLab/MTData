@@ -44,6 +44,7 @@ setup(name=PROJECT,
             'file = cliffdemo.show:File',
             'show file = cliffdemo.show:File',
             'unicode = cliffdemo.encoding:Encoding',
+            'status = MTData.status:Status'
         ],
     },
       )
