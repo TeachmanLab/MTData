@@ -54,7 +54,7 @@ def safeRequest(url, config):
                 log.info("We got something new! Let's have a closer look!")
                 return response
             except:
-                log.critical("Server: %s. Can't read data in json form. Did not receive a json response, perhaps log-in credentials are incorrect? See below for error information:\n", config['SERVER'], exc_info = 1)
+                log.critical("Server: %s. Can't read data in json form. Did not receive a json response, perhaps log-in credentials are incorrect? See below for error information:\n", url, exc_info = 1)
     except requests.exceptions.Timeout:
         log.critical("Data request timed out for url: " + url + ". See below for error information:\n", exc_info = 1)
     except requests.exceptions.TooManyRedirects:

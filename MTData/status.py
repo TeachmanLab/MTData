@@ -93,40 +93,43 @@ def aloha(scaleName,scalePath):
 
 
 def read_servername(SERVER_CONFIG,scaleName,scalePath):
-    log = logging.getLogger('read_server')
+    log = logging.getLogger('read_servername')
     try:
         address = yaml.load(open(SERVER_CONFIG, 'r'))
         log.info('Address book read successfully.')
     except:
         log.critical('Address book read failed. Emailed admin.', exc_info=1)
-
     if (scalePath in address.keys()):
         config = address[scalePath]
         log.info('Address for export: %s. Ready?: %s',str(scalePath),str(config['READY']))
-        if config['READY']:
+        if not config['READY']:
             #print config
-            return config
+            log.info('This is not an active server, reported information might not be accurated.')
+        return config
     else:
         log.info("severname is wrong")
         return None;
 
 def read_scalename(SERVER_CONFIG,scaleName,scalePath):
     if scaleName == "all":
+        print "Testing point 2"
         config=read_servername(SERVER_CONFIG,scaleName,scalePath);
-        filename=(config["PATH"]+'testing_data/bbmark.json');
+        print "Testing point 3"
+        print config
+        filename=(config["PATH"]+'active_data/benchMark.json');
         #print filename
         with open (filename) as f:
             data=f.read();
         dic=json.loads(data);
-        print("read BechMark ok!")
+        print("Successfully read benchMark file!")
         list_df=[];
         list_scales=[];
         #print dic.keys();
         for sname in dic.keys():
             #print type(sname)
             list_scales.append(sname);
-            fileList = sorted(glob.glob(config["PATH"]+'testing_data/'+sname+'*.csv'))
-            newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
+            fileList = sorted(glob.glob(config["PATH"]+'active_data/'+sname+'*.csv'))
+            newest = max(glob.iglob(config["PATH"]+'active_data/'+sname+'*.csv'), key=os.path.getctime)
             df=aloha(sname,newest)
             list_df.append(df);
         all_df=pd.concat(list_df,keys=dic.keys());
