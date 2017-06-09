@@ -27,14 +27,14 @@ SERVER_CONFIG = 'config/server.config'
 
 
 
-def prepare(scaleName,scalePath):
+def prepare(scaleName,scalePath,state):
     log = logging.getLogger('prepare')
     #scale_df=pd.read_csv(scalePath);
     #obj=eval(scaleName)(scale_df,'raw');
     #def scores(scaleName,scalePath):
-    clean_dup(scaleName,scalePath);
-    scores(scaleName,scalePath);
-    transform(scaleName,scalePath);
+    clean_dup(scaleName,scalePath,state);
+    scores(scaleName,scalePath,state);
+    transform(scaleName,scalePath,state);
 
 
 
@@ -67,10 +67,14 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
         for sname in dic.keys():
             print sname
             fileList = sorted(glob.glob(config["PATH"]+'testing_data/'+sname+'*.csv'))
-            newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
-            prepare(sname,newest)
+            try:
+                newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
+            except:
+                print sname+" files do not exit"
+            else:
+                prepare(sname,newest,True);
     else:
-        prepare(scaleName,scalePath)
+        prepare(scaleName,scalePath,True);
 
 
 

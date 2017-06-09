@@ -25,14 +25,14 @@ SERVER_CONFIG = 'config/server.config';
 #logging.config.dictConfig(yaml.load(open('config/recovery_log.config', 'r')))
 
 def aloha(scaleName,scalePath):
+    # checking data status and gernerate report
     log = logging.getLogger('aloha')
-    #print scaleName
-    #print scalePath
+
 
     scale_df=pd.read_csv(scalePath);
-    ob=eval(scaleName)(scale_df,'raw');
+    ob=eval(scaleName)(scale_df,True);
     oa_miss=ob.miss_DATA().sum();
-    #print oa_miss;
+
     oa_num=ob.pnum();
     oa_dup=ob.isdup();
     #oa_nd=ob.drop_dup();
@@ -46,7 +46,7 @@ def aloha(scaleName,scalePath):
            'total entries numbers':[len(ob.dataset.axes[0])]};
            #columns=['data duplicated','data in data_range','data missed','number of valid entries','paticipant number']};
     #oa_st=Series(oa_range,index=ob.lname)
-    print oa_ss
+    #print oa_ss
     oa_form=DataFrame(oa_ss);
     #oa_st = pd.DataFrame(np.column_stack(oa_range),columns=ob.lname)
     #oa_form=pd.concat([oa_form, oa_st], axis=1)
@@ -58,6 +58,7 @@ def aloha(scaleName,scalePath):
     #print oa_range;
 
     # print the result
+    print scaleName+" data status";
     print tabulate(oa_form,headers=['data duplicated','data in data_range','data missed','number of valid entries','paticipant number','total entries numbers'],tablefmt='psql',showindex="never");
     # if there is any data out of range print all variables's data range
     if not oa_range:
@@ -77,17 +78,16 @@ def aloha(scaleName,scalePath):
         #print "....................................................................."
 
     if oa_miss!=0:
-        #print "....................................................................."
+        # if there is any data missing print all variables that have missing data
         print "we have some data missing, please take a look"
-
         miss_df=Series.to_frame(ob.miss_DATA()).reset_index()
         miss_df.columns = ['variable_name', 'missing_number']
         miss_df=miss_df[miss_df.missing_number!=0]
 
-        #print miss_df
-        #print type(ob.miss_DATA()[ob.miss_DATA()!=0])
+
+
         print tabulate(miss_df,headers=['variable missing','number of missing data'],tablefmt='psql',showindex="never");
-        #print "....................................................................."
+
     return oa_form;
 
 
@@ -111,28 +111,30 @@ def read_servername(SERVER_CONFIG,scaleName,scalePath):
         return None;
 
 def read_scalename(SERVER_CONFIG,scaleName,scalePath):
+    # read server name and scalename and filepath
     if scaleName == "all":
+        #if all, then the scalepath is the server name, read path from server.
         config=read_servername(SERVER_CONFIG,scaleName,scalePath);
         filename=(config["PATH"]+'testing_data/bbmark.json');
-        #print filename
+        #read scalenames from benchmark.json
         with open (filename) as f:
             data=f.read();
         dic=json.loads(data);
         print("read BechMark ok!")
         list_df=[];
         list_scales=[];
-        #print dic.keys();
         for sname in dic.keys():
-            #print type(sname)
+            #read the newest file of every scale
             list_scales.append(sname);
             fileList = sorted(glob.glob(config["PATH"]+'testing_data/'+sname+'*.csv'))
             newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
+
             df=aloha(sname,newest)
             list_df.append(df);
         all_df=pd.concat(list_df,keys=dic.keys());
         all_df = all_df.reset_index(level=1,drop=True)
 
-        #print all_df;
+    
         print tabulate(all_df,headers=['data duplicated','data in data_range','data missed','valid entries','paticipant number','total entries'],tablefmt='psql');
 
     else:

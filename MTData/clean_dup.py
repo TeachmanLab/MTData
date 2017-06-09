@@ -23,19 +23,29 @@ SERVER_CONFIG = 'config/server.config'
 #logging.config.dictConfig(yaml.load(open('config/recovery_log.config', 'r')))
 
 
-def clean_dup(scaleName,scalePath):
+def clean_dup(scaleName,scalePath,state):
     print " you are in clean_dup"
     log = logging.getLogger('clean_dup')
     scale_df=pd.read_csv(scalePath);
-    obj=eval(scaleName)(scale_df,'raw');
-    cleaned_obj=obj.drop_dup();
-    parent_path=os.path.abspath(os.path.join(scalePath, os.pardir))
-    grap_path=os.path.abspath(os.path.join(parent_path, os.pardir))
+
+    try:
+        obj=eval(scaleName)(scale_df,state);
+    except:
+        print scaleName+" is not correct, please check"
+    else:
+        #print "counting scores"
+        try:
+            cleaned_obj=obj.drop_dup();
+        except:
+            print "drop_dup function is not available for "+scaleName;
+        else:
+            parent_path=os.path.abspath(os.path.join(scalePath, os.pardir))
+            grap_path=os.path.abspath(os.path.join(parent_path, os.pardir))
     #print grap_path
-    if not os.path.exists(grap_path + '/processed_data/cleaned_dup_data'):
-        os.makedirs(grap_path + '/processed_data/cleaned_dup_data')
-    cleaned_obj.to_csv(grap_path+ '/processed_data/cleaned_dup_data/' + scaleName+'_cleaned' + '_' + time.strftime("%b_%d_%Y" + '_' + time.strftime("%H_%M_%S") +'.csv'))
-    print "cleaned "+scaleName+' '+"data saved"
+            if not os.path.exists(grap_path + '/processed_data/cleaned_dup_data'):
+                os.makedirs(grap_path + '/processed_data/cleaned_dup_data')
+            cleaned_obj.to_csv(grap_path+ '/processed_data/cleaned_dup_data/' + scaleName+'_cleaned' + '_' + time.strftime("%b_%d_%Y" + '_' + time.strftime("%H_%M_%S") +'.csv'))
+            print "scored "+scaleName+' '+"data saved"
 
 def read_servername(SERVER_CONFIG,scaleName,scalePath):
     log = logging.getLogger('read_server')
@@ -66,10 +76,14 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
         for sname in dic.keys():
             print sname
             fileList = sorted(glob.glob(config["PATH"]+'testing_data/'+sname+'*.csv'))
-            newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
-            clean_dup(sname,newest)
+            try:
+                newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
+            except:
+                print sname+" files do not exit"
+            else:
+                clean_dup(sname,newest,False);
     else:
-        clean_dup(scaleName,scalePath)
+        clean_dup(scaleName,scalePath,False)
 
 
 

@@ -22,19 +22,31 @@ import os
 SERVER_CONFIG = 'config/server.config'
 
 
-def scores(scaleName,scalePath):
+def scores(scaleName,scalePath,state):
     print " you are in scores"
     log = logging.getLogger('scores')
     scale_df=pd.read_csv(scalePath);
-    obj=eval(scaleName)(scale_df,'raw');
-    scored_obj=obj.score();
-    parent_path=os.path.abspath(os.path.join(scalePath, os.pardir))
-    grap_path=os.path.abspath(os.path.join(parent_path, os.pardir))
+    try:
+        obj=eval(scaleName)(scale_df,state);
+    except:
+        print scaleName+" is not correct, please check"
+    else:
+        #print "counting scores"
+        try:
+            scored_obj=obj.score();
+        except:
+            print "score function is not available for "+scaleName;
+        else:
+
+            parent_path=os.path.abspath(os.path.join(scalePath, os.pardir))
+            grap_path=os.path.abspath(os.path.join(parent_path, os.pardir))
     #print grap_path
-    if not os.path.exists(grap_path + '/processed_data/scored_data'):
-        os.makedirs(grap_path + '/processed_data/scored_data')
-    scored_obj.to_csv(grap_path+ '/processed_data/scored_data/' + scaleName+'_scored' + '_' + time.strftime("%b_%d_%Y" + '_' + time.strftime("%H_%M_%S") +'.csv'))
-    print "scored "+scaleName+' '+"data saved"
+            if not os.path.exists(grap_path + '/processed_data/scored_data'):
+                os.makedirs(grap_path + '/processed_data/scored_data')
+            scored_obj.to_csv(grap_path+ '/processed_data/scored_data/' + scaleName+'_scored' + '_' + time.strftime("%b_%d_%Y" + '_' + time.strftime("%H_%M_%S") +'.csv'))
+            print "scored "+scaleName+' '+"data saved"
+
+
 
 def read_servername(SERVER_CONFIG,scaleName,scalePath):
     log = logging.getLogger('read_server')
@@ -65,10 +77,16 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
         for sname in dic.keys():
             print sname
             fileList = sorted(glob.glob(config["PATH"]+'testing_data/'+sname+'*.csv'))
-            newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
-            scores(sname,newest)
+            try:
+                newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
+            except:
+                print sname+" files do not exit"
+            else:
+                scores(sname,newest,False);
+
+
     else:
-        scores(scaleName,scalePath)
+        scores(scaleName,scalePath,False)
 
 
 

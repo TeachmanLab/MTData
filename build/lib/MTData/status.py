@@ -30,7 +30,7 @@ def aloha(scaleName,scalePath):
     #print scalePath
 
     scale_df=pd.read_csv(scalePath);
-    ob=eval(scaleName)(scale_df,'raw');
+    ob=eval(scaleName)(scale_df,True);
     oa_miss=ob.miss_DATA().sum();
     #print oa_miss;
     oa_num=ob.pnum();
@@ -46,7 +46,7 @@ def aloha(scaleName,scalePath):
            'total entries numbers':[len(ob.dataset.axes[0])]};
            #columns=['data duplicated','data in data_range','data missed','number of valid entries','paticipant number']};
     #oa_st=Series(oa_range,index=ob.lname)
-    print oa_ss
+    #print oa_ss
     oa_form=DataFrame(oa_ss);
     #oa_st = pd.DataFrame(np.column_stack(oa_range),columns=ob.lname)
     #oa_form=pd.concat([oa_form, oa_st], axis=1)
@@ -58,6 +58,7 @@ def aloha(scaleName,scalePath):
     #print oa_range;
 
     # print the result
+    print scaleName+" data status";
     print tabulate(oa_form,headers=['data duplicated','data in data_range','data missed','number of valid entries','paticipant number','total entries numbers'],tablefmt='psql',showindex="never");
     # if there is any data out of range print all variables's data range
     if not oa_range:
@@ -85,7 +86,7 @@ def aloha(scaleName,scalePath):
         miss_df=miss_df[miss_df.missing_number!=0]
 
         #print miss_df
-        #print type(ob.miss_DATA()[ob.miss_DATA()!=0])
+
         print tabulate(miss_df,headers=['variable missing','number of missing data'],tablefmt='psql',showindex="never");
         #print "....................................................................."
     return oa_form;

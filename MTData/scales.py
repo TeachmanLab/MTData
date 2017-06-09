@@ -9,15 +9,21 @@ import pandas as pd
 class Scale:
     def __init__(self,dataset,state):
         self.dataset = dataset.drop('id', 1).drop_duplicates()
-        self.state = state
-
+        self.state = state; # use the function alone, state=False, use the function based on other functions state=True
+        self.isscore=False; # if the class has score function or not
+        self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        # variable list
     def score(self):
         raise NotImplementedError("Subclass must implement abstract method")
     def trans(self):
-        wide = pd.pivot_table(self.score(), index="participantRSA", columns="session")
-            #self.readyData = data
-            #self.readyData.columns
-        wide.columns = [self.__class__.__name__+'_'+'_'.join(col).strip() for col in wide.columns.values]
+        if self.state and self.isscore:
+            # transform the scored form
+            wide = pd.pivot_table(self.score(), index="participantRSA", columns="session")
+            wide.columns = [self.__class__.__name__+'_'+'_'.join(col).strip() for col in wide.columns.values];
+        else:
+            # transform the original dataset.
+            wide = pd.pivot_table(self.dataset, index="participantRSA", columns="session")
+            wide.columns = [self.__class__.__name__+'_'+'_'.join(col).strip() for col in wide.columns.values];
         return wide
 
     def __repr__(self):
@@ -26,15 +32,19 @@ class Scale:
         print 'Scale_aloha'
         # report the number of missing data
     def miss_DATA(self):
+        # check missing data
         return self.dataset.isnull().sum()
-        # report the number of paricipants
+
     def pnum(self):
+        # report the number of paricipants
         return self.dataset['participantRSA'].unique().size
 
     def isdup(self):
+        # report how many duplicated entries
         return len(self.dataset.axes[0])-len(self.drop_dup().axes[0])
 
     def drop_dup(self):
+        # drop duplicated data
         if 'session' in self.dataset.columns.values:
             #print "session exits"
             if 'tag' in self.dataset.columns.values:
@@ -46,7 +56,9 @@ class Scale:
         else:
             #print "session and tag doesn't exits"
             return self.dataset.drop_duplicates(['participantRSA'], keep='last', inplace=False)
-
+    def data_range(self):
+        #default data range fucntion report all true
+        return [True]*len(self.lname);
 
 
 
@@ -55,14 +67,18 @@ class OA(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
         self.lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social'];
+        self.isscore=True
         #self.srange=list(range(0,5)).append(555);
 
     def score(self):
+        #self.scoring = True
         #col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
-        if self.state == 'raw':
+        if self.state:
             scores=self.drop_dup()[['participantRSA','session']].copy()
             scores['SUM']= self.drop_dup()[self.lname].mean(axis=1) * len(self.lname)
-            self.state = 'scored'
+        else:
+            scores=self.dataset[['participantRSA','session']].copy()
+            scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname)
         return scores
         # report if data of every variable is within the data_range
     def data_range(self):
@@ -71,7 +87,8 @@ class OA(Scale):
         af_std=range(0,5);
         af_std.append(555);
         for sname in self.lname:
-            af_range.append(set(self.dataset[sname].unique())<=set(af_std));
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
 
         return af_range;
 
@@ -80,13 +97,16 @@ class OA(Scale):
 class DASS21_AS(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
-        self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+
+        self.isscore=True
     def score(self):
         #col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
-        if self.state == 'raw':
+        if self.state:
+            scores=self.drop_dup()[['participantRSA','session']].copy()
+            scores['SUM']= self.drop_dup()[self.lname].mean(axis=1) * len(self.lname)
+        else:
             scores=self.dataset[['participantRSA','session']].copy()
-            scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname) * 2
-            self.state = 'scored'
+            scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname)
         return scores
     def data_range(self):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
@@ -94,20 +114,24 @@ class DASS21_AS(Scale):
         af_std=range(0,4);
         af_std.append(-1);
         for sname in self.lname:
-            af_range.append(set(self.dataset[sname].unique())<=set(af_std));
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
         return af_range;
 
 
 class DASS21_DS(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
-        self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        #self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        self.isscore=True
     def score(self):
         #col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
-        if self.state == 'raw':
+        if self.state:
+            scores=self.drop_dup()[['participantRSA','session']].copy()
+            scores['SUM']= self.drop_dup()[self.lname].mean(axis=1) * len(self.lname)
+        else:
             scores=self.dataset[['participantRSA','session']].copy()
-            scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname) * 2
-            self.state = 'scored'
+            scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname)
         return scores
     def data_range(self):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
@@ -115,38 +139,49 @@ class DASS21_DS(Scale):
         af_std=range(0,4);
         af_std.append(-1);
         for sname in self.lname:
-            af_range.append(set(self.dataset[sname].unique())<=set(af_std));
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
         return af_range;
 
 class QOL(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
+        #self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        self.isscore=True
     def score(self):
         #col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
-        if self.state == 'raw':
+        if self.state:
+            scores=self.drop_dup()[['participantRSA','session']].copy()
+            scores['SUM']= self.drop_dup()[self.lname].mean(axis=1) * len(self.lname)
+        else:
             scores=self.dataset[['participantRSA','session']].copy()
             scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname)
-            self.state = 'scored'
         return scores
 
-
-class RR(Scale):
+class RRR(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
-        self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        #self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        self.isscore=True
     def score(self):
         target_list= [itemname for itemname in list(self.dataset.columns.values) if itemname.endswith('_NS')]
         nonTarget_list= [itemname for itemname in list(self.dataset.columns.values) if itemname.endswith(tuple(['_NF','_PF','_PS']))]
         positive_list= [itemname for itemname in list(self.dataset.columns.values) if itemname.endswith('_PS')]
-        if self.state == 'raw':
+        if self.state:
+            scores=self.drop_dup()[['participantRSA','session']].copy()
+            scores['Score'] = self.drop_dup()[target_list].mean(axis=1) / self.dataset[nonTarget_list].mean(axis=1)
+            scores['Negative_Ave'] = self.drop_dup()[target_list].mean(axis=1)
+            scores['Positive_Ave'] = self.drop_dup()[positive_list].mean(axis=1)
+
+        else:
             scores=self.dataset[['participantRSA','session']].copy()
             scores['Score'] = self.dataset[target_list].mean(axis=1) / self.dataset[nonTarget_list].mean(axis=1)
             scores['Negative_Ave'] = self.dataset[target_list].mean(axis=1)
             scores['Positive_Ave'] = self.dataset[positive_list].mean(axis=1)
-            self.state = 'scored'
+
         return scores
     def data_range(self):
-        lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        #lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
         af_range=[];
         af_std=range(0,4);
         af_std.append(-1);
@@ -160,18 +195,26 @@ class BBSIQ(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
         self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        self.isscore=True
     def score(self):
         physical_list=['breath_suffocate', 'chest_heart', 'confused_outofmind', 'dizzy_ill', 'heart_wrong', 'lightheaded_faint', 'vision_illness']
         nonPhysical_list=['breath_flu', 'breath_physically', 'vision_glasses', 'vision_strained', 'lightheaded_eat', 'lightheaded_sleep', 'chest_indigestion', 'chest_sore', 'heart_active', 'heart_excited', 'confused_cold', 'confused_work', 'dizzy_ate', 'dizzy_overtired']
         threat_list=['visitors_bored', 'shop_irritating', 'smoke_house', 'friend_incompetent', 'jolt_burglar', 'party_boring', 'urgent_died']
         nonThreat_list=['visitors_engagement', 'visitors_outstay', 'shop_bored', 'shop_concentrating', 'smoke_cig', 'smoke_food', 'friend_helpful', 'friend_moreoften', 'jolt_dream', 'jolt_wind', 'party_hear', 'party_preoccupied','urgent_bill', 'urgent_junk']
-        if self.state == 'raw':
+        if self.state:
+            scores=self.drop_dup()[['participantRSA','session']].copy()
+            scores['Physical_Score'] = self.drop_dup()[physical_list].mean(axis=1) / self.dataset[nonPhysical_list].mean(axis=1)
+            scores['External_Threat_Score'] = self.drop_dup()[threat_list].mean(axis=1) / self.dataset[nonThreat_list].mean(axis=1)
+            scores['Negative_Ave'] = self.drop_dup()[physical_list + threat_list].mean(axis=1)
+            scores['Other_Ave'] = self.drop_dup()[nonPhysical_list + nonThreat_list].mean(axis=1)
+
+        else:
             scores=self.dataset[['participantRSA','session']].copy()
             scores['Physical_Score'] = self.dataset[physical_list].mean(axis=1) / self.dataset[nonPhysical_list].mean(axis=1)
             scores['External_Threat_Score'] = self.dataset[threat_list].mean(axis=1) / self.dataset[nonThreat_list].mean(axis=1)
             scores['Negative_Ave'] = self.dataset[physical_list + threat_list].mean(axis=1)
             scores['Other_Ave'] = self.dataset[nonPhysical_list + nonThreat_list].mean(axis=1)
-            self.state = 'scored'
+
         return scores
     def data_range(self):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
@@ -179,9 +222,14 @@ class BBSIQ(Scale):
         af_std=range(0,5);
         af_std.append(555);
         for sname in self.lname:
-            af_range.append(set(self.dataset[sname].unique())<=set(af_std));
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
         return af_range;
 
+
+class Demographic(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
 
 class CC(Scale):
     def __init__(self,dataset,state):
