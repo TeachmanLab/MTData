@@ -9,22 +9,20 @@ import pandas as pd
 class Scale:
     def __init__(self,dataset,state):
         self.dataset = dataset.drop('id', 1).drop_duplicates()
-        self.state = state;
-        self.isscore=False;
+        self.state = state; # use the function alone, state=False, use the function based on other functions state=True
+        self.isscore=False; # if the class has score function or not
         self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
-        #self.scoring = False
+        # variable list
     def score(self):
         raise NotImplementedError("Subclass must implement abstract method")
     def trans(self):
         if self.state and self.isscore:
+            # transform the scored form
             wide = pd.pivot_table(self.score(), index="participantRSA", columns="session")
-            #self.readyData = data
-            #self.readyData.columns
             wide.columns = [self.__class__.__name__+'_'+'_'.join(col).strip() for col in wide.columns.values];
         else:
+            # transform the original dataset.
             wide = pd.pivot_table(self.dataset, index="participantRSA", columns="session")
-            #self.readyData = data
-            #self.readyData.columns
             wide.columns = [self.__class__.__name__+'_'+'_'.join(col).strip() for col in wide.columns.values];
         return wide
 
@@ -34,15 +32,19 @@ class Scale:
         print 'Scale_aloha'
         # report the number of missing data
     def miss_DATA(self):
+        # check missing data
         return self.dataset.isnull().sum()
-        # report the number of paricipants
+
     def pnum(self):
+        # report the number of paricipants
         return self.dataset['participantRSA'].unique().size
 
     def isdup(self):
+        # report how many duplicated entries
         return len(self.dataset.axes[0])-len(self.drop_dup().axes[0])
 
     def drop_dup(self):
+        # drop duplicated data
         if 'session' in self.dataset.columns.values:
             #print "session exits"
             if 'tag' in self.dataset.columns.values:
@@ -55,6 +57,7 @@ class Scale:
             #print "session and tag doesn't exits"
             return self.dataset.drop_duplicates(['participantRSA'], keep='last', inplace=False)
     def data_range(self):
+        #default data range fucntion report all true
         return [True]*len(self.lname);
 
 
@@ -82,7 +85,7 @@ class OA(Scale):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         af_range=[];
         af_std=range(0,5);
-        af_std.append(555);
+        #af_std.append(555);
         for sname in self.lname:
             ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
             af_range.append(ss_af<=set(af_std));
@@ -94,10 +97,9 @@ class OA(Scale):
 class DASS21_AS(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
-
+        self.lname=['breathing','dryness','heart','panic','scared','trembling','worry']
         self.isscore=True
     def score(self):
-        #col_list=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         if self.state:
             scores=self.drop_dup()[['participantRSA','session']].copy()
             scores['SUM']= self.drop_dup()[self.lname].mean(axis=1) * len(self.lname)
@@ -154,8 +156,17 @@ class QOL(Scale):
             scores=self.dataset[['participantRSA','session']].copy()
             scores['SUM']= self.dataset[self.lname].mean(axis=1) * len(self.lname)
         return scores
+    def data_range(self):
+        #lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        af_range=[];
+        af_std=range(1,6);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
 
-class RRR(Scale):
+class RR(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
         #self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
@@ -224,22 +235,227 @@ class BBSIQ(Scale):
         return af_range;
 
 
-class Demographic(Scale):
-    def __init__(self,dataset,state):
-        Scale.__init__(self,dataset,state)
 
 class CC(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
-
+    def data_range(self):
+        #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
+        af_range=[];
+        af_std=range(1,6);
+        #af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
 class MH(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
 
+
+
+
+class MentalHealthHistory(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+
+
+
+class WhatIBelieve(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+    def data_range(self):
+
+        af_range=[];
+        af_std=range(0,5);
+        #af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+class JsPsychTrial(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+
+
+class Credibility(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+    def data_range(self):
+
+        af_range=[];
+        af_std=range(0,5);
+        #af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+class Demographics(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+class Relatability(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+    def data_range(self):
+
+        af_range=[];
+        af_std=range(1,5);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
+class Affect(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+
+class Phq4(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+    def data_range(self):
+
+        af_range=[];
+        af_std=range(0,4);
+        #af_std.append(5);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+
 class SUDS(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
+    def data_range(self):
+        af_range=[];
+        af_std=range(0,101);
+        #af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
+class ExpectancyBias(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+    def data_range(self):
+
+        af_range=[];
+        af_std=range(1,7);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+class ImageryPrime(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+
 
 class ImpactAnxiousImagery(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
+    def data_range(self):
+        af_range=[];
+        af_std=range(1,6);
+        af_std.append(-1);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            if sname =="anxiety":
+                af_range.append(ss_af<=set(range(0,101)));
+            else:
+                af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+class AnxietyTriggers(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+        self.lname.remove('howLong');
+    def data_range(self):
+        af_range=[];
+        af_std=range(1,6);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+class DD(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+    def data_range(self):
+        af_range=[];
+        af_std=range(1,6);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            if sname =="anxiety":
+                af_range.append(ss_af<=set(range(0,101)));
+            else:
+                af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+class DD_FU(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+
+    def data_range(self):
+        af_range=[];
+        af_std=range(0,101);
+        bf_std=range(0,26);
+        cf_std=range(0,12)
+        bf_std.append(555);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            if sname in ['q1_noAns','q2_noAns']:
+                #ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+                af_range.append(ss_af<=set([True,False]));
+            elif sname =='average_amount':
+                af_range.append(ss_af<=set(bf_std));
+            elif sname =='average_freq':
+                af_range.append(ss_af<=set(af_std));
+            else:
+                af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+class MentalHealthHxTx(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+    def data_range(self):
+        data_list=['book','book_past','coach','coach_past','family','famliy_past','friend','friend_past','general_practitioner','general_practitioner_past','imhc','imhc_past','medicine','medicine_past','online','online_past','other','other_past','psychiatrist','psychiatrist_past','psychologist','psychologist_past',
+        'religious_leader','religious_leader_past',	'school_counselor',	'school_counselor_past','session','teacher','teacher_past']
+        mul_choice_list=['disorders','disorders_past','family','family_past','friend','friend_past','general_practitioner','general_practitioner_past','help','helps_past'];
+        Desc_list=['otherDesc','otherDescNo','otherHelpCurrent','otherHelpPast','otherReason'];
+
+
+        af_range=[];
+        af_std=range(1,8);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            if sname in data_list:
+
+                af_range.append(ss_af<=set(af_std));
+            elif sname in mul_choice_list:
+                Cho_list=[];
+                Desc_list=[];
+                for anychoice in ss_af:
+                    Cho_list.append(isinstance(anychoice, list));
+                if all(Cho_list):
+                    af_range.append(True)
+                else:
+                    af_range.append(False)
+
+            else:
+                for anydesc in ss_af:
+                    Desc_list.append(isinstance(anydesc, basestring));
+                if all(Desc_list):
+                    af_range.append(True)
+                else:
+                    af_range.append(False)
+
+        return af_range;

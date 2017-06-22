@@ -58,7 +58,7 @@ def read_servername(SERVER_CONFIG,scaleName,scalePath):
 def read_scalename(SERVER_CONFIG,scaleName,scalePath):
     if scaleName == "all":
         config=read_servername(SERVER_CONFIG,scaleName,scalePath);
-        filename=(config["PATH"]+'testing_data/bbmark.json');
+        filename=(config["PATH"]+'testing_data/benchmark.json');
         #print filename
         with open (filename) as f:
             data=f.read();
@@ -66,9 +66,9 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
         print("read BechMark ok!")
         for sname in dic.keys():
             print sname
-            fileList = sorted(glob.glob(config["PATH"]+'testing_data/'+sname+'*.csv'))
+            fileList = sorted(glob.glob(config["PATH"]+'testing_data/test_all/'+sname+'*.csv'))
             try:
-                newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
+                newest = max(glob.iglob(config["PATH"]+'testing_data/test_all/'+sname+'*.csv'), key=os.path.getctime)
             except:
                 print sname+" files do not exit"
             else:
