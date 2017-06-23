@@ -28,6 +28,7 @@ SERVER_CONFIG = 'config/server.config'
 
 
 def prepare(scaleName,scalePath,state):
+    print "preparing for "+ scaleName;
     log = logging.getLogger('prepare')
     #scale_df=pd.read_csv(scalePath);
     #obj=eval(scaleName)(scale_df,'raw');
@@ -35,6 +36,7 @@ def prepare(scaleName,scalePath,state):
     clean_dup(scaleName,scalePath,state);
     scores(scaleName,scalePath,state);
     transform(scaleName,scalePath,state);
+    print "\n";
 
 
 

@@ -24,7 +24,7 @@ SERVER_CONFIG = 'config/server.config'
 
 
 def clean_dup(scaleName,scalePath,state):
-    print " you are in clean_dup"
+    print " cleaning duplcated data of "+scaleName;
     log = logging.getLogger('clean_dup')
     scale_df=pd.read_csv(scalePath);
 
@@ -46,6 +46,7 @@ def clean_dup(scaleName,scalePath,state):
                 os.makedirs(grap_path + '/processed_data/cleaned_dup_data')
             cleaned_obj.to_csv(grap_path+ '/processed_data/cleaned_dup_data/' + scaleName+'_cleaned' + '_' + time.strftime("%b_%d_%Y" + '_' + time.strftime("%H_%M_%S") +'.csv'))
             print "cleaned_dup "+scaleName+' '+"data saved"
+            print "\n";
 
 def read_servername(SERVER_CONFIG,scaleName,scalePath):
     log = logging.getLogger('read_server')

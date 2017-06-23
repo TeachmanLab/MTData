@@ -85,7 +85,7 @@ class OA(Scale):
         #lname=['anxious_freq','anxious_sev','avoid','interfere','interfere_social']
         af_range=[];
         af_std=range(0,5);
-        #af_std.append(555);
+        af_std.append(555);
         for sname in self.lname:
             ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
             af_range.append(ss_af<=set(af_std));
@@ -292,7 +292,7 @@ class Credibility(Scale):
             af_range.append(ss_af<=set(af_std));
         return af_range;
 
-class Demographics(Scale):
+class Demographic(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
 class Relatability(Scale):
@@ -388,12 +388,20 @@ class DD(Scale):
         Scale.__init__(self,dataset,state)
     def data_range(self):
         af_range=[];
-        af_std=range(1,6);
+        af_std=range(0,101);
+        bf_std=range(0,26);
+        cf_std=range(0,12)
+        bf_std.append(555);
         af_std.append(555);
         for sname in self.lname:
             ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
-            if sname =="anxiety":
-                af_range.append(ss_af<=set(range(0,101)));
+            if sname in ['q1_noAns','q2_noAns']:
+                #ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+                af_range.append(ss_af<=set([True,False]));
+            elif sname =='average_amount':
+                af_range.append(ss_af<=set(bf_std));
+            elif sname =='average_freq':
+                af_range.append(ss_af<=set(af_std));
             else:
                 af_range.append(ss_af<=set(af_std));
         return af_range;

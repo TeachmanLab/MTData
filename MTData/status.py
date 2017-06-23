@@ -25,7 +25,7 @@ SERVER_CONFIG = 'config/server.config';
 #logging.config.dictConfig(yaml.load(open('config/recovery_log.config', 'r')))
 
 def aloha(scaleName,scalePath):
-    print "aloha"
+    print "checking the status of "+scaleName;
     # checking data status and gernerate report
     log = logging.getLogger('aloha')
 
@@ -37,7 +37,7 @@ def aloha(scaleName,scalePath):
         return "not aloha";
         print "scaleName "+scaleName+" is not correct, please check"
     else:
-        print"file name read successfully";
+
 
         oa_miss=ob.miss_DATA().sum();
 
@@ -94,7 +94,10 @@ def aloha(scaleName,scalePath):
 
 
             print tabulate(miss_df,headers=['variable missing','number of missing data'],tablefmt='psql',showindex="never");
-
+        print "checking "+scaleName+"finished"
+        print "\n";
+        print "\n";
+        print "\n";
         return oa_form;
 
 
@@ -133,8 +136,8 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
         list_scales=[];
         sname_keys=[];
         for sname in dic.keys():
-            print sname;
-            print type(dic.keys());
+            #print sname;
+            #print type(dic.keys());
             #read the newest file of ev;ery scale
             list_scales.append(sname);
 

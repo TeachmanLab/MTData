@@ -292,7 +292,7 @@ class Credibility(Scale):
             af_range.append(ss_af<=set(af_std));
         return af_range;
 
-class Demographics(Scale):
+class Demographic(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
 class Relatability(Scale):

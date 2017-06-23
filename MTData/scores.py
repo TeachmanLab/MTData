@@ -23,7 +23,7 @@ SERVER_CONFIG = 'config/server.config'
 
 
 def scores(scaleName,scalePath,state):
-    print " you are in scores"
+    print "scoring for "+scaleName;
     log = logging.getLogger('scores')
     scale_df=pd.read_csv(scalePath);
     try:
@@ -45,6 +45,7 @@ def scores(scaleName,scalePath,state):
                 os.makedirs(grap_path + '/processed_data/scored_data')
             scored_obj.to_csv(grap_path+ '/processed_data/scored_data/' + scaleName+'_scored' + '_' + time.strftime("%b_%d_%Y" + '_' + time.strftime("%H_%M_%S") +'.csv'))
             print "scored "+scaleName+' '+"data saved"
+            print "\n";
 
 
 

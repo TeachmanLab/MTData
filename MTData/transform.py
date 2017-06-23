@@ -23,7 +23,7 @@ import os
 SERVER_CONFIG = 'config/server.config'
 
 def transform(scaleName,scalePath,state):
-    print " you are in transform"
+    print "transforming "+scaleName +"from long form to wide form"
     log = logging.getLogger('tranform')
     scale_df=pd.read_csv(scalePath);
     try:
@@ -44,6 +44,7 @@ def transform(scaleName,scalePath,state):
                 os.makedirs(grap_path + '/processed_data/wideform_data')
             transed_obj.to_csv(grap_path+ '/processed_data/wideform_data/' + scaleName+'_transed' + '_' + time.strftime("%b_%d_%Y" + '_' + time.strftime("%H_%M_%S") +'.csv'))
             print "transed "+scaleName+' '+"data saved"
+            print "\n";
 
 
 def read_servername(SERVER_CONFIG,scaleName,scalePath):
