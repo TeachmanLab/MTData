@@ -27,14 +27,16 @@ SERVER_CONFIG = 'config/server.config'
 
 
 
-def prepare(scaleName,scalePath):
+def prepare(scaleName,scalePath,state):
+    print "preparing for "+ scaleName;
     log = logging.getLogger('prepare')
     #scale_df=pd.read_csv(scalePath);
     #obj=eval(scaleName)(scale_df,'raw');
     #def scores(scaleName,scalePath):
-    clean_dup(scaleName,scalePath);
-    scores(scaleName,scalePath);
-    transform(scaleName,scalePath);
+    clean_dup(scaleName,scalePath,state);
+    scores(scaleName,scalePath,state);
+    transform(scaleName,scalePath,state);
+    print "\n";
 
 
 
@@ -58,7 +60,7 @@ def read_servername(SERVER_CONFIG,scaleName,scalePath):
 def read_scalename(SERVER_CONFIG,scaleName,scalePath):
     if scaleName == "all":
         config=read_servername(SERVER_CONFIG,scaleName,scalePath);
-        filename=(config["PATH"]+'testing_data/bbmark.json');
+        filename=(config["PATH"]+'testing_data/benchmark.json');
         #print filename
         with open (filename) as f:
             data=f.read();
@@ -66,11 +68,15 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
         print("read BechMark ok!")
         for sname in dic.keys():
             print sname
-            fileList = sorted(glob.glob(config["PATH"]+'testing_data/'+sname+'*.csv'))
-            newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
-            prepare(sname,newest)
+            fileList = sorted(glob.glob(config["PATH"]+'testing_data/test_all/'+sname+'*.csv'))
+            try:
+                newest = max(glob.iglob(config["PATH"]+'testing_data/test_all/'+sname+'*.csv'), key=os.path.getctime)
+            except:
+                print sname+" files do not exit"
+            else:
+                prepare(sname,newest,True);
     else:
-        prepare(scaleName,scalePath)
+        prepare(scaleName,scalePath,True);
 
 
 

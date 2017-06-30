@@ -22,19 +22,30 @@ import os
 
 SERVER_CONFIG = 'config/server.config'
 
-def transform(scaleName,scalePath):
-    print " you are in transform"
+def transform(scaleName,scalePath,state):
+    print "transforming "+scaleName +"from long form to wide form"
     log = logging.getLogger('tranform')
     scale_df=pd.read_csv(scalePath);
-    obj=eval(scaleName)(scale_df,'raw');
-    transed_obj=obj.trans();
-    parent_path=os.path.abspath(os.path.join(scalePath, os.pardir))
-    grap_path=os.path.abspath(os.path.join(parent_path, os.pardir))
+    try:
+        obj=eval(scaleName)(scale_df,state);
+    except:
+        print "scaleName "+scaleName+" is not correct, please check"
+    else:
+        #print "counting scores"
+        try:
+            transed_obj=obj.trans();
+        except:
+            print "transform function is not available for "+scaleName;
+        else:
+            parent_path=os.path.abspath(os.path.join(scalePath, os.pardir))
+            grap_path=os.path.abspath(os.path.join(parent_path, os.pardir))
     #print grap_path
-    if not os.path.exists(grap_path + '/processed_data/wideform_data'):
-        os.makedirs(grap_path + '/processed_data/wideform_data')
-    transed_obj.to_csv(grap_path+ '/processed_data/wideform_data/' + scaleName+'_transed' + '_' + time.strftime("%b_%d_%Y" + '_' + time.strftime("%H_%M_%S") +'.csv'))
-    print "transed "+scaleName+' '+"data saved"
+            if not os.path.exists(grap_path + '/processed_data/wideform_data'):
+                os.makedirs(grap_path + '/processed_data/wideform_data')
+            transed_obj.to_csv(grap_path+ '/processed_data/wideform_data/' + scaleName+'_transed' + '_' + time.strftime("%b_%d_%Y" + '_' + time.strftime("%H_%M_%S") +'.csv'))
+            print "transed "+scaleName+' '+"data saved"
+            print "\n";
+
 
 def read_servername(SERVER_CONFIG,scaleName,scalePath):
     log = logging.getLogger('read_server')
@@ -56,7 +67,7 @@ def read_servername(SERVER_CONFIG,scaleName,scalePath):
 def read_scalename(SERVER_CONFIG,scaleName,scalePath):
     if scaleName == "all":
         config=read_servername(SERVER_CONFIG,scaleName,scalePath);
-        filename=(config["PATH"]+'testing_data/bbmark.json');
+        filename=(config["PATH"]+'testing_data/benchmark.json');
         #print filename
         with open (filename) as f:
             data=f.read();
@@ -64,11 +75,15 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
         print("read BechMark ok!")
         for sname in dic.keys():
             print sname+" processed"
-            fileList = sorted(glob.glob(config["PATH"]+'testing_data/'+sname+'*.csv'))
-            newest = max(glob.iglob(config["PATH"]+'testing_data/'+sname+'*.csv'), key=os.path.getctime)
-            transform(sname,newest)
+            fileList = sorted(glob.glob(config["PATH"]+'testing_data/test_all/'+sname+'*.csv'))
+            try:
+                newest = max(glob.iglob(config["PATH"]+'testing_data/test_all/'+sname+'*.csv'), key=os.path.getctime)
+            except:
+                print sname+" files do not exit"
+            else:
+                transform(sname,newest,False);
     else:
-        transform(scaleName,scalePath)
+        transform(scaleName,scalePath,False)
 
 
 

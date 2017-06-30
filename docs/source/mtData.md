@@ -236,6 +236,18 @@ report
 tools
 ---------
 
+  ```sh
+ $ MTData status OA  filepath
+ $ MTData status all serverName
+ $ MTData clean OA filepath
+ $ MTData clean all severname
+ $ MTData scores OA filepath
+ $ MTData scores all serverName
+ $ MTData LongToWide OA filepath
+ $ MTData LongToWide all serverName
+```
+
+
 
 
 
