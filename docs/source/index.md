@@ -1,8 +1,8 @@
-# Everything about the MindTrails Project (in one place):
+# Everything about the MindTrails Project
 
 ## MindTrails Project
 MindTrails Project is a JS/JAVA library for online, longitudinal psychological/interventional research studies. It is/will be optimal to
-incorporate features like dynamic scheduling, device/progress tracking, and on-the-fly machine learning (ML) enabled manipulation, etc..
+incorporate features like dynamic scheduling, cross-device/progress tracking, and on-the-fly machine learning (ML) enabled manipulation, etc..
 It comes with a dual-server design that well suits studies that involved sensitive data like personal information and medical record.
 For full documentation, please see [MindTrails Project](http://piserver.readthedocs.io/en/latest/#).
 
