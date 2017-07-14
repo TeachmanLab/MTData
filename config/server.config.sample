@@ -9,6 +9,17 @@ mindtrails:
   TIME_FORMAT: "%H_%M_%S"
   PATH: "/Users/dz8t/Box Sync/"
 
+mindtrails_local:
+  READY: False
+  DELETE_MODE: False
+  SERVER: 'https://MindTrails.virginia.edu/api/'
+  USER:
+  PASS:
+  PRIVATE_FILE:
+  DATE_FORMAT: "%b_%d_%Y"
+  TIME_FORMAT: "%H_%M_%S"
+  PATH: "/Users/Diheng/Box Sync/"
+
 mobile_local:
   READY: True
   DELETE_MODE: False

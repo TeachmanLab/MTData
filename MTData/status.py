@@ -106,6 +106,10 @@ def read_servername(SERVER_CONFIG,scaleName,scalePath):
     log = logging.getLogger('read_servername')
     try:
         address = yaml.load(open(SERVER_CONFIG, 'r'))
+
+        print address
+        print scalePath
+
         log.info('Address book read successfully.')
     except:
         log.critical('Address book read failed. Emailed admin.', exc_info=1)
@@ -125,7 +129,7 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
     if scaleName == "all":
         #if all, then the scalepath is the server name, read path from server.
         config=read_servername(SERVER_CONFIG,scaleName,scalePath);
-        filename=(config["PATH"]+'testing_data/benchmark.json');
+        filename=(config["PATH"]+'active_data/benchMark.json');
         #read scalenames from benchmark.json
         with open (filename) as f:
             data=f.read();
@@ -142,10 +146,10 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
             #read the newest file of ev;ery scale
             list_scales.append(sname);
 
-            fileList = sorted(glob.glob(config["PATH"]+'testing_data/test_all/'+sname+'*.csv'))
+            fileList = sorted(glob.glob(config["PATH"]+'active_data/'+sname+'*.csv'))
 
             try:
-                newest = max(glob.iglob(config["PATH"]+'testing_data/test_all/'+sname+'*.csv'), key=os.path.getctime)
+                newest = max(glob.iglob(config["PATH"]+'active_data/'+sname+'*.csv'), key=os.path.getctime)
             except:
                 print sname+" files do not exit"
             else:

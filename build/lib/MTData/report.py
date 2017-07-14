@@ -76,7 +76,7 @@ class Checker(object):
             nb=[];
             for ss in sess2task.keys():
                 for stask in sess2task[ss]:
-                print stask[0]
+                    print stask[0]
                     nb.append(stask[0])
             #return 39;
             return max(nb)+2;
