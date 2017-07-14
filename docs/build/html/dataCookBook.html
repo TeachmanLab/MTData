@@ -157,16 +157,16 @@ Evaluation               False            NaN                NaN           NaN
 <li>Does the <strong>total number of entries match</strong> <em>across tables</em>?</li>
 <li>Does it <strong>match the number of accounts and logs</strong> you have from the system?</li>
 </ul>
-<p>If it doesn&#8217;t (unfortunately it is ususally the case), then, <strong>did these mismatches happen <em>systemmatically</em>?</strong></p>
-<p><strong>Systemmetical mismatch</strong> includes situations like:</p>
+<p>If it doesn&#8217;t (unfortunately it is usually the case), then, <strong>did these mismatches happen <em>systematically</em>?</strong></p>
+<p><strong>Systematical mismatch</strong> includes situations like:</p>
 <ul>
-<li><p class="first">You are missing data <strong>only for a period of time</strong>.</p>
-<p>For example, no enteries are recorded during Mar 3 to present.</p>
+<li><p class="first">You found missing/duplicated data <strong>only for a period of time</strong>.</p>
+<p>For example, no entries are recorded during Mar 3 to present.</p>
 </li>
-<li><p class="first">You are missing data <strong>proportionally/only for one or some conditions</strong>.</p>
+<li><p class="first">You found missing/duplicated data <strong>proportionally/only for one or some conditions</strong>.</p>
 <p>For example, if you are missing a third of records in a specific table, it will be worth to check if those missings are all from participants in the same condition.</p>
 </li>
-<li><p class="first">You are missing data <strong>only for a specific session</strong>.</p>
+<li><p class="first">You found missing/duplicated data <strong>only for a specific session</strong>.</p>
 <p>In this case, something might go wrong in your <em>SSS</em>.</p>
 </li>
 </ul>
@@ -205,6 +205,17 @@ Evaluation               False            NaN                NaN           NaN
 <span class="mi">51</span>              <span class="o">-</span><span class="mi">1</span>       <span class="o">-</span><span class="mf">13.0</span>
 </pre></div>
 </div>
+<ol>
+<li><p class="first"><strong>One more word for <em>duplication</em> in data.</strong></p>
+<p>Beside systematic duplication mentioned above, duplication could still happen due to other issues, of which the pattern might seem random. Two common cases that you might find random duplication:</p>
+<p>A. Duplication happen <strong>during the process of file writing.</strong></p>
+<p>If there are errors happen during file writing process, due to events like bad Internet connection, there might be duplication of the copying/writing process. In this case, the duplication of entries should be exactly the same beside the time stamp. It will <strong>show up in only in your data csv files, but not in the task log file.</strong></p>
+<p><strong>Note:</strong> If you use the <code class="docutils literal"><span class="pre">MTData</span> <span class="pre">report</span></code> function to check your data integrity, this issue will come up as <em>negative missing rate/number</em> in <code class="docutils literal"><span class="pre">MTData</span> <span class="pre">report</span> <span class="pre">scale</span></code>, because the program found more entries in the data file than in the task log (scale-wise report).</p>
+<p>B. Duplication happen <strong>during the process of delivering measures/training.</strong></p>
+<p>Things could happen that a measurement or a training would be administrated more than once, e.g. bad Internet causing failure of going on to next task, participants closing the browsers or click backward during the task. In this case the duplication of entries will <strong>show up in both data files and task log file</strong>. The duplication of entries might not be very obvious because participants might give different responses in the multiple delivery. But you can find that out by looking at your task log, because the same measure/training comes up more than your plan in the same session. You can find that out by using <code class="docutils literal"><span class="pre">MTData</span> <span class="pre">report</span> <span class="pre">client</span></code>, too. It will show up as <em>negative missing rate/number</em> (due to more entries than your schedule) in the client-wise report.</p>
+<p><strong>In both cases of duplication, we will only keep the first completed entry for the same measure/training for data analysis purpose.</strong></p>
+</li>
+</ol>
 </div>
 </div>
 </div>

@@ -92,12 +92,12 @@ $ MTData report client mindtrails
 </div>
 <div class="section" id="installation">
 <span id="installation"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Create a virtual environment with python 2.7, and install dependencies
+<p>Create a virtual environment with python 2.7.12+, and install dependencies
 (see http://docs.python-guide.org/en/latest/dev/virtualenvs/)</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>    $ virtualenv venv           
     $ <span class="nb">source</span> venv/bin/activate
-    $ python setup.py install
     $ pip install requirements.txt
+    $ python setup.py install
     $ <span class="nb">cd</span> config
     $ cp server.config.example server.config
     $ cp log.config.example log.config
@@ -247,6 +247,16 @@ $ MTData report scale <span class="o">[</span>serverName, <span class="nv">defau
 </div>
 <div class="section" id="tools">
 <span id="tools"></span><h2>tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ MTData status OA  filepath
+$ MTData status all serverName
+$ MTData clean OA filepath
+$ MTData clean all severname
+$ MTData scores OA filepath
+$ MTData scores all serverName
+$ MTData LongToWide OA filepath
+$ MTData LongToWide all serverName
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="todo">
