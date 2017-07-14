@@ -1,6 +1,8 @@
 About MindTrails Data
 ======
 
+*[Back to the main manu](index.html)*
+
 A command-line tool that handle data exporting, decrypting and basic checking for
 mindtrails or mindtrails-like website. Support multiple websites data collecting. It also contains toolbox for data analysis.
 
@@ -297,3 +299,6 @@ What is done
 
 Note to myself:
     LOG_CFG=my_logging.yaml python my_server.py
+
+
+*[Back to the main manu](index.html)*

@@ -2,6 +2,9 @@
 
 Last update: 3/23/2017
 
+*[Back to the main manu](index.html)*
+
+
 ## Data Check List before launching
 
 #### Make sure your program has all the measurements that you plan to include
@@ -163,3 +166,6 @@ Number of participants finished as least a task: 52.
       Things could happen that a measurement or a training would be administrated more than once, e.g. bad Internet causing failure of going on to next task, participants closing the browsers or click backward during the task. In this case the duplication of entries will **show up in both data files and task log file**. The duplication of entries might not be very obvious because participants might give different responses in the multiple delivery. But you can find that out by looking at your task log, because the same measure/training comes up more than your plan in the same session. You can find that out by using ```MTData report client```, too. It will show up as *negative missing rate/number* (due to more entries than your schedule) in the client-wise report.
 
     **In both cases of duplication, we will only keep the first completed entry for the same measure/training for data analysis purpose.**
+
+
+*[Back to the main manu](index.html)*
