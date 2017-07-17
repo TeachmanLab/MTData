@@ -74,6 +74,11 @@ Create a virtual environment with python 2.7.12+, and install dependencies
     $ cp log.config.example log.config
 ```
 
+*Note:* For documentation of virtualenv, please see *[this guide](http://python-guide-pt-br.readthedocs.io/en/latest/dev/virtualenvs/)*;
+for help in setting up the environment in
+Windows OS, please see *[this blog}(http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/)*.
+For Windows users, you will need to install Git as well.
+
 Configuration
 ---------
 
@@ -91,7 +96,7 @@ MTData/
 ├── README.md
 ├── bin
 │   └── martin.sh
-├── config           <- configuration files. In actural phrase, use \*.config instead of \*.config.sample
+├── config           <- configuration files. In actual phrase, use \*.config instead of \*.config.sample
 │   ├── export.config
 │   ├── log.config
 │   ├── recovery.config

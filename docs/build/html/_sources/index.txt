@@ -1,4 +1,4 @@
-# Everything about the MindTrails Project
+# Everything about MindTrails 
 
 ## MindTrails Project
 MindTrails Project is a JS/JAVA library for online, longitudinal psychological/interventional research studies. It is/will be optimal to
