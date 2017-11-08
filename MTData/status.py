@@ -5,6 +5,7 @@ import csv
 import binascii
 import logging
 import logging.config
+import logging.handlers
 import yaml
 import json
 from cliff.command import Command
@@ -19,39 +20,48 @@ import rsa # To decrypt values.
 import pickle
 import os
 import pandas as pd;
+#from __future__ import division;
 
 
 SERVER_CONFIG = 'config/server.config';
-#logging.config.dictConfig(yaml.load(open('config/recovery_log.config', 'r')))
+logging.config.dictConfig(yaml.load(open('config/log.config', 'r')))
 
 def aloha(scaleName,scalePath):
     print "checking the status of "+scaleName;
     # checking data status and gernerate report
-    log = logging.getLogger('aloha')
+    log = logging.getLogger('status.aloha')
+    print "data read successfully"
+    print scalePath;
 
 
     scale_df=pd.read_csv(scalePath);
+    print "data read successfully"
     try:
         ob=eval(scaleName)(scale_df,True);
     except:
         return "not aloha";
         print "scaleName "+scaleName+" is not correct, please check"
     else:
-
-
         oa_miss=ob.miss_DATA().sum();
-
+        print "data find"
         oa_num=ob.pnum();
+        print "data find"
         oa_dup=ob.isdup();
+        print "data find"
+
     #oa_nd=ob.drop_dup();
     #oa_nd_num=oa_nd.size;
+        print ob.lname;
+        print ob.data_range();
         oa_range=all(ob.data_range());
+
         oa_ss={'data missed':[oa_miss],
                'data duplicated':[oa_dup],
                'paticipant number':[oa_num],
                'data in data_range':[oa_range],
                'number of valid entries':[len(ob.drop_dup().axes[0])],
-               'total entries numbers':[len(ob.dataset.axes[0])]};
+               'total entries numbers':[len(ob.dataset.axes[0])],
+               'percentage of duplicated':[oa_dup/float(len(ob.dataset.axes[0]))]};
            #columns=['data duplicated','data in data_range','data missed','number of valid entries','paticipant number']};
     #oa_st=Series(oa_range,index=ob.lname)
     #print oa_ss
@@ -66,7 +76,7 @@ def aloha(scaleName,scalePath):
     #print oa_range;
     # print the result
         print scaleName+" data status";
-        print tabulate(oa_form,headers=['data duplicated','data in data_range','data missed','number of valid entries','paticipant number','total entries numbers'],tablefmt='psql',showindex="never");
+        print tabulate(oa_form,headers=['duplicated','data_range','missing','valid entries','participant','dup percentage','total entries'],tablefmt='psql',showindex="never");
     # if there is any data out of range print all variables's data range
         if not oa_range:
         #print "....................................................................."
@@ -103,7 +113,7 @@ def aloha(scaleName,scalePath):
 
 
 def read_servername(SERVER_CONFIG,scaleName,scalePath):
-    log = logging.getLogger('read_servername')
+    log = logging.getLogger('status.read_servername');
     try:
         address = yaml.load(open(SERVER_CONFIG, 'r'))
 
@@ -126,10 +136,11 @@ def read_servername(SERVER_CONFIG,scaleName,scalePath):
 
 def read_scalename(SERVER_CONFIG,scaleName,scalePath):
     # read server name and scalename and filepath
+    log = logging.getLogger('status.read_scalename');
     if scaleName == "all":
         #if all, then the scalepath is the server name, read path from server.
         config=read_servername(SERVER_CONFIG,scaleName,scalePath);
-        filename=(config["PATH"]+'active_data/benchMark.json');
+        filename=(config["PATH"]+'active_data/bbMark.json');
         #read scalenames from benchmark.json
         with open (filename) as f:
             data=f.read();
@@ -167,11 +178,14 @@ def read_scalename(SERVER_CONFIG,scaleName,scalePath):
                     all_df=pd.concat(list_df,keys=sname_keys);
 
                     all_df = all_df.reset_index(level=1,drop=True)
+        final_result=tabulate(all_df,headers=['duplicated','data_range','missing','valid entries','participant','dup percentage','total entries'],tablefmt='psql',numalign="right");
 
-        print tabulate(all_df,headers=['data duplicated','data in data_range','data missed','valid entries','paticipant number','total entries'],tablefmt='psql');
+        print final_result;
+
+        log.critical("\n"+final_result);
 
     else:
-        aloha(scaleName,scalePath)
+        aloha(scaleName,scalePath);
 
 
 

@@ -11,7 +11,7 @@ class Scale:
         self.dataset = dataset.drop('id', 1).drop_duplicates()
         self.state = state; # use the function alone, state=False, use the function based on other functions state=True
         self.isscore=False; # if the class has score function or not
-        self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session']]
+        self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session','tag','timeOnPage']]
         # variable list
     def score(self):
         raise NotImplementedError("Subclass must implement abstract method")
@@ -33,11 +33,17 @@ class Scale:
         # report the number of missing data
     def miss_DATA(self):
         # check missing data
-        return self.dataset.isnull().sum()
+        if 'tag' in self.dataset.columns.values:
+            return self.dataset.drop('tag', 1).isnull().sum();
+        else:
+            return self.dataset.isnull().sum();
 
     def pnum(self):
         # report the number of paricipants
-        return self.dataset['participantRSA'].unique().size
+        for sname in self.dataset.columns.values:
+            if 'participant' in sname:
+                p_key=sname;
+        return self.dataset[p_key].unique().size
 
     def isdup(self):
         # report how many duplicated entries
@@ -45,17 +51,25 @@ class Scale:
 
     def drop_dup(self):
         # drop duplicated data
+        for sname in self.dataset.columns.values:
+            if 'participant' in sname:
+                p_key=sname;
         if 'session' in self.dataset.columns.values:
             #print "session exits"
             if 'tag' in self.dataset.columns.values:
+                if 'sessionId' in self.dataset.columns.values:
+                    return self.dataset.drop_duplicates([p_key,'session','tag','sessionId'], keep='last', inplace=False)
+                else:
                 #print 'tag exits'
-                return self.dataset.drop_duplicates(['participantRSA','session','tag'], keep='last', inplace=False)
+                    return self.dataset.drop_duplicates([p_key,'session','tag'], keep='last', inplace=False)
             #print 'tag doesnt exits'
-
-            return self.dataset.drop_duplicates(['participantRSA','session'], keep='last', inplace=False)
+            elif 'trial_index' in self.dataset.columns.values:
+                return self.dataset.drop_duplicates([p_key,'session','trial_index'], keep='last', inplace=False)
+            else:
+                return self.dataset.drop_duplicates([p_key,'session'], keep='last', inplace=False)
         else:
             #print "session and tag doesn't exits"
-            return self.dataset.drop_duplicates(['participantRSA'], keep='last', inplace=False)
+            return self.dataset.drop_duplicates([p_key], keep='last', inplace=False)
     def data_range(self):
         #default data range fucntion report all true
         return [True]*len(self.lname);
@@ -258,6 +272,43 @@ class MH(Scale):
 class MentalHealthHistory(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
+    def miss_DATA(self):
+        # check missing data
+        return self.dataset.drop(['other_Desc', 'other_DescNo', 'other_HelpChange', 'other_HelpCurrent', 'other_HelpPast','other_NoHelpReason','tag'], 1).isnull().sum();
+    def data_range(self):
+        data_list=['app', 'app_past', 'book', 'book_past', 'coach', 'coach_past', 'family', 'family_past', 'friend', 'friend_past', 'general_practitioner', 'general_practitioner_past', 'lmhc', 'lmhc_past', 'medicine', 'medicine_past', 'online', 'online_past', 'other',
+        'other_past', 'psychiatrist', 'psychiatrist_past', 'psychologist', 'psychologist_past', 'religious_leader', 'religious_leader_past', 'school_counselor', 'school_counselor_past', 'support_group', 'support_group_past', 'teacher', 'teacher_past']
+
+        mul_choice_list=['changeHelp' 'disorders' 'help' 'noHelp_Reason' 'pastDisorders' 'pastHelp'];
+
+        Desc_list=['other_Desc', 'other_DescNo', 'other_HelpChange', 'other_HelpCurrent', 'other_HelpPast','other_NoHelpReason'];
+        af_range=[];
+        af_std=range(0,9);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            if sname in data_list:
+                af_range.append(ss_af<=set(af_std));
+            elif sname in mul_choice_list:
+                Cho_list=[];
+                Desc_list=[];
+                for anychoice in ss_af:
+                    Cho_list.append(isinstance(eval(anychoice), list));
+                    if all(Cho_list):
+                        af_range.append(True)
+                    else:
+                        af_range.append(False)
+
+            else:
+                for anydesc in ss_af:
+                    Desc_list.append(isinstance(anydesc, basestring));
+                    if all(Desc_list):
+                        af_range.append(True)
+                    else:
+                        af_range.append(False)
+
+        return af_range;
+
 
 
 
@@ -268,7 +319,7 @@ class WhatIBelieve(Scale):
 
         af_range=[];
         af_std=range(0,5);
-        #af_std.append(555);
+        af_std.append(555);
         for sname in self.lname:
             ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
             af_range.append(ss_af<=set(af_std));
@@ -295,13 +346,19 @@ class Credibility(Scale):
 class Demographic(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
+
+
+class Demographics(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+
 class Relatability(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
     def data_range(self):
 
         af_range=[];
-        af_std=range(1,5);
+        af_std=range(1,6);
         af_std.append(555);
         for sname in self.lname:
             ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
@@ -309,7 +366,58 @@ class Relatability(Scale):
         return af_range;
 class Affect(Scale):
     def __init__(self,dataset,state):
-        Scale.__init__(self,dataset,state)
+        Scale.__init__(self,dataset,state);
+        #self.lname=["negFeelings","posFeelings"]
+    def data_range(self):
+        af_range=[];
+        af_std=range(0,21);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+class AxImagery(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state);
+        self.lname=["negFeelings","posFeelings"]
+    def data_range(self):
+        af_range=[];
+        af_std=range(0,21);
+        af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            af_range.append(ss_af<=set(af_std));
+        return af_range;
+
+class HelpSeeking(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state);
+        #self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participantRSA','session','tag','timeOnPage']]
+        #self.otherDesc=['other'];
+    def miss_DATA(self):
+        # check missing data
+        return self.dataset.drop(['tag','other'], 1).isnull().sum();
+
+    def data_range(self):
+        af_range=[];
+        af_std=[True,False];
+        #af_std.append(555);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            if sname == 'changeInHelp_noAns':
+                af_range.append(ss_af<=set([0,555]));
+            elif sname == 'other':
+                other_list=[];
+                for otherReason in ss_af:
+                    other_list.append(isinstance(otherReason, basestring));
+                if all(other_list):
+                    af_range.append(True)
+                else:
+                    af_range.append(False)
+            else:
+                af_range.append(ss_af<=set(af_std));
+        return af_range;
 
 class Phq4(Scale):
     def __init__(self,dataset,state):
@@ -324,6 +432,23 @@ class Phq4(Scale):
             af_range.append(ss_af<=set(af_std));
         return af_range;
 
+class Evaluation(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+    def data_range(self):
+        tf_li=['commute','home','noAns_Distracted','noAns_Easy','noAns_Helpful','noAns_Interest','noAns_Like','noAns_Looks','noAns_Mood','noAns_OtherTreatment','noAns_Privacy','noAns_Problems','noAns_Quality','noAns_Recommend','noAns_Similar','noAns_Tiring','noAns_TrustInfo','noAns_UnderstandAssessment','oAns_UnderstandTraining','otherComplete','otherTreatment','public','vacation','work']
+        int_li=['condition','distracted','easy','helpful','idealSessions','interest','likeGral','likedLooks','problem','quality','recommend','similar','tiring','trustInfo','understandAssessment','understandTraining'];
+
+        af_range=[];
+        af_std=range(0,5);
+        #af_std.append(5);
+        for sname in self.lname:
+            ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
+            if sname in int_li:
+                af_range.append(ss_af<=set(af_std));
+            else:
+                af_range.append(ss_af<=set([True,False]));
+        return af_range;
 
 class SUDS(Scale):
     def __init__(self,dataset,state):
@@ -339,10 +464,17 @@ class SUDS(Scale):
 class ExpectancyBias(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
+        self.lname=[i for i in self.dataset.columns.values if i not in ['id', 'date','participant','session','sessionId','tag']];
+    def miss_DATA(self):
+        # check missing data
+        f5=self.dataset;
+
+        return f5.dropna(subset = ['participant', 'session']).drop(['tag','sessionId'], 1).isnull().sum();
+
     def data_range(self):
 
         af_range=[];
-        af_std=range(1,7);
+        af_std=range(1,8);
         af_std.append(555);
         for sname in self.lname:
             ss_af=set(filter(lambda x: x == x , set(self.dataset[sname].unique())));
@@ -433,11 +565,13 @@ class DD_FU(Scale):
 class MentalHealthHxTx(Scale):
     def __init__(self,dataset,state):
         Scale.__init__(self,dataset,state)
+
     def data_range(self):
         data_list=['book','book_past','coach','coach_past','family','famliy_past','friend','friend_past','general_practitioner','general_practitioner_past','imhc','imhc_past','medicine','medicine_past','online','online_past','other','other_past','psychiatrist','psychiatrist_past','psychologist','psychologist_past',
         'religious_leader','religious_leader_past',	'school_counselor',	'school_counselor_past','session','teacher','teacher_past']
-        mul_choice_list=['disorders','disorders_past','family','family_past','friend','friend_past','general_practitioner','general_practitioner_past','help','helps_past'];
+        mul_choice_list=['disorders','disorders_past','help','help_past','noHelp_Reason'];
         Desc_list=['otherDesc','otherDescNo','otherHelpCurrent','otherHelpPast','otherReason'];
+        self.otherDesc=Desc_list;
 
 
         af_range=[];
@@ -467,3 +601,11 @@ class MentalHealthHxTx(Scale):
                     af_range.append(False)
 
         return af_range;
+
+class JsPsychTrial(Scale):
+    def __init__(self,dataset,state):
+        Scale.__init__(self,dataset,state)
+    def miss_DATA(self):
+        # check missing data
+
+        return self.dataset.drop(['button_pressed'], 1).isnull().sum();
