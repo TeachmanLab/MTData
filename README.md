@@ -4,4 +4,4 @@ An outdated Python application that drags MindTrails data to a server and secure
 
 ## Archived ##
 
-This repo was archived on May 20, 2020.
+This repo is slated to be archived pending resolution of security vulnerabilities.
